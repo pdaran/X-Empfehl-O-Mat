@@ -2,6 +2,7 @@
 set -e
 
 rm -f tmp/pids/server.pid
+bundle config set --local path 'vendor'
 bundle install
 if [ -f ./db/development.sqlite3 ]; then
   echo "DB exists, run migrations"

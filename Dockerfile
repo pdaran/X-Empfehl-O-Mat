@@ -13,6 +13,7 @@ ADD Gemfile Gemfile.lock /app/
 
 # pre-install initial application requirements
 RUN gem install bundler && \
+  bundle config set --local path 'vendor' && \
   bundle install --jobs=8
 
 # copy the application directory
