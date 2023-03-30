@@ -7,7 +7,8 @@ require 'rails/test_help'
 module ActiveSupport
   class TestCase
     # Run tests in parallel with specified workers
-    parallelize(workers: :number_of_processors)
+    # DISABLED for simplecov compliance (although the above "SimpleCov.command_name" should actually handle it)
+    # parallelize(workers: :number_of_processors)
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
