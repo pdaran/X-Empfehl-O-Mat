@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: 'x-empfehl-o-mat:latest'
+    command: sh containersetup.sh
+    volumes:
+      - .:/app/
+    ports:
+      - "127.0.0.1:30099:3000"
+    env_file:
+      - .env.docker

@@ -1,8 +1,27 @@
 # X-Empfehl-O-Mat
 
+## Docker: Anwendung starten
 
+### Voraussetzungen:
+* Docker und Docker Compose sind installiert und können Linux-Images ausführen (wichtig für Windows-Installationen).
+* Leere Datei `.env.docker` erstellen
+* Symbolischen Link von `docker-compose.dev.yml` nach `docker-compose.yml` erstellen
 
-## Getting started
+### Container bauen (einmalig):
+
+`docker compose build`
+
+### Container starten:
+
+`docker compose up`
+
+Hinweis: beim ersten Start muss der Befehl zweimal ausgeführt werden, damit die DB (SQLite3) korrekt erzeugt wird!
+
+### Zugriff
+
+Danach ist die Rails-Anwendung - wie in der Konfigurationsdatei `docker-compose.yml` definiert - mit dem Webbrowser unter `http://localhost:30099` erreichbar!
+
+## GitLab: Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
 
