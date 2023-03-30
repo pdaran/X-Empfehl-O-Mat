@@ -35,7 +35,8 @@ test:
   script:
   - cd /app
   - bundle exec rails db:create RAILS_ENV=test
-  - bundle exec rails assets:precompile && rails test
+  # - bundle exec rails assets:precompile && rails test
+  - rails test
   # - echo -n "$RAILS_ENC" > config/master.key && bundle exec rails test
 
 rubocop:
