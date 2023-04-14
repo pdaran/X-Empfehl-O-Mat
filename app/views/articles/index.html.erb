@@ -1,5 +1,15 @@
-<div>
-<h1 class="font-bold text-4xl">Articles#index </h1>
-<p>Find me in app/views/articles/index.html.erb</p>
-</div>
-<h1>Hello, Rails!</h1> 
+<h1>Articles</h1>
+
+Our blog has <%= Article.public_count %> articles and counting!
+
+<ul>
+  <% @articles.each do |article| %>
+    <% unless article.archived? %>
+      <li>
+        <%= link_to article.title, article %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+
+<%= link_to "New Article", new_article_path %>
