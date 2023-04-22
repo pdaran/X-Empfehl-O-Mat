@@ -1,5 +1,5 @@
-FROM ruby:2.7.4-alpine3.13
-# FROM ruby:3.2.1-alpine3.17
+# FROM ruby:2.7.4-alpine3.13
+FROM ruby:3.2.1-alpine3.17
 # FROM ruby:3-alpine
 
 RUN mkdir /app
