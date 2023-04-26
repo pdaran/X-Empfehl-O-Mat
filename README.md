@@ -4,22 +4,49 @@
 
 ### Voraussetzungen:
 * Docker und Docker Compose sind installiert und können Linux-Images ausführen (wichtig für Windows-Installationen).
-* Leere Datei `.env.docker` erstellen
+* Datei `.env.docker.example` kopieren, zu `.env.docker` umbenennen und wenn gewollt Nutzernamen und Passwort anpassen.
 * Symbolischen Link von `docker-compose.dev.yml` nach `docker-compose.yml` erstellen
 
-### Container bauen (einmalig):
+### Alle Container bauen (einmalig):
 
 `docker compose build`
 
-### Container starten:
+### Alle Container starten:
 
 `docker compose up`
 
+### Alle Container stoppen und entfernen:
+
+`docker compose down`
+
 Hinweis: beim ersten Start muss der Befehl zweimal ausgeführt werden, damit die DB (SQLite3) korrekt erzeugt wird!
+
+### Einzelnen Container bauen und starten:
+
+`docker compose up --build -d <service_name>`
+
+Beispiel für Datenbank:
+`docker compose up --build -d db`
 
 ### Zugriff
 
 Danach ist die Rails-Anwendung - wie in der Konfigurationsdatei `docker-compose.yml` definiert - mit dem Webbrowser unter `http://localhost:30099` erreichbar!
+
+### Datenbank neu Aufsetzrn
+
+Wenn Benutzernamen oder Passwort im .env.docker geändert wurde muss der Datenbank Container einmal neu erstellt werden.
+
+Container beenden:
+
+`docker compose down`
+
+Datenbank volume entfernen:
+
+` docker volume rm x-empfehl-o-mat_postgres_data`
+
+Danach wieder alle Container starten:
+
+`docker compose up --build -d db`
 
 ## GitLab: Getting started
 
