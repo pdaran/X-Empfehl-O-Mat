@@ -15,11 +15,11 @@
 
 `docker compose up`
 
+Hinweis: beim ersten Start muss der Befehl zweimal ausgeführt werden, damit die DB (SQLite3) korrekt erzeugt wird!
+
 ### Alle Container stoppen und entfernen:
 
 `docker compose down`
-
-Hinweis: beim ersten Start muss der Befehl zweimal ausgeführt werden, damit die DB (SQLite3) korrekt erzeugt wird!
 
 ### Einzelnen Container bauen und starten:
 
@@ -32,7 +32,7 @@ Beispiel für Datenbank:
 
 Danach ist die Rails-Anwendung - wie in der Konfigurationsdatei `docker-compose.yml` definiert - mit dem Webbrowser unter `http://localhost:30099` erreichbar!
 
-### Datenbank neu Aufsetzrn
+### Datenbank neu Aufsetzen
 
 Wenn Benutzernamen oder Passwort im .env.docker geändert wurde muss der Datenbank Container einmal neu erstellt werden.
 
