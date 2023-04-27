@@ -15,7 +15,7 @@
 
 `docker compose up`
 
-Hinweis: beim ersten Start muss der Befehl zweimal ausgeführt werden, damit die DB (SQLite3) korrekt erzeugt wird!
+Hinweis: beim ersten Start muss der Befehl eventuell zweimal ausgeführt werden, damit die DB (SQLite3) korrekt erzeugt wird!
 
 ### Zugriff
 
