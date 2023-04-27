@@ -83,4 +83,4 @@ group :test do
   gem 'simplecov-cobertura', require: false
 end
 
-gem 'tailwindcss-rails', '~> 2.0'
+gem 'tailwindcss-rails', '~> 2.0.20'
