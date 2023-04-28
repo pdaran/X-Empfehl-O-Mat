@@ -1,0 +1,17 @@
+<% unless product.archived? %>
+ <p>
+    <strong>Product:</strong>
+    <%= product.product %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= product.desc %>
+  </p>
+   <p>
+    <%= link_to "(-) Delete Product", [product.category, product], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
+  </p>
+<% end %>

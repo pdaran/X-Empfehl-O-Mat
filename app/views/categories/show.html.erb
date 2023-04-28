@@ -7,3 +7,11 @@
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
+
+<h2>Produkten</h2>
+
+<%= render @category.products %>
+
+<h2>Add a Product:</h2>
+
+<%= render 'products/form' %>

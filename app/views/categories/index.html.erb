@@ -1,5 +1,7 @@
 <h1>Kategorien</h1>
 
+Our blog has <%= Product.public_count %> products and counting!
+
 <ul>
   <% @categories.each do |category| %>
     <li>
@@ -11,4 +13,4 @@
   <% end %>
 </ul>
 
-<%= link_to "+", new_category_path %>
+<%= link_to "(+) Add Category", new_category_path %>
