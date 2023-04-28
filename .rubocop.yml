@@ -15,4 +15,4 @@ AllCops:
   NewCops: enable
 
 Style/Documentation:
-  enabled: false
+  Enabled: false

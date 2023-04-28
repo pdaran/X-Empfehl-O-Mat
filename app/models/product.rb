@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class Product < ApplicationRecord
   include Visible
   belongs_to :category

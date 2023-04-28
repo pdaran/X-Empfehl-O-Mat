@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 class ProductsController < ApplicationController
   def create
     @category = Category.find(params[:category_id])
