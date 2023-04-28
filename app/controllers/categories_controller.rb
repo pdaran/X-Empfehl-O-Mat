@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CategoriesController < ApplicationController
   def index
     @categories = Category.all
@@ -15,7 +16,7 @@ class CategoriesController < ApplicationController
     @input = category_params
 
     if @category.save
-      redirect_to action: "index"
+      redirect_to action: 'index'
     else
       render :new, status: :unprocessable_entity
     end
@@ -39,11 +40,12 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
 
-    redirect_to action: "index", status: :see_other
+    redirect_to action: 'index', status: :see_other
   end
 
   private
-    def category_params
-      params.require(:category).permit(:title)
-    end
+
+  def category_params
+    params.require(:category).permit(:title)
+  end
 end
