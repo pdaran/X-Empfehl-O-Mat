@@ -1,4 +1,5 @@
 <% unless product.archived? %>
+<div class="category">
  <p>
     <strong>Product:</strong>
     <%= product.product %>
@@ -9,9 +10,10 @@
     <%= product.desc %>
   </p>
    <p>
-    <%= link_to "(-) Delete Product", [product.category, product], data: {
+    <%= link_to "(-)", [product.category, product], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
                 } %>
   </p>
+</div>
 <% end %>

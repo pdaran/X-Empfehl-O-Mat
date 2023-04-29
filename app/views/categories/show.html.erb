@@ -1,17 +1,22 @@
-<h1><%= @category.title %></h1>
-
+<!DOCTYPE html>
+<html lang="de">
+<%= render "nav" %>
+<main>
+    <h1><%= @category.title %></h1>
+    <div class="categories">
+          <%= render @category.products %>
+        <!-- Weitere Kategorien hier einfügen -->
+        <div class="category add-new-category">
+            <%= render 'products/form' %>
+        </div>
+    </div>
+</main>
 <ul>
-  <li><%= link_to "Edit", edit_category_path(@category) %></li>
-  <li><%= link_to "Destroy", category_path(@category), data: {
+  <li><%= link_to "Edit this category", edit_category_path(@category) %></li>
+  <li><%= link_to "Delete this category (and all products)", category_path(@category), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
-
-<h2>Produkten</h2>
-
-<%= render @category.products %>
-
-<h2>Add a Product:</h2>
-
-<%= render 'products/form' %>
+<%= render "footer" %>
+</html>
