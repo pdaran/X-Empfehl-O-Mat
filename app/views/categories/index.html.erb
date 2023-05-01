@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <%= render "nav" %>
-<main>
+<main class=" xl:min-w-full xl:min-h-full">
     <h1>Kategorien</h1>
-    <div class="categories">
+    <div class=" gap-16 flex flex-wrap">
       <% @categories.each do |category| %>
          <div class="category">
           <a href="<%= category_path(category) %>">
