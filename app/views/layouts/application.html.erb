@@ -13,6 +13,15 @@
 
   <body>
     <main class="container mx-auto mt-28 px-5 flex">
+      <%# ----- Display Flash Messages: ----- %>
+      <% if notice %>
+        <%= notice %>
+      <% end %>
+
+      <% if alert %>
+        <%= alert %>
+      <% end %>
+
       <%= yield %>
     </main>
   </body>
