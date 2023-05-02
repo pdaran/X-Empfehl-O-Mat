@@ -8,11 +8,10 @@ require 'test_helper'
 
 
 
-=======
+
 
 require 'test_helper'
 
->>>>>>> 2b9d3cf (🎨  rubocop lint, ignore style/docs check)
 
 
 

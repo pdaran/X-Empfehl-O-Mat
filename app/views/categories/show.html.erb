@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="de">
-<%= render "nav" %>
-<main>
-    <h1><%= @category.title %></h1>
-    <div class="categories">
-          <%= render @category.products %>
-        <!-- Weitere Kategorien hier einfügen -->
-        <div class="category add-new-category">
-            <%= render 'products/form' %>
-        </div>
-    </div>
+<div class="md:my-0 px-8 md:px-24 max-w-max">
+  <%= render "nav" %>
+  <main>
+      <h1><%= @category.title %></h1>
+      <div class="categories">
+            <%= render @category.products %>
+          <!-- Weitere Kategorien hier einfügen -->
+          <div class="category add-new-category">
+             <%= render 'products/form' %>
+          </div>
+       </div>
 </main>
-<ul>
-  <li><%= link_to "Edit this category", edit_category_path(@category) %></li>
-  <li><%= link_to "Delete this category (and all products)", category_path(@category), data: {
+  <ul>
+    <li><%= link_to "Edit this category", edit_category_path(@category) %></li>
+    <li><%= link_to "Delete this category (and all products)", category_path(@category), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
-</ul>
-<%= render "footer" %>
+  </ul>
+  <%= render "footer" %>
+  </div>
 </html>
