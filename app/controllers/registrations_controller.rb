@@ -8,7 +8,6 @@ class RegistrationsController < ApplicationController
     if @user.save
       redirect_to root_path, notice: "Successfully created account"
     else
-      flash[:alert] = "Something was wrong"
       render :new,  status: 422
     end
   end
