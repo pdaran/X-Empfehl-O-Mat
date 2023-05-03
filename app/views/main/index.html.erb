@@ -7,5 +7,8 @@
     Angemeldet als: <%= @user.email %>
 
     <%= button_to "Logout", logout_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  <% else %>
+    <%= button_to "Sign up", sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+    <%= button_to "Login", sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
   <% end %>
 </div>
