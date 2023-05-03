@@ -1,0 +1,10 @@
+de:
+  hello: "Hallo Welt"
+  appname: "X-Empfehl-O-Mat"
+  dashboard: "Administrator Dashboard"
+  customer: "Kunde"
+  like_sign: "★"
+  choose_articles: "Waehle Artikel"
+  choose_a_category: "Waehle eine Kategorie"
+  return_to_homepage: "Zurueck zur Startseite"
+  recommendations: "Empfehlungen:"
