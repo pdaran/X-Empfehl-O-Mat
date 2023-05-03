@@ -34,3 +34,8 @@ en:
   appname: "X-Empfehl-O-Mat"
   dashboard: "Admin Dashboard"
   customer: "Customer"
+  like_sign: "👍"
+  choose_articles: "Choose articles you like"
+  choose_a_category: "Choose a category"
+  return_to_homepage: "Return to homepage"
+  recommendations: "Recommendations:"
