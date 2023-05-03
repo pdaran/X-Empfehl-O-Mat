@@ -1,0 +1,9 @@
+<div class="flex items-center justify-center flex-col min-h-screen">
+<%= render "recommender/title", subtitle: t('recommendations') %>
+  <div class="flex flex-col md:flex-row space-x-0 md:space-x-8 space-y-12 md:space-y-0 mb-4 justify-center items-center">
+      <div class="flex flex-col p-8 rounded-xl bg-white shadow-xl w-96 md:w-auto">
+        <%= render "recommender/article", product: Product.find(1) %>
+      </div>
+  </div>
+  <div><a href="/"><%= t('return_to_homepage') %></a></div>
+</div>
