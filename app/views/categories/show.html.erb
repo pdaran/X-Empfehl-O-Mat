@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="de">
-<div class="md:my-0 px-8 md:px-24 max-w-max">
-  <%= render "nav" %>
+<div>
+  <%= render "shared/nav" %>
   <main>
-      <h1><%= @category.title %></h1>
-      <div class="categories">
-            <%= render @category.products %>
-          <!-- Weitere Kategorien hier einfügen -->
-          <div class="category add-new-category">
+    <h1 class="text-center mb-10"><%= @category.title %></h1>
+    <div class="flex min-h-screen mt-10 ml-2 justify-center align-middle items-center">
+      <div class="flex gap-8 max-w-max">
+        <%= render @category.products %>
+            
+            
+          <!-- Weitere Produkten hier einfügen (später als Link)-->
+        <div class="bg-gray-200 order-4 rounded-md p-4 w-auto text-center m-5">
              <%= render 'products/form' %>
-          </div>
-       </div>
-</main>
+        </div>
+      </div>
+    </div>
+  </main>
+
   <ul>
     <li><%= link_to "Edit this category", edit_category_path(@category) %></li>
     <li><%= link_to "Delete this category (and all products)", category_path(@category), data: {
@@ -19,6 +24,6 @@
                     turbo_confirm: "Are you sure?"
                   } %></li>
   </ul>
-  <%= render "footer" %>
-  </div>
+  <%= render "shared/footer" %>
+</div>
 </html>
