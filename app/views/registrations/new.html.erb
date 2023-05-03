@@ -1,19 +1,21 @@
-<h1> Sign up </h1>
+<div>
+  <h1 class="text-4xl font-bold" > Sign up </h1>
 
-<%= form_with model: @user, url: sign_up_path do |form| %>
-  <div class="mb-3">
-    <%= form.label :email %>
-    <%= form.text_field :email, class: "form-control", placeholder: "your.email@test.com" %>
-  </div>
-  <div class="mb-3">
-    <%= form.label :password %>
-    <%= form.password_field :password, class: "form-control", placeholder: "password" %>
-  </div>
-  <div class="mb-3">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, class: "form-control", placeholder: "password" %>
-  </div>
-  <div class="mb-3">
-    <%= form .submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-  </div>
-<% end %>
+  <%= form_with model: @user,class:"pt-6", url: sign_up_path do |form| %>
+    <div class="mb-3 flex flex-col">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: "form-control mt-2 rounded", placeholder: "your.email@test.com" %>
+    </div>
+    <div class="mb-3 flex flex-col">
+      <%= form.label :password %>
+      <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: "password" %>
+    </div>
+    <div class="mb-3 flex flex-col">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, class: "form-control mt-2 rounded", placeholder: "password" %>
+    </div>
+    <div class="mb-3">
+      <%= form .submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+    </div>
+  <% end %>
+</div>
