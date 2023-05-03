@@ -1,0 +1,26 @@
+<%= form_with model: [ @category, @category.products.build ] do |form| %>
+  <p>
+    <%= form.label :product %><br>
+    <%= form.text_field :product %>
+    <% if form.object.errors.has_key?(:product) %>
+      <span class="text-red-500"><%= form.object.errors[:product].first %></span>
+    <% end %>
+  </p>
+  <p>
+    <%= form.label :desc %><br>
+    <%= form.text_area :desc %>
+    <% if form.object.errors.has_key?(:desc) %>
+      <span class="text-red-500"><%= form.object.errors[:desc].first %></span>
+    <% end %>
+  </p>
+  <p>
+    <%= form.label :status %><br>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    <% if form.object.errors.has_key?(:status) %>
+      <span class="text-red-500"><%= form.object.errors[:status].first %></span>
+    <% end %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
