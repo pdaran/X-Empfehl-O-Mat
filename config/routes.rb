@@ -6,13 +6,13 @@ Rails.application.routes.draw do
   post 'recommender/:id', to: 'recommender#articles'
   get 'result', to: 'recommender#result'
   get 'homepage/index'
-  root "homepage#index"
+  root 'homepage#index'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
   get '/dashboards', to: 'dashboards#index'
-  #root 'categories#index'
+  # root 'categories#index'
 
   resources :articles do
     resources :comments
