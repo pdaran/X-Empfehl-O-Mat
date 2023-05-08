@@ -1,7 +1,7 @@
 <div>
-  <h1 class="text-4xl font-bold" > Sign up </h1>
+  <h1 class="text-4xl font-bold" > Edit Password </h1>
 
-  <%= form_with model: @user,class:"pt-6", url: sign_up_path do |form| %>
+  <%= form_with model: Current.user,class:"pt-6", url: edit_password_path do |form| %>
     <% if form.object.errors.any? %>
       <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
         <% form.object.errors.full_messages.each do |message| %>
@@ -11,10 +11,6 @@
     <% end %>
 
 
-    <div class="mb-3 mt-3 flex flex-col">
-      <%= form.label :email %>
-      <%= form.text_field :email, class: "form-control mt-2 rounded", placeholder: "your.email@test.com" %>
-    </div>
     <div class="mb-3 flex flex-col">
       <%= form.label :password %>
       <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: "password" %>

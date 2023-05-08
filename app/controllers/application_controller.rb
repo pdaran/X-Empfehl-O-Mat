@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def require_user_logged_in!
+    redirect_to sign_in_path, alert: "Du musst angemeldet sein, um diese Funktion nutzen zu können!" if Current.user.nil?
+  end
+
 end
