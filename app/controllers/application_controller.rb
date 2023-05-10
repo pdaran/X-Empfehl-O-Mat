@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   # fixes category_path and similar functions and forms not adding the locale subdir
   def default_url_options
-    { locale: set_locale }
+    { locale: I18n.locale }
   end
 
   def switch_locale(&)
@@ -15,10 +15,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def set_locale
-    params[:locale] || I18n.default_locale
-  end
 
   def set_current_user
     return unless session[:user_id]
