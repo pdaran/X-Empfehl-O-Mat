@@ -34,7 +34,7 @@
     </div>  
     <% if Current.user %>
         <div class="dashboard">
-          <a href="/dashboards">Dashboard</a>
+          <%= link_to "Dashboard", controller: 'dashboards', action: 'index' %>
         </div>
       <% end %>
     </nav>

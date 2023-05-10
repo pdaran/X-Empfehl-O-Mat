@@ -32,6 +32,6 @@ class RecommenderController < ApplicationController
       l = Like.new(like: true, customer_id: c.id, product_id: id.to_i)
       l.save
     end
-    redirect_to '/result'
+    redirect_to controller: 'recommender', action: 'result'
   end
 end
