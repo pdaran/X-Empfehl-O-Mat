@@ -32,8 +32,8 @@
 en:
   hello: "Hello world"
   appname: "X-Empfehl-O-Mat"
-  dashboard: "Admin Dashboard"
-  customer: "Customer"
+  admin_link_name: "Administrator"
+  customer_link_name: "Customer"
   like_sign: "👍"
   choose_articles: "Choose articles you like"
   choose_a_category: "Choose a category"

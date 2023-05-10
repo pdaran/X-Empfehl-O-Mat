@@ -10,14 +10,29 @@
         <div>
             <a href="<%= root_path %>">Spill the Tea</a>
         </div>
-        <div class="profile">
-            <a href="#">
-                <i class="fa-regular fa-user"></i>
-                <!-- <img src="profile-icon.png" alt="Profilbild"> -->
-            </a>
+        <div class="profile flex gap-5 flex-row">
+              <%= button_to "", sign_up_path, method: :get, class: "fa-regular fa-user" %>
+              <% if Current.user %>
+                <%= link_to Current.user.email, edit_password_path, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %>
+
+                <%= button_to "Logout", logout_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+              <% else %>
+                <%= button_to "Sign up", sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+                <%= button_to "Login", sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+              <% end %>
         </div>
             <div class="dashboard">
             <a href="/dashboards">Dashboard</a>
          </div>
+<!--      <div class="">-->
+        <%# if Current.user %>
+          <%#= link_to Current.user.email, edit_password_path, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %>
+
+          <%#= button_to "Logout", logout_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        <%# else %>
+          <%#= button_to "Sign up", sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          <%#= button_to "Login", sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        <%# end %>
+<!--      </div>-->
     </nav>
 </div>

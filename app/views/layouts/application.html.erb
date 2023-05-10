@@ -13,7 +13,23 @@
 
   <body>
     <main>
+
+      <%= render "shared/nav" %>
+      <%# ----- Display Flash Messages: ----- %>
+      <% if notice %>
+        <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative">
+          <div><%= notice %></div>
+        </div>
+      <% end %>
+
+      <% if alert %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+          <div><%= alert %></div>
+        </div>
+      <% end %>
+
       <%= yield %>
+      <%= render "shared/footer" %>
     </main>
   </body>
 </html>
