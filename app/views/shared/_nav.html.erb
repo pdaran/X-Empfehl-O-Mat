@@ -21,18 +21,13 @@
         <%= button_to "Login", sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       <% end %>
     </div>
-    <div>
-      <form>
-        <select name="lang" id="lang" onchange="this.form.submit()">
-          <option value="en">English</option>
-          <option value="de">Deutsch</option>
-        </select>
-      </form>
-    </div>
-    <div>
-      <% I18n.available_locales.each do |l| %>
-        <%= link_to t(l), { :locale=>l } %>
-      <% end %>
+    <div class="dropdown">
+      <button class="dropbtn"><%= t('language') %></button>
+      <div class="dropdown-content">
+        <% I18n.available_locales.each do |l| %>
+          <%= link_to t(l), { :locale=>l } %>
+        <% end %>
+      </div>
     </div>
     <div class="dashboard">
       <%= link_to "Dashboard", controller: 'dashboards', action: 'index' %>
