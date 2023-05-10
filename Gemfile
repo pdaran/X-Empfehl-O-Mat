@@ -65,6 +65,9 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
+  # Ruby I18n Debug [https://github.com/fphilipe/i18n-debug]
+  gem 'i18n-debug'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
