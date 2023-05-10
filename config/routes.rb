@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: redirect("/#{I18n.default_locale}"), as: :redirected_root
 
   scope ':locale' do
@@ -8,10 +9,9 @@ Rails.application.routes.draw do
     get 'recommender/:id', to: 'recommender#articles'
     post 'recommender/:id', to: 'recommender#articles'
     get 'result', to: 'recommender#result'
+
     get 'homepage/index'
     root 'homepage#index'
-
-    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     get 'sign_up', to: 'registrations#new'
     post 'sign_up', to: 'registrations#create'
