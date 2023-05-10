@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root to: redirect("/#{I18n.default_locale}"), as: :redirected_root
 
-  scope ":locale" do
+  scope ':locale' do
     get 'recommender', to: 'recommender#category'
     get 'recommender/:id', to: 'recommender#articles'
     post 'recommender/:id', to: 'recommender#articles'
@@ -25,5 +25,4 @@ Rails.application.routes.draw do
       resources :products
     end
   end
-
 end
