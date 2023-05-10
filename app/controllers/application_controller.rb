@@ -10,12 +10,15 @@ class ApplicationController < ActionController::Base
   end
 
   def set_current_user
-    if session[:user_id]
-      Current.user = User.find_by(id: session[:user_id])
-    end
+    return unless session[:user_id]
+
+    Current.user = User.find_by(id: session[:user_id])
   end
 
   def require_user_logged_in!
-    redirect_to sign_in_path, alert: "Du musst angemeldet sein, um diese Funktion nutzen zu können!" if Current.user.nil?
+    return unless Current.user.nil?
+
+    redirect_to sign_in_path,
+                alert: 'Du musst angemeldet sein, um diese Funktion nutzen zu können!'
   end
 end

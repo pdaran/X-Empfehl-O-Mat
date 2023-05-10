@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class PasswordsController < ApplicationController
   before_action :require_user_logged_in!
 
-  def  edit
-  end
+  def edit; end
 
   def update
     if Current.user.update(password_params)
-      redirect_to root_path, notice: "Passwort erfolgreich geändert"
+      redirect_to root_path, notice: 'Passwort erfolgreich geändert'
     else
       render :edit
     end
@@ -17,5 +18,4 @@ class PasswordsController < ApplicationController
   def password_params
     params.require(:user).permit(:password, :password_confirmation)
   end
-
 end
