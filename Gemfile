@@ -83,6 +83,7 @@ group :test do
   gem 'rubocop-minitest', require: false # or gem 'rubocop-rspec'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+
   # Calculate code coverage
   gem 'simplecov', require: false
   gem 'simplecov-cobertura', require: false

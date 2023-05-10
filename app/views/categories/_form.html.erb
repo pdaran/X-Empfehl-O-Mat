@@ -1,0 +1,13 @@
+<%= form_with model: category do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% category.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <%= form.submit "Update Category", class: "bg-gray-200 text-black font-bold py-2 px-4 rounded" %>
+  </div>
+<% end %>

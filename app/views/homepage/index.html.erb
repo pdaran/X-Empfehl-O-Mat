@@ -1,0 +1,17 @@
+<div class="flex items-center justify-center flex-col min-h-screen">
+  <%= render "recommender/title" %>
+
+    <div class="flex flex-col md:flex-row space-x-0 md:space-x-8 space-y-12 md:space-y-0 justify-center items-center">
+      <div class="flex flex-col p-8 rounded-xl bg-white shadow-xl w-96 md:w-auto">
+        <div class="mt-3 font-semibold text-lg">
+          <a href="/categories#index"><%= t('dashboard') %></a>
+        </div>
+      </div>
+      <div class="flex flex-col p-8 rounded-xl bg-white shadow-xl w-96 md:w-auto">
+        <div class="mt-3 font-semibold text-lg">
+          <a href="/recommender"><%= t('customer') %></a>
+        </div>
+      </div>
+    </div>
+
+</div>

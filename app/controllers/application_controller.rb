@@ -1,7 +1,13 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  around_action :switch_locale
   before_action :set_current_user
+
+  def switch_locale(&)
+    locale = params[:locale] || I18n.default_locale
+    I18n.with_locale(locale, &)
+  end
 
   def set_current_user
     if session[:user_id]
@@ -12,5 +18,4 @@ class ApplicationController < ActionController::Base
   def require_user_logged_in!
     redirect_to sign_in_path, alert: "Du musst angemeldet sein, um diese Funktion nutzen zu können!" if Current.user.nil?
   end
-
 end
