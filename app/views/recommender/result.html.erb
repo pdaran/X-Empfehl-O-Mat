@@ -5,5 +5,7 @@
         <%= render "recommender/article", product: Product.find(1) %>
       </div>
   </div>
-  <div><a href="/"><%= t('return_to_homepage') %></a></div>
+  <div>
+    <%= link_to t('return_to_homepage'), root_path %>
+  </div>
 </div>
