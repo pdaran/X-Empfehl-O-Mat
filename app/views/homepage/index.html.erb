@@ -5,13 +5,13 @@
       <% if Current.user %>
         <div class="flex flex-col p-8 rounded-xl bg-white shadow-xl w-96 md:w-auto">
           <div class="mt-3 font-semibold text-lg">
-            <a href="/categories#index"><%= t('admin_link_name') %></a>
+            <%= link_to t('admin_link_name'), controller: 'categories', action: 'index' %>
           </div>
         </div>
       <% end %>
       <div class="flex flex-col p-8 rounded-xl bg-white shadow-xl w-96 md:w-auto">
         <div class="mt-3 font-semibold text-lg">
-          <a href="/recommender"><%= t('customer_link_name') %></a>
+          <%= link_to t('customer_link_name'), controller: 'recommender', action: 'category' %>
         </div>
       </div>
     </div>
