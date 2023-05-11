@@ -6,6 +6,9 @@ class ProductsController < ApplicationController
 
     @product = @category.products.create(product_params)
 
+    @product.image.attach(params[:product][:image]) if params[:product].present? && params[:product][:image].present?
+    # Attach the uploaded image
+
     redirect_to category_path(@category)
   end
 
@@ -14,14 +17,18 @@ class ProductsController < ApplicationController
 
     @product = @category.products.find(params[:id])
 
-    @product.destroy
+    @product.image.purge # Delete the associated image attachment asynchronously
 
-    redirect_to category_path(@category), status: :see_other
+    if @product.destroy
+      redirect_to category_path(@category), status: :see_other, notice: 'Product was successfully deleted.'
+    else
+      redirect_to category_path(@category), status: :see_other, alert: 'Failed to delete the product.'
+    end
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:product, :desc, :status)
+    params.require(:product).permit(:product, :desc, :image, :status)
   end
 end

@@ -49,10 +49,16 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
+    @category.products.each do |product|
+      product.image.purge # Delete the associated image attachment synchronously
+    end
 
-    @category.destroy
-
-    redirect_to action: 'index', status: :see_other
+    if @category.destroy
+      redirect_to action: 'index', status: :see_other,
+                  notice: 'Category and associated products were successfully deleted.'
+    else
+      redirect_to action: 'index', status: :see_other, alert: 'Failed to delete the category.'
+    end
   end
 
   private
