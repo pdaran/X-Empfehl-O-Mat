@@ -26,7 +26,7 @@ class RecommenderController < ApplicationController
   def save_likes
     c = Customer.new
     c.save
-    session[:user_id] = c.id
+    session[:rec_id] = c.id
 
     like_params.each do |id|
       l = Like.new(like: true, customer_id: c.id, product_id: id.to_i)
