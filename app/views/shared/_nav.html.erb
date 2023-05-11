@@ -22,7 +22,7 @@
       <% end %>
     </div>
     <div class="dropdown">
-      <button class="dropbtn"><%= t('language') %></button>
+      <button class="dropbtn"><%= t('language') %> <i class="fa fa-caret-down"></i></button>
       <div class="dropdown-content">
         <% I18n.available_locales.each do |l| %>
           <%= link_to t(l), { :locale=>l } %>
