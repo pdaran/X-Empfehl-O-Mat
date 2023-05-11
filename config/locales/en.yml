@@ -39,3 +39,6 @@ en:
   choose_a_category: "Choose a category"
   return_to_homepage: "Return to homepage"
   recommendations: "Recommendations:"
+  en: "English"
+  de: "German"
+  language: "Language"

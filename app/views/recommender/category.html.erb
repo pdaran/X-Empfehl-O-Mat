@@ -5,7 +5,7 @@
     <% @categories.each do |category| %>
     <div class="flex flex-col p-8 rounded-xl bg-white shadow-xl w-96 md:w-auto">
       <div class="mt-3 font-semibold text-lg">
-        <a href="/recommender/<%= category.id %>"><%= category.title %></a>
+        <a href="./recommender/<%= category.id %>"><%= category.title %></a>
       </div>
     </div>
   <% end %>

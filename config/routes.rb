@@ -1,35 +1,37 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'recommender', to: 'recommender#category'
-  get 'recommender/:id', to: 'recommender#articles'
-  post 'recommender/:id', to: 'recommender#articles'
-  get 'result', to: 'recommender#result'
-  get 'homepage/index'
-  root 'homepage#index'
-
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root to: redirect("/#{I18n.default_locale}"), as: :redirected_root
 
-  get 'sign_up', to: 'registrations#new'
-  post 'sign_up', to: 'registrations#create'
+  scope ':locale' do
+    get 'recommender', to: 'recommender#category'
+    get 'recommender/:id', to: 'recommender#articles'
+    post 'recommender/:id', to: 'recommender#articles'
+    get 'result', to: 'recommender#result'
 
-  get 'sign_in', to: 'sessions#new'
-  post 'sign_in', to: 'sessions#create'
+    get 'homepage/index'
+    root 'homepage#index'
 
-  get 'password', to: 'passwords#edit', as: :edit_password
-  patch 'password', to: 'passwords#update'
+    get 'sign_up', to: 'registrations#new'
+    post 'sign_up', to: 'registrations#create'
 
-  delete 'logout', to: 'sessions#destroy'
+    get 'sign_in', to: 'sessions#new'
+    post 'sign_in', to: 'sessions#create'
 
-  # Defines the root path route ("/")
-  get '/dashboards', to: 'dashboards#index'
-  # root 'categories#index'
+    get 'password', to: 'passwords#edit', as: :edit_password
+    patch 'password', to: 'passwords#update'
 
-  resources :articles do
-    resources :comments
-  end
+    delete 'logout', to: 'sessions#destroy'
 
-  resources :categories do
-    resources :products
+    get '/dashboards', to: 'dashboards#index'
+
+    resources :articles do
+      resources :comments
+    end
+
+    resources :categories do
+      resources :products
+    end
   end
 end
