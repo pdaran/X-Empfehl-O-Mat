@@ -21,6 +21,7 @@ module XEmpfehlOMat
 
     # Set default locale to something other than :en
     I18n.default_locale = :en
+    config.i18n.fallbacks = [:en]
 
     # Configuration for the application, engines, and railties goes here.
     #
