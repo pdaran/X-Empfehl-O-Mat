@@ -11,7 +11,10 @@ class ProductsController < ApplicationController
 
     redirect_to category_path(@category)
   end
-
+  def new
+    @category = Category.find(params[:category_id])
+    @product = @category.products.build
+  end
   def edit
     @category = Category.find(params[:category_id])
     @product = @category.products.find(params[:id])

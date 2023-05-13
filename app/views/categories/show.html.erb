@@ -7,7 +7,9 @@
       <%= render @category.products %>
       <!-- Weitere Produkten hier einfügen (später als Link)-->
       <div class="bg-gray-200 flex flex-col rounded-md p-4 m-4 w-1/3 max-w-xs justify-center items-center">
-         <%= render 'products/form', product: @category.products.build %>
+        <%= link_to new_category_product_path(@category) do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
       </div>
     </div>
       
