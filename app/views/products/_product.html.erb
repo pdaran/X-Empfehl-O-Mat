@@ -24,5 +24,8 @@
                   turbo_confirm: "Are you sure?"
                 } %>
   </p>
+   <p>
+      <%= link_to "Edit this product", edit_category_product_path(product.category, product) %>
+  </p>
 </div>
 <% end %>

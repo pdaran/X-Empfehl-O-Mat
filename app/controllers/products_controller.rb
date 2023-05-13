@@ -12,6 +12,27 @@ class ProductsController < ApplicationController
     redirect_to category_path(@category)
   end
 
+  def edit
+    @category = Category.find(params[:category_id])
+    @product = @category.products.find(params[:id])
+  end
+
+  def update
+    @category = Category.find(params[:category_id])
+
+    @product = @category.products.find(params[:id])
+
+    if @product.update(product_params)
+
+      redirect_to category_path(@category), status: :see_other, notice: 'Product was successfully updated.'
+
+    else
+
+      render :edit, status: :unprocessable_entity
+
+    end
+  end
+
   def destroy
     @category = Category.find(params[:category_id])
 
