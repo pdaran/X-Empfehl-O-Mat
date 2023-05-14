@@ -8,7 +8,7 @@
         <%= render "recommender/article", product: product %>
         <div class="flex items-center mb-4">
           <label>
-            <%= check_box_tag "product_ids[]", product.id %>
+            <%= check_box_tag "product_ids[]", product.image %>
             <%= t('like_sign') %>
           </label>
         </div>

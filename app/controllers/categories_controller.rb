@@ -17,8 +17,8 @@ class CategoriesController < ApplicationController
     @category = Category.new(category_params)
 
     @input = category_params
-
-    if @category.save
+    @category.image.attach(params[:category][:image]) if params[:category].present? && params[:category][:image].present?
+    if @category.save 
 
       redirect_to action: 'index'
 
@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
 
     if @category.update(category_params)
 
-      redirect_to @category
+      redirect_to action: "index"
 
     else
 
@@ -49,6 +49,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
+    @category.image.purge
     @category.products.each do |product|
       product.image.purge # Delete the associated image attachment synchronously
     end
@@ -64,6 +65,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:title)
+    params.require(:category).permit(:title, :image)
   end
 end

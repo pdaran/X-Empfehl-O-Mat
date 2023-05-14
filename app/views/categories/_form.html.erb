@@ -1,13 +1,31 @@
-<%= form_with model: category do |form| %>
-  <div>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% category.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
-    <% end %>
-  </div>
+  <%= form_with(model: @category, local: true) do |form| %>
+    <% if @category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-  <div class="flex items-center justify-between">
-    <%= form.submit "Update Category", class: "bg-gray-200 text-black font-bold py-2 px-4 rounded" %>
-  </div>
-<% end %>
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field flex flex-col">
+      <%= form.label :title  %>
+      <%= form.text_field :title, class: "form-control mt-2 rounded"%>
+    </div>
+
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image, class: "form-control mt-2 rounded" %>
+    </div>
+
+    <div class="actions pt-5">
+      <%= form.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+    </div>
+  <% end %>
+
+  <% if @input %>
+    <p>You entered: <%= @input.inspect %></p>
+  <% end %>
