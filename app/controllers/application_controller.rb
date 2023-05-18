@@ -34,4 +34,18 @@ class ApplicationController < ActionController::Base
     redirect_to sign_in_path,
                 alert: 'Du musst angemeldet sein, um diese Funktion nutzen zu können!'
   end
+
+  def require_user_shop!
+    return if Current.user.is_shop
+
+    redirect_to sign_in_path,
+                alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
+  end
+
+  def require_user_admin!
+    return if Current.user.is_admin
+
+    redirect_to sign_in_path,
+                alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
+  end
 end

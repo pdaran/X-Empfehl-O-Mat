@@ -27,15 +27,15 @@ class CategoryPolicy < ApplicationPolicy
 
   # Only admin is allowed to update the category
   def update?
-    user.admin?
+    user.is_admin
   end
 
   # Only admin is allowed to create the category
   def create?
-    user.admin?
+    user.is_admin
   end
 
   def destroy?
-    user.admin?
+    user.is_admin
   end
 end
