@@ -5,16 +5,26 @@ class ProductsController < ApplicationController
     @category = Category.find(params[:category_id])
 
     @product = @category.products.create(product_params)
+    if params[:product].present? && params[:product][:image].present?
+      # Attach the uploaded image
+      @product.image.attach(params[:product][:image])
+    end
+    if @product.save
 
-    @product.image.attach(params[:product][:image]) if params[:product].present? && params[:product][:image].present?
-    # Attach the uploaded image
+      redirect_to category_path(@category)
 
-    redirect_to category_path(@category)
+    else
+
+      render :new, status: :unprocessable_entity
+
+    end
   end
+
   def new
     @category = Category.find(params[:category_id])
     @product = @category.products.build
   end
+
   def edit
     @category = Category.find(params[:category_id])
     @product = @category.products.find(params[:id])
