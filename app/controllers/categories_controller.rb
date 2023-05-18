@@ -2,7 +2,7 @@
 
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.all
+    @categories = Category.where(status: :active)
   end
 
   def show
@@ -15,17 +15,17 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-
     @input = category_params
-    @category.image.attach(params[:category][:image]) if params[:category].present? && params[:category][:image].present?
-    if @category.save 
 
-      redirect_to action: 'index'
+    if params[:category].present? && params[:category][:image].present?
+      # Attach the uploaded image
+      @category.image.attach(params[:category][:image])
+    end
 
+    if @category.save
+      redirect_to categories_path, status: :see_other, notice: 'Product was successfully created.'
     else
-
       render :new, status: :unprocessable_entity
-
     end
   end
 
@@ -37,34 +37,33 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     if @category.update(category_params)
-
-      redirect_to action: "index"
-
+      redirect_to categories_path, status: :see_other, notice: 'Category was successfully updated.'
     else
-
-      render :edit, status: :unprocessable_entity
-
+      render :edit, status: :unprocessable_entity, alert: 'Failed to update the category.'
     end
   end
 
   def destroy
     @category = Category.find(params[:id])
+
+    # Delete the associated image attachment asynchronously
     @category.image.purge
+
     @category.products.each do |product|
-      product.image.purge # Delete the associated image attachment synchronously
+      product.image.purge
     end
 
     if @category.destroy
-      redirect_to action: 'index', status: :see_other,
-                  notice: 'Category and associated products were successfully deleted.'
+      redirect_to categories_path, status: :see_other,
+                                   notice: 'Category and associated products were successfully deleted.'
     else
-      redirect_to action: 'index', status: :see_other, alert: 'Failed to delete the category.'
+      redirect_to categories_path, status: :see_other, alert: 'Failed to delete the category.'
     end
   end
 
   private
 
   def category_params
-    params.require(:category).permit(:title, :image)
+    params.require(:category).permit(:title, :image, :status)
   end
 end

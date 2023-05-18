@@ -3,7 +3,6 @@
 class ProductsController < ApplicationController
   def create
     @category = Category.find(params[:category_id])
-
     @product = @category.products.create(product_params)
     if params[:product].present? && params[:product][:image].present?
       # Attach the uploaded image
@@ -41,7 +40,8 @@ class ProductsController < ApplicationController
 
     else
 
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity,
+                    alert: 'Failed to update the category.'
 
     end
   end
@@ -50,8 +50,8 @@ class ProductsController < ApplicationController
     @category = Category.find(params[:category_id])
 
     @product = @category.products.find(params[:id])
-
-    @product.image.purge # Delete the associated image attachment asynchronously
+    # Delete the associated image attachment asynchronously
+    @product.image.purge
 
     if @product.destroy
       redirect_to category_path(@category), status: :see_other, notice: 'Product was successfully deleted.'

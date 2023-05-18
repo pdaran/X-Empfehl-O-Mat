@@ -1,31 +1,33 @@
   <%= form_with(model: @category, local: true) do |form| %>
-    <% if @category.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-        <ul>
-          <% @category.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+     <div class="field">
+    <%= form.label :title %><br>
+    <%= form.text_area :title, class: "form-control rounded" + (form.object.errors.has_key?(:title) ? " border-red-500" : "") %>
+    <% if form.object.errors.has_key?(:title) %>
+      <span class="text-red-500"><%= form.object.errors[:title].first %></span>
     <% end %>
-
-    <div class="field flex flex-col">
-      <%= form.label :title  %>
-      <%= form.text_field :title, class: "form-control mt-2 rounded"%>
-    </div>
-
-    <div class="field">
-      <%= form.label :image %>
-      <%= form.file_field :image, class: "form-control mt-2 rounded" %>
-    </div>
-
-    <div class="actions pt-5">
-      <%= form.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-    </div>
+  </div>
+  
+  <div class="field">
+    <%= form.label :image %><br>
+    <%= form.file_field :image, class: "form-control rounded" + (form.object.errors.has_key?(:image) ? " border-red-500" : "") %>
+    <% if form.object.errors.has_key?(:image) %>
+      <span class="text-red-500"><%= form.object.errors[:image].first %></span>
+    <% end %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :status %><br>
+    <%= form.select :status, ['active', 'deactivated'], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+    <% if form.object.errors.has_key?(:status) %>
+      <span class="text-red-500"><%= form.object.errors[:status].first %></span>
+    <% end %>
+  </div>
+  
+<div class="pt-5">
+  <% if @category.new_record? %>
+    <%= form.submit "Create Category", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+  <% else %>
+    <%= form.submit "Update Category", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
   <% end %>
-
-  <% if @input %>
-    <p>You entered: <%= @input.inspect %></p>
-  <% end %>
+</div>
+<% end %>
