@@ -4,6 +4,7 @@ services:
   web:
     build: .
     image: 'x-empfehl-o-mat:latest'
+    container_name: x-empfehl-o-mat-web
     command: sh containersetup.sh
     volumes:
       - .:/app/
@@ -16,6 +17,7 @@ services:
 
   db:
     image: postgres:latest
+    container_name: x-empfehl-o-mat-db
     env_file:
       - .env.docker
     ports:
