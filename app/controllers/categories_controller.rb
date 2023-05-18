@@ -72,14 +72,15 @@ class CategoriesController < ApplicationController
     @category.image.purge
     @category.products.each { |product| product.image.purge }
   end
-  
+
   def delete_associated_products
     @category.products.destroy_all
   end
-  
+
   def handle_category_deletion
     if @category.destroy
-      redirect_to categories_path, status: :see_other, notice: 'Category and associated products were successfully deleted.'
+      redirect_to categories_path, status: :see_other,
+                                   notice: 'Category and associated products were successfully deleted.'
     else
       redirect_to categories_path, status: :see_other, alert: 'Failed to delete the category.'
     end

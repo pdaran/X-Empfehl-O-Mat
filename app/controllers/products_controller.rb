@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     @category = find_category
     @product = build_product
     attach_image if image_present?
-  
+
     if save_product
       redirect_to category_path(@category)
     else
@@ -63,19 +63,19 @@ class ProductsController < ApplicationController
   def find_category
     Category.find(params[:category_id])
   end
-  
+
   def build_product
     @category.products.build(product_params)
   end
-  
+
   def attach_image
     @product.image.attach(params[:product][:image])
   end
-  
+
   def image_present?
     params.dig(:product, :image).present?
   end
-  
+
   def save_product
     @product.save
   end
