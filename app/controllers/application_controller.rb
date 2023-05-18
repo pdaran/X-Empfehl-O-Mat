@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
+
   around_action :switch_locale
   before_action :set_current_user
 
@@ -12,6 +14,10 @@ class ApplicationController < ActionController::Base
   def switch_locale(&)
     locale = params[:locale] || I18n.default_locale
     I18n.with_locale(locale, &)
+  end
+
+  def pundit_user
+    Current.user;
   end
 
   private
