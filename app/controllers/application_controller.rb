@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def pundit_user
-    Current.user;
+    Current.user
   end
 
   private
@@ -36,14 +36,14 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user_shop!
-    return if Current.user.is_shop
+    return if Current.user.shop?
 
     redirect_to sign_in_path,
                 alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
   end
 
   def require_user_admin!
-    return if Current.user.is_admin
+    return if Current.user.admin?
 
     redirect_to sign_in_path,
                 alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'

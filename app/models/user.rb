@@ -15,11 +15,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true,
                     format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'must be a valid email address' }
 
-  def is_shop
-    admin? || shop?
-  end
-
-  def is_admin
-    admin?
+  def shop?
+    self[:shop] || self[:admin]
   end
 end

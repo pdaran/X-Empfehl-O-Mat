@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class CategoryPolicy < ApplicationPolicy
   attr_reader :user, :category
 
   def initialize(user, article)
+    super
     @user = user
     @article = article
   end
@@ -27,15 +30,15 @@ class CategoryPolicy < ApplicationPolicy
 
   # Only admin is allowed to update the category
   def update?
-    user.is_admin
+    user.shop?
   end
 
   # Only admin is allowed to create the category
   def create?
-    user.is_admin
+    user.shop?
   end
 
   def destroy?
-    user.is_admin
+    user.shop?
   end
 end
