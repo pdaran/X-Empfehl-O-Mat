@@ -16,6 +16,15 @@ services:
     depends_on:
       - db
 
+  flask:
+    build:
+      context: flask
+      # target: builder
+    stop_signal: SIGINT
+    ports:
+      - "8001:8000"
+
+
   db:
     image: postgres:latest
     container_name: x-empfehl-o-mat-db
