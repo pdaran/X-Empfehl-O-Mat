@@ -1,0 +1,13 @@
+de:
+  hello: "Hallo Welt"
+  appname: "X-Empfehl-O-Mat"
+  admin_link_name: "Administrator"
+  customer_link_name: "Kunde"
+  like_sign: "★"
+  choose_articles: "Waehle Artikel"
+  choose_a_category: "Waehle eine Kategorie"
+  return_to_homepage: "Zurueck zur Startseite"
+  recommendations: "Empfehlungen:"
+  en: "Englisch"
+  de: "Deutsch"
+  language: "Sprache"

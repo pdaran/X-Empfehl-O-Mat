@@ -1,0 +1,14 @@
+<div class="flex items-center justify-center flex-col min-h-screen">
+  <%= render "recommender/title", subtitle: t('choose_a_category') %>
+
+  <div class="flex flex-col md:flex-row space-x-0 md:space-x-8 space-y-12 md:space-y-0 justify-center items-center">
+    <% @categories.each do |category| %>
+    <div class="flex flex-col p-8 rounded-xl bg-white shadow-xl w-96 md:w-auto">
+      <div class="mt-3 font-semibold text-lg">
+        <a href="./recommender/<%= category.id %>"><%= category.title %></a>
+      </div>
+    </div>
+  <% end %>
+  </div>
+
+</div>

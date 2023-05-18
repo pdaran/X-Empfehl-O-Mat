@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+  appname: "X-Empfehl-O-Mat"
+  admin_link_name: "Administrator"
+  customer_link_name: "Customer"
+  like_sign: "👍"
+  choose_articles: "Choose articles you like"
+  choose_a_category: "Choose a category"
+  return_to_homepage: "Return to homepage"
+  recommendations: "Recommendations:"
+  en: "English"
+  de: "German"
+  language: "Language"

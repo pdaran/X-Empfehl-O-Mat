@@ -3,8 +3,8 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby '3.2.1'
-ruby '2.7.4'
+ruby '3.2.1'
+# ruby '2.7.4'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
@@ -13,7 +13,7 @@ gem 'rails', '~> 7.0.4'
 gem 'sprockets-rails'
 
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3', '~> 1.4'
+# gem 'sqlite3', git: 'https://github.com/sparklemotion/sqlite3-ruby'
 
 # Use Postgres as the database for Active Record
 gem 'pg'
@@ -48,6 +48,11 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# Css Library
+gem 'tailwindcss-rails', '~> 2.0.20'
+
+gem 'foreman'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -62,6 +67,9 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
+
+  # Ruby I18n Debug [https://github.com/fphilipe/i18n-debug]
+  gem 'i18n-debug'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
@@ -81,9 +89,8 @@ group :test do
   gem 'rubocop-minitest', require: false # or gem 'rubocop-rspec'
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
+
   # Calculate code coverage
   gem 'simplecov', require: false
   gem 'simplecov-cobertura', require: false
 end
-
-gem 'tailwindcss-rails', '~> 2.0'

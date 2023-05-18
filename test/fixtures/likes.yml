@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  like: false
+  customers_id: one
+  products_id: one
+
+two:
+  like: false
+  customers_id: two
+  products_id: two
