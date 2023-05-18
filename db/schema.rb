@@ -51,11 +51,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_18_011247) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.string "status"
-=======
     t.string "image"
->>>>>>> 5642803 (🎨 ⚡️ Dashboard visible only for admin)
+    t.string "status"
   end
 
   create_table "comments", force: :cascade do |t|
