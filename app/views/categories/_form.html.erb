@@ -17,7 +17,11 @@
   
   <div class="field">
     <%= form.label :status %><br>
-    <%= form.select :status, ['active', 'deactivated'], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+    <% if @category.new_record? %>
+      <%= form.select :status, ['active', 'deactivated'], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+    <% else %>
+      <%= form.select :status, ['active', 'deactivated'], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+    <% end %>
     <% if form.object.errors.has_key?(:status) %>
       <span class="text-red-500"><%= form.object.errors[:status].first %></span>
     <% end %>

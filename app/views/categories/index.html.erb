@@ -11,7 +11,7 @@
             <a href="<%= category_path(category) %>" class="text-gray-800 hover:underline">
               <%= category.title %>
             </a>
-             <div class="w-full flex justify-center">
+              <div class="w-full flex justify-center">
               <% if category.image.attached? %>
                <a href=" <%= category_path(category) %>"> 
                   <%= image_tag category.image , class:"object-cover mx-auto my-auto rounded-md w-56 h-56" %>
@@ -20,8 +20,12 @@
                <!-- Placeholder image or alternate content if no image is attached -->
                 <%= image_tag 'placeholder.jpeg', class:"object-cover mx-auto my-auto rounded-md w-56 h-56" %>
              <% end %>
-      <!-- Additional product details -->
-    </div>
+             </div>
+              <!-- hidden tag for admin -->
+              <% if category.status == 'deactivated' %>
+                <span class="bg-gray-300 text-gray-700 px-4 rounded-md">Deactivated</span>
+              <% end %>
+              <!-- Additional product details -->
           </div>
         <% end %>
       </div>
