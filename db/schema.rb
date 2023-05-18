@@ -31,7 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_03_065154) do
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
     t.text "body"
-    t.integer "article_id", null: false
+    t.bigint "article_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
@@ -46,8 +46,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_03_065154) do
 
   create_table "likes", force: :cascade do |t|
     t.boolean "like"
-    t.integer "customer_id", null: false
-    t.integer "product_id", null: false
+    t.bigint "customer_id", null: false
+    t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_likes_on_customer_id"
@@ -57,7 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_03_065154) do
   create_table "products", force: :cascade do |t|
     t.string "product"
     t.text "desc"
-    t.integer "category_id", null: false
+    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
