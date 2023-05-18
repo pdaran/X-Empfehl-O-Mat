@@ -2,7 +2,7 @@
 
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.where(status: :active)
+    @categories = Category.all
   end
 
   def show
