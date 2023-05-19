@@ -8,11 +8,12 @@ class RecommenderController < ApplicationController
   def articles
     @category = Category.find(params[:id])
 
-    if params[:query].present?
-      @products = @category.products.where(["product LIKE :query OR desc LIKE :query",  { query: "%#{params[:query]}%" }])
-    else
-      @products = @category.products.all
-    end
+    @products = if params[:query].present?
+                  @category.products.where(['product LIKE :query OR desc LIKE :query',
+                                            { query: "%#{params[:query]}%" }])
+                else
+                  @category.products.all
+                end
 
     if params[:product_ids]
       save_likes
@@ -20,7 +21,7 @@ class RecommenderController < ApplicationController
     end
 
     if turbo_frame_request?
-      render partial: "products", locals: { products: @products }
+      render partial: 'products', locals: { products: @products }
     else
       render :articles
     end
