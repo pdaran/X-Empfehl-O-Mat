@@ -1,13 +1,37 @@
-<%= form_with model: category do |form| %>
-  <div>
+  <%= form_with(model: @category, local: true) do |form| %>
+     <div class="field">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
-    <% category.errors.full_messages_for(:title).each do |message| %>
-      <div><%= message %></div>
+    <%= form.text_area :title, class: "form-control rounded" + (form.object.errors.has_key?(:title) ? " border-red-500" : "") %>
+    <% if form.object.errors.has_key?(:title) %>
+      <span class="text-red-500"><%= form.object.errors[:title].first %></span>
     <% end %>
   </div>
-
-  <div class="flex items-center justify-between">
-    <%= form.submit "Update Category", class: "bg-gray-200 text-black font-bold py-2 px-4 rounded" %>
+  
+  <div class="field">
+    <%= form.label :image %><br>
+    <%= form.file_field :image, class: "form-control rounded" + (form.object.errors.has_key?(:image) ? " border-red-500" : "") %>
+    <% if form.object.errors.has_key?(:image) %>
+      <span class="text-red-500"><%= form.object.errors[:image].first %></span>
+    <% end %>
   </div>
+  
+  <div class="field">
+    <%= form.label :status %><br>
+    <% if @category.new_record? %>
+      <%= form.select :status, ['active', 'deactivated'], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+    <% else %>
+      <%= form.select :status, ['active', 'deactivated'], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+    <% end %>
+    <% if form.object.errors.has_key?(:status) %>
+      <span class="text-red-500"><%= form.object.errors[:status].first %></span>
+    <% end %>
+  </div>
+  
+<div class="pt-5">
+  <% if @category.new_record? %>
+    <%= form.submit "Create Category", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+  <% else %>
+    <%= form.submit "Update Category", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+  <% end %>
+</div>
 <% end %>

@@ -1,26 +1,41 @@
-<%= form_with model: [ @category, @category.products.build ] do |form| %>
-  <p>
+<%= form_with model: [@category, @product] do |form| %>
+  <div class="field">
     <%= form.label :product %><br>
-    <%= form.text_field :product, class: "form-control mt-2 rounded" %>
+    <%= form.text_field :product, class: "form-control rounded" + (form.object.errors.has_key?(:product) ? " border-red-500" : "") %>
     <% if form.object.errors.has_key?(:product) %>
       <span class="text-red-500"><%= form.object.errors[:product].first %></span>
     <% end %>
-  </p>
-  <p>
+  </div>
+  
+  <div class="field">
     <%= form.label :desc %><br>
-    <%= form.text_area :desc, class: "form-control mt-2 rounded"%>
+    <%= form.text_area :desc, class: "form-control rounded" + (form.object.errors.has_key?(:desc) ? " border-red-500" : "") %>
     <% if form.object.errors.has_key?(:desc) %>
       <span class="text-red-500"><%= form.object.errors[:desc].first %></span>
     <% end %>
-  </p>
-  <p>
+  </div>
+  
+  <div class="field">
+    <%= form.label :image %><br>
+    <%= form.file_field :image, class: "form-control rounded" + (form.object.errors.has_key?(:image) ? " border-red-500" : "") %>
+    <% if form.object.errors.has_key?(:image) %>
+      <span class="text-red-500"><%= form.object.errors[:image].first %></span>
+    <% end %>
+  </div>
+  
+  <div class="field">
     <%= form.label :status %><br>
-    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public' %>
+    <%= form.select :status, ['public', 'private', 'archived'], selected: 'public', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
     <% if form.object.errors.has_key?(:status) %>
       <span class="text-red-500"><%= form.object.errors[:status].first %></span>
     <% end %>
-  </p>
-  <p class="pt-5">
-    <%= form.submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-  </p>
+  </div>
+  
+  <div class="pt-5">
+    <% if product.new_record? %>
+      <%= form.submit "Create Product", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+    <% else %>
+      <%= form.submit "Update Product", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+    <% end %>
+  </div>
 <% end %>

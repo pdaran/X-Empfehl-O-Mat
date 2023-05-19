@@ -1,19 +1,32 @@
 <% unless product.archived? %>
-<div class="bg-gray-200 flex flex-col rounded-md p-4 m-5 justify-center items-center" >
+<div class="bg-gray-200 flex flex-col rounded-md p-4 m-4 w-1/3 justify-center items-center overflow-hidden -z-1" >
  <p class="text-center">
     <strong>Product:</strong>
     <%= product.product %>
   </p>
+      <div class="w-full flex justify-center">
+      <% if product.image.attached? %>
+        <%= image_tag product.image , class:"object-cover w-54 h-54 mx-auto rounded-md" %>
+      <% else %>
+        <!-- Placeholder image or alternate content if no image is attached -->
+        <%= image_tag 'placeholder.jpeg', class:"object-cover w-54 h-54 mx-auto rounded-md" %>
+      <% end %>
+      <!-- Additional product details -->
+    </div>
 
   <p class="text-center">
     <strong>Description:</strong>
-    <%= product.desc %>
+    <%= content_tag :div, product.desc, class: "text-center flex-col max-w-" %>
+
   </p>
    <p class="text-center">
     <%= link_to "(-)", [product.category, product], data: {
                   turbo_method: :delete,
                   turbo_confirm: "Are you sure?"
                 } %>
+  </p>
+   <p>
+      <%= link_to "Edit this product", edit_category_product_path(product.category, product) %>
   </p>
 </div>
 <% end %>
