@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
+  before_action :require_user_logged_in!
   def index
     @categories = Category.all
   end
