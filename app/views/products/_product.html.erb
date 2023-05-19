@@ -19,6 +19,17 @@
     <%= content_tag :div, product.desc, class: "text-center flex-col max-w-" %>
 
   </p>
+
+  <% if controller.controller_name == "recommender" && controller.action_name == "articles" %>
+    <div class="flex items-center mb-4">
+      <label>
+        <%= check_box_tag "product_ids[]", product.id %>
+        <%= t('like_sign') %>
+      </label>
+    </div>
+  <% end %>
+
+  <% unless Current.user.nil? %>
    <p class="text-center">
     <%= link_to "(-)", [product.category, product], data: {
                   turbo_method: :delete,
@@ -28,5 +39,6 @@
    <p>
       <%= link_to "Edit this product", edit_category_product_path(product.category, product) %>
   </p>
+  <% end %>
 </div>
 <% end %>
