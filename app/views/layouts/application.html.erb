@@ -11,8 +11,8 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main>
+  <body class="min-h-screen flex flex-col">
+    <main class="flex-grow">
 
       <%= render "shared/nav" %>
       <%# ----- Display Flash Messages: ----- %>
@@ -29,7 +29,7 @@
       <% end %>
 
       <%= yield %>
-      <%= render "shared/footer" %>
     </main>
+      <%= render "shared/footer" %>
   </body>
 </html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t('impressum') %></title>
+</head>
+<body>
+
+<div class="container mx-auto py-8">
+  <h1 class="text-3xl font-bold mb-6"><%= t('impressum') %></h1>
+
+  <div class="bg-white shadow-md rounded-lg p-6">
+    <h2 class="text-xl font-bold mb-4">
+    <%= t('impressum_text') %></h2>
+    <p class="mb-4">
+      Name: <%= t('appname') %><br>
+      <%= t('legal_form') %><br>
+      <%= t('address') %>: Eupener Straße 70, 52064 Aachen<br>
+      <%= t('email_address') %><br>
+      <%= t('telephone_number') %>
+    Webseite: -<br>
+    </p>
+
+    <h2 class="text-xl font-bold mb-4"><%= t('contact') %>:</h2>
+    <p class="mb-4">
+      <%= t('email_address') %><br>
+      <%= t('telephone_number') %>
+    </p>
+
+    <h2 class="text-xl font-bold mb-4"><%= t('representative_query') %></h2>
+    <p class="mb-0">
+      <%= t('representative') %>
+      <%= t('representative_email') %>
+      
+    </p>
+  </div>
+</div>
+
+</body>
+</html>

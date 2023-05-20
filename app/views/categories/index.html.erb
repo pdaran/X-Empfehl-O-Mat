@@ -2,7 +2,7 @@
 <html lang="de">
 <div>
 <main>
-  <h1 class="text-center mb-10">Kategorien</h1>
+  <h1 class="text-center mb-10"><%= t('categories') %></h1>
   <div class="flex flex-wrap min-h-screen justify-center items-center gap-4">
     <% @categories.each_slice(3) do |category_row| %>
       <div class="flex justify-center h-full w-full">
