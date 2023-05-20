@@ -22,6 +22,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def set_locale
+    params[:locale] || I18n.default_locale
+  end
+
   def set_current_user
     return unless session[:user_id]
 
