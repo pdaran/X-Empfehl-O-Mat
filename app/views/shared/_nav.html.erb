@@ -13,10 +13,13 @@
       <div class="profile flex gap-5 flex-row">
         <%= button_to "", sign_up_path, method: :get, class: "fa-regular fa-user py-3 flex z-1 max-w-max" %>
         <% if Current.user %>
-          <%= link_to Current.user.email, edit_password_path, class: "underline visited:text-purple-600 text-blue-600 hover:text-blue-800 py-2 px-4" %>
+          <%= link_to Current.user.email, edit_password_path, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %>
+
           <%= button_to "Logout", logout_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          <% if Current.user.admin? %>
+            <%= button_to "Add User", sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          <% end %>
         <% else %>
-          <%= button_to "Sign up", sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
           <%= button_to "Login", sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
         <% end %>
       </div>
@@ -28,10 +31,10 @@
            <%= image_tag("united-kingdom.png", width: '40px')%>
           <% elsif l == :de %>
          <%= image_tag("germany.png", width: '40px')%>
-        <% end %>  
+        <% end %>
         </a>
       <% end %>
-    </div>  
+    </div>
     <% if Current.user %>
         <div class="dashboard">
           <%= link_to "Dashboard", controller: 'dashboards', action: 'index' %>

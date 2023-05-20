@@ -12,10 +12,12 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    authorize @category
   end
 
   def create
     @category = build_category
+    authorize @category
     @input = category_params # for debugging can be removed later
     attach_image if image_present?
 
@@ -28,11 +30,12 @@ class CategoriesController < ApplicationController
 
   def edit
     @category = Category.find(params[:id])
+    authorize @category
   end
 
   def update
     @category = Category.find(params[:id])
-
+    authorize @category
     if @category.update(category_params)
       redirect_to categories_path, status: :see_other, notice: 'Category was successfully updated.'
     else
@@ -42,6 +45,7 @@ class CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
+    authorize @category
     delete_associated_images
     delete_associated_products
     handle_category_deletion

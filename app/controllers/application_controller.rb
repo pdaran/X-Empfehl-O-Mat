@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
+
   around_action :switch_locale
   before_action :set_current_user
 
@@ -12,6 +14,10 @@ class ApplicationController < ActionController::Base
   def switch_locale(&)
     locale = params[:locale] || I18n.default_locale
     I18n.with_locale(locale, &)
+  end
+
+  def pundit_user
+    Current.user
   end
 
   private
@@ -31,5 +37,19 @@ class ApplicationController < ActionController::Base
 
     redirect_to sign_in_path,
                 alert: 'Du musst angemeldet sein, um diese Funktion nutzen zu können!'
+  end
+
+  def require_user_shop!
+    return if Current.user.shop?
+
+    redirect_to sign_in_path,
+                alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
+  end
+
+  def require_user_admin!
+    return if Current.user.admin?
+
+    redirect_to sign_in_path,
+                alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
   end
 end
