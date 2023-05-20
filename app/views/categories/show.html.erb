@@ -16,12 +16,13 @@
   </main>
 
   <ul>
-    <li><%= link_to "Edit this category", edit_category_path(@category) %></li>
-    <li><%= link_to "Delete this category (and all products)", category_path(@category), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-  </ul>
+  <li><%= link_to t('category.edit'), edit_category_path(@category) %></li>
+  <li><%= link_to t('category.delete'), category_path(@category), data: {
+                  turbo_method: :delete,
+                  turbo_confirm: t('category.delete_confirm')
+                } %></li>
+</ul>
+
 
 </div>
 </html>

@@ -56,7 +56,45 @@ en:
 
   about: "About"
   home: "Home"
+
+  edit_password: "Edit Password"
+  user:
+    new: "Create User"
+
+  # Category
   categories: "Categories"
+  category:
+    new: "New Category"
+    edit: "Edit Category"
+    update: "Update Category"
+    delete: "Delete this category (and all its products)"
+    delete_confirm: "Are you sure you want to delete this category?"
+  active: "Active"
+  deactivated: "Deactivated"
+
+  # Product
+  products: "Products"
+  product:
+    new: "New Product"
+    edit: "Edit Product"
+    update: "Update Product"
+    delete: "Delete this product"
+    delete_confirm: "Are you sure you want to delete this product?"
+
+  form_labels:
+    title: "Title"
+    product: "Product"
+    description: "Description"
+    image: "Image"
+    status: "Status"
+    email: "Email"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    submit: "Submit"
+    delete_confirm: "Are you sure?"
+  file_upload:
+    choose_file: "Choose File"
+    no_file_chosen: "No File Chosen"
 
   # Imprint page
   impressum: "Imprint"

@@ -23,9 +23,47 @@ de:
   sign_up: "Registrieren"
   create_account: "Benutzer erstellen"
 
-  about: "Ueber uns"
+  about: "Über uns"
   home: "Startseite"
+
+  edit_password: "Passwort ändern"
+  user:
+    new: "Benutzer erstellen"
+
+  # Category
   categories: "Kategorien"
+  category:
+    edit: "Kategorie bearbeiten"
+    new: "Kategorie erstellen"
+    update: "Kategorie aktualisieren"
+    delete: "Kategorie löschen"
+    delete_confirm: "Sind Sie sicher, dass Sie diese Kategorie löschen möchten?"
+  active: "Aktiv"
+  deactivated: "Deaktiviert"
+  #product
+  products: "Produkten"
+  product:
+    new: "Produkt erstellen"
+    edit: "Produkt bearbeiten"
+    update: "Produkt aktualisieren"
+    delete: "Produkt löschen"
+    delete_confirm: "Sind Sie sicher, dass Sie diese Produkt löschen möchten?"
+
+  # Form Labels
+  form_labels:
+    title: "Titel"
+    product: "Produkt"
+    description: "Beschreibung"
+    image: "Bild"
+    status: "Status"
+    email: "Email"
+    password: "Passwort"
+    password_confirmation: "Passwort bestätigen"
+    submit: "Absenden"
+    delete_confirm: "Sind Sie sicher?"
+  file_upload:
+    choose_file: "Datei auswählen"
+    no_file_chosen: "Keine Datei ausgewählt"
 
   # Impressumseite
   impressum: "Impressum"

@@ -1,6 +1,6 @@
 <%= form_with model: [@category, @product] do |form| %>
   <div class="field">
-    <%= form.label :product %><br>
+    <%= form.label :product, t('form_labels.product') %><br>
     <%= form.text_field :product, class: "form-control rounded" + (form.object.errors.has_key?(:product) ? " border-red-500" : "") %>
     <% if form.object.errors.has_key?(:product) %>
       <span class="text-red-500"><%= form.object.errors[:product].first %></span>
@@ -8,7 +8,7 @@
   </div>
   
   <div class="field">
-    <%= form.label :desc %><br>
+    <%= form.label :desc, t('form_labels.description') %><br>
     <%= form.text_area :desc, class: "form-control rounded" + (form.object.errors.has_key?(:desc) ? " border-red-500" : "") %>
     <% if form.object.errors.has_key?(:desc) %>
       <span class="text-red-500"><%= form.object.errors[:desc].first %></span>
@@ -16,7 +16,7 @@
   </div>
   
   <div class="field">
-    <%= form.label :image %><br>
+    <%= form.label :image, t('form_labels.image') %><br>
     <%= form.file_field :image, class: "form-control rounded" + (form.object.errors.has_key?(:image) ? " border-red-500" : "") %>
     <% if form.object.errors.has_key?(:image) %>
       <span class="text-red-500"><%= form.object.errors[:image].first %></span>
@@ -24,7 +24,7 @@
   </div>
   
   <div class="field">
-    <%= form.label :status %><br>
+    <%= form.label :status, t('form_labels.status') %><br>
     <%= form.select :status, ['public', 'private', 'archived'], selected: 'public', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
     <% if form.object.errors.has_key?(:status) %>
       <span class="text-red-500"><%= form.object.errors[:status].first %></span>
@@ -33,9 +33,9 @@
   
   <div class="pt-5">
     <% if product.new_record? %>
-      <%= form.submit "Create Product", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+      <%= form.submit t('product.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
     <% else %>
-      <%= form.submit "Update Product", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+      <%= form.submit t('product.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
     <% end %>
   </div>
 <% end %>
