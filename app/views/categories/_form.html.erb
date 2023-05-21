@@ -17,17 +17,18 @@
     <% end %>
   </div>
   
-  <div class="field">
-    <%= form.label :status, t('form_labels.status') %><br>
-    <% if @category.new_record? %>
-      <%= form.select :status, ['active', 'deactivated'], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
-    <% else %>
-      <%= form.select :status, ['active', 'deactivated'], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
-    <% end %>
-    <% if form.object.errors.has_key?(:status) %>
-      <span class="text-red-500"><%= form.object.errors[:status].first %></span>
-    <% end %>
-  </div>
+<div class="field">
+  <%= form.label :status, t('form_labels.status') %><br>
+  <% if @category.new_record? %>
+    <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+  <% else %>
+    <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+  <% end %>
+  <% if form.object.errors.has_key?(:status) %>
+    <span class="text-red-500"><%= form.object.errors[:status].first %></span>
+  <% end %>
+</div>
+
   
 <div class="pt-5">
   <% if @category.new_record? %>

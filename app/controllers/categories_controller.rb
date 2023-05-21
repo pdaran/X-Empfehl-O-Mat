@@ -20,9 +20,9 @@ class CategoriesController < ApplicationController
     attach_image if image_present?
 
     if save_category
-      redirect_to categories_path, status: :see_other, notice: 'Category was successfully created.'
+      redirect_to categories_path, status: :see_other, notice: t('category.notice_create')
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: t('category.error')
     end
   end
 
@@ -34,9 +34,9 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
 
     if @category.update(category_params)
-      redirect_to categories_path, status: :see_other, notice: 'Category was successfully updated.'
+      redirect_to categories_path, status: :see_other, notice: t('category.notice_update')
     else
-      render :edit, status: :unprocessable_entity, alert: 'Failed to update the category.'
+      render :edit, status: :unprocessable_entity, alert: t('category.error')
     end
   end
 
@@ -81,9 +81,9 @@ class CategoriesController < ApplicationController
   def handle_category_deletion
     if @category.destroy
       redirect_to categories_path, status: :see_other,
-                                   notice: 'Category and associated products were successfully deleted.'
+                                   notice: t('category.notice_delete')
     else
-      redirect_to categories_path, status: :see_other, alert: 'Failed to delete the category.'
+      redirect_to categories_path, status: :see_other, alert: t('category.error')
     end
   end
 end

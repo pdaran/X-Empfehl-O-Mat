@@ -65,10 +65,14 @@ en:
   categories: "Categories"
   category:
     new: "New Category"
+    notice_create: "Category was successfully created."
     edit: "Edit Category"
     update: "Update Category"
+    notice_update: "Category was successfully updated."
     delete: "Delete this category (and all its products)"
     delete_confirm: "Are you sure you want to delete this category?"
+    notice_delete: "Category and associated products were successfully deleted."
+    error: "Something went wrong."
   active: "Active"
   deactivated: "Deactivated"
 
@@ -76,10 +80,17 @@ en:
   products: "Products"
   product:
     new: "New Product"
+    notice_create: "Product was successfully created."
     edit: "Edit Product"
     update: "Update Product"
+    notice_update: "Product was successfully updated."
     delete: "Delete this product"
     delete_confirm: "Are you sure you want to delete this product?"
+    notice_delete: "Product was successfully deleted."
+    error: "Something went wrong."
+  public: "Public"
+  private: "Private"
+  archived: "Archived"
 
   form_labels:
     title: "Title"

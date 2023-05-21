@@ -33,21 +33,32 @@ de:
   # Category
   categories: "Kategorien"
   category:
-    edit: "Kategorie bearbeiten"
     new: "Kategorie erstellen"
+    notice_create: "Kategorie wurde erfolgreich erstellt."
+    edit: "Kategorie bearbeiten"
     update: "Kategorie aktualisieren"
+    notice_update: "Kategorie wurde erfolgreich aktualisiert."
     delete: "Kategorie löschen"
     delete_confirm: "Sind Sie sicher, dass Sie diese Kategorie löschen möchten?"
+    notice_delete: "Kategorie wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
   active: "Aktiv"
   deactivated: "Deaktiviert"
   #product
   products: "Produkten"
   product:
     new: "Produkt erstellen"
+    notice_create: "Produkt wurde erfolgreich erstellt."
     edit: "Produkt bearbeiten"
     update: "Produkt aktualisieren"
+    notice_update: "Produkt wurde erfolgreich aktualisiert."
     delete: "Produkt löschen"
     delete_confirm: "Sind Sie sicher, dass Sie diese Produkt löschen möchten?"
+    notice_delete: "Produkt wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
+  public: "Öffentlich"
+  private: "Privat"
+  archived: "Archiviert"
 
   # Form Labels
   form_labels:
