@@ -54,6 +54,9 @@ en:
   sign_up: "Sign up"
   create_account: "Create User"
 
+  # navbar
+  navbar:
+    title: "X-Empfehl-O-Mat"
   about: "About"
   home: "Home"
 
@@ -64,7 +67,7 @@ en:
   # Category
   categories: "Categories"
   category:
-    new: "New Category"
+    new: "Add Category"
     notice_create: "Category was successfully created."
     edit: "Edit Category"
     update: "Update Category"
@@ -79,7 +82,7 @@ en:
   # Product
   products: "Products"
   product:
-    new: "New Product"
+    new: "Add Product"
     notice_create: "Product was successfully created."
     edit: "Edit Product"
     update: "Update Product"

@@ -23,6 +23,9 @@ de:
   sign_up: "Registrieren"
   create_account: "Benutzer erstellen"
 
+  #navbar
+  navbar:
+    title: "Spill the Tea"
   about: "Über uns"
   home: "Startseite"
 
@@ -47,6 +50,7 @@ de:
   #product
   products: "Produkten"
   product:
+    add: "Produkt hinzufügen"
     new: "Produkt erstellen"
     notice_create: "Produkt wurde erfolgreich erstellt."
     edit: "Produkt bearbeiten"
