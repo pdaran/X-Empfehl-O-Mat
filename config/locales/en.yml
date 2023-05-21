@@ -77,6 +77,8 @@ en:
     notice_delete: "Category and associated products were successfully deleted."
     error: "Something went wrong."
     back: "Back"
+    notice_delete: "Category and associated products were successfully deleted."
+    error: "Something went wrong."
   active: "Active"
   deactivated: "Deactivated"
 

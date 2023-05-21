@@ -46,6 +46,8 @@ de:
     notice_delete: "Kategorie wurde erfolgreich gelöscht."
     error: "Etwas ist schief gelaufen."
     back: "Zurück"
+    notice_delete: "Kategorie wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
   active: "Aktiv"
   deactivated: "Deaktiviert"
   #product
