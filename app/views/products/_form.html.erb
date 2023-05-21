@@ -1,8 +1,10 @@
-<%= form_with model: [@category, @product] do |form| %>
-  <div class="field">
-    <%= form.label :product, t('form_labels.product') %><br>
-    <%= form.text_field :product, class: "form-control rounded" + (form.object.errors.has_key?(:product) ? " border-red-500" : "") %>
-    <% if form.object.errors.has_key?(:product) %>
+  <div class=" items-center justify-center min-h-min mb-11 ">
+    <div class="bg-gray-200 flex justify-center items-center max-w-max text-center container mx-auto py-10 rounded-md">   
+      <%= form_with model: [@category, @product] do |form| %>
+        <div class="field">
+         <%= form.label :product, t('form_labels.product') %><br>
+          <%= form.text_field :product, class: "form-control rounded" + (form.object.errors.has_key?(:product) ? " border-red-500" : "") %>
+          <% if form.object.errors.has_key?(:product) %>
       <span class="text-red-500"><%= form.object.errors[:product].first %></span>
     <% end %>
   </div>
@@ -17,7 +19,13 @@
   
   <div class="field">
     <%= form.label :image, t('form_labels.image') %><br>
-    <%= form.file_field :image, class: "form-control rounded" + (form.object.errors.has_key?(:image) ? " border-red-500" : "") %>
+    <%= form.file_field :image, class: "form-control rounded text-md min-w-min px-4" + (form.object.errors.has_key?(:image) ? " border-red-500" : "") %>
+    <div class="pt-4">
+    <% if @product.image.attached? %>
+      <%= form.object.image.filename %>
+      <%= image_tag @product.image , class:"object-cover mx-auto my-auto rounded-md w-40 h-40" %>
+    <% end %>
+  </div>
     <% if form.object.errors.has_key?(:image) %>
       <span class="text-red-500"><%= form.object.errors[:image].first %></span>
     <% end %>
@@ -39,3 +47,5 @@
     <% end %>
   </div>
 <% end %>
+</div>
+</div>

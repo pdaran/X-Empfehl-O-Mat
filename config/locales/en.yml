@@ -76,6 +76,7 @@ en:
     delete_confirm: "Are you sure you want to delete this category?"
     notice_delete: "Category and associated products were successfully deleted."
     error: "Something went wrong."
+    back: "Back"
   active: "Active"
   deactivated: "Deactivated"
 

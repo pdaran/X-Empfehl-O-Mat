@@ -45,6 +45,7 @@ de:
     delete_confirm: "Sind Sie sicher, dass Sie diese Kategorie löschen möchten?"
     notice_delete: "Kategorie wurde erfolgreich gelöscht."
     error: "Etwas ist schief gelaufen."
+    back: "Zurück"
   active: "Aktiv"
   deactivated: "Deaktiviert"
   #product
