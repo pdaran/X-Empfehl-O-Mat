@@ -1,4 +1,4 @@
-  <% unless product.archived? %>
+<% unless product.archived? %>
   <div class="bg-gray-200 flex flex-col rounded-md p-4 m-4 w-1/3 justify-center items-center overflow-hidden -z-1">
     <p class="text-center">
       <strong><%= t('form_labels.product') %>:</strong>
@@ -13,31 +13,30 @@
       <!-- Additional product details -->
     </div>
 
-  <p class="text-center">
-    <strong><%= t('form_labels.description')%>:</strong>
-    <%= content_tag :div, product.desc, class: "text-center flex-col max-w-" %>
-  </p>
+    <p class="text-center">
+      <strong><%= t('form_labels.description')%>:</strong>
+      <%= content_tag :div, product.desc, class: "text-center flex-col max-w-" %>
+    </p>
 
-  <% if controller.controller_name == "recommender" && controller.action_name == "articles" %>
-    <div class="flex items-center mb-4">
-      <label>
-        <%= check_box_tag "product_ids[]", product.id %>
-        <%= t('like_sign') %>
-      </label>
-    </div>
-  <% end %>
+    <% if controller.controller_name == "recommender" && controller.action_name == "articles" %>
+      <div class="flex items-center mb-4">
+        <label>
+          <%= check_box_tag "product_ids[]", product.id %>
+          <%= t('like_sign') %>
+        </label>
+      </div>
+    <% end %>
 
-  <% unless Current.user.nil? %>
-   <p class="text-center">
-    <%= link_to t('product.delete'), [product.category, product], class: "pt-4 text-red-500 hover:text-red-700", data: {
-                  turbo_method: :delete,
-                  turbo_confirm: t('product.delete_confirm')
-                } %>
-  </p>
-   <p>
-      <%= link_to t('product.edit'), edit_category_product_path(product.category, product), class: "text-blue-600 hover:text-blue-700" %>
-  </p>
-  <% end %>
-</div>
+    <% unless Current.user.nil? %>
+      <p class="text-center">
+        <%= link_to t('product.delete'), [product.category, product], class: "pt-4 text-red-500 hover:text-red-700", data: {
+                      turbo_method: :delete,
+                      turbo_confirm: t('product.delete_confirm')
+                    } %>
+      </p>
+      <p>
+        <%= link_to t('product.edit'), edit_category_product_path(product.category, product), class: "text-blue-600 hover:text-blue-700" %>
+      </p>
+    <% end %>
+  </div>
 <% end %>
-
