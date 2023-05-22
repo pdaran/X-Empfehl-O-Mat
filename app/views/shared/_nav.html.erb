@@ -2,60 +2,31 @@
   <title><%= t('navbar.title') %></title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/e464ad1dd2.js" crossorigin="anonymous"></script>
-  <%= javascript_include_tag "hamburger" %>
 </head>
 
 <body>
-  <div class="w-full relative">
-    <nav class="flex bg-gray-200 justify-between p-5 flex-wrap">
-      <div>
-        <a href="<%= root_path %>" class="text-3xl font-bold text-gray-800 hover:text-amber-700 transition-colors duration-300"><%= t('navbar.title') %></a>
+<div class="w-full relative">
+  <nav class="navbar bg-grey-500 text-white">
+    <div class="container flex justify-between items-center py-3">
+      <div class="navbar-logo font-bold">
+        <a href="<%= root_path %>">XOMAT</a>
       </div>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <%= button_to "", sign_up_path, method: :get, class: "fa-regular fa-user py-3 flex z-1 max-w-max" %>
-        </li>
-        <% if Current.user %>
-          <li class="nav-item">
-            <%= link_to Current.user.email, edit_password_path, class: "underline visited:text-purple-600 text-blue-600 hover:text-blue-800 py-2 px-4" %>
-          </li>
-          <li class="nav-item">
-            <%= button_to t('logout'), logout_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-          </li>
-        <% else %>
-        <li class="nav-item">
-          <%= button_to t('sign_up'), sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-        </li>
-        <li class="nav-item">
-          <%= button_to t('login'), sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-        </li>
-        <% end %>
-        <% if Current.user %>
-          <li class="nav-item">
-            <%= link_to "Dashboard", controller: 'dashboards', action: 'index', class:"inline-block bg-gray-300 text-black hover:bg-gray-400 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-          </li>
-        <% end %>
-      </ul>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
-      <div class="flex flex-wrap">
-        <div class="relative">
-          <div class="dropdown inline-block">
-            <button class="dropdown-toggle overflow-hidden flex items-center gap-2" type="button" id="flagDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <% if I18n.locale == :en %>
-                <%= image_tag("united-kingdom.png", width: '30px') %>
-              <% elsif I18n.locale == :de %>
-                <%= image_tag("germany.png", width: '30px') %>
-              <% end %>
-              <span class="text-sm font-medium uppercase">
-                <%= I18n.locale%>
-              </span>
-            </button>
-            <div class="dropdown-content flex bg-white rounded-md shadow-md h-0 w-0">
+      <button id="menu-toggle" class="md:hidden">
+        <i class="fa fa-bars"></i>
+      </button>
+      <div class="navbar-links hidden md:flex gap-4" id="navbar-links">
+        <div class="navbar-profile">
+          <% if Current.user %>
+            <%= link_to Current.user.email, edit_password_path, class: "underline hover:text-blue-200 visited:text-purple-300 block mb-2" %>
+            <%= button_to "Logout", logout_path, method: :delete, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
+          <% else %>
+            <%= button_to "Sign up", sign_up_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-green-500 hover:bg-grey-700 block mb-2" %>
+            <%= button_to "Login", sign_in_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-blue-500 hover:bg-grey-700 block mb-2" %>
+          <% end %>
+        </div>
+        <div class="dropdown-content flex bg-white rounded-md shadow-md h-0 w-0">
               <% I18n.available_locales.each do |l| %>
                 <a class="dropdown-item flex items-center w-14 bg-gray-200" href="<%= url_for(locale: l) %>">
                   <% if l == :en %>
@@ -67,9 +38,30 @@
                 </a>
               <% end %>
             </div>
-          </div>
+        </div>
+        <div class="dashboard-link">
+          <%= link_to "Dashboard", controller: 'dashboards', action: 'index' %>
         </div>
       </div>
-    </nav>
-  </div>
+    </div>
+  </nav>
+</div>
+
+<script>
+    document.addEventListener("turbo:load", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const navbarLinks = document.getElementById("navbar-links");
+        const dropdownToggle = document.getElementById("dropdown-toggle");
+        const dropdownContent = document.getElementById("dropdown-content");
+
+        menuToggle.addEventListener("click", function () {
+            navbarLinks.classList.toggle("hidden");
+            dropdownContent.classList.add("hidden"); // Füge diese Zeile hinzu, um das Dropdown-Menü zu verstecken, wenn der Burger-Button geklickt wird
+        });
+
+        dropdownToggle.addEventListener("click", function () {
+            dropdownContent.classList.toggle("hidden");
+        });
+    });
+</script>
 </body>
