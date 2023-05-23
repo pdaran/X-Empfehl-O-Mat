@@ -3,7 +3,7 @@
 
   <%= form_with(method: :get, data: { controller: "form-submission", turbo_frame: "products", turbo_action: "advance" }) do |form| %>
     <div class="flex space-x-3">
-      <%= form.label :query, "Search by Product name:", class: "block mb-2" %>
+      <%= form.label :query, t('product_search_box_label'), class: "block mb-2" %>
       <%= form.text_field :query, data: { action: "input->form-submission#search" }, class: "flex flex-col p-4 rounded-xl shadow-xl w-96 md:w-auto" %>
     </div>
   <% end %>
