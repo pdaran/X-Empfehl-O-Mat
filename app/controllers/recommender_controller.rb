@@ -15,16 +15,9 @@ class RecommenderController < ApplicationController
                   @category.products.all
                 end
 
-    if params[:product_ids]
-      save_likes
-      return
-    end
+    return unless params[:product_ids]
 
-    if turbo_frame_request?
-      render partial: 'products', locals: { products: @products }
-    else
-      render :articles
-    end
+    save_likes
   end
 
   def result
