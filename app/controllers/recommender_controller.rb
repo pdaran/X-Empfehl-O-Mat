@@ -8,7 +8,14 @@ class RecommenderController < ApplicationController
   def articles
     @category = Category.find(params[:id])
 
-    return unless params.key?(:product_ids)
+    @products = if params[:query].present?
+                  @category.products.where(['product LIKE :query OR desc LIKE :query',
+                                            { query: "%#{params[:query]}%" }])
+                else
+                  @category.products.all
+                end
+
+    return unless params[:product_ids]
 
     save_likes
   end
