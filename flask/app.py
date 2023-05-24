@@ -1,33 +1,30 @@
 import os
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import text
+import psycopg2
+from flask import Flask, jsonify
+
 app = Flask(__name__)
 
-db = SQLAlchemy()
-
 db_name = 'x_empfehl_development'
-
 db_username = os.getenv("POSTGRES_USER")
 db_password = os.getenv("POSTGRES_PASSWORD")
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://' + db_username + ':'+ db_password +'@empfehl-db:5432/' + db_name
+def get_db_connection():
+    conn = psycopg2.connect(host='empfehl-db',
+                            port=5432,
+                            database=db_name,
+                            user=db_username,
+                            password=db_password)
+    return conn
 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-
-db.init_app(app)
-
-# this route will test the database connection - and nothing more
 @app.route('/')
-def testdb():
-    try:
-        db.session.query(text('1')).from_statement(text('SELECT 1')).all()
-        return '<h1>It works.</h1>'
-    except Exception as e:
-        # e holds description of the error
-        error_text = "<p>The error:<br>" + str(e) + "</p>"
-        hed = '<h1>Something is broken.</h1>'
-        return hed + error_text
+def index():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM users;')
+    users = cur.fetchall()
+    cur.close()
+    conn.close()
+    return jsonify(users)
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8000)
