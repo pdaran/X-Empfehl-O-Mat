@@ -45,24 +45,45 @@ en:
   language: "Language"
   login: "Login"
   logout: "Logout"
-  dashboard: "Dashboard"
   email: "Email"
-  password: "Password"
-  password_confirmation: "Password confirmation"
-  remember_me: "Remember me"
-  forgot_password: "Forgot password?"
   sign_up: "Sign up"
-  create_account: "Create User"
+
+  password: 
+    edit: "Edit Password"
+    forgot: "Forgot Password?"
+    confirmation: "Password confirmation"
+
+  session:
+    new: "Login"
+    remember_me: "Remember me"
+    notice_create: "You have successfully logged in."
+    delete: "Logout"
+    notice_delete: "You have successfully logged out."
+    false_login: "Please check your email or password again"
+    error: "Something went wrong."
+    error_nologin: "Please login."
+    back: "Back"
+  
+  account: 
+    sign_up: "Sign up"
+    create: "Create Account"
+    notice_create: "Account was successfully created."
+    edit: "Edit Account"
+    update: "Update Account"
+    notice_update: "Account was successfully updated."
+    error: "Something went wrong."
+    back: "Back"
+    notice_delete: "Account was successfully deleted."
+    error: "Something went wrong."
 
   # navbar
   navbar:
-    title: "X-Empfehl-O-Mat"
+    title: "Spill the Tea"
+    dashboard: "Dashboard"
   about: "About"
   home: "Home"
 
   edit_password: "Edit Password"
-  user:
-    new: "Create User"
 
   # Category
   categories: "Categories"
@@ -105,6 +126,8 @@ en:
     image: "Image"
     status: "Status"
     email: "Email"
+    email_confirmation: "Email confirmation"
+    email_placeholder: "your.email@test.com"
     password: "Password"
     password_confirmation: "Password confirmation"
     submit: "Submit"

@@ -8,7 +8,7 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_path, notice: 'Successfully created account'
+      redirect_to root_path, notice: t('account.notice_create')
     else
       render :new, status: 422
     end

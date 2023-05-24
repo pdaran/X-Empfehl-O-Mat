@@ -10,7 +10,9 @@
               <a href="<%= category_path(category) %>" class="text-gray-800 hover:underline">
                 <%= category.title %>
                 <% if category.status == 'active' %>
-                  <span class="blinking"></span>
+                  <span class="blinking active"></span>
+                <% elsif category.status == 'deactivated' %>
+                  <span class="blinking deactivated"></span>
                 <% end %>
               </a>
               <div class="w-full flex justify-center">
@@ -22,10 +24,6 @@
                   <%= image_tag 'placeholder.jpeg', class: "object-cover mx-auto my-auto rounded-md w-56 h-56 md:w-56 md:h-56" %>
                 <% end %>
               </div>
-
-              <% if category.status == 'deactivated' %>
-                <span class="bg-gray-300 text-gray-700 px-4 rounded-md"><%= t('deactivated') %></span>
-              <% end %>
               <!-- Additional product details -->
             </div>
           <% end %>

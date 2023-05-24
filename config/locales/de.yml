@@ -12,26 +12,46 @@ de:
   de: "Deutsch"
   germany: "Deutschland"
   language: "Sprache"
+  #deprecated, check if still used
   login: "Anmelden"
   logout: "Abmelden"
-  dashboard: "Dashboard"
   email: "Email"
-  password: "Passwort"
-  password_confirmation: "Passwort bestaetigen"
-  remember_me: "Eingeloggt bleiben"
-  forgot_password: "Passwort vergessen?"
-  sign_up: "Registrieren"
-  create_account: "Benutzer erstellen"
+
+  password:
+    edit: "Passwort ändern"
+    forgot: "Passwort vergessen?"
+    confirmation: "Passwort bestätigen"
+
+  session:
+    new: "Anmelden"
+    remember_me: "Eingeloggt bleiben"
+    notice_create: "Sie haben sich erfolgreich angemeldet."
+    delete: "Abmelden"
+    notice_delete: "Sie haben sich erfolgreich abgemeldet."
+    false_login: "Bitte überprüfen Sie Ihre Email bzw. Passwort erneut."
+    error: "Etwas ist schief gelaufen."
+    error_nologin: "Bitte melden Sie sich an."
+    back: "Zurück"
+
+  account: 
+    sign_up: "Registrieren"
+    create: "Account erstellen"
+    notice_create: "Account wurde erfolgreich erstellt."
+    edit: "Account bearbeiten"
+    edit_password: "Passwort ändern"
+    update: "Account aktualisieren"
+    notice_update: "Account wurde erfolgreich aktualisiert."
+    error: "Etwas ist schief gelaufen."
+    back: "Zurück"
+    notice_delete: "Account wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
 
   #navbar
   navbar:
-    title: "Spill the Tea"
+    title: "X-Empfehl-O-Mat"
+    dashboard: "Dashboard-DE"
   about: "Über uns"
   home: "Startseite"
-
-  edit_password: "Passwort ändern"
-  user:
-    new: "Benutzer erstellen"
 
   # Category
   categories: "Kategorien"
@@ -75,6 +95,8 @@ de:
     image: "Bild"
     status: "Status"
     email: "Email"
+    email_confirmation: "Email bestätigen"
+    email_placeholder: "dein.email@test.com"
     password: "Passwort"
     password_confirmation: "Passwort bestätigen"
     submit: "Absenden"

@@ -139,9 +139,17 @@ footer {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: green;
   animation: blink 2s infinite;
 }
+
+.blinking.active {
+  background-color: green;
+}
+
+.blinking.deactivated {
+  background-color: red;
+}
+
 li {
   list-style: none;
 }

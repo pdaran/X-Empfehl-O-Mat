@@ -22,7 +22,7 @@
       </div>
       <% if Current.user %>
         <div class="dashboard">
-          <%= link_to "Dashboard", controller: 'dashboards', action: 'index' %>
+          <%= link_to t('navbar.dashboard'), controller: 'dashboards', action: 'index' %>
         </div>
       <% end %>
       <div class="flex flex-wrap">

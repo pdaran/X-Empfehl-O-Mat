@@ -30,6 +30,6 @@ class ApplicationController < ActionController::Base
     return unless Current.user.nil?
 
     redirect_to sign_in_path,
-                alert: 'Du musst angemeldet sein, um diese Funktion nutzen zu können!'
+                alert: t('session.nologin')
   end
 end
