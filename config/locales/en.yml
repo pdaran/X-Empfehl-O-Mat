@@ -103,6 +103,14 @@ en:
   active: "Active"
   deactivated: "Deactivated"
 
+  # Dashboard
+  homepage: "Homepage"
+  recommendation: "recommendation"
+  menu: "Menu"
+  recommendation_product: "Recommendation's Product Chart"
+
+
+
   # Product
   products: "Products"
   product:
@@ -118,7 +126,6 @@ en:
   public: "Public"
   private: "Private"
   archived: "Archived"
-
   form_labels:
     title: "Title"
     product: "Product"

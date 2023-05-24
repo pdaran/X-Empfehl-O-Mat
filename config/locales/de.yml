@@ -87,6 +87,13 @@ de:
   private: "Privat"
   archived: "Archiviert"
 
+  #dashboard
+  dashboard:
+    homepage: "Hauptseite"
+    menu: "Menü"
+    recommendation: "Bewertung"
+    recommendation_product: "Produktübersicht der Empfehlung"
+
   # Form Labels
   form_labels:
     title: "Titel"
