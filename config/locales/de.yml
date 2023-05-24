@@ -17,6 +17,8 @@ de:
   logout: "Abmelden"
   email: "Email"
 
+  product_search_box_label: "Suche nach Produkten"
+  
   password:
     edit: "Passwort ändern"
     forgot: "Passwort vergessen?"

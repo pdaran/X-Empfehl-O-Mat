@@ -23,6 +23,14 @@
       <%= form.label :password_confirmation, t('form_labels.password_confirmation') %>
       <%= form.password_field :password_confirmation, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
     </div>
+    <div class="mb-3 flex flex-col">
+      <%= form.label :admin %>
+      <%= form.check_box :admin, class: "form-control mt-2 rounded"%>
+    </div>
+    <div class="mb-3 flex flex-col">
+      <%= form.label :shop %>
+      <%= form.check_box :shop, class: "form-control mt-2 rounded"%>
+    </div>
     <div class="mb-3">
       <%= form.submit t('account.create'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
     </div>

@@ -46,7 +46,8 @@ en:
   login: "Login"
   logout: "Logout"
   email: "Email"
-  sign_up: "Sign up"
+
+  product_search_box_label: "Search for Products"
 
   password: 
     edit: "Edit Password"
