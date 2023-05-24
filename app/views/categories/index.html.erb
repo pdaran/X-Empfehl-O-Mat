@@ -16,7 +16,16 @@
                 <% end %>
               </a>
               <div class="w-full flex justify-center">
-                <% if category.image.attached? %>
+                <% if category.image.attached? && category.status == 'active'%>
+                  <a href="<%= category_path(category) %>" class="w-full md:w-56 h-auto">
+                    <%= image_tag category.image, class: "object-cover mx-auto my-auto rounded-md w-56 h-56" %>
+                  </a>
+                <% elsif category.status == 'deactivated'%>
+                  <a href="<%= category_path(category) %>" class="w-full md:w-56 h-auto">
+                    <%= image_tag category.image, class: "object-cover mx-auto my-auto rounded-md w-56 h-56 deactivated-image" %>
+                    <span class="bg-gray-300 text-gray-700 px-4 rounded-md  "><%= t('deactivated') %></span>
+                  </a>
+                <%elsif%>
                   <a href="<%= category_path(category) %>" class="w-full md:w-56 h-auto">
                     <%= image_tag category.image, class: "object-cover mx-auto my-auto rounded-md w-56 h-56" %>
                   </a>
