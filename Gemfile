@@ -47,6 +47,8 @@ gem 'bootsnap', require: false
 
 # Css Library
 gem 'tailwindcss-rails', '~> 2.0.20'
+# Chartkick
+gem 'chartkick'
 
 gem 'foreman'
 
