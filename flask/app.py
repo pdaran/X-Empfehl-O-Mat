@@ -38,7 +38,6 @@ def get_recommendation():
     product = cur.fetchall()
     cur.close()
     conn.close()
-    print(product)
     return jsonify(product)
 
 if __name__ == '__main__':
