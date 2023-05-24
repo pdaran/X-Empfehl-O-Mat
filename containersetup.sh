@@ -3,11 +3,10 @@ set -e
 
 rm -f tmp/pids/server.pid
 bundle install
-if [ -f ./db/development.sqlite3 ]; then
-  echo "DB exists, run migrations"
-  bundle exec rails db:migrate
-else
-  echo "DB does not exist, load schema"
-  bundle exec rails db:schema:load
-fi
+
+# If the database exists, migrate. Otherwise setup (create and migrate)
+echo "Running database migrations..."
+bundle exec rails db:migrate 2>/dev/null || bundle exec rails db:create db:migrate
+echo "Finished running database migrations."
+
 bundle exec foreman start -f Procfile.dev

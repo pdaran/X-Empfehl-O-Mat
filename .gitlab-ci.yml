@@ -26,8 +26,16 @@ build:
       --cache=true
       --destination $CI_REGISTRY_IMAGE:ci-$CI_COMMIT_SHA
 
+variables:
+  POSTGRES_USER: "$POSTGRES_USER"
+  POSTGRES_PASSWORD: "$POSTGRES_PASSWORD"
+
+
 test:
   stage: test
+  services:
+    - name: postgres:latest
+      alias: empfehl-db
   needs:
     - build
   image: $CI_REGISTRY_IMAGE:ci-$CI_COMMIT_SHA

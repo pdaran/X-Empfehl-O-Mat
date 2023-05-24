@@ -41,8 +41,8 @@
 # Ignore Mac DS_Store files
 .DS_Store
 
-/.idea/*
-/.idea
+# Ignore Intelij folder
+.idea
 
 # Ignore docker-compose.yml as it should link symbolically to specific files
 docker-compose.yml

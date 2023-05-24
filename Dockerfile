@@ -7,7 +7,7 @@ WORKDIR /app
 
 # add statically required base components
 RUN apk --no-cache add \
-  bash make gcc musl-dev sqlite-dev tzdata patch nodejs gcompat git
+  libpq postgresql-dev bash make gcc musl-dev sqlite-dev tzdata patch nodejs gcompat git
 
 # copy initial application dependencies
 ADD Gemfile Gemfile.lock /app/

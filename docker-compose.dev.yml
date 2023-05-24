@@ -4,6 +4,7 @@ services:
   web:
     build: .
     image: 'x-empfehl-o-mat:latest'
+    container_name: empfehl-web
     command: sh containersetup.sh
     volumes:
       - .:/app/
@@ -12,3 +13,32 @@ services:
     env_file:
       - .env.docker
     tty: true
+    depends_on:
+      - db
+
+  flask:
+    build:
+      context: flask
+      # target: builder
+    stop_signal: SIGINT
+    volumes:
+      - ./flask:/flask/
+    env_file:
+      - .env.docker
+    container_name: empfehl-flask
+    ports:
+      - "8001:8000"
+
+
+  db:
+    image: postgres:latest
+    container_name: empfehl-db
+    env_file:
+      - .env.docker
+    ports:
+      - "5432:5432"
+    volumes:
+      - "postgres_data:/var/lib/postgresql/data"
+
+volumes:
+  postgres_data:
