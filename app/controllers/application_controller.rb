@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include Pundit::Authorization
+
   around_action :switch_locale
   before_action :set_current_user
+  before_action :turbo_frame_request_variant
 
   # fixes category_path and similar functions and forms not adding the locale subdir
   def default_url_options
@@ -14,7 +17,19 @@ class ApplicationController < ActionController::Base
     I18n.with_locale(locale, &)
   end
 
+  def pundit_user
+    Current.user
+  end
+
   private
+
+  def set_locale
+    params[:locale] || I18n.default_locale
+  end
+
+  def turbo_frame_request_variant
+    request.variant = :turbo_frame if turbo_frame_request?
+  end
 
   def set_current_user
     return unless session[:user_id]
@@ -27,5 +42,19 @@ class ApplicationController < ActionController::Base
 
     redirect_to sign_in_path,
                 alert: 'Du musst angemeldet sein, um diese Funktion nutzen zu können!'
+  end
+
+  def require_user_shop!
+    return if Current.user.shop?
+
+    redirect_to sign_in_path,
+                alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
+  end
+
+  def require_user_admin!
+    return if Current.user.admin?
+
+    redirect_to sign_in_path,
+                alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
   end
 end

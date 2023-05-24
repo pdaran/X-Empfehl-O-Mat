@@ -1,20 +1,15 @@
 <div class="flex items-center justify-center flex-col min-h-screen">
   <%= render "recommender/title", subtitle: t('choose_articles') %>
 
+  <%= form_with(method: :get, data: { controller: "form-submission", turbo_frame: "products", turbo_action: "advance" }) do |form| %>
+    <div class="flex space-x-3">
+      <%= form.label :query, t('product_search_box_label'), class: "block mb-2" %>
+      <%= form.text_field :query, data: { action: "input->form-submission#search" }, class: "flex flex-col p-4 rounded-xl shadow-xl w-96 md:w-auto" %>
+    </div>
+  <% end %>
+
   <%= form_with do |form| %>
-  <div class="flex flex-col md:flex-row space-x-0 md:space-x-8 space-y-12 md:space-y-0 mb-4 justify-center items-center">
-    <% @category.products.each do |product| %>
-      <div class="flex flex-col p-8 rounded-xl bg-white shadow-xl w-96 md:w-auto">
-        <%= render "recommender/article", product: product %>
-        <div class="flex items-center mb-4">
-          <label>
-            <%= check_box_tag "product_ids[]", product.id %>
-            <%= t('like_sign') %>
-          </label>
-        </div>
-      </div>
-    <% end %>
-  </div>
+    <%= render "products", players: @products %>
 
     <div class="flex flex-col p-8 rounded-xl bg-blue-400 shadow-xl w-96 md:w-auto">
       <%= form.submit "Submit" %>
