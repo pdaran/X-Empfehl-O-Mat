@@ -4,7 +4,7 @@ default: &default
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  host: x-empfehl-o-mat-db
+  host: empfehl-db
   port: 5432
   prepared_statements: false
   advisory_locks: false
