@@ -42,11 +42,11 @@ Container beenden:
 
 Datenbank volume entfernen:
 
-` docker volume rm x-empfehl-o-mat_postgres_data`
+`docker volume rm x-empfehl-o-mat_postgres_data`
 
 Danach wieder alle Container starten:
 
-`docker compose up --build -d db`
+`docker compose up --build -d`
 
 ## GitLab: Getting started
 
