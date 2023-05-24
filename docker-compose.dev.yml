@@ -21,6 +21,8 @@ services:
       context: flask
       # target: builder
     stop_signal: SIGINT
+    env_file:
+      - .env.docker
     container_name: empfehl-flask
     ports:
       - "8001:8000"
