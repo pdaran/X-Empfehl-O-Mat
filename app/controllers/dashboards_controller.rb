@@ -5,5 +5,5 @@ class DashboardsController < ApplicationController
 
   def index
     @default_value = 80
-   end
+  end
 end

@@ -3,13 +3,14 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/e464ad1dd2.js" crossorigin="anonymous"></script>
+  <%= javascript_include_tag "hamburger" %>
 </head>
 
 <body>
   <div class="w-full relative">
     <nav class="flex bg-gray-200 justify-between p-5 flex-wrap">
       <div>
-        <a href="<%= root_path %>"><%= t('navbar.title') %></a>
+        <a href="<%= root_path %>" class="text-3xl font-bold text-gray-800 hover:text-amber-700 transition-colors duration-300"><%= t('navbar.title') %></a>
       </div>
       <ul class="nav-menu">
         <li class="nav-item">
@@ -71,17 +72,4 @@
       </div>
     </nav>
   </div>
-   <script>
-       document.addEventListener('turbo:load', function() {
-       const hamburger = document.querySelector(".hamburger");
-       const navMenu = document.querySelector(".nav-menu");
-
-        function mobileMenu() {
-        hamburger.classList.toggle("active");
-        navMenu.classList.toggle("active");
-        }
-
-         hamburger.addEventListener("click", mobileMenu);
-       });
-       </script>
 </body>

@@ -8,7 +8,7 @@
           <% next if category.deactivated? %>
           <div class="rounded-md items-center p-2 w-md md:w-1/3 text-center m-4 flex flex-col justify-center transition-transform duration-300 ease-in-out hover:scale-105">
             <% if category.image.attached? %>
-              <a href="./recommender/<%= category.id %>" class="text-gray-800 hover:underline">       
+              <a href="./recommender/<%= category.id %>" class="text-gray-800 hover:underline">
                <%= category.title %>
               </a>
             <% else %>
@@ -20,6 +20,12 @@
               <div class="w-full md:w-56 md:h-56 h-auto">
                 <a href="./recommender/<%= category.id %>">
                   <%= image_tag category.image, class: "object-cover mx-auto my-auto gap-6 rounded-md w-56 h-56" %>
+                </a>
+              </div>
+            <% else %>
+              <div class="w-full md:w-56 md:h-56 h-auto">
+                <a href="./recommender/<%= category.id %>">
+                  <%= image_tag 'placeholder.jpeg', class: "object-cover mx-auto my-auto gap-6 rounded-md w-56 h-56" %>
                 </a>
               </div>
             <% end %>
