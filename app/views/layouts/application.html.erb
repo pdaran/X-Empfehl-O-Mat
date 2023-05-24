@@ -11,7 +11,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col overflow-x-hidden">
     <main class="flex-grow">
 
       <%= render "shared/nav" %>
@@ -31,6 +31,6 @@
       <%= yield %>
     </main>
       <%= render "shared/footer" %>
-      <%= javascript_include_tag "file_preview" %>
+      <%= javascript_include_tag "file_preview" %>  
   </body>
 </html>
