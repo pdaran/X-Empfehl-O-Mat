@@ -17,7 +17,11 @@ def get_db_connection():
     return conn
 
 @app.route('/')
-def index():
+def hello_world():
+    return '<h1> HELLO WORLD </h1>'
+
+@app.route('/users')
+def get_users():
     conn = get_db_connection()
     cur = conn.cursor()
     cur.execute('SELECT * FROM users;')
@@ -25,6 +29,17 @@ def index():
     cur.close()
     conn.close()
     return jsonify(users)
+
+@app.route('/recommend')
+def get_recommendation():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute('SELECT * FROM products ORDER BY RANDOM() LIMIT 5;')
+    product = cur.fetchall()
+    cur.close()
+    conn.close()
+    print(product)
+    return jsonify(product)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
