@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t('privacy') %></title>
+</head>
+<body>
+  <div class="container mx-auto py-8">
+  <h1 class="text-3xl font-bold mb-6"><%= t('privacy_policy') %></h1>
+
+  <div class="bg-white shadow-md rounded-lg p-6">
+    <p class="mb-4"><span class="font-bold">1. <%= t('privacy') %></span><br>
+      <%= t('privacy_content') %>
+    </p>
+
+# missing translations
+    <p class="mb-4"><span class="font-bold">2. <%= t('data_usage') %></span><br>
+      Bei jedem Zugriff auf unsere Website werden automatisch Informationen von Ihrem Browser an unseren Server übermittelt und in Logdateien gespeichert. Diese Informationen umfassen:
+    </p>
+    <ul class="list-disc pl-8 mb-4">
+      <li>IP-Adresse des zugreifenden Rechners</li>
+      <li>Datum und Uhrzeit des Zugriffs</li>
+      <li>Name und URL der abgerufenen Datei</li>
+      <li>Übertragene Datenmenge</li>
+      <li>Meldung über erfolgreichen Abruf</li>
+      <li>Browsertyp und -version</li>
+      <li>Betriebssystem des zugreifenden Rechners</li>
+      <li>Referrer URL (die zuvor besuchte Seite)</li>
+      <li>Websites, die vom zugreifenden System über unsere Website aufgerufen werden</li>
+    </ul>
+    <p class="mb-4">Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und dienen ausschließlich der Gewährleistung eines reibungslosen Betriebs unserer Website sowie der Verbesserung unseres Angebots.</p>
+
+    <p class="mb-4"><span class="font-bold">3. <%= t('cookies') %></span><br>
+      <%= t('cookies_content') %>
+
+    </p>
+
+    <p class="mb-4"><span class="font-bold">4. <%= t('data_security') %></span><br>
+      <%= t('data_security_content') %>
+    </p>
+
+    <p class="mb-4"><span class="font-bold">5. <%= t('your_rights') %></span><br>
+      <%= t('your_rights_content') %>
+    </p>
+
+    <p class="mb-0"><%= t('privacy_disclaimer') %></p>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,58 +1,75 @@
-<head class="flex h-auto z-1 max-w-max w-full">
-  <title>Spill the Tee - Kategorien</title>
+<head>
+  <title><%= t('navbar.title') %></title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/e464ad1dd2.js" crossorigin="anonymous"></script>
+  <%= javascript_include_tag "hamburger" %>
 </head>
+
 <body>
   <div class="w-full relative">
     <nav class="flex bg-gray-200 justify-between p-5 flex-wrap">
       <div>
-        <a href="<%= root_path %>">Spill the Tea</a>
+        <a href="<%= root_path %>" class="text-3xl font-bold text-gray-800 hover:text-amber-700 transition-colors duration-300"><%= t('navbar.title') %></a>
       </div>
-      <div class="profile flex gap-5 flex-row">
-        <%= button_to "", sign_up_path, method: :get, class: "fa-regular fa-user py-3 flex z-1 max-w-max" %>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <%= button_to "", sign_up_path, method: :get, class: "fa-regular fa-user py-3 flex z-1 max-w-max" %>
+        </li>
         <% if Current.user %>
-          <%= link_to Current.user.email, edit_password_path, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %>
-
-          <%= button_to "Logout", logout_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-          <% if Current.user.admin? %>
-            <%= button_to "Add User", sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-          <% end %>
+          <li class="nav-item">
+            <%= link_to Current.user.email, edit_password_path, class: "underline visited:text-purple-600 text-blue-600 hover:text-blue-800 py-2 px-4" %>
+          </li>
+          <li class="nav-item">
+            <%= button_to t('logout'), logout_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          </li>
         <% else %>
-          <%= button_to "Login", sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        <li class="nav-item">
+          <%= button_to t('sign_up'), sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </li>
+        <li class="nav-item">
+          <%= button_to t('login'), sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        </li>
         <% end %>
+        <% if Current.user %>
+          <li class="nav-item">
+            <%= link_to "Dashboard", controller: 'dashboards', action: 'index', class:"inline-block bg-gray-300 text-black hover:bg-gray-400 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          </li>
+        <% end %>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
-    <div class=" flex flex-wrap">
-      <div class="flex flex-row gap-2 mr-5">
-      <% I18n.available_locales.each do |l| %>
-         <a class="flex flex-row" href="<%= url_for(locale: l) %>">
-          <% if l == :en %>
-           <%= image_tag("united-kingdom.png", width: '40px')%>
-          <% elsif l == :de %>
-         <%= image_tag("germany.png", width: '40px')%>
-        <% end %>
-        </a>
-      <% end %>
-    </div>
-    <% if Current.user %>
-        <div class="dashboard">
-          <%= link_to "Dashboard", controller: 'dashboards', action: 'index' %>
+      <div class="flex flex-wrap">
+        <div class="relative">
+          <div class="dropdown inline-block">
+            <button class="dropdown-toggle overflow-hidden flex items-center gap-2" type="button" id="flagDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <% if I18n.locale == :en %>
+                <%= image_tag("united-kingdom.png", width: '30px') %>
+              <% elsif I18n.locale == :de %>
+                <%= image_tag("germany.png", width: '30px') %>
+              <% end %>
+              <span class="text-sm font-medium uppercase">
+                <%= I18n.locale%>
+              </span>
+            </button>
+            <div class="dropdown-content flex bg-white rounded-md shadow-md h-0 w-0">
+              <% I18n.available_locales.each do |l| %>
+                <a class="dropdown-item flex items-center w-14 bg-gray-200" href="<%= url_for(locale: l) %>">
+                  <% if l == :en %>
+                    <%= image_tag("united-kingdom.png", width: '30px') %>
+                  <% elsif l == :de %>
+                    <%= image_tag("germany.png", width: '30px') %>
+                  <% end %>
+                  <span class="text-sm"></span>
+                </a>
+              <% end %>
+            </div>
+          </div>
         </div>
-      <% end %>
+      </div>
     </nav>
   </div>
 </body>
-
-<!--      <div class="">-->
-        <%# if Current.user %>
-          <%#= link_to Current.user.email, edit_password_path, class: "underline text-blue-600 hover:text-blue-800 visited:text-purple-600" %>
-
-    <%#= button_to "Logout", logout_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-    <%# else %>
-    <%#= button_to "Sign up", sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-    <%#= button_to "Login", sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-    <%# end %>
-    <!--      </div>-->
-  </nav>
-</div>

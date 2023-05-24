@@ -1,37 +1,39 @@
-  <%= form_with(model: @category, local: true) do |form| %>
-     <div class="field">
-    <%= form.label :title %><br>
-    <%= form.text_area :title, class: "form-control rounded" + (form.object.errors.has_key?(:title) ? " border-red-500" : "") %>
-    <% if form.object.errors.has_key?(:title) %>
-      <span class="text-red-500"><%= form.object.errors[:title].first %></span>
-    <% end %>
-  </div>
+  <div class=" items-center justify-center min-h-min ">
+    <div class="bg-gray-200 flex justify-center items-center max-w-max text-center container mx-auto py-10 rounded-md">
+      <%= form_with(model: @category, local: true) do |form| %>
+         <div class="field">
+      <%= form.label :title, t('form_labels.title') %><br>
+      <%= form.text_area :title, class: "form-control rounded" + (form.object.errors.has_key?(:title) ? " border-red-500" : "") %>
+         <% if form.object.errors.has_key?(:title) %>
+          <span class="text-red-500"><%= form.object.errors[:title].first %></span>
+         <% end %>
+        </div>
   
-  <div class="field">
-    <%= form.label :image %><br>
-    <%= form.file_field :image, class: "form-control rounded" + (form.object.errors.has_key?(:image) ? " border-red-500" : "") %>
-    <% if form.object.errors.has_key?(:image) %>
-      <span class="text-red-500"><%= form.object.errors[:image].first %></span>
-    <% end %>
-  </div>
+  <div class="field pb-4 text-hidden">
+    <%= form.label :image, t('form_labels.image'), class: "pb-6" %><br><br>
+    <%= form.file_field :image, class: "form-control rounded"+ (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)" %>    
+  <div id="file-preview"></div>
   
-  <div class="field">
-    <%= form.label :status %><br>
-    <% if @category.new_record? %>
-      <%= form.select :status, ['active', 'deactivated'], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
-    <% else %>
-      <%= form.select :status, ['active', 'deactivated'], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
-    <% end %>
-    <% if form.object.errors.has_key?(:status) %>
-      <span class="text-red-500"><%= form.object.errors[:status].first %></span>
-    <% end %>
-  </div>
+<div class="field">
+  <%= form.label :status, t('form_labels.status') %><br>
+  <% if @category.new_record? %>
+    <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+  <% else %>
+    <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+  <% end %>
+  <% if form.object.errors.has_key?(:status) %>
+    <span class="text-red-500"><%= form.object.errors[:status].first %></span>
+  <% end %>
+</div>
+
   
 <div class="pt-5">
   <% if @category.new_record? %>
-    <%= form.submit "Create Category", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+    <%= form.submit t('category.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
   <% else %>
-    <%= form.submit "Update Category", class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+    <%= form.submit t('category.update'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
   <% end %>
 </div>
 <% end %>
+</div>
+</div>

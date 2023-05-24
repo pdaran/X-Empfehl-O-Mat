@@ -7,9 +7,9 @@ class ProductsController < ApplicationController
     attach_image if image_present?
 
     if save_product
-      redirect_to category_path(@category)
+      redirect_to category_path(@category), status: :see_other, notice: t('product.notice_create')
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, alert: t('product.error')
     end
   end
 
@@ -30,12 +30,12 @@ class ProductsController < ApplicationController
 
     if @product.update(product_params)
 
-      redirect_to category_path(@category), status: :see_other, notice: 'Product was successfully updated.'
+      redirect_to category_path(@category), status: :see_other, notice: t('product.notice_update')
 
     else
 
       render :edit, status: :unprocessable_entity,
-                    alert: 'Failed to update the category.'
+                    alert: t('product.error')
 
     end
   end
@@ -48,9 +48,9 @@ class ProductsController < ApplicationController
     @product.image.purge
 
     if @product.destroy
-      redirect_to category_path(@category), status: :see_other, notice: 'Product was successfully deleted.'
+      redirect_to category_path(@category), status: :see_other, notice: t('product.notice_delete')
     else
-      redirect_to category_path(@category), status: :see_other, alert: 'Failed to delete the product.'
+      redirect_to category_path(@category), status: :see_other, alert: t('product.error')
     end
   end
 

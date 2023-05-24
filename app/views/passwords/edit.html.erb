@@ -1,5 +1,5 @@
 <div class="container p-10 ">
-  <h1 class="text-4xl font-bold" > Edit Password </h1>
+  <h1 class="text-4xl font-bold" > <%= t('edit_password') %> </h1>
 
   <%= form_with model: Current.user,class:"pt-6", url: edit_password_path do |form| %>
     <% if form.object.errors.any? %>
@@ -12,15 +12,15 @@
 
 
     <div class="mb-3 flex flex-col">
-      <%= form.label :password %>
-      <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: "password" %>
+      <%= form.label :password, t('form_labels.password') %>
+      <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
     </div>
     <div class="mb-3 flex flex-col">
-      <%= form.label :password_confirmation %>
-      <%= form.password_field :password_confirmation, class: "form-control mt-2 rounded", placeholder: "password" %>
+      <%= form.label :password_confirmation, t('form_labels.password_confirmation') %>
+      <%= form.password_field :password_confirmation, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
     </div>
     <div class="mb-3">
-      <%= form .submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+      <%= form.submit t('user.new'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
     </div>
   <% end %>
 </div>

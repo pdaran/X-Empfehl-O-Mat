@@ -41,5 +41,138 @@ en:
   recommendations: "Recommendations:"
   en: "English"
   de: "German"
+  germany: "Germany"
   language: "Language"
+  login: "Login"
+  logout: "Logout"
+  email: "Email"
+
   product_search_box_label: "Search for Products"
+
+  password: 
+    edit: "Edit Password"
+    forgot: "Forgot Password?"
+    confirmation: "Password confirmation"
+
+  session:
+    new: "Login"
+    remember_me: "Remember me"
+    notice_create: "You have successfully logged in."
+    delete: "Logout"
+    notice_delete: "You have successfully logged out."
+    false_login: "Please check your email or password again"
+    error: "Something went wrong."
+    error_nologin: "Please login."
+    back: "Back"
+  
+  account: 
+    sign_up: "Sign up"
+    create: "Create Account"
+    notice_create: "Account was successfully created."
+    edit: "Edit Account"
+    update: "Update Account"
+    notice_update: "Account was successfully updated."
+    error: "Something went wrong."
+    back: "Back"
+    notice_delete: "Account was successfully deleted."
+    error: "Something went wrong."
+
+  # navbar
+  navbar:
+    title: "Spill the Tea"
+    dashboard: "Dashboard"
+  about: "About"
+  home: "Home"
+
+  edit_password: "Edit Password"
+
+  # Category
+  categories: "Categories"
+  category:
+    new: "Add Category"
+    notice_create: "Category was successfully created."
+    edit: "Edit Category"
+    update: "Update Category"
+    notice_update: "Category was successfully updated."
+    delete: "Delete this category (and all its products)"
+    delete_confirm: "Are you sure you want to delete this category?"
+    notice_delete: "Category and associated products were successfully deleted."
+    error: "Something went wrong."
+    back: "Back"
+    notice_delete: "Category and associated products were successfully deleted."
+    error: "Something went wrong."
+  active: "Active"
+  deactivated: "Deactivated"
+
+  # Dashboard
+  homepage: "Homepage"
+  recommendation: "recommendation"
+  menu: "Menu"
+  recommendation_product: "Recommendation's Product Chart"
+
+
+
+  # Product
+  products: "Products"
+  product:
+    new: "Add Product"
+    notice_create: "Product was successfully created."
+    edit: "Edit Product"
+    update: "Update Product"
+    notice_update: "Product was successfully updated."
+    delete: "Delete this product"
+    delete_confirm: "Are you sure you want to delete this product?"
+    notice_delete: "Product was successfully deleted."
+    error: "Something went wrong."
+  public: "Public"
+  private: "Private"
+  archived: "Archived"
+  form_labels:
+    title: "Title"
+    product: "Product"
+    description: "Description"
+    image: "Image"
+    status: "Status"
+    email: "Email"
+    email_confirmation: "Email confirmation"
+    email_placeholder: "your.email@test.com"
+    password: "Password"
+    password_confirmation: "Password confirmation"
+    submit: "Submit"
+    delete_confirm: "Are you sure?"
+  file_upload:
+    choose_file: "Choose File"
+    no_file_chosen: "No File Chosen"
+
+  # Imprint page
+  impressum: "Imprint"
+  impressum_text: "Responsible for the content of this website in accordance with § 5 TMG: "
+  legal_form: "Form of organization: Interdisciplinary project at FH Aachen"
+
+  #privacy policy page
+  privacy_policy: "Privacy Policy"
+  privacy: "Privacy"
+  privacy_content: "The protection of your personal data is important to us. Below, we inform you about the collection and use of personal data when using our website."
+  data_usage: "Data Collection and Usage"
+  data_usage_content: "We collect personal data if you provide it to us voluntarily when you contact us (e.g. via contact form or email). Mandatory fields are marked as such, because in these cases we need the data to process your contact and you cannot send the contact without providing it. Which data is collected can be seen from the respective input forms. We use the data you provide to process your inquiries."
+  data_security: "Data Security"
+  data_security_content: "We have taken technical and administrative security precautions to protect your personal data against loss, destruction, manipulation and unauthorized access. All our employees and service providers working for us are obliged to comply with the applicable data protection laws. However, we recommend that you always pay attention to security and take appropriate protective measures when transmitting data over the internet."
+  cookies: "Cookies"
+  cookies_content: "Our website uses cookies to provide certain functions and enhance user-friendliness. Cookies are small text files that are stored on your device. They enable us to recognize your browser on your next visit. You can disable the storage of cookies in your browser settings; however, this may affect the functionality of our website."
+  your_rights: "Your Rights"
+  your_rights_content: "You have the right to obtain information about the data we have stored about you and, if necessary, request its correction, deletion, or blocking. If you have any questions or concerns about data privacy, you can contact us at any time."
+  privacy_disclaimer: "Bitte beachten Sie, dass dies eine studentische Projektwebsite ist und wir uns das Recht vorbehalten, diese Datenschutzerklärung entsprechend anzupassen und zu erweitern. Die aktuelle Version der Datenschutzerklärung ist immer auf der Website verfügbar."
+
+  #contact page
+  contact: "Contact"
+  contact_us: "If you have any questions or concerns, you can contact us as follows:"
+  contact_info: "Contact Information"
+  email_address: "Email : -"
+  telephone_number: "Telephone Number: - "
+  address: "Address"
+  # representative contact information
+  representative_query: "Authorized Person:"
+  representative: "Project manager: Mr. Plagge"
+  representative_email: "Email: info@plagge-it.com"
+  representative_phone: "Phone: 0241 6009 530 0"
+  we_look_forward: "We look forward to hearing from you!"

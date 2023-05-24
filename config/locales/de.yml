@@ -10,5 +10,140 @@ de:
   recommendations: "Empfehlungen:"
   en: "Englisch"
   de: "Deutsch"
+  germany: "Deutschland"
   language: "Sprache"
+  #deprecated, check if still used
+  login: "Anmelden"
+  logout: "Abmelden"
+  email: "Email"
+
   product_search_box_label: "Suche nach Produkten"
+  
+  password:
+    edit: "Passwort ändern"
+    forgot: "Passwort vergessen?"
+    confirmation: "Passwort bestätigen"
+
+  session:
+    new: "Anmelden"
+    remember_me: "Eingeloggt bleiben"
+    notice_create: "Sie haben sich erfolgreich angemeldet."
+    delete: "Abmelden"
+    notice_delete: "Sie haben sich erfolgreich abgemeldet."
+    false_login: "Bitte überprüfen Sie Ihre Email bzw. Passwort erneut."
+    error: "Etwas ist schief gelaufen."
+    error_nologin: "Bitte melden Sie sich an."
+    back: "Zurück"
+
+  account: 
+    sign_up: "Registrieren"
+    create: "Account erstellen"
+    notice_create: "Account wurde erfolgreich erstellt."
+    edit: "Account bearbeiten"
+    edit_password: "Passwort ändern"
+    update: "Account aktualisieren"
+    notice_update: "Account wurde erfolgreich aktualisiert."
+    error: "Etwas ist schief gelaufen."
+    back: "Zurück"
+    notice_delete: "Account wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
+
+  #navbar
+  navbar:
+    title: "X-Empfehl-O-Mat"
+    dashboard: "Dashboard-DE"
+  about: "Über uns"
+  home: "Startseite"
+
+  # Category
+  categories: "Kategorien"
+  category:
+    new: "Kategorie erstellen"
+    notice_create: "Kategorie wurde erfolgreich erstellt."
+    edit: "Kategorie bearbeiten"
+    update: "Kategorie aktualisieren"
+    notice_update: "Kategorie wurde erfolgreich aktualisiert."
+    delete: "Kategorie löschen"
+    delete_confirm: "Sind Sie sicher, dass Sie diese Kategorie löschen möchten?"
+    notice_delete: "Kategorie wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
+    back: "Zurück"
+    notice_delete: "Kategorie wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
+  active: "Aktiv"
+  deactivated: "Deaktiviert"
+  #product
+  products: "Produkten"
+  product:
+    add: "Produkt hinzufügen"
+    new: "Produkt erstellen"
+    notice_create: "Produkt wurde erfolgreich erstellt."
+    edit: "Produkt bearbeiten"
+    update: "Produkt aktualisieren"
+    notice_update: "Produkt wurde erfolgreich aktualisiert."
+    delete: "Produkt löschen"
+    delete_confirm: "Sind Sie sicher, dass Sie diese Produkt löschen möchten?"
+    notice_delete: "Produkt wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
+  public: "Öffentlich"
+  private: "Privat"
+  archived: "Archiviert"
+
+  #dashboard
+  dashboard:
+    homepage: "Hauptseite"
+    menu: "Menü"
+    recommendation: "Bewertung"
+    recommendation_product: "Produktübersicht der Empfehlung"
+
+  # Form Labels
+  form_labels:
+    title: "Titel"
+    product: "Produkt"
+    description: "Beschreibung"
+    image: "Bild"
+    status: "Status"
+    email: "Email"
+    email_confirmation: "Email bestätigen"
+    email_placeholder: "dein.email@test.com"
+    password: "Passwort"
+    password_confirmation: "Passwort bestätigen"
+    submit: "Absenden"
+    delete_confirm: "Sind Sie sicher?"
+  file_upload:
+    choose_file: "Datei auswählen"
+    no_file_chosen: "Keine Datei ausgewählt"
+
+  # Impressumseite
+  impressum: "Impressum"
+  impressum_text: "Verantwortlich für den Inhalt dieser Website gemäß § 5 TMG: "
+  legal_form: "Rechtsform: Interdisziplinäres Projekt an der FH Aachen"
+
+  # Datenschutzerklärungseite
+  privacy_policy: "Datenschutzerklärung"
+  privacy: "Datenschutz"
+  privacy_content: "Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie über die Erhebung und Verwendung personenbezogener Daten bei der Nutzung unserer Website. Personenbezogene Daten sind alle Daten, die auf Sie persönlich beziehbar sind, z. B. Name, Adresse, E-Mail-Adressen, Nutzerverhalten."
+  data_usage: "Datenerhebung und -verwendung"
+  data_usage_content: "Wir erheben personenbezogene Daten, wenn Sie uns diese im Rahmen Ihrer Kontaktaufnahme mit uns (z.B. per Kontaktformular oder E-Mail) freiwillig mitteilen. Pflichtfelder werden als solche gekennzeichnet, da wir in diesen Fällen die Daten zwingend zur Bearbeitung Ihrer Kontaktaufnahme benötigen und Sie ohne deren Angabe die Kontaktaufnahme nicht versenden können. Welche Daten erhoben werden, ist aus den jeweiligen Eingabeformularen ersichtlich. Wir verwenden die von ihnen mitgeteilten Daten zur Bearbeitung Ihrer Anfragen."
+  data_security: "Datensicherheit"
+  data_security_content: "Wir treffen technische und organisatorische Maßnahmen, um Ihre Daten gegen unbefugten Zugriff, Verlust oder Veränderung zu schützen. Wir empfehlen jedoch, dass Sie bei der Übermittlung von Daten über das Internet immer auf die Sicherheit achten und geeignete Schutzmaßnahmen ergreifen."
+  cookies: "Cookies"
+  cookies_content: "
+    Unsere Website verwendet Cookies, um bestimmte Funktionen bereitzustellen und die Benutzerfreundlichkeit zu verbessern. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen. Sie können das Speichern von Cookies in den Einstellungen Ihres Browsers deaktivieren, allerdings kann dies die Funktionalität unserer Website beeinträchtigen."
+  your_rights: "Ihre Rechte"
+  your_rights_content: "Sie haben das Recht, Auskunft über die von uns zu Ihrer Person gespeicherten Daten zu erhalten und ggf. deren Berichtigung, Löschung oder Sperrung zu verlangen. Bei Fragen oder Anliegen zum Datenschutz können Sie sich jederzeit an uns wenden."
+  privacy_disclaimer: "Please note that this is a student project website, and we reserve the right to adapt and expand this privacy policy accordingly."
+
+  # Kontaktseite
+  contact: "Kontakt"
+  contact_us: "Bei Fragen oder Anliegen können Sie uns wie folgt kontaktieren:"
+  contact_info: "Kontaktinformationen"
+  email_address: "Email : -"
+  telephone_number: "Telefonnummer: - "
+  address: "Anschrift"
+  # representative contact information
+  representative_query: "Vertretungsberechtigte Person:"
+  representative: "Projektleiter: Herr Plagge"
+  representative_email: "Email: info@plagge-it.com"
+  representative_phone: "Telefon: 0241 6009 530 0"
+  we_look_forward: "Wir freuen uns über Ihre Kontaktaufnahme!"

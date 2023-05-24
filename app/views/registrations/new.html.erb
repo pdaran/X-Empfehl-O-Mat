@@ -1,5 +1,5 @@
 <div class="container p-10 ">
-  <h1 class="text-4xl font-bold" > Add User </h1>
+  <h1 class="text-4xl font-bold" > <%= t('account.sign_up') %> </h1>
 
   <%= form_with model: @user,class:"pt-6", url: sign_up_path do |form| %>
     <% if form.object.errors.any? %>
@@ -12,16 +12,16 @@
 
 
     <div class="mb-3 mt-3 flex flex-col">
-      <%= form.label :email %>
-      <%= form.text_field :email, class: "form-control mt-2 rounded", placeholder: "your.email@test.com" %>
+      <%= form.label :email, t('form_labels.email') %>
+      <%= form.text_field :email, class: "form-control mt-2 rounded", placeholder: t('form_labels.email_placeholder') %>
     </div>
     <div class="mb-3 flex flex-col">
-      <%= form.label :password %>
-      <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: "password" %>
+      <%= form.label :password, t('form_labels.password') %>
+      <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
     </div>
     <div class="mb-3 flex flex-col">
-      <%= form.label :password_confirmation %>
-      <%= form.password_field :password_confirmation, class: "form-control mt-2 rounded", placeholder: "password" %>
+      <%= form.label :password_confirmation, t('form_labels.password_confirmation') %>
+      <%= form.password_field :password_confirmation, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
     </div>
     <div class="mb-3 flex flex-col">
       <%= form.label :admin %>
@@ -32,7 +32,7 @@
       <%= form.check_box :shop, class: "form-control mt-2 rounded"%>
     </div>
     <div class="mb-3">
-      <%= form .submit class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+      <%= form.submit t('account.create'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
     </div>
   <% end %>
 </div>

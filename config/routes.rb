@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     get 'homepage/index'
     root 'homepage#index'
 
+    get '/impressum', to: 'homepage#impressum', as: 'impressum'
+    get '/privacy', to: 'homepage#privacy', as: 'privacy'
+    get '/contact', to: 'homepage#contact', as: 'contact'
+
     get 'sign_up', to: 'registrations#new'
     post 'sign_up', to: 'registrations#create'
 
@@ -25,10 +29,6 @@ Rails.application.routes.draw do
     delete 'logout', to: 'sessions#destroy'
 
     get '/dashboards', to: 'dashboards#index'
-
-    resources :articles do
-      resources :comments
-    end
 
     resources :categories do
       resources :products
