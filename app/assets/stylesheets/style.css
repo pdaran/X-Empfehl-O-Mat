@@ -59,6 +59,7 @@ a {
   cursor: pointer;
   transition: color 0.3s;
   text-decoration: none;
+  margin-bottom: 0px;
 }
 
 .navbar-profile button:hover,
