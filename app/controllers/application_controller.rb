@@ -47,12 +47,12 @@ class ApplicationController < ActionController::Base
   def require_user_shop!
     return if Current.user.shop?
 
-    redirect_to sign_in_path,
+    redirect_to session[:user_id] && sign_in_path,
                 alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
   end
 
   def require_user_admin!
-    return if Current.user.admin?
+    return if session[:user_id] && Current.user.admin?
 
     redirect_to sign_in_path,
                 alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
