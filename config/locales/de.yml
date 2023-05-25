@@ -21,6 +21,7 @@ de:
   password:
     edit: "Passwort ändern"
     forgot: "Passwort vergessen?"
+    new: "Neues Passwort"
     confirmation: "Passwort bestätigen"
     edit_submit: "Neues Password speichern"
 

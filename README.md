@@ -48,6 +48,18 @@ Danach wieder alle Container starten:
 
 `docker compose up --build -d`
 
+### Initialen Admin Account auf der Rails console erstellen
+Shell im Container oeffnen
+```
+docker exec -it empfehl-web sh
+rails console
+```
+Dann in Rails einen User manuell erstellen
+```ruby
+user = User.new(email: "admin@test.local", password: "admin", admin: true)
+user.save
+```
+
 ## GitLab: Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.

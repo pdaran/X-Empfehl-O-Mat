@@ -51,6 +51,7 @@ en:
   password: 
     edit: "Edit Password"
     forgot: "Forgot Password?"
+    new: "New Password"
     confirmation: "Password confirmation"
     edit_submit: "Save new password"
 
@@ -83,8 +84,6 @@ en:
     dashboard: "Dashboard"
   about: "About"
   home: "Home"
-
-  edit_password: "Edit Password"
 
   # Category
   categories: "Categories"
