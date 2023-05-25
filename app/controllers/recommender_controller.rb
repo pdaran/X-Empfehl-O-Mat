@@ -9,7 +9,7 @@ class RecommenderController < ApplicationController
     @category = Category.find(params[:id])
 
     @products = if params[:query].present?
-                  @category.products.where(['product LIKE :query OR desc LIKE :query',
+                  @category.products.where(['"product" LIKE :query OR "desc" LIKE :query',
                                             { query: "%#{params[:query]}%" }])
                 else
                   @category.products.all

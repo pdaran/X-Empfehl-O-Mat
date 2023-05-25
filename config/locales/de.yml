@@ -3,7 +3,7 @@ de:
   appname: "X-Empfehl-O-Mat"
   admin_link_name: "Administrator"
   customer_link_name: "Kunde"
-  like_sign: "★"
+  like_sign: "👍"
   choose_articles: "Waehle Artikel"
   choose_a_category: "Waehle eine Kategorie"
   return_to_homepage: "Zurueck zur Startseite"
@@ -16,13 +16,13 @@ de:
   login: "Anmelden"
   logout: "Abmelden"
   email: "Email"
-
   product_search_box_label: "Suche nach Produkten"
   
   password:
     edit: "Passwort ändern"
     forgot: "Passwort vergessen?"
     confirmation: "Passwort bestätigen"
+    edit_submit: "Neues Password speichern"
 
   session:
     new: "Anmelden"

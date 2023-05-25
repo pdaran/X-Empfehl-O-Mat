@@ -46,13 +46,13 @@ en:
   login: "Login"
   logout: "Logout"
   email: "Email"
-
   product_search_box_label: "Search for Products"
 
   password: 
     edit: "Edit Password"
     forgot: "Forgot Password?"
     confirmation: "Password confirmation"
+    edit_submit: "Save new password"
 
   session:
     new: "Login"
@@ -79,7 +79,7 @@ en:
 
   # navbar
   navbar:
-    title: "Spill the Tea"
+    title: "X-Empfehl-O-Mat"
     dashboard: "Dashboard"
   about: "About"
   home: "Home"
