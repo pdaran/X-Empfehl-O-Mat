@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= javascript_include_tag "file_preview", defer: true , t: Time.now.to_i %>
 <title><%= t('appname') %></title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
@@ -11,7 +12,6 @@
 </head>
   <body class="min-h-screen flex flex-col overflow-x-hidden">
     <main class="flex-grow">
-      <%= javascript_include_tag "file_preview" %>
       <%= render "shared/nav" %>
         <%# ----- Display Flash Messages: ----- %>
         <% if notice %>

@@ -1,51 +1,52 @@
-  <div class=" items-center justify-center min-h-min mb-11 ">
-    <div class="bg-gray-200 flex justify-center items-center max-w-max text-center container mx-auto py-10 rounded-md">   
-      <%= form_with model: [@category, @product] do |form| %>
-        <div class="field">
-         <%= form.label :product, t('form_labels.product') %><br>
-          <%= form.text_field :product, class: "form-control rounded" + (form.object.errors.has_key?(:product) ? " border-red-500" : "") %>
-          <% if form.object.errors.has_key?(:product) %>
-      <span class="text-red-500"><%= form.object.errors[:product].first %></span>
+<div class="flex items-center justify-center min-h-min">
+  <%= javascript_include_tag "file_preview" %>
+  <div class="bg-gray-200 flex justify-center items-center max-w-max text-center container mx-auto py-10 rounded-md">
+    <%= form_with model: [@category, @product] do |form| %>
+      <div class="field">
+        <%= form.label :product, t('form_labels.product') %><br>
+        <%= form.text_field :product, class: "form-control rounded" + (form.object.errors.has_key?(:product) ? " border-red-500" : "") %>
+        <% if form.object.errors.has_key?(:product) %>
+          <span class="text-red-500"><%= form.object.errors[:product].first %></span>
+        <% end %>
+      </div>
+      
+      <div class="field">
+        <%= form.label :desc, t('form_labels.description') %><br>
+        <%= form.text_area :desc, class: "form-control rounded" + (form.object.errors.has_key?(:desc) ? " border-red-500" : "") %>
+        <% if form.object.errors.has_key?(:desc) %>
+          <span class="text-red-500"><%= form.object.errors[:desc].first %></span>
+        <% end %>
+      </div>
+      
+      <div class="field">
+        <%= form.label :image, t('form_labels.image') %><br>
+        <%= form.file_field :image, class: "form-control rounded text-md min-w-min px-4" + (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)" %>
+          <div class="object-cover mx-auto my-auto rounded-md flex justify-center items-center py-4" id="file-preview">
+          </div> 
+        
+        <div class="pt-4">
+          <% if @product.image.attached? %>
+            <%= form.object.image.filename %>
+            <%= image_tag @product.image, class: "object-cover mx-auto my-auto rounded-md" %>
+          <% end %>
+        </div>
+
+        <% if form.object.errors.has_key?(:image) %>
+          <span class="text-red-500"><%= form.object.errors[:image].first %></span>
+        <% end %>
+      </div>
+      
+      <div class="field">
+        <%= form.label :status, t('form_labels.status') %><br>
+        <%= form.select :status, [[t('public'), 'public'], [t('private'), 'private'], [t('archived'), 'archived']], selected: 'public', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+        <% if form.object.errors.has_key?(:status) %>
+          <span class="text-red-500"><%= form.object.errors[:status].first %></span>
+        <% end %>
+      </div>
+      
+      <div class="pt-5">
+        <%= form.submit product.new_record? ? t('product.new') : t('product.update'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
     <% end %>
   </div>
-  
-  <div class="field">
-    <%= form.label :desc, t('form_labels.description') %><br>
-    <%= form.text_area :desc, class: "form-control rounded" + (form.object.errors.has_key?(:desc) ? " border-red-500" : "") %>
-    <% if form.object.errors.has_key?(:desc) %>
-      <span class="text-red-500"><%= form.object.errors[:desc].first %></span>
-    <% end %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :image, t('form_labels.image') %><br>
-    <%= form.file_field :image, class: "form-control rounded text-md min-w-min px-4" + (form.object.errors.has_key?(:image) ? " border-red-500" : "") %>
-    <div class="pt-4">
-    <% if @product.image.attached? %>
-      <%= form.object.image.filename %>
-      <%= image_tag @product.image , class:"object-cover mx-auto my-auto rounded-md w-40 h-40" %>
-    <% end %>
-  </div>
-    <% if form.object.errors.has_key?(:image) %>
-      <span class="text-red-500"><%= form.object.errors[:image].first %></span>
-    <% end %>
-  </div>
-  
-  <div class="field">
-    <%= form.label :status, t('form_labels.status') %><br>
-    <%= form.select :status, [[t('public'), 'public'], [t('private'), 'private'], [t('archived'), 'archived']], selected: 'public', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
-    <% if form.object.errors.has_key?(:status) %>
-      <span class="text-red-500"><%= form.object.errors[:status].first %></span>
-    <% end %>
-  </div>
-  
-  <div class="pt-5">
-    <% if product.new_record? %>
-      <%= form.submit t('product.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-    <% else %>
-      <%= form.submit t('product.update'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-    <% end %>
-  </div>
-<% end %>
-</div>
 </div>

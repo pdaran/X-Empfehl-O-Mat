@@ -1,22 +1,22 @@
 <% unless product.archived? %>
   <div class="bg-gray-200 flex flex-col rounded-md p-4 m-4 md:w-80 w-full h-full justify-center items-center overflow-hidden -z-1">
-    <p class="text-center">
+    <p>
       <strong><%= t('form_labels.product') %>:</strong>
       <%= product.product %>
     </p>
     <div class="w-full flex justify-center">
       <% if product.image.attached? %>
-        <%= image_tag product.image, class: "object-cover mx-auto my-auto rounded-md w-56 h-56" %>
+        <%= image_tag product.image.variant(:large), class: "mx-auto my-auto rounded-md" %>
       <% else %>
         <%= image_tag 'placeholder.jpeg', class: "object-cover w-54 h-54 mx-auto rounded-md" %>
       <% end %>
       <!-- Additional product details -->
     </div>
 
-    <p class="text-center">
+    <p>
       <strong><%= t('form_labels.description')%>:</strong>
-      <%= content_tag :div, product.desc, class: "text-center flex-col max-w-" %>
     </p>
+    <%= content_tag :div, product.desc, class: "text-center" %>
 
     <% if controller.controller_name == "recommender" && controller.action_name == "articles" %>
       <div class="flex items-center mb-4">
@@ -28,15 +28,17 @@
     <% end %>
 
     <% unless Current.user.nil? %>
-      <p class="text-center">
-        <%= link_to t('product.delete'), [product.category, product], class: "pt-4 text-red-500 hover:text-red-700", data: {
-                      turbo_method: :delete,
-                      turbo_confirm: t('product.delete_confirm')
-                    } %>
-      </p>
-      <p>
-        <%= link_to t('product.edit'), edit_category_product_path(product.category, product), class: "text-blue-600 hover:text-blue-700" %>
-      </p>
+      <div class="flex mt-4 p-2 items-center justify-center align">
+        <button class="text-red-500 hover:text-red-700">
+          <%= link_to t('product.delete'), [product.category, product], data: {
+                        turbo_method: :delete,
+                        turbo_confirm: t('product.delete_confirm')
+                      } %>
+        </button>
+        <button class="text-blue-600 hover:text-blue-700 mx-3">
+          <%= link_to t('product.edit'), edit_category_product_path(product.category, product) %>
+        </button>
+      </div>
     <% end %>
   </div>
 <% end %>

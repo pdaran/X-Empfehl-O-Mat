@@ -1,4 +1,5 @@
   <div class=" items-center justify-center min-h-min ">
+    <%= javascript_include_tag "file_preview", t: Time.now.to_i %>
     <div class="bg-gray-200 flex justify-center items-center max-w-max text-center container mx-auto py-10 rounded-md">
       <%= form_with(model: @category, local: true) do |form| %>
          <div class="field">
@@ -12,7 +13,20 @@
   <div class="field pb-4 text-hidden">
   <%= form.label :image, t('form_labels.image'), class: "pb-6" %><br><br>
     <%= form.file_field :image, class: "form-control rounded"+ (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)" %>    
-  <div id="file-preview"></div>
+    <div class="object-cover mx-auto my-auto rounded-md flex justify-center items-center py-4" id="file-preview">
+    </div> 
+      
+    <div class="pt-4">
+      <% if @category.image.attached? %>
+        <%= form.object.image.filename %>
+        <%= image_tag @category.image, class: "object-cover mx-auto my-auto rounded-md" %>
+      <% end %>
+    </div>
+
+    <% if form.object.errors.has_key?(:image) %>
+      <span class="text-red-500"><%= form.object.errors[:image].first %></span>
+    <% end %>
+  </div>
 
   
 <div class="field">
