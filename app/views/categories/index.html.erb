@@ -21,7 +21,7 @@
                 <% elsif category.status == 'deactivated'%>
                   <%= link_to image_tag(category.image.variant(:large), class: "mx-auto my-auto rounded-md deactivated-image") , category_path(category) %>
                 <% else %>
-                  <%= image_tag 'placeholder.jpeg', class: "object-cover mx-auto my-auto rounded-md w-56 h-56 md:w-56 md:h-56" %>
+                  <%= image_tag 'placeholder.jpeg', class: "object-cover mx-auto my-auto rounded-md w-64 h-64 md:w-64 md:h-64" %>
                 <% end %>
               <!-- Additional product details -->
             </div>

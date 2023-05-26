@@ -12,20 +12,20 @@
   <nav class="navbar bg-grey-500 text-white">
     <div class="container flex justify-between items-center py-3">
       <div class="navbar-logo font-bold">
-        <a href="<%= root_path %>">XOMAT</a>
+        <a href="<%= root_path %>" class="text-3xl font-bold text-gray-800 hover:text-amber-700 transition-colors duration-300 md:h-52"><%= t('navbar.title') %></a>
       </div>
     
     <ul class="nav-menu">
         <% if Current.user %>
           <li class="navbar-profile">
-            <%= link_to Current.user.email, edit_password_path, class: "underline hover:text-blue-200 visited:text-purple-300 block mb-2" %>
+            <%= link_to Current.user.email, edit_password_path, class: "underline hover:text-blue-200 visited:text-purple-300 block rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
           </li>
           <li class="navbar-profile">
             <%= button_to t('logout'), logout_path, method: :delete, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
           </li>
           <li class="navbar-profile">
             <div>
-             <%= link_to "Dashboard", controller: 'dashboards', action: 'index', class:"underline hover:text-blue-200 block" %>
+             <%= link_to "Dashboard", controller: 'dashboards', action: 'index', class:"underline rounded hover:text-blue-200 focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
             </div>
           </li>
         <% else %>
@@ -43,7 +43,7 @@
         <span class="bar"></span>
       </div>
 
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap md:w-52">
         <div class="relative">
           <div class="dropdown inline-block">
             <button class="dropdown-toggle overflow-hidden flex items-center text-black gap-2" type="button" id="flagDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

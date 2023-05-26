@@ -1,7 +1,6 @@
-<div class="flex items-center justify-center min-h-min">
-  <%= javascript_include_tag "file_preview" %>
-  <div class="bg-gray-200 flex justify-center items-center max-w-max text-center container mx-auto py-10 rounded-md">
-    <%= form_with model: [@category, @product] do |form| %>
+<%= javascript_include_tag "file_preview" %>
+  <div class="flex justify-center items-center m-4 text-center">
+    <%= form_with(model: [@category, @product], html: { class: "bg-gray-200 p-4 rounded-md" }) do |form| %>
       <div class="field">
         <%= form.label :product, t('form_labels.product') %><br>
         <%= form.text_field :product, class: "form-control rounded" + (form.object.errors.has_key?(:product) ? " border-red-500" : "") %>
@@ -12,7 +11,7 @@
       
       <div class="field">
         <%= form.label :desc, t('form_labels.description') %><br>
-        <%= form.text_area :desc, class: "form-control rounded" + (form.object.errors.has_key?(:desc) ? " border-red-500" : "") %>
+        <%= form.text_area :desc, class: "form-control rounded w-full h-20" + (form.object.errors.has_key?(:desc) ? " border-red-500" : "") %>
         <% if form.object.errors.has_key?(:desc) %>
           <span class="text-red-500"><%= form.object.errors[:desc].first %></span>
         <% end %>
@@ -49,4 +48,3 @@
       </div>
     <% end %>
   </div>
-</div>

@@ -13,5 +13,5 @@ class Product < ApplicationRecord
 
   validates :product, presence: true, length: { minimum: 3 }
 
-  validates :desc, presence: true, length: { minimum: 15 }
+  validates :desc, presence: true, length: { minimum: 15, maximum: 123 }
 end
