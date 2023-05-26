@@ -48,13 +48,13 @@ class ApplicationController < ActionController::Base
     return if Current.user.shop?
 
     redirect_to session[:user_id] && sign_in_path,
-                alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
+                alert: t('session.noperm')
   end
 
   def require_user_admin!
     return if session[:user_id] && Current.user.admin?
 
     redirect_to sign_in_path,
-                alert: 'Du hat nicht die Berechtigung, um diese Funktion nutzen zu können!'
+                alert: t('session.noperm')
   end
 end

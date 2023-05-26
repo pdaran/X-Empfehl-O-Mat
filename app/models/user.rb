@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   # Verify that email field is not blank and that it doesn't already exist in the db (prevents duplicates):
   validates :email, presence: true, uniqueness: true,
-                    format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'must be a valid email address' }
+                    format: { with: /\A[^@\s]+@[^@\s]+\z/, message: I18n.t('form_labels.invalid_email') }
 
   def shop?
     self[:shop] || self[:admin]

@@ -33,7 +33,8 @@ de:
     notice_delete: "Sie haben sich erfolgreich abgemeldet."
     false_login: "Bitte überprüfen Sie Ihre Email bzw. Passwort erneut."
     error: "Etwas ist schief gelaufen."
-    error_nologin: "Bitte melden Sie sich an."
+    nologin: "Bitte melden Sie sich an."
+    noperm: "Sie haben keine Berechtigung für diese Aktion."
     back: "Zurück"
 
   account: 
@@ -105,6 +106,7 @@ de:
     image: "Bild"
     status: "Status"
     email: "Email"
+    invalid_email: "Ungültige Email"
     email_confirmation: "Email bestätigen"
     email_placeholder: "dein.email@test.com"
     password: "Passwort"
