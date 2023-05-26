@@ -15,6 +15,7 @@
 </head>
   <body class="min-h-screen flex flex-col overflow-x-hidden">
     <main class="flex-grow">
+      <%= javascript_include_tag "file_preview" %>
       <%= render "shared/nav" %>
         <%# ----- Display Flash Messages: ----- %>
         <% if notice %>
