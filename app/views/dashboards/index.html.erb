@@ -4,11 +4,31 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
   <%= javascript_include_tag "chartkick" %>
+  <style>
+      @media (max-width: 768px) {
+          /* Styles für kleinere Bildschirme hier definieren */
+          .flex-container {
+              flex-direction: column;
+          }
+          .sidebar {
+              width: 100%;
+              height: auto;
+          }
+      }
+  </style>
 </head>
 <html>
 <div class="flex flex-wrap h-screen 2xl:w-1/ w-screen left-20">
   <div class=" bg-gray-300 py-4">
     <nav class="flex-1">
+
+<body>
+<div class="flex h-screen">
+  <div class="sidebar bg-gray-100 py-4 w-1/4">
+    <div class="flex justify-center mb-4">
+      <p class="font-bold text-gray-800">X-Empfehl-O-Mat</p>
+    </div>
+    <nav>
       <ul class="space-y-1">
         <li>
           <p class="flex items-center text-center justify-center align-middle text-black font-bold p-2">
@@ -33,6 +53,6 @@
   <div class="chart" style="height: 300px;"></div>
 </div>
 </div>
+</body>
 
 </html>
-

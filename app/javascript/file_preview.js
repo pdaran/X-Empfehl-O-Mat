@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const fileInput = document.getElementById("file-input");
   const previewContainer = document.getElementById("file-preview");

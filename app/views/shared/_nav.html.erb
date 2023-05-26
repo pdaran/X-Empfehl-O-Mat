@@ -2,39 +2,39 @@
   <title><%= t('navbar.title') %></title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/e464ad1dd2.js" crossorigin="anonymous"></script>
   <%= javascript_include_tag "hamburger" %>
 </head>
 
 <body>
-  <div class="w-full relative">
-    <nav class="flex bg-gray-200 justify-between p-5 flex-wrap">
-      <div>
-        <a href="<%= root_path %>" class="text-3xl font-bold text-gray-800 hover:text-amber-700 transition-colors duration-300"><%= t('navbar.title') %></a>
+<div class="w-full relative">
+  <nav class="navbar bg-grey-500 text-white">
+    <div class="container flex justify-between items-center py-3">
+      <div class="navbar-logo font-bold">
+        <a href="<%= root_path %>">XOMAT</a>
       </div>
-      <ul class="nav-menu">
-        <li class="nav-item">
-          <%= button_to "", sign_up_path, method: :get, class: "fa-regular fa-user py-3 flex z-1 max-w-max" %>
-        </li>
+    
+    <ul class="nav-menu">
         <% if Current.user %>
-          <li class="nav-item">
-            <%= link_to Current.user.email, edit_password_path, class: "underline visited:text-purple-600 text-blue-600 hover:text-blue-800 py-2 px-4" %>
+          <li class="navbar-profile">
+            <%= link_to Current.user.email, edit_password_path, class: "underline hover:text-blue-200 visited:text-purple-300 block mb-2" %>
           </li>
-          <li class="nav-item">
-            <%= button_to t('logout'), logout_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+          <li class="navbar-profile">
+            <%= button_to t('logout'), logout_path, method: :delete, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
+          </li>
+          <li class="navbar-profile">
+            <div>
+             <%= link_to "Dashboard", controller: 'dashboards', action: 'index', class:"underline hover:text-blue-200 block" %>
+            </div>
           </li>
         <% else %>
-        <li class="nav-item">
-          <%= button_to t('sign_up'), sign_up_path, method: :get, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        <li class="navbar-profile">
+          <%= button_to t('sign_up'), sign_up_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-grey-700 block mb-2" %>
         </li>
-        <li class="nav-item">
-          <%= button_to t('login'), sign_in_path, method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        <li class="navbar-profile">
+          <%= button_to t('login'), sign_in_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-grey-700 block mb-2" %>
         </li>
-        <% end %>
-        <% if Current.user %>
-          <li class="nav-item">
-            <%= link_to "Dashboard", controller: 'dashboards', action: 'index', class:"inline-block bg-gray-300 text-black hover:bg-gray-400 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
-          </li>
         <% end %>
       </ul>
       <div class="hamburger">
@@ -42,10 +42,11 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
-      <div class="flex flex-wrap">
+
+        <div class="flex flex-wrap">
         <div class="relative">
           <div class="dropdown inline-block">
-            <button class="dropdown-toggle overflow-hidden flex items-center gap-2" type="button" id="flagDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="dropdown-toggle overflow-hidden flex items-center text-black gap-2" type="button" id="flagDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if I18n.locale == :en %>
                 <%= image_tag("united-kingdom.png", width: '30px') %>
               <% elsif I18n.locale == :de %>
@@ -55,9 +56,9 @@
                 <%= I18n.locale%>
               </span>
             </button>
-            <div class="dropdown-content flex bg-white rounded-md shadow-md h-0 w-0">
+            <div class="dropdown-content flex bg-grey-200 rounded-md shadow-md h-0 w-0">
               <% I18n.available_locales.each do |l| %>
-                <a class="dropdown-item flex items-center w-14 bg-gray-200" href="<%= url_for(locale: l) %>">
+                <a class="dropdown-item flex items-center w-14 bg-gray-700" href="<%= url_for(locale: l) %>">
                   <% if l == :en %>
                     <%= image_tag("united-kingdom.png", width: '30px') %>
                   <% elsif l == :de %>
@@ -70,6 +71,8 @@
           </div>
         </div>
       </div>
-    </nav>
-  </div>
+      </div>
+    </div>
+  </nav>
+</div>
 </body>

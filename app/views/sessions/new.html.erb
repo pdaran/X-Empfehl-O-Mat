@@ -1,19 +1,21 @@
-<div class="container p-10">
-  <h1 class="text-4xl font-bold"> <%=t('session.new')%> </h1>
+<div class="flex items-center justify-center h-screen">
+  <div class="bg-white bg-opacity-75 shadow-lg p-16 rounded">
+    <h1 class="text-4xl font-bold mb-6">Anmelden</h1>
 
-  <%= form_with url: sign_in_path do |form| %>
-    <div class="mb-3 mt-3 flex flex-col">
-      <%= form.label :email, t('form_labels.email') %>
-      <%= form.text_field :email, class: "form-control mt-2 rounded", placeholder: t('form_labels.email_placeholder') %>
-    </div>
+    <%= form_with url: sign_in_path do |form| %>
+      <div class="mb-3 mt-3 flex flex-col">
+        <%= form.label :email %>
+        <%= form.text_field :email, class: "form-control mt-2 rounded", placeholder: "your.email@test.com" %>
+      </div>
 
-    <div class="mb-3 flex flex-col">
-      <%= form.label :password, t('form_labels.password') %>
-      <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
-    </div>
+      <div class="mb-3 flex flex-col">
+        <%= form.label :password %>
+        <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: "password" %>
+      </div>
 
-    <div class="mb-3">
-      <%= form.submit t('session.new'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-    </div>
-  <% end %>
+      <div class="mb-3">
+        <%= form.submit "Anmelden", class: "bg-gray-900 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    <% end %>
+  </div>
 </div>

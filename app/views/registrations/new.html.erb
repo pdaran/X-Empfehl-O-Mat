@@ -1,38 +1,31 @@
-<div class="container p-10 ">
-  <h1 class="text-4xl font-bold" > <%= t('account.sign_up') %> </h1>
+<div class="container mx-auto p-10">
+  <div class="bg-white p-10 rounded-lg shadow-lg">
+    <h1 class="text-4xl font-bold mb-6">Registrieren</h1>
 
-  <%= form_with model: @user,class:"pt-6", url: sign_up_path do |form| %>
-    <% if form.object.errors.any? %>
-      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
-        <% form.object.errors.full_messages.each do |message| %>
-          <div><%= message %></div>
-        <% end %>
+    <%= form_with model: @user, class: "pt-6", url: sign_up_path do |form| %>
+      <% if form.object.errors.any? %>
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
+          <% form.object.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+      <% end %>
+
+      <div class="mb-6">
+        <%= form.label :email, class: "block text-lg font-medium text-gray-700" %>
+        <%= form.text_field :email, class: "mt-2 px-4 py-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: "your.email@test.com" %>
+      </div>
+      <div class="mb-6">
+        <%= form.label :password, class: "block text-lg font-medium text-gray-700" %>
+        <%= form.password_field :password, class: "mt-2 px-4 py-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: "password" %>
+      </div>
+      <div class="mb-6">
+        <%= form.label :password_confirmation, class: "block text-lg font-medium text-gray-700" %>
+        <%= form.password_field :password_confirmation, class: "mt-2 px-4 py-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: "password" %>
+      </div>
+      <div class="mb-6">
+        <%= form.submit class: "bg-gray-900 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" %>
       </div>
     <% end %>
-
-
-    <div class="mb-3 mt-3 flex flex-col">
-      <%= form.label :email, t('form_labels.email') %>
-      <%= form.text_field :email, class: "form-control mt-2 rounded", placeholder: t('form_labels.email_placeholder') %>
-    </div>
-    <div class="mb-3 flex flex-col">
-      <%= form.label :password, t('form_labels.password') %>
-      <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
-    </div>
-    <div class="mb-3 flex flex-col">
-      <%= form.label :password_confirmation, t('form_labels.password_confirmation') %>
-      <%= form.password_field :password_confirmation, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
-    </div>
-    <div class="mb-3 flex flex-col">
-      <%= form.label :admin %>
-      <%= form.check_box :admin, class: "form-control mt-2 rounded"%>
-    </div>
-    <div class="mb-3 flex flex-col">
-      <%= form.label :shop %>
-      <%= form.check_box :shop, class: "form-control mt-2 rounded"%>
-    </div>
-    <div class="mb-3">
-      <%= form.submit t('account.create'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-    </div>
-  <% end %>
+  </div>
 </div>
