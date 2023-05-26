@@ -10,9 +10,10 @@
         </div>
   
   <div class="field pb-4 text-hidden">
-    <%= form.label :image, t('form_labels.image'), class: "pb-6" %><br><br>
+  <%= form.label :image, t('form_labels.image'), class: "pb-6" %><br><br>
     <%= form.file_field :image, class: "form-control rounded"+ (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)" %>    
   <div id="file-preview"></div>
+
   
 <div class="field">
   <%= form.label :status, t('form_labels.status') %><br>

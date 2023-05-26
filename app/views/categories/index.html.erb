@@ -17,12 +17,12 @@
               </a>
               <div class="w-full flex justify-center">
                 <% if category.image.attached? && category.status == 'active'%>
-                  <a href="<%= category_path(category) %>" class="w-full md:w-56 h-auto">
-                    <%= image_tag category.image, class: "object-cover mx-auto my-auto rounded-md w-56 h-56" %>
+                  <a href="<%= category_path(category) %>" class="w-full h-auto">
+                    <%= image_tag category.image.variant(:large), class: "mx-auto my-auto rounded-md" %>
                   </a>
                 <% elsif category.status == 'deactivated'%>
-                  <a href="<%= category_path(category) %>" class="w-full md:w-56 h-auto">
-                    <%= image_tag category.image, class: "object-cover mx-auto my-auto rounded-md w-56 h-56 deactivated-image" %>
+                  <a href="<%= category_path(category) %>" class="w-full h-auto">
+                    <%= image_tag category.image.variant(:large), class: "mx-auto my-auto rounded-md deactivated-image" %>
                   </a>
                 <% else %>
                   <%= image_tag 'placeholder.jpeg', class: "object-cover mx-auto my-auto rounded-md w-56 h-56 md:w-56 md:h-56" %>
