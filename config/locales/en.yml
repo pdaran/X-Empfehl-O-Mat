@@ -63,7 +63,8 @@ en:
     notice_delete: "You have successfully logged out."
     false_login: "Please check your email or password again"
     error: "Something went wrong."
-    error_nologin: "Please login."
+    nologin: "Please login."
+    noperm: "You are not authorized for this action."
     back: "Back"
   
   account: 
@@ -133,6 +134,7 @@ en:
     image: "Image"
     status: "Status"
     email: "Email"
+    invalid_email: "must be a valid email address"
     email_confirmation: "Email confirmation"
     email_placeholder: "your.email@test.com"
     password: "Password"

@@ -234,6 +234,13 @@ footer {
   background-color: #3e8e41;
 }
 
+.preview-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem; /* Adjust the border radius as desired */
+}
+
 @keyframes blink {
   0% {
     opacity: 0;
