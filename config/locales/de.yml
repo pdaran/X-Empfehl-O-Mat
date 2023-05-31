@@ -74,6 +74,32 @@ de:
     error: "Etwas ist schief gelaufen."
   active: "Aktiv"
   deactivated: "Deaktiviert"
+  
+  #dashboard
+  dashboard:
+    homepage: "Hauptseite"
+    menu: "Menü"
+    recommendation: "Bewertung"
+    recommendation_product: "Produktübersicht der Empfehlung"
+
+  # Shop
+  shops: "Shops"
+  blocked: "Gesperrt"
+  shop:
+    new: "Shop erstellen"
+    notice_create: "Shop wurde erfolgreich erstellt."
+    edit: "Shop bearbeiten"
+    update: "Shop aktualisieren"
+    notice_update: "Shop wurde erfolgreich aktualisiert."
+    delete: "Shop löschen"
+    delete_confirm: "Sind Sie sicher, dass Sie diesen Shop löschen möchten?"
+    notice_delete: "Shop wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
+    back: "Zurück"
+    notice_delete: "Shop (und alle Inhalt) wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
+
+
   #product
   products: "Produkten"
   product:
@@ -91,21 +117,17 @@ de:
   private: "Privat"
   archived: "Archiviert"
 
-  #dashboard
-  dashboard:
-    homepage: "Hauptseite"
-    menu: "Menü"
-    recommendation: "Bewertung"
-    recommendation_product: "Produktübersicht der Empfehlung"
-
   # Form Labels
   form_labels:
+    name: "Name"
     title: "Titel"
     product: "Produkt"
     description: "Beschreibung"
     image: "Bild"
     status: "Status"
     email: "Email"
+    address: "Adresse"
+    phone_number: "Telefonnummer"
     invalid_email: "Die E-Mail-Adresse ist ungültig."
     email_confirmation: "Email bestätigen"
     email_placeholder: "dein.email@test.com"

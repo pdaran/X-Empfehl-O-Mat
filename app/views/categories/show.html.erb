@@ -1,7 +1,3 @@
-
-
-<!--- DESIGN -->
-
 <!DOCTYPE html>
 <html lang="de">
   <div>
@@ -12,20 +8,20 @@
       </div>
       
       <div class="bg-gray-300 order-4 rounded-md text-center text-3xl p-4 mb-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:opacity-80 flex justify-center items-center w-1/3 h-auto mx-auto">
-        <%= link_to new_category_product_path(@category) do %>
+        <%= link_to new_shop_category_product_path(@category.shop, @category) do %>
           <i class="fas fa-plus"></i>
         <% end %>
       </div>
 
       <div class="flex mx-auto mt-4 p-2 items-center justify-center align">
         <button class="text-center mb-2 bg-gray-200 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          <%= link_to t('category.back'), categories_path %>
+          <%= link_to t('category.back'), shop_categories_path %>
         </button>
         <button class="text-center mb-2 gap-3 bg-gray-200 hover:bg-gray-300 text-white font-bold py-2 px-4 mx-3 rounded focus:outline-none focus:shadow-outline shadow-md">
-          <%= link_to t('category.edit'), edit_category_path(@category), class: "text-blue-500 hover:text-blue-700" %>
+          <%= link_to t('category.edit'), edit_shop_category_path(@category.shop, @category), class: "text-blue-500 hover:text-blue-700" %>
         </button>
         <button class="text-center mb-2 bg-gray-200 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-md">
-          <%= link_to t('category.delete'), category_path(@category), method: :delete, data: { turbo_method: :delete,  turbo_confirm: t('form_labels.delete_confirm')}, class: "text-red-500 hover:text-red-700" %>
+          <%= link_to t('category.delete'), shop_category_path(@category.shop, @category), method: :delete, data: { turbo_method: :delete,  turbo_confirm: t('form_labels.delete_confirm')}, class: "text-red-500 hover:text-red-700" %>
         </button>
       </div>
 

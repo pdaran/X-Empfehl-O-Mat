@@ -3,6 +3,7 @@
 class Category < ApplicationRecord
   has_many :products, dependent: :destroy
 
+  belongs_to :shop
   validates :title, presence: true, length: { minimum: 3 }
 
   enum status: { active: 'active', deactivated: 'deactivated' }

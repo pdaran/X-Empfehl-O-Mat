@@ -1,51 +1,60 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-  before_action :require_user_logged_in!
+  # before_action :require_user_logged_in!
   def index
-    @categories = Category.all
+    @shop = Shop.find(params[:shop_id])
+    @categories = @shop.categories.all
   end
 
   def show
-    @category = Category.find(params[:id])
+    @shop = Shop.find(params[:shop_id])
+    @category = @shop.categories.find(params[:id])
   end
 
   def new
-    @category = Category.new
-    authorize @category
+    @shop = Shop.find(params[:shop_id])
+    @category = @shop.categories.build
+    # authorize @category
   end
 
   def create
-    @category = build_category
-    authorize @category
+    @shop = Shop.find(params[:shop_id])
+    @category = @shop.categories.build(category_params)
+    # authorize @category
     @input = category_params # for debugging can be removed later
     attach_image if image_present?
 
     if save_category
-      redirect_to categories_path, status: :see_other, notice: t('category.notice_create')
+      redirect_to shop_categories_path, status: :see_other, notice: t('category.notice_create')
     else
       render :new, status: :unprocessable_entity, alert: t('category.error')
     end
   end
 
   def edit
-    @category = Category.find(params[:id])
-    authorize @category
+    @shop = Shop.find(params[:shop_id])
+    @category = @shop.categories.find(params[:id])
+
+    # authorize @category
   end
 
   def update
-    @category = Category.find(params[:id])
-    authorize @category
+    @shop = Shop.find(params[:shop_id])
+    @category = @shop.categories.find(params[:id])
+
+    # authorize @category
     if @category.update(category_params)
-      redirect_to categories_path, status: :see_other, notice: t('category.notice_update')
+      redirect_to shop_categories_path, status: :see_other, notice: t('category.notice_update')
     else
       render :edit, status: :unprocessable_entity, alert: t('category.error')
     end
   end
 
   def destroy
-    @category = Category.find(params[:id])
-    authorize @category
+    @shop = Shop.find(params[:shop_id])
+    @category = @shop.categories.find(params[:id])
+    # authorize @category
     delete_associated_images
     delete_associated_products
     handle_category_deletion
@@ -84,10 +93,10 @@ class CategoriesController < ApplicationController
 
   def handle_category_deletion
     if @category.destroy
-      redirect_to categories_path, status: :see_other,
-                                   notice: t('category.notice_delete')
+      redirect_to shop_categories_path, status: :see_other,
+                                        notice: t('category.notice_delete')
     else
-      redirect_to categories_path, status: :see_other, alert: t('category.error')
+      redirect_to shop_categories_path, status: :see_other, alert: t('category.error')
     end
   end
 end

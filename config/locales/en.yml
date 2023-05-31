@@ -110,6 +110,20 @@ en:
   menu: "Menu"
   recommendation_product: "Recommendation's Product Chart"
 
+  # Shop
+  shops: "Shops"
+  blocked: "Blocked"
+  shop:
+    new: "Add Shop"
+    notice_create: "Shop was successfully created."
+    edit: "Edit Shop"
+    update: "Update Shop"
+    notice_update: "Shop was successfully updated."
+    delete: "Delete this shop"
+    delete_confirm: "Are you sure you want to delete this shop?"
+    notice_delete: "Shop (and all contents) was successfully deleted."
+    error: "Something went wrong."
+
 
 
   # Product
@@ -127,13 +141,17 @@ en:
   public: "Public"
   private: "Private"
   archived: "Archived"
+
   form_labels:
+    name: "Name"
     title: "Title"
     product: "Product"
     description: "Description"
     image: "Image"
     status: "Status"
     email: "Email"
+    address: "Address"
+    phone_number: "Phone Number"
     invalid_email: "must be a valid email address"
     email_confirmation: "Email confirmation"
     email_placeholder: "your.email@test.com"
