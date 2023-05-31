@@ -28,8 +28,12 @@ class RecommenderController < ApplicationController
 
     customer_id = session[:rec_id]
 
+    data = '{"id": ' + customer_id.to_s + '}'
+
     # http request to url
-    response_string = Net::HTTP.get(uri)
+    response = Net::HTTP.post(uri,data)
+
+    response_string = response.body
 
     # Convert response Json String to Object
     @product_ids = JSON.parse(response_string)
