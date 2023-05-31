@@ -1,7 +1,7 @@
 import os
 import sys
 import psycopg2
-from flask import Flask, jsonify
+from flask import Flask, jsonify, redirect, url_for, request
 
 app = Flask(__name__)
 
@@ -35,20 +35,35 @@ def get_users():
     return jsonify(users)
 
 
-@app.route('/recommend')
+@app.route('/recommend', methods=['POST', 'GET'])
 def get_recommendation():
-    conn = get_db_connection()
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM products ORDER BY RANDOM() LIMIT 5;')
-    products = cur.fetchall()
-    cur.close()
-    conn.close()
-    print(products, file=sys.stderr)  # Printing to console
-    id_list = []
-    # Extract only IDs from Products
-    for product in products:
-        id_list.append(product[0])
-    return jsonify(id_list)
+    if request.method == 'POST':
+        print(request.form, file=sys.stderr)
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute('SELECT * FROM products ORDER BY RANDOM() LIMIT 5;')
+        products = cur.fetchall()
+        cur.close()
+        conn.close()
+        # print(products, file=sys.stderr)  # Printing to console
+        id_list = []
+        # Extract only IDs from Products
+        for product in products:
+            id_list.append(product[0])
+        return jsonify(id_list)
+    else:
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute('SELECT * FROM products ORDER BY RANDOM() LIMIT 5;')
+        products = cur.fetchall()
+        cur.close()
+        conn.close()
+        # print(products, file=sys.stderr)  # Printing to console
+        id_list = []
+        # Extract only IDs from Products
+        for product in products:
+            id_list.append(product[0])
+        return jsonify(id_list)
 
 
 if __name__ == '__main__':
