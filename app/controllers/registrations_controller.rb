@@ -10,6 +10,7 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      RegistrationMailer.with(user: @user).signup_email.deliver_later
       redirect_to root_path, notice: t('account.notice_create')
     else
       render :new, status: 422
