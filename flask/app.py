@@ -45,6 +45,7 @@ def get_recommendation():
     conn.close()
     print(products, file=sys.stderr)  # Printing to console
     id_list = []
+    # Extract only IDs from Products
     for product in products:
         id_list.append(product[0])
     return jsonify(id_list)
