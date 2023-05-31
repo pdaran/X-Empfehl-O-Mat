@@ -26,8 +26,11 @@ class RecommenderController < ApplicationController
 
     uri = URI('http://empfehl-flask:8000/recommend')
 
-    response = Net::HTTP.get(uri)
-    @empfehlung = response
+    response_string = Net::HTTP.get(uri)
+
+    @product_ids = JSON.parse(response_string)
+
+    @products = Product.find(@product_ids)
 
     @user = session[:user_id]
   end

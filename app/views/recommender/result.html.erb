@@ -1,7 +1,7 @@
 <div class="flex items-center justify-center flex-col min-h-screen">
 <%= render "recommender/title", subtitle: t('recommendations') %>
   <div class="flex flex-col md:flex-row space-x-0 md:space-x-8 space-y-12 md:space-y-0 mb-4 justify-center items-center">
-        <%= render "products/product", product: Product.find(1) %>
+        <%= render "products", product: @products %>
   </div>
   <div>
     <%= link_to t('return_to_homepage'), root_path %>
