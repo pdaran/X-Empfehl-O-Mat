@@ -4,14 +4,21 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Welcome to X-Empfehl-O-Mat, <%= @user.email %></h1>
+  <div class="container">
+    <div class="logo">
+      <img src="public\temp_logo.jpeg" alt="Our Logo" width="150">
+    </div>
+    <h1><%= t('mailer.welcome') %> <%= t('navbar.title') %>, <%= @user.email %></h1>
     <p>
-      You have successfully signed up to example.com,
-      your username is: <%= @user.email %>.<br>
+      <%= t('mailer.signup_success') %> <%= @user.email %>.
     </p>
     <p>
-      To login to the site, just follow this link: <%= @url %>.
+      <%= t('mailer.tologin') %> <%= @url %>.
     </p>
-    <p>Thanks for joining and have a great day!</p>
-  </body>
+    <p><%= t('mailer.thankyou') %></p>
+    <div class="footer">
+      &copy; <%= t('mailer.footer') %>
+    </div>
+  </div>
+</body>
 </html>

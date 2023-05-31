@@ -177,3 +177,11 @@ en:
   representative_email: "Email: info@plagge-it.com"
   representative_phone: "Phone: 0241 6009 530 0"
   we_look_forward: "We look forward to hearing from you!"
+
+  # Mailer
+  mailer:
+    welcome: "Welcome to "
+    tologin: "To log in to the site, just follow this link: "
+    signup_success: "You have successfully signed up to example.com, your username is: "
+    thankyou: "Thanks for joining and have a great day!"
+    footer: "2023 X-Empfehl-O-Mat Team. All rights reserved."
