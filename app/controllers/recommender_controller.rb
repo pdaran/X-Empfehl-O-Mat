@@ -22,16 +22,16 @@ class RecommenderController < ApplicationController
 
   def result
     require 'net/http'
-    require "uri"
+    require 'uri'
 
     uri = URI('http://empfehl-flask:8000/recommend')
 
     customer_id = session[:rec_id]
 
-    data = '{"id": ' + customer_id.to_s + '}'
+    data = "{\"id\": #{customer_id}}"
 
     # http request to url
-    response = Net::HTTP.post(uri,data)
+    response = Net::HTTP.post(uri, data)
 
     response_string = response.body
 
