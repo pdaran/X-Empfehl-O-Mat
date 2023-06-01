@@ -29,9 +29,9 @@ class ProductsController < ApplicationController
 
     save_attributes
 
-    if @product.update(product_params)
+    return unless @product.update(product_params)
 
-      redirect_to category_path(@category), status: :see_other, notice: t('product.notice_update')
+    redirect_to category_path(@category), status: :see_other, notice: t('product.notice_update')
 
     if update_product
       redirect_to shop_category_path(@shop, @category), status: :see_other, notice: t('product.notice_update')
