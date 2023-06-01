@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   include Visible
 
   belongs_to :category
+  has_many :attrs, through: :product_attr
 
   has_one_attached :image do |attachable|
     attachable.variant :large, resize_to_fill: [250, 250]
