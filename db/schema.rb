@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_01_032435) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_01_082248) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,6 +77,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_032435) do
     t.index ["product_id"], name: "index_likes_on_product_id"
   end
 
+  create_table "product_attrs", force: :cascade do |t|
+    t.string "value"
+    t.bigint "product_id", null: false
+    t.bigint "attr_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["attr_id"], name: "index_product_attrs_on_attr_id"
+    t.index ["product_id"], name: "index_product_attrs_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "product"
     t.text "desc"
@@ -123,6 +133,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_01_032435) do
   add_foreign_key "attrs", "categories"
   add_foreign_key "likes", "customers"
   add_foreign_key "likes", "products"
+  add_foreign_key "product_attrs", "attrs"
+  add_foreign_key "product_attrs", "products"
   add_foreign_key "products", "categories"
   add_foreign_key "products_attrs", "attrs"
   add_foreign_key "products_attrs", "products", column: "products_id"
