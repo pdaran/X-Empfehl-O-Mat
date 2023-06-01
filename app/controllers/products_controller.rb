@@ -72,6 +72,8 @@ class ProductsController < ApplicationController
   def save_attributes
     i = 0
 
+    return if params[:attr_id].nil?
+
     params[:attr_id].each do |id|
       p = ProductAttr.find_or_initialize_by(product_id: @product.id, attr_id: id)
       p.value = params[:attr_val][i]
