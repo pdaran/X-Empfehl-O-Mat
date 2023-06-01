@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AttrsController < ApplicationController
   before_action :require_user_logged_in!
 
@@ -37,7 +39,7 @@ class AttrsController < ApplicationController
     @category = Category.find(params[:category_id])
     @attr = @category.attrs.find(params[:id])
 
-    #delete prod_attr
+    # delete prod_attr
     if @attr.destroy
       redirect_to edit_category_path(@category), status: :see_other, notice: t('attr.notice_delete')
     else
