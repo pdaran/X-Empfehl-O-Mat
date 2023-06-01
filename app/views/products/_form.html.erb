@@ -1,6 +1,7 @@
 <%= javascript_include_tag "file_preview" %>
   <div class="flex justify-center items-center m-4 text-center">
-    <%= form_with(model: [@category, @product], html: { class: "bg-gray-200 p-4 rounded-md" }) do |form| %>
+    <%= form_with(model: [@category, @product], url: @product.new_record? ? shop_category_products_path(@category.shop, @category) : shop_category_product_path(@category.shop, @category, @product), local: true, html: { class: "bg-gray-200 p-4 rounded-md" }) do |form| %>
+
       <div class="field">
         <%= form.label :product, t('form_labels.product') %><br>
         <%= form.text_field :product, class: "form-control rounded" + (form.object.errors.has_key?(:product) ? " border-red-500" : "") %>

@@ -1,0 +1,17 @@
+<div>
+  <h1 class="font-bold text-4xl"><%= t('shops') %></h1>
+  <div class="flex flex-wrap">
+    <% @shops.each do |shop| %>
+      <div class="w-1/4 p-2">
+        <div class="bg-white rounded-lg shadow-lg">
+          <div class="p-4">
+            <h2 class="font-bold text-2xl"><%= link_to shop.name, shop_categories_path(shop) %></h2>
+            <p><%= shop.address %></p>
+            <p><%= shop.phone_no %></p>
+            <p><%= shop.email %></p>
+            <p><%= shop.status %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
