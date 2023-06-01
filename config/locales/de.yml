@@ -173,7 +173,7 @@ de:
 
   # Mailer
   mailer:
-    welcome: "Willkommen bei X-Empfehl-O-Mat"
+    welcome: "Willkommen bei "
     signup_success: "Sie haben sich erfolgreich registriert, Ihr Benutzername lautet: "
     tologin: "Um sich auf der Website anzumelden, folgen Sie einfach diesem Link: "
     thankyou: "Vielen Dank für Ihre Anmeldung!"
