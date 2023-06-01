@@ -9,6 +9,6 @@
 
 User.create(email: "admin@test.local", password: "admin", admin: true)
 
-Category.create(title: "TestKategorie", status: :active, id: 1)
-Product.create(product: "Test Produkt", desc: "Test Beschreibung Nummer 1", status: :public, category_id: 1)
-Product.create(product: "Anderes Produkt", desc: "Andere Beschreibung Nummer 2", status: :public, category_id: 1)
+#Category.create(title: "TestKategorie", status: :active, id: 1)
+#Product.create(product: "Test Produkt", desc: "Test Beschreibung Nummer 1", status: :public, category_id: 1)
+#Product.create(product: "Anderes Produkt", desc: "Andere Beschreibung Nummer 2", status: :public, category_id: 1)
