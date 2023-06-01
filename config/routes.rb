@@ -32,7 +32,10 @@ Rails.application.routes.draw do
 
     resources :shops do
       resources :categories do
-        resources :products
+        resources :attrs
+        resources :products do
+          resources :attrs
+        end
       end
     end
   end
