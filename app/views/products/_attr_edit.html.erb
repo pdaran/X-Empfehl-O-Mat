@@ -1,0 +1,9 @@
+<div class="field">
+  <%= form.label attr.name, attr.name %>
+  <%= text_area_tag "attr_id[]", attr.id, hidden: true %>
+  <% if pattr != nil %>
+    <%= text_area_tag "attr_val[]", pattr.value, class: "form-control rounded"%>
+  <% else %>
+    <%= text_area_tag "attr_val[]", nil, class: "form-control rounded"%>
+  <% end %>
+</div>

@@ -35,6 +35,13 @@
           <span class="text-red-500"><%= form.object.errors[:image].first %></span>
         <% end %>
       </div>
+
+      <div class="field pb-4">
+        <p><%= t('attributes') %></p>
+        <%= @category.attrs.each do |attr| %>
+          <%= render "attr_edit", form: form, attr: attr, pattr: ProductAttr.where(product_id: @product.id, attr_id: attr.id).first %>
+        <% end %>
+      </div>
       
       <div class="field">
         <%= form.label :status, t('form_labels.status') %><br>
