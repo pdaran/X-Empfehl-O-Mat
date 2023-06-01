@@ -27,6 +27,8 @@ class ProductsController < ApplicationController
   def update
     load_shop_category_product
 
+    save_attributes
+
     if update_product
       redirect_to shop_category_path(@shop, @category), status: :see_other, notice: t('product.notice_update')
     else
@@ -67,7 +69,19 @@ class ProductsController < ApplicationController
     params.dig(:product, :image).present?
   end
 
+  def save_attributes
+    i = 0
+
+    params[:attr_id].each do |id|
+      p = ProductAttr.find_or_initialize_by(product_id: @product.id, attr_id: id)
+      p.value = params[:attr_val][i]
+      p.save
+      i += 1
+    end
+  end
+
   def save_product
+    save_attributes
     @product.save
   end
 

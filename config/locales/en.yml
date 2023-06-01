@@ -47,6 +47,9 @@ en:
   logout: "Logout"
   email: "Email"
   product_search_box_label: "Search for Products"
+  edit: "Edit"
+  delete: "Delete"
+  attributes: "Attributes"
 
   password: 
     edit: "Edit Password"
@@ -163,6 +166,23 @@ en:
   file_upload:
     choose_file: "Choose File"
     no_file_chosen: "No File Chosen"
+
+  attr:
+    name: "Name"
+    attrtype: "Field Type"
+    type: "Type"
+    bool: "boolean"
+    numeric: "numeric"
+    text: "text"
+    unit: "Unit"
+    unit_placeholder: "only relevant for numeric types"
+    new: "Create new attribute"
+    update: "Update attribute"
+    notice_create: "New attribute was successfully created"
+    error: "Something went wrong"
+    notice_delete: "Attribute was successfully deleted"
+    edit: "Edit attribute"
+    delete: "Delete attribute"
 
   # Imprint page
   impressum: "Imprint"

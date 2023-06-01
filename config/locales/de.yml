@@ -17,7 +17,11 @@ de:
   logout: "Abmelden"
   email: "Email"
   product_search_box_label: "Suche nach Produkten"
-  
+  edit: "Editieren"
+  delete: "Löschen"
+  attributes: "Attribute"
+
+
   password:
     edit: "Passwort ändern"
     forgot: "Passwort vergessen?"
@@ -75,7 +79,7 @@ de:
     text1: "Fügen Sie neue Kategorien hinzu."
   active: "Aktiv"
   deactivated: "Deaktiviert"
-  
+
   #dashboard
   dashboard:
     homepage: "Hauptseite"
@@ -114,6 +118,30 @@ de:
   public: "Öffentlich"
   private: "Privat"
   archived: "Archiviert"
+
+  attr:
+    name: "Name"
+    attrtype: "Feld Typ"
+    type: "Typ"
+    bool: "Boolean"
+    numeric: "Nummer"
+    text: "Text"
+    unit: "Einheit"
+    unit_placeholder: "nur relevant für numerische Typen"
+    new: "Erstelle neues Attribut"
+    update: "Update Attribute"
+    notice_create: "Neues attribut wurde erfolgreich erstellt"
+    error: "Etwas is schief gelaufen."
+    notice_delete: "Attribut wurde erfolgreich gelöscht"
+    edit: "Attribut editieren"
+    delete: "Attribute löschen"
+
+  #dashboard
+  dashboard:
+    homepage: "Hauptseite"
+    menu: "Menü"
+    recommendation: "Bewertung"
+    recommendation_product: "Produktübersicht der Empfehlung"
 
   # Form Labels
   form_labels:
@@ -180,4 +208,3 @@ de:
     footer: "2023 X-Empfehl-O-Mat Team. Alle Rechte vorbehalten."
     confirm: "Bitte bestätigen Sie Ihre Email-Adresse."
     confirm_success: "Ihre Email-Adresse wurde erfolgreich bestätigt."
-    
