@@ -31,7 +31,10 @@ Rails.application.routes.draw do
     get '/dashboards', to: 'dashboards#index'
 
     resources :categories do
-      resources :products
+      resources :attrs
+      resources :products do
+        resources :attrs
+      end
     end
   end
 end
