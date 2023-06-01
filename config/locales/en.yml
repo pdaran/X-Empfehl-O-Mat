@@ -75,12 +75,12 @@ en:
     create: "Create Account"
     notice_create: "Account was successfully created."
     edit: "Edit Account"
+    edit_password: "Change password"
     update: "Update Account"
     notice_update: "Account was successfully updated."
     error: "Something went wrong."
     back: "Back"
     notice_delete: "Account was successfully deleted."
-    error: "Something went wrong."
 
   # navbar
   navbar:
@@ -109,10 +109,13 @@ en:
   deactivated: "Deactivated"
 
   # Dashboard
-  homepage: "Homepage"
-  recommendation: "recommendation"
-  menu: "Menu"
-  recommendation_product: "Recommendation's Product Chart"
+  dashboard:
+    menu_link: "Menu"
+    recommendation_link: "Recommendations"
+    homepage: "Homepage"
+    recommendation: "recommendation"
+    menu: "Menu"
+    recommendation_product: "Recommendation's Product Chart"
 
   # Shop
   shops: "Shops"
@@ -133,7 +136,8 @@ en:
   # Product
   products: "Products"
   product:
-    new: "Add Product"
+    add: "Add a produkt"
+    new: "Create a product"
     notice_create: "Product was successfully created."
     edit: "Edit Product"
     update: "Update Product"
@@ -145,6 +149,25 @@ en:
   public: "Public"
   private: "Private"
   archived: "Archived"
+
+  attr:
+    name: "Name"
+    attrtype: "Field Type"
+    type: "Type"
+    bool: "boolean"
+    numeric: "numeric"
+    text: "text"
+    unit: "Unit"
+    unit_placeholder: "only relevant for numeric types"
+    new: "Create new attribute"
+    update: "Update attribute"
+    notice_create: "New attribute was successfully created"
+    error: "Something went wrong"
+    notice_delete: "Attribute was successfully deleted"
+    edit: "Edit attribute"
+    delete: "Delete attribute"
+    delete_confirm: "Do you really want to delete this attribute?"
+    notice_update: "Attribute was successfully update"
 
   form_labels:
     name: "Name"
@@ -163,26 +186,12 @@ en:
     password_confirmation: "Password confirmation"
     submit: "Submit"
     delete_confirm: "Are you sure?"
+
   file_upload:
     choose_file: "Choose File"
     no_file_chosen: "No File Chosen"
 
-  attr:
-    name: "Name"
-    attrtype: "Field Type"
-    type: "Type"
-    bool: "boolean"
-    numeric: "numeric"
-    text: "text"
-    unit: "Unit"
-    unit_placeholder: "only relevant for numeric types"
-    new: "Create new attribute"
-    update: "Update attribute"
-    notice_create: "New attribute was successfully created"
-    error: "Something went wrong"
-    notice_delete: "Attribute was successfully deleted"
-    edit: "Edit attribute"
-    delete: "Delete attribute"
+
 
   # Imprint page
   impressum: "Imprint"
@@ -224,3 +233,5 @@ en:
     signup_success: "You have successfully signed up to example.com, your username is: "
     thankyou: "Thanks for joining and have a great day!"
     footer: "2023 X-Empfehl-O-Mat Team. All rights reserved."
+    confirm: "Please confirm your email."
+    confirm_success: "Your email was confirmed successfully."
