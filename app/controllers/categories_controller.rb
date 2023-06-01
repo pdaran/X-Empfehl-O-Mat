@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-  # before_action :require_user_logged_in!
+  before_action :require_user_logged_in!
   def index
     @shop = Shop.find(params[:shop_id])
     @categories = @shop.categories.all
