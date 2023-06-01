@@ -72,6 +72,7 @@ de:
     back: "Zurück"
     notice_delete: "Kategorie wurde erfolgreich gelöscht."
     error: "Etwas ist schief gelaufen."
+    text1: "Fügen Sie neue Kategorien hinzu."
   active: "Aktiv"
   deactivated: "Deaktiviert"
   
@@ -93,9 +94,6 @@ de:
     notice_update: "Shop wurde erfolgreich aktualisiert."
     delete: "Shop löschen"
     delete_confirm: "Sind Sie sicher, dass Sie diesen Shop löschen möchten?"
-    notice_delete: "Shop wurde erfolgreich gelöscht."
-    error: "Etwas ist schief gelaufen."
-    back: "Zurück"
     notice_delete: "Shop (und alle Inhalt) wurde erfolgreich gelöscht."
     error: "Etwas ist schief gelaufen."
 

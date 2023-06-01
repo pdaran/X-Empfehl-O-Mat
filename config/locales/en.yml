@@ -101,6 +101,7 @@ en:
     back: "Back"
     notice_delete: "Category and associated products were successfully deleted."
     error: "Something went wrong."
+    text1: "Add a new category!"
   active: "Active"
   deactivated: "Deactivated"
 

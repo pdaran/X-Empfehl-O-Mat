@@ -19,9 +19,9 @@ class ShopsController < ApplicationController
     attach_image if image_present?
 
     if save_shop
-      redirect_to shops_path, status: :see_other, notice: t('category.notice_create')
+      redirect_to shops_path, status: :see_other, notice: t('shop.notice_create')
     else
-      render :new, status: :unprocessable_entity, alert: t('category.error')
+      render :new, status: :unprocessable_entity, alert: t('shop.error')
     end
   end
 
@@ -32,9 +32,9 @@ class ShopsController < ApplicationController
   def update
     @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
-      redirect_to shops_path, status: :see_other, notice: t('category.notice_update')
+      redirect_to shops_path, status: :see_other, notice: t('shop.notice_update')
     else
-      render :edit, status: :unprocessable_entity, alert: t('category.error')
+      render :edit, status: :unprocessable_entity, alert: t('shop.error')
     end
   end
 
@@ -81,9 +81,9 @@ class ShopsController < ApplicationController
   def handle_shop_deletion
     if @shop.destroy
       redirect_to shops_path, status: :see_other,
-                              notice: t('category.notice_delete')
+                              notice: t('shop.notice_delete')
     else
-      redirect_to shops_path, status: :see_other, alert: t('category.error')
+      redirect_to shops_path, status: :see_other, alert: t('shop.error')
     end
   end
 end
