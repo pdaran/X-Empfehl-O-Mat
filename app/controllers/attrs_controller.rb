@@ -13,7 +13,7 @@ class AttrsController < ApplicationController
     @attr = @category.attrs.build(attr_params)
 
     if @attr.save
-      redirect_to edit_category_path(@category), status: :see_other, notice: t('attr.notice_create')
+      redirect_to edit_shop_category_path(@category.shop, @category), status: :see_other, notice: t('attr.notice_create')
     else
       render :new, status: :unprocessable_entity, alert: t('attr.error')
     end
@@ -29,7 +29,7 @@ class AttrsController < ApplicationController
     @attr = @category.attrs.find(params[:id])
 
     if @attr.update(attr_params)
-      redirect_to edit_category_path(@category), status: :see_other, notice: t('attr.notice_update')
+      redirect_to edit_shop_category_path(@category.shop, @category), status: :see_other, notice: t('attr.notice_update')
     else
       render :edit, status: :unprocessable_entity, alert: t('attr.error')
     end
@@ -41,9 +41,9 @@ class AttrsController < ApplicationController
 
     # delete prod_attr
     if @attr.destroy
-      redirect_to edit_category_path(@category), status: :see_other, notice: t('attr.notice_delete')
+      redirect_to edit_shop_category_path(@category.shop, @category), status: :see_other, notice: t('attr.notice_delete')
     else
-      redirect_to edit_category_path(@category), status: :see_other, alert: t('attr.error')
+      redirect_to edit_shop_category_path(@category.shop, @category), status: :see_other, alert: t('attr.error')
     end
   end
 

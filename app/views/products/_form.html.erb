@@ -38,7 +38,7 @@
 
       <div class="field pb-4">
         <p><%= t('attributes') %></p>
-        <%= @category.attrs.each do |attr| %>
+        <% @category.attrs.each do |attr| %>
           <%= render "attr_edit", form: form, attr: attr, pattr: ProductAttr.where(product_id: @product.id, attr_id: attr.id).first %>
         <% end %>
       </div>
