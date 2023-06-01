@@ -31,8 +31,10 @@
         <div class="field pb-4">
           <p><%= t('attributes') %></p>
           <%= render @category.attrs, form: form %>
-          <%= link_to new_shop_category_attr_path(@category.shop, @category) do %>
+          <% unless @category.new_record? %>
+          <%=  link_to new_shop_category_attr_path(@shop, @category) do %>
             <i class="fas fa-plus"></i>
+          <% end %>
           <% end %>
         </div>
 
