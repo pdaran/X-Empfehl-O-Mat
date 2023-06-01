@@ -19,6 +19,7 @@ de:
   product_search_box_label: "Suche nach Produkten"
   edit: "Editieren"
   delete: "Löschen"
+  attributes: "Attribute"
   
   password:
     edit: "Passwort ändern"
@@ -179,4 +180,3 @@ de:
     footer: "2023 X-Empfehl-O-Mat Team. Alle Rechte vorbehalten."
     confirm: "Bitte bestätigen Sie Ihre Email-Adresse."
     confirm_success: "Ihre Email-Adresse wurde erfolgreich bestätigt."
-    

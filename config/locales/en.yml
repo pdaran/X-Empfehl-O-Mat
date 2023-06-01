@@ -49,6 +49,7 @@ en:
   product_search_box_label: "Search for Products"
   edit: "Edit"
   delete: "Delete"
+  attributes: "Attributes"
 
   password: 
     edit: "Edit Password"

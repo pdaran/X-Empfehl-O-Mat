@@ -28,7 +28,7 @@
   </div>
 
         <div class="field pb-4">
-          <p>Custom fields</p>
+          <p><%= t('attributes') %></p>
           <%= render @category.attrs, form: form %>
           <%= link_to new_category_attr_path(@category) do %>
             <i class="fas fa-plus"></i>
