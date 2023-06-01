@@ -2,6 +2,9 @@ import os
 import sys
 import psycopg2
 from flask import Flask, jsonify, redirect, url_for, request
+import pandas as pd
+import pandas.io.sql as sqlio
+from sklearn.metrics.pairwise import cosine_similarity
 
 app = Flask(__name__)
 
@@ -40,17 +43,20 @@ def get_recommendation():
     if request.method == 'POST':
         print(request.form, file=sys.stderr)
         conn = get_db_connection()
-        cur = conn.cursor()
-        cur.execute('SELECT * FROM products ORDER BY RANDOM() LIMIT 5;')
-        products = cur.fetchall()
-        cur.close()
+        sql = "SELECT customer_id, product_id FROM likes;"
+        data = sqlio.read_sql_query(sql, conn)
         conn.close()
+        # cur = conn.cursor()
+        # cur.execute('SELECT * FROM products ORDER BY RANDOM() LIMIT 5;')
+        # products = cur.fetchall()
+        # cur.close()
         # print(products, file=sys.stderr)  # Printing to console
-        id_list = []
-        # Extract only IDs from Products
-        for product in products:
-            id_list.append(product[0])
-        return jsonify(id_list)
+
+        # Dataframe target_customer (customer_id) -> like (product_id)
+        #df_targetCustomer_likedProductcs = pd.DataFrame(data)
+        print(data, file=sys.stderr)
+
+        return jsonify("test")
     else:
         conn = get_db_connection()
         cur = conn.cursor()
