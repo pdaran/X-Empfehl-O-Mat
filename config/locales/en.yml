@@ -50,6 +50,7 @@ en:
   edit: "Edit"
   delete: "Delete"
   attributes: "Attributes"
+  sign_up: "Sign up"
 
   password: 
     edit: "Edit Password"
