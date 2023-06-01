@@ -28,6 +28,8 @@ class ProductsController < ApplicationController
 
     @product = @category.products.find(params[:id])
 
+    save_attributes
+
     if @product.update(product_params)
 
       redirect_to category_path(@category), status: :see_other, notice: t('product.notice_update')
@@ -76,7 +78,21 @@ class ProductsController < ApplicationController
     params.dig(:product, :image).present?
   end
 
+  def save_attributes
+    ids = params[:attr_id]
+    vals = params[:attr_val]
+    i = 0
+
+    ids.each do |id|
+      p = ProductAttr.find_or_initialize_by(product_id: @product.id, attr_id: id)
+      p.value = params[:attr_val][i]
+      p.save
+      i += 1
+    end
+  end
+
   def save_product
+    save_attributes
     @product.save
   end
 end
