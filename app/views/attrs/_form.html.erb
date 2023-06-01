@@ -1,0 +1,39 @@
+<div class="flex justify-center items-center m-4 text-center">
+  <%= form_with(model: [@category, @attr], local: true, html: { class: "bg-gray-200 p-4 rounded-md" }) do |form| %>
+    <div class="field">
+      <%= form.label :name, t('attr.name') %><br>
+      <%= form.text_area :name, class: "form-control rounded" + (form.object.errors.has_key?(:name) ? " border-red-500" : "") %>
+      <% if form.object.errors.has_key?(:name) %>
+        <span class="text-red-500"><%= form.object.errors[:name].first %></span>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :attrtype, t('attr.attrtype') %><br>
+      <% if @attr.new_record? %>
+        <%= form.select :attrtype, [[t('attr.bool'), 'bool'], [t('attr.numeric'), 'numeric'], [t('attr.text'), 'text']], selected: 'bool', class: "form-control rounded" + (form.object.errors.has_key?(:attrtype) ? " border-red-500" : "") %>
+      <% else %>
+        <%= attr.attrtype %>
+      <% end %>
+      <% if form.object.errors.has_key?(:attrtype) %>
+        <span class="text-red-500"><%= form.object.errors[:attrtype].first %></span>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :unit, t('attr.unit') %><br>
+      <%= form.text_area :unit, placeholder: t('attr.unit_placeholder'), class: "form-control rounded" + (form.object.errors.has_key?(:unit) ? " border-red-500" : "") %>
+      <% if form.object.errors.has_key?(:unit) %>
+        <span class="text-red-500"><%= form.object.errors[:unit].first %></span>
+      <% end %>
+    </div>
+
+    <div class="pt-5">
+      <% if @attr.new_record? %>
+        <%= form.submit t('attr.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+      <% else %>
+        <%= form.submit t('attr.update'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+      <% end %>
+    </div>
+  <% end %>
+</div>
