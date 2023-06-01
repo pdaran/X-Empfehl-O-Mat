@@ -52,3 +52,9 @@ rubocop:
   image: $CI_REGISTRY_IMAGE:ci-$CI_COMMIT_SHA
   script:
     - bundle exec rubocop
+
+i18n-tasks:
+  stage: test
+  image: $CI_REGISTRY_IMAGE:ci-$CI_COMMIT_SHA
+  script:
+    - bundle exec i18n-tasks missing
