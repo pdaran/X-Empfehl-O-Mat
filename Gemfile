@@ -68,6 +68,7 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 
+  # find missing translations
   gem 'i18n-tasks'
 end
 
@@ -77,6 +78,9 @@ group :development do
 
   # Ruby I18n Debug [https://github.com/fphilipe/i18n-debug]
   gem 'i18n-debug'
+
+  # find non-i18n strings, use with care
+  gem 'i15r'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
