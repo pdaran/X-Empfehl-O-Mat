@@ -107,6 +107,7 @@ GEM
       activesupport (>= 5.0)
     hashdiff (1.0.1)
     highline (2.1.0)
+    i15r (0.5.5)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     i18n-debug (1.2.0)
@@ -312,6 +313,7 @@ DEPENDENCIES
   chartkick
   debug
   foreman
+  i15r
   i18n-debug
   i18n-tasks
   image_processing (~> 1.2)

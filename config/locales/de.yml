@@ -20,6 +20,7 @@ de:
   edit: "Editieren"
   delete: "Löschen"
   attributes: "Attribute"
+  sign_up: "Registrieren"
 
 
   password:
@@ -52,7 +53,6 @@ de:
     error: "Etwas ist schief gelaufen."
     back: "Zurück"
     notice_delete: "Account wurde erfolgreich gelöscht."
-    error: "Etwas ist schief gelaufen."
 
   #navbar
   navbar:
@@ -82,6 +82,8 @@ de:
 
   #dashboard
   dashboard:
+    menu_link: "Menü"
+    recommendation_link: "Empfehlungen"
     homepage: "Hauptseite"
     menu: "Menü"
     recommendation: "Bewertung"
@@ -135,13 +137,8 @@ de:
     notice_delete: "Attribut wurde erfolgreich gelöscht"
     edit: "Attribut editieren"
     delete: "Attribute löschen"
-
-  #dashboard
-  dashboard:
-    homepage: "Hauptseite"
-    menu: "Menü"
-    recommendation: "Bewertung"
-    recommendation_product: "Produktübersicht der Empfehlung"
+    delete_confirm: "Wollen Sie dieses Attribut wirklich löschen?"
+    notice_update: "Attribut wurde erfolgreich geupdatet"
 
   # Form Labels
   form_labels:
