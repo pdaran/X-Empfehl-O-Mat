@@ -21,6 +21,26 @@ class RecommenderController < ApplicationController
   end
 
   def result
+    require 'net/http'
+    require 'uri'
+
+    uri = URI('http://empfehl-flask:8000/recommend')
+
+    customer_id = session[:rec_id]
+
+    data = "{\"id\": #{customer_id}}"
+
+    # http request to url
+    response = Net::HTTP.post(uri, data)
+
+    response_string = response.body
+
+    # Convert response Json String to Object
+    @product_ids = JSON.parse(response_string)
+
+    # Find all Products by th ID Array
+    @products = Product.find(@product_ids)
+
     @user = session[:user_id]
   end
 

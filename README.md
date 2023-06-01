@@ -60,6 +60,23 @@ user = User.new(email: "admin@test.local", password: "admin", admin: true)
 user.save
 ```
 
+#### Initialen Admin Account mit Seeder
+
+Shell im Container oeffnen
+```
+docker exec -it empfehl-web sh
+```
+
+Dann db seeden mit 
+
+```
+rails db:seed
+```
+
+Logindaten:
+email: "admin@test.local"
+password: "admin"
+
 ## GitLab: Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
