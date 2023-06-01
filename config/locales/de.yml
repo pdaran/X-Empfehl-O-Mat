@@ -33,7 +33,8 @@ de:
     notice_delete: "Sie haben sich erfolgreich abgemeldet."
     false_login: "Bitte überprüfen Sie Ihre Email bzw. Passwort erneut."
     error: "Etwas ist schief gelaufen."
-    error_nologin: "Bitte melden Sie sich an."
+    nologin: "Bitte melden Sie sich an."
+    noperm: "Sie haben keine Berechtigung für diese Aktion."
     back: "Zurück"
 
   account: 
@@ -105,12 +106,14 @@ de:
     image: "Bild"
     status: "Status"
     email: "Email"
+    invalid_email: "Die E-Mail-Adresse ist ungültig."
     email_confirmation: "Email bestätigen"
     email_placeholder: "dein.email@test.com"
     password: "Passwort"
     password_confirmation: "Passwort bestätigen"
     submit: "Absenden"
     delete_confirm: "Sind Sie sicher?"
+
   file_upload:
     choose_file: "Datei auswählen"
     no_file_chosen: "Keine Datei ausgewählt"
@@ -129,8 +132,7 @@ de:
   data_security: "Datensicherheit"
   data_security_content: "Wir treffen technische und organisatorische Maßnahmen, um Ihre Daten gegen unbefugten Zugriff, Verlust oder Veränderung zu schützen. Wir empfehlen jedoch, dass Sie bei der Übermittlung von Daten über das Internet immer auf die Sicherheit achten und geeignete Schutzmaßnahmen ergreifen."
   cookies: "Cookies"
-  cookies_content: "
-    Unsere Website verwendet Cookies, um bestimmte Funktionen bereitzustellen und die Benutzerfreundlichkeit zu verbessern. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen. Sie können das Speichern von Cookies in den Einstellungen Ihres Browsers deaktivieren, allerdings kann dies die Funktionalität unserer Website beeinträchtigen."
+  cookies_content: "Unsere Website verwendet Cookies, um bestimmte Funktionen bereitzustellen und die Benutzerfreundlichkeit zu verbessern. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen. Sie können das Speichern von Cookies in den Einstellungen Ihres Browsers deaktivieren, allerdings kann dies die Funktionalität unserer Website beeinträchtigen."
   your_rights: "Ihre Rechte"
   your_rights_content: "Sie haben das Recht, Auskunft über die von uns zu Ihrer Person gespeicherten Daten zu erhalten und ggf. deren Berichtigung, Löschung oder Sperrung zu verlangen. Bei Fragen oder Anliegen zum Datenschutz können Sie sich jederzeit an uns wenden."
   privacy_disclaimer: "Please note that this is a student project website, and we reserve the right to adapt and expand this privacy policy accordingly."
@@ -148,3 +150,14 @@ de:
   representative_email: "Email: info@plagge-it.com"
   representative_phone: "Telefon: 0241 6009 530 0"
   we_look_forward: "Wir freuen uns über Ihre Kontaktaufnahme!"
+
+  # Mailer
+  mailer:
+    welcome: "Willkommen bei X-Empfehl-O-Mat"
+    signup_success: "Sie haben sich erfolgreich registriert, Ihr Benutzername lautet: "
+    tologin: "Um sich auf der Website anzumelden, folgen Sie einfach diesem Link: "
+    thankyou: "Vielen Dank für Ihre Anmeldung!"
+    footer: "2023 X-Empfehl-O-Mat Team. Alle Rechte vorbehalten."
+    confirm: "Bitte bestätigen Sie Ihre Email-Adresse."
+    confirm_success: "Ihre Email-Adresse wurde erfolgreich bestätigt."
+    

@@ -1,4 +1,4 @@
-document.addEventListener('turbo:load', function() {
+document.addEventListener("turbo:load", function () {
   const hamburger = document.querySelector(".hamburger");
   const navMenu = document.querySelector(".nav-menu");
 

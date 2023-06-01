@@ -1,6 +1,10 @@
+
+
+<!-- DESIGN -->
 <!DOCTYPE html>
 <html>
 <head>
+  <%= javascript_include_tag "file_preview", defer: true , t: Time.now.to_i %>
 <title><%= t('appname') %></title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
   <%= csrf_meta_tags %>
@@ -29,6 +33,5 @@
   <%= yield %>
 </main>
   <%= render "shared/footer" %>
-  <%= javascript_include_tag "file_preview" %>
 </body>
 </html>

@@ -63,7 +63,8 @@ en:
     notice_delete: "You have successfully logged out."
     false_login: "Please check your email or password again"
     error: "Something went wrong."
-    error_nologin: "Please login."
+    nologin: "Please login."
+    noperm: "You are not authorized for this action."
     back: "Back"
   
   account: 
@@ -133,6 +134,7 @@ en:
     image: "Image"
     status: "Status"
     email: "Email"
+    invalid_email: "must be a valid email address"
     email_confirmation: "Email confirmation"
     email_placeholder: "your.email@test.com"
     password: "Password"
@@ -175,3 +177,11 @@ en:
   representative_email: "Email: info@plagge-it.com"
   representative_phone: "Phone: 0241 6009 530 0"
   we_look_forward: "We look forward to hearing from you!"
+
+  # Mailer
+  mailer:
+    welcome: "Welcome to "
+    tologin: "To log in to the site, just follow this link: "
+    signup_success: "You have successfully signed up to example.com, your username is: "
+    thankyou: "Thanks for joining and have a great day!"
+    footer: "2023 X-Empfehl-O-Mat Team. All rights reserved."

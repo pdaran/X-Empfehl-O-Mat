@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  <div class="container">
+    <div class="logo">
+      <img src="public\temp_logo.jpeg" alt="Our Logo" width="150">
+    </div>
+    <h1><%= t('mailer.welcome') %> <%= t('navbar.title') %>, <%= @user.email %></h1>
+    <p>
+      <%= t('mailer.signup_success') %> <%= @user.email %>.
+    </p>
+    <p>
+      <%= t('mailer.tologin') %> <%= @url %>.
+    </p>
+    <p><%= t('mailer.thankyou') %></p>
+    <div class="footer">
+      &copy; <%= t('mailer.footer') %>
+    </div>
+  </div>
+</body>
+</html>
