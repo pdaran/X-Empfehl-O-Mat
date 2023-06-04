@@ -41,32 +41,32 @@ def get_users():
 @app.route('/recommend', methods=['POST', 'GET'])
 def get_recommendation():
     if request.method == 'POST':
-        print(request.form, file=sys.stderr)
+        customer_id = int(request.form['id'])
         conn = get_db_connection()
         sql = 'SELECT "customer_id","like","product_id" FROM likes;'
         customer_likes_matrix = sqlio.read_sql_query(sql, conn)
         conn.close()
 
-        print(customer_likes_matrix, file=sys.stderr)
+        #print(customer_likes_matrix, file=sys.stderr)
 
         customer_likes_matrix = customer_likes_matrix.pivot_table(index='customer_id',columns='product_id')
 
-        print(customer_likes_matrix, file=sys.stderr)
+        #print(customer_likes_matrix, file=sys.stderr)
 
         customer_likes_matrix = customer_likes_matrix.fillna(0)
-        print(customer_likes_matrix, file=sys.stderr)
+        #print(customer_likes_matrix, file=sys.stderr)
 
         customer_similarity = 1 - pairwise_distances(customer_likes_matrix, metric='cosine')
         customer_similarity = pd.DataFrame(customer_similarity, index=customer_likes_matrix.index,
                                            columns=customer_likes_matrix.index)
 
-        target_customer = 1
+        target_customer = customer_id
 
         similar_customers = customer_similarity[target_customer].sort_values(ascending = False)[1:]
 
         similar_customers = similar_customers[similar_customers > 0]
 
-        print(similar_customers, file=sys.stderr)
+        #print(similar_customers, file=sys.stderr)
 
         recommendations = pd.Series()
 
@@ -89,20 +89,20 @@ def get_recommendation():
         # recommendations.index = product.id
         recommendations = recommendations.groupby(recommendations.index).sum().sort_values(ascending=False)
 
-        print(recommendations, file=sys.stderr)
+        print(type(recommendations), file=sys.stderr)
 
 
         # cur = conn.cursor()
         # cur.execute('SELECT * FROM products ORDER BY RANDOM() LIMIT 5;')
         # products = cur.fetchall()
         # cur.close()
-        # print(products, file=sys.stderr)  # Printing to console
+        # #print(products, file=sys.stderr)  # Printing to console
 
         # Dataframe target_customer (customer_id) -> like (product_id)
         # df_targetCustomer_likedProductcs = pd.DataFrame(data)
         #print(customer_similarity, file=sys.stderr)
 
-        return jsonify("test")
+        return recommendations.to_json()
     else:
         conn = get_db_connection()
         cur = conn.cursor()
@@ -110,7 +110,7 @@ def get_recommendation():
         products = cur.fetchall()
         cur.close()
         conn.close()
-        # print(products, file=sys.stderr)  # Printing to console
+        # #print(products, file=sys.stderr)  # Printing to console
         id_list = []
         # Extract only IDs from Products
         for product in products:
