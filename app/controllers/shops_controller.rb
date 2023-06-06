@@ -69,13 +69,14 @@ class ShopsController < ApplicationController
 
   def delete_associated_images
     @shop.image.purge
-    @shop.category.each { |category| category.image.purge }
-    @shop.category.products.each { |product| product.image.purge }
+    @shop.categories.each do |category|
+      category.image.purge
+      category.products.each { |product| product.image.purge }
+    end
   end
 
   def delete_associated_categories
-    @shop.category.destroy_all
-    @shop.category.products.destroy_all
+    @shop.categories.destroy_all
   end
 
   def handle_shop_deletion
