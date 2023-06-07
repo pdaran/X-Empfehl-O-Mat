@@ -1,5 +1,7 @@
 <div>
-  <h1 class="font-bold text-4xl"><%= t('shops') %></h1>
+  <h1 class="font-bold text-4xl"><%= t('shops') %><%= link_to new_shop_path do %>
+          <i class="fas fa-plus"></i>
+        <% end %></h1>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
   <% @shops.each do |shop| %>
     <div class="bg-white rounded-lg shadow-lg">
@@ -24,9 +26,4 @@
     </div>
   <% end %>
 </div>
-      <div class="">
-        <%= link_to new_shop_path do %>
-          <i class="fas fa-plus"></i>
-        <% end %>
-      </div>
 </div>

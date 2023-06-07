@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 class ShopsController < ApplicationController
+  before_action :set_shop, only: %i[show edit update destroy]
+
   def index
     @shops = Shop.order(:name)
   end
 
-  def show
-    @shop = Shop.find(params[:id])
-  end
+  def show; end
 
   def new
     @shop = Shop.new
@@ -25,12 +25,9 @@ class ShopsController < ApplicationController
     end
   end
 
-  def edit
-    @shop = Shop.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
       redirect_to shops_path, status: :see_other, notice: t('shop.notice_update')
     else
@@ -39,13 +36,16 @@ class ShopsController < ApplicationController
   end
 
   def destroy
-    @shop = Shop.find(params[:id])
     delete_associated_images
     delete_associated_categories
     handle_shop_deletion
   end
 
   private
+
+  def set_shop
+    @shop = Shop.find(params[:id])
+  end
 
   def shop_params
     params.require(:shop).permit(:name, :email, :password_digest, :address, :phone_no, :image, :status)
@@ -81,10 +81,11 @@ class ShopsController < ApplicationController
 
   def handle_shop_deletion
     if @shop.destroy
-      redirect_to shops_path, status: :see_other,
-                              notice: t('shop.notice_delete')
+      flash[:notice] = t('shop.notice_delete')
     else
-      redirect_to shops_path, status: :see_other, alert: t('shop.error')
+      flash[:alert] = t('shop.error')
     end
+
+    redirect_to shops_path, status: :see_other
   end
 end

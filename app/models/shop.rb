@@ -3,9 +3,10 @@
 class Shop < ApplicationRecord
   has_many :categories, dependent: :destroy
   validates :name, presence: true, length: { minimum: 3 }
-  validates :email, presence: true, length: { minimum: 7 }
+  validates :email, presence: true, uniqueness: true,
+                    format: { with: /\A[^@\s]+@[^@\s]+\z/, message: I18n.t('form_labels.invalid_email') }
   validates :address, presence: true, length: { minimum: 7 }
-  validates :phone_no, presence: true, length: { minimum: 7 }
+  validates :phone_no, presence: true, length: { minimum: 7 }, uniqueness: true
   enum status: { active: 'active', blocked: 'blocked' }
 
   has_one_attached :image do |attachable|
