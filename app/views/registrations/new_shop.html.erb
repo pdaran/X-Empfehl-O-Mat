@@ -1,0 +1,33 @@
+<h1>Shop Registration</h1>
+
+<%= form_with model: @shop, url: create_shop_registrations_path do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <% if @shop.errors.has_key?(:password) %>
+    <span class="error"><%= @shop.errors[:password].join(', ') %></span>
+  <% end %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <% if @shop.errors.has_key?(:password_confirmation) %>
+    <span class="error"><%= @shop.errors[:password_confirmation].join(', ') %></span>
+  <% end %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :phone_no %>
+  <%= f.text_field :phone_no %>
+
+  <%= f.label :status %>
+  <%= f.select :status, options_for_select(Shop.statuses.keys.to_a) %>
+
+
+  <%= f.submit "Register" %>
+<% end %>

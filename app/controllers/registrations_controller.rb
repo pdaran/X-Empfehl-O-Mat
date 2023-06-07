@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RegistrationsController < ApplicationController
-  before_action :require_user_admin!
+  # before_action :require_user_admin!
 
   def new
     @user = User.new
@@ -17,7 +17,24 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def new_shop
+    @shop = Shop.new
+  end
+
+  def create_shop
+    @shop = Shop.new(shop_params)
+    if @shop.save
+      redirect_to root_path, notice: t('account.notice_create')
+    else
+      render :new_shop, status: 422
+    end
+  end
+
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :admin, :shop)
+  end
+
+  def shop_params
+    params.require(:shop).permit(:name, :email, :password, :password_confirmation)
   end
 end

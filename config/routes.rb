@@ -17,8 +17,12 @@ Rails.application.routes.draw do
     get '/privacy', to: 'homepage#privacy', as: 'privacy'
     get '/contact', to: 'homepage#contact', as: 'contact'
 
-    get 'sign_up', to: 'registrations#new'
-    post 'sign_up', to: 'registrations#create'
+    resources :registrations, only: %i[new create] do
+      collection do
+        get :new_shop
+        post :create_shop
+      end
+    end
 
     get 'sign_in', to: 'sessions#new'
     post 'sign_in', to: 'sessions#create'

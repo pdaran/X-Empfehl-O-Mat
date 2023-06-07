@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Shop < ApplicationRecord
+  has_secure_password
   has_many :categories, dependent: :destroy
   validates :name, presence: true, length: { minimum: 3 }
   validates :email, presence: true, uniqueness: true,
