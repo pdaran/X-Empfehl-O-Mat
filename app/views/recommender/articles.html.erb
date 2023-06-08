@@ -6,6 +6,15 @@
       <%= form.label :query, t('product_search_box_label'), class: "block mb-2" %>
       <%= form.text_field :query, data: { action: "input->form-submission#search" }, class: "flex flex-col p-4 rounded-xl shadow-xl w-96 md:w-auto" %>
     </div>
+    <div class="flex space-x-3">
+      <%= form.select :filter, [t('none')] + @category.attrs.bool.active.pluck(:name), {}, { data: { action: "input->form-submission#select" }} %>
+    </div>
+    <div class="flex space-x-3">
+      <%= form.select :orderby, [t('attr.name')] + @category.attrs.numeric.active.pluck(:name), {}, { data: { action: "input->form-submission#select" }} %>
+    </div>
+    <div class="flex space-x-3">
+      <%= form.select :order, [[t('ascending'), 'ASC'], [t('descending'), 'DESC']], {}, { selected: 'ASC', data: { action: "input->form-submission#select" }} %>
+    </div>
   <% end %>
 
   <%= form_with do |form| %>
