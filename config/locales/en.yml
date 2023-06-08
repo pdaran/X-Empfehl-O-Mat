@@ -169,6 +169,7 @@ en:
     delete: "Delete attribute"
     delete_confirm: "Do you really want to delete this attribute?"
     notice_update: "Attribute was successfully update"
+    value: "Value"
 
   form_labels:
     name: "Name"

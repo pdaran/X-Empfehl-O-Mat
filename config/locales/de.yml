@@ -139,6 +139,7 @@ de:
     delete: "Attribute löschen"
     delete_confirm: "Wollen Sie dieses Attribut wirklich löschen?"
     notice_update: "Attribut wurde erfolgreich geupdatet"
+    value: "Wert"
 
   # Form Labels
   form_labels:

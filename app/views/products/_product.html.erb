@@ -18,6 +18,41 @@
     </p>
     <%= content_tag :div, product.desc, class: "text-center overflow-hidden h-20" %>
 
+    <%# attributes %>
+    <% product.category.attrs.bool.active.each_with_index do |attr, i| %>
+      <% unless product.product_attrs.where(attr_id: attr).empty? %>
+        <% if attr == product.category.attrs.bool.active.last || i == 0 %>
+          <%= attr.name %>
+        <% else %>
+          <%= attr.name + ', ' %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <table>
+      <% product.category.attrs.numeric.active.each do |attr| %>
+        <% unless product.product_attrs.where(attr_id: attr).empty? %>
+          <tr>
+            <td><%= attr.name + ": " %></td>
+            <td><%= product.product_attrs.where(attr_id: attr).first.value %></td>
+            <td><%= attr.unit %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+
+    <table>
+      <% product.category.attrs.text.active.each do |attr| %>
+        <% unless product.product_attrs.where(attr_id: attr).empty? %>
+          <tr>
+            <td><%= attr.name + ": " %></td>
+            <td><%= product.product_attrs.where(attr_id: attr).first.value %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+
+
     <% if controller.controller_name == "recommender" && controller.action_name == "articles" %>
       <div class="flex items-center mb-4">
         <label>
