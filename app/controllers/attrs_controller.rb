@@ -53,6 +53,6 @@ class AttrsController < ApplicationController
   private
 
   def attr_params
-    params.require(:attr).permit(:name, :attrtype, :unit)
+    params.require(:attr).permit(:name, :attrtype, :unit, :status)
   end
 end

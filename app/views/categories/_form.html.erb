@@ -52,5 +52,55 @@
         <%= form.submit t('category.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
       <% end %>
     </div>
+
+    <% if form.object.errors.has_key?(:image) %>
+      <span class="text-red-500"><%= form.object.errors[:image].first %></span>
+    <% end %>
+  </div>
+
+        <% unless @category.new_record? %>
+        <div class="field pb-4">
+          <p><%= t('attributes') %></p>
+          <% unless @category.attrs.empty? %>
+            <table class="table-auto">
+              <thead>
+              <tr>
+                <th><%= t('attr.name') %></th>
+                <th><%= t('attr.attrtype') %></th>
+                <th><%= t('attr.unit') %></th>
+                <th><%= t('form_labels.status') %></th>
+                <th></th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              <%= render @category.attrs, form: form %>
+              </tbody>
+            </table>
+          <% end %>
+            <%= link_to new_shop_category_attr_path(@category.shop, @category) do %>
+              <i class="fas fa-plus" title="<%= t('attr.new') %>"></i>
+            <% end %>
+        </div>
+        <% end %>
+
+<div class="field">
+  <%= form.label :status, t('form_labels.status') %><br>
+  <% if @category.new_record? %>
+    <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+  <% else %>
+    <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+  <% end %>
+  <% if form.object.errors.has_key?(:status) %>
+    <span class="text-red-500"><%= form.object.errors[:status].first %></span>
+  <% end %>
+</div>
+
+  
+<div class="pt-5">
+  <% if @category.new_record? %>
+    <%= form.submit t('category.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+  <% else %>
+    <%= form.submit t('category.update'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
   <% end %>
 </div>

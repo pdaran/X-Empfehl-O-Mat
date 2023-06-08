@@ -38,8 +38,21 @@
 
       <div class="field pb-4">
         <p><%= t('attributes') %></p>
-        <% @category.attrs.each do |attr| %>
-          <%= render "attr_edit", form: form, attr: attr, pattr: ProductAttr.where(product_id: @product.id, attr_id: attr.id).first %>
+        <% unless @category.attrs.empty? %>
+          <table class="table-auto">
+            <thead>
+            <tr>
+              <th><%= t('attr.name') %></th>
+              <th><%= t('attr.value') %></th>
+              <th><%= t('attr.unit') %></th>
+            </tr>
+            </thead>
+            <tbody>
+            <% @category.attrs.each do |attr| %>
+              <%= render "attr_edit", form: form, attr: attr, pattr: ProductAttr.where(product_id: @product.id, attr_id: attr.id).first %>
+            <% end %>
+            </tbody>
+          </table>
         <% end %>
       </div>
       
