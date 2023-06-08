@@ -19,9 +19,9 @@
     <%= content_tag :div, product.desc, class: "text-center overflow-hidden h-20" %>
 
     <%# attributes %>
-    <% product.category.attrs.bool.each_with_index do |attr, i| %>
+    <% product.category.attrs.bool.active.each_with_index do |attr, i| %>
       <% unless product.product_attrs.where(attr_id: attr).empty? %>
-        <% if attr == product.category.attrs.bool.last || i == 0 %>
+        <% if attr == product.category.attrs.bool.active.last || i == 0 %>
           <%= attr.name %>
         <% else %>
           <%= attr.name + ', ' %>
@@ -30,7 +30,7 @@
     <% end %>
 
     <table>
-      <% product.category.attrs.numeric.each do |attr| %>
+      <% product.category.attrs.numeric.active.each do |attr| %>
         <% unless product.product_attrs.where(attr_id: attr).empty? %>
           <tr>
             <td><%= attr.name + ": " %></td>
@@ -42,7 +42,7 @@
     </table>
 
     <table>
-      <% product.category.attrs.text.each do |attr| %>
+      <% product.category.attrs.text.active.each do |attr| %>
         <% unless product.product_attrs.where(attr_id: attr).empty? %>
           <tr>
             <td><%= attr.name + ": " %></td>
