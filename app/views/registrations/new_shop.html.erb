@@ -1,33 +1,49 @@
-<h1>Shop Registration</h1>
+<div class="container mx-auto p-10">
+  <div class="bg-white p-10 rounded-lg shadow-lg">
+    <h1>Shop Registration</h1>
 
-<%= form_with model: @shop, url: create_shop_registrations_path do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+    <%= form_with model: @shop, class: "pt-6", url: create_shop_registrations_path , method: :post do |f| %>
+     <div class="mb-6">
+        <%= f.label :name, class: "block text-lg font-medium text-gray-700" %>
+        <%= f.text_field :name, class: "mt-2 px-4 py-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: "your.email@test.com" %>
+      </div>
+      <div class="mb-6">
+        <%= f.label :email, class: "block text-lg font-medium text-gray-700" %>
+        <%= f.text_field :email, class: "mt-2 px-4 py-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: "your.email@test.com" %>
+      </div>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+      <div class="mb-6">
+        <%= f.label :password, class: "block text-lg font-medium text-gray-700" %>
+        <%= f.password_field :password, class: "mt-2 px-4 py-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: "Your password" %>
+        <%# <% if @shop.errors.has_key?(:password) %>
+          <%# <span class="error"><%= @shop.errors[:password].join(', ') %></span>
+        <%# <% end %> 
+      </div> 
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <% if @shop.errors.has_key?(:password) %>
-    <span class="error"><%= @shop.errors[:password].join(', ') %></span>
-  <% end %>
+      <div class="mb-6">
+        <%= f.label :password_confirmation, class: "block text-lg font-medium text-gray-700" %>
+        <%= f.password_field :password_confirmation, class: "mt-2 px-4 py-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: "Confirm password" %>
+        <%# <% if @shop.errors.has_key?(:password_confirmation) %>
+          <%# <span class="error"><%= @shop.errors[:password_confirmation].join(', ') %></span>
+        <%# <% end %> 
+      </div>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <% if @shop.errors.has_key?(:password_confirmation) %>
-    <span class="error"><%= @shop.errors[:password_confirmation].join(', ') %></span>
-  <% end %>
+      <div class="mb-6">
+        <%= f.label :address, class: "block text-lg font-medium text-gray-700" %>
+        <%= f.text_field :address, class: "mt-2 px-4 py-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: "Shop address" %>
+      </div>
 
-  <%= f.label :address %>
-  <%= f.text_field :address %>
+      <div class="mb-6">
+        <%= f.label :phone_no %>
+        <%= f.text_field :phone_no, class: "mt-2 px-4 py-2 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: "Phone number" %>
+      </div>
 
-  <%= f.label :phone_no %>
-  <%= f.text_field :phone_no %>
+      <%# <%= f.label :status %>
+      <%# <%= f.select :status, options_for_select(Shop.statuses.keys.to_a) %>
 
-  <%= f.label :status %>
-  <%= f.select :status, options_for_select(Shop.statuses.keys.to_a) %>
-
-
-  <%= f.submit "Register" %>
-<% end %>
+      <div class="mb-6">
+        <%= f.submit "Register", class: "bg-gray-900 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" %>
+      </div>
+    <% end %>
+  </div>
+</div>
