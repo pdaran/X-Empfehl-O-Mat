@@ -70,15 +70,25 @@ class ProductsController < ApplicationController
   end
 
   def save_attributes
+    saved_ids = []
     i = 0
-
-    return if params[:attr_id].nil?
-
-    params[:attr_id].each do |id|
+    params[:attr_id]&.each do |id|
       p = ProductAttr.find_or_initialize_by(product_id: @product.id, attr_id: id)
       p.value = params[:attr_val][i]
       p.save
       i += 1
+      saved_ids.append(id)
+    end
+
+    params[:check_id]&.each do |id|
+      p = ProductAttr.find_or_initialize_by(product_id: @product.id, attr_id: id)
+      p.value = 'true'
+      p.save
+      saved_ids.append(id)
+    end
+
+    ProductAttr.where(product_id: @product.id).each do |pattr|
+      pattr.destroy unless saved_ids.include?(pattr.attr_id.to_s)
     end
   end
 
