@@ -1,51 +1,40 @@
 import os
 import sys
-import psycopg2
 from flask import Flask, jsonify, redirect, url_for, request
 import pandas as pd
 import pandas.io.sql as sqlio
 from sklearn.metrics import pairwise_distances
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 app = Flask(__name__)
 
-db_name = 'x_empfehl_development'
 db_username = os.getenv("POSTGRES_USER")
 db_password = os.getenv("POSTGRES_PASSWORD")
+db_hostname = 'empfehl-db'
+db_port = '5432'
+db_name = 'x_empfehl_development'
 
+app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{db_username}:{db_password}@{db_hostname}:{db_port}/{db_name}"
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
-def get_db_connection():
-    conn = psycopg2.connect(host='empfehl-db',
-                            port=5432,
-                            database=db_name,
-                            user=db_username,
-                            password=db_password)
-    return conn
-
+db.init_app(app)
 
 @app.route('/')
 def hello_world():
     return '<h1> HELLO WORLD </h1>'
 
-
-@app.route('/users')
-def get_users():
-    conn = get_db_connection()
-    cur = conn.cursor()
-    cur.execute('SELECT * FROM users;')
-    users = cur.fetchall()
-    cur.close()
-    conn.close()
-    return jsonify(users)
-
-
 @app.route('/recommend', methods=['POST', 'GET'])
 def get_recommendation():
     if request.method == 'POST':
         customer_id = int(request.form['id'])
-        conn = get_db_connection()
-        sql = 'SELECT "customer_id","like","product_id" FROM likes;'
-        customer_likes_matrix = sqlio.read_sql_query(sql, conn)
-        conn.close()
+
+        engine = db.engine
+        with engine.begin() as conn:
+            sql = 'SELECT "customer_id","like","product_id" FROM likes;'
+            customer_likes_matrix = sqlio.read_sql_query(sql, conn)
+        #conn.close()
 
         #print(customer_likes_matrix, file=sys.stderr)
 
