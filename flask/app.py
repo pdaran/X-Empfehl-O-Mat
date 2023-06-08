@@ -29,82 +29,54 @@ def hello_world():
 def get_recommendation():
     if request.method == 'POST':
         customer_id = int(request.form['id'])
-
-        engine = db.engine
-        with engine.begin() as conn:
-            sql = 'SELECT "customer_id","like","product_id" FROM likes;'
-            customer_likes_matrix = sqlio.read_sql_query(sql, conn)
-        #conn.close()
-
-        #print(customer_likes_matrix, file=sys.stderr)
-
-        customer_likes_matrix = customer_likes_matrix.pivot_table(index='customer_id',columns='product_id')
-
-        #print(customer_likes_matrix, file=sys.stderr)
-
-        customer_likes_matrix = customer_likes_matrix.fillna(0)
-        #print(customer_likes_matrix, file=sys.stderr)
-
-        customer_similarity = 1 - pairwise_distances(customer_likes_matrix, metric='cosine')
-        customer_similarity = pd.DataFrame(customer_similarity, index=customer_likes_matrix.index,
-                                           columns=customer_likes_matrix.index)
-
-        target_customer = customer_id
-
-        similar_customers = customer_similarity[target_customer].sort_values(ascending = False)[1:]
-
-        similar_customers = similar_customers[similar_customers > 0]
-
-        #print(similar_customers, file=sys.stderr)
-
-        recommendations = pd.Series()
-
-        # Iterate over the index of similar_users
-        for i in similar_customers.index:
-            # Korrelation (Ähnlichkeit) vom "similar_user[i]" zu target_user speichern
-            similarity = similar_customers.loc[i]
-
-            # Gelikete Produkte vom similar_user[i]
-            similar_customers_preferences = customer_likes_matrix.loc[i]
-            liked_products = similar_customers_preferences[similar_customers_preferences > 0]
-
-            # Verteilung der gelikten Produkte mit Korrelation (Ähnlichkeit) gewichten
-            weighted_liked_products = liked_products * similarity
-
-            # Gewichteten Wert zu Produkten hinzufügen
-            recommendations = pd.concat([recommendations, weighted_liked_products])
-
-        # Gruppieren nach product_id und Summe der Gewichte berechnen
-        # recommendations.index = product.id
-        recommendations = recommendations.groupby(recommendations.index).sum().sort_values(ascending=False)
-
-        print(type(recommendations), file=sys.stderr)
-
-
-        # cur = conn.cursor()
-        # cur.execute('SELECT * FROM products ORDER BY RANDOM() LIMIT 5;')
-        # products = cur.fetchall()
-        # cur.close()
-        # #print(products, file=sys.stderr)  # Printing to console
-
-        # Dataframe target_customer (customer_id) -> like (product_id)
-        # df_targetCustomer_likedProductcs = pd.DataFrame(data)
-        #print(customer_similarity, file=sys.stderr)
-
-        return recommendations.to_json()
     else:
-        conn = get_db_connection()
-        cur = conn.cursor()
-        cur.execute('SELECT * FROM products ORDER BY RANDOM() LIMIT 5;')
-        products = cur.fetchall()
-        cur.close()
-        conn.close()
-        # #print(products, file=sys.stderr)  # Printing to console
-        id_list = []
-        # Extract only IDs from Products
-        for product in products:
-            id_list.append(product[0])
-        return jsonify(id_list)
+        customer_id = int(request.args.get('id'))
+
+    engine = db.engine
+    with engine.begin() as conn:
+        sql = 'SELECT "customer_id","like","product_id" FROM likes;'
+        customer_likes_matrix = sqlio.read_sql_query(sql, conn)
+
+    customer_likes_matrix = customer_likes_matrix.pivot_table(index='customer_id', columns='product_id')
+
+    customer_likes_matrix = customer_likes_matrix.fillna(0)
+
+    customer_similarity = 1 - pairwise_distances(customer_likes_matrix, metric='cosine')
+    customer_similarity = pd.DataFrame(customer_similarity, index=customer_likes_matrix.index,
+                                       columns=customer_likes_matrix.index)
+
+    target_customer = customer_id
+
+    similar_customers = customer_similarity[target_customer].sort_values(ascending = False)[1:]
+
+    similar_customers = similar_customers[similar_customers > 0]
+
+    # print(similar_customers, file=sys.stderr)
+
+    recommendations = pd.Series()
+
+    # Iterate over the index of similar_users
+    for i in similar_customers.index:
+        # Korrelation (Ähnlichkeit) vom "similar_user[i]" zu target_user speichern
+        similarity = similar_customers.loc[i]
+
+        # Gelikete Produkte vom similar_user[i]
+        similar_customers_preferences = customer_likes_matrix.loc[i]
+        liked_products = similar_customers_preferences[similar_customers_preferences > 0]
+
+        # Verteilung der gelikten Produkte mit Korrelation (Ähnlichkeit) gewichten
+        weighted_liked_products = liked_products * similarity
+
+        # Gewichteten Wert zu Produkten hinzufügen
+        recommendations = pd.concat([recommendations, weighted_liked_products])
+
+    # Gruppieren nach product_id und Summe der Gewichte berechnen
+    # recommendations.index = product.id
+    recommendations = recommendations.groupby(recommendations.index).sum().sort_values(ascending=False)
+
+    # print(customer_similarity, file=sys.stderr)
+
+    return recommendations.to_json()
 
 
 if __name__ == '__main__':
