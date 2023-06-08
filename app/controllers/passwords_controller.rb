@@ -1,21 +1,30 @@
-# frozen_string_literal: true
-
 class PasswordsController < ApplicationController
-  before_action :require_user_logged_in!
+  def edit_user; end
+  def edit_shop; end
 
-  def edit; end
-
-  def update
-    if Current.user.update(password_params)
+  def update_pass_user
+    if Current.user.update(password_params_user)
       redirect_to root_path, notice: t('password.edit')
     else
-      render :edit
+      render :edit_user
+    end
+  end
+
+  def update_pass_shop
+    if Current.shop.update(password_params_shop)
+      redirect_to edit_shop_path(Current.shop), notice: t('password.edit')
+    else
+      render :edit_shop
     end
   end
 
   private
 
-  def password_params
+  def password_params_user
     params.require(:user).permit(:password, :password_confirmation)
+  end
+
+  def password_params_shop
+    params.require(:shop).permit(:password, :password_confirmation)
   end
 end
