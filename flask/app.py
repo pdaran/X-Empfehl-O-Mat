@@ -37,6 +37,11 @@ def get_recommendation():
         sql = 'SELECT "customer_id","like","product_id" FROM likes;'
         customer_likes_matrix = sqlio.read_sql_query(sql, conn)
 
+    if customer_id not in customer_likes_matrix["customer_id"]:
+        return f"No Customer with id {customer_id}", 404
+
+    target_customer = customer_id
+
     customer_likes_matrix = customer_likes_matrix.pivot_table(index='customer_id', columns='product_id')
 
     customer_likes_matrix = customer_likes_matrix.fillna(0)
@@ -45,9 +50,7 @@ def get_recommendation():
     customer_similarity = pd.DataFrame(customer_similarity, index=customer_likes_matrix.index,
                                        columns=customer_likes_matrix.index)
 
-    target_customer = customer_id
-
-    similar_customers = customer_similarity[target_customer].sort_values(ascending = False)[1:]
+    similar_customers = customer_similarity[target_customer].sort_values(ascending=False)[1:]
 
     similar_customers = similar_customers[similar_customers > 0]
 
