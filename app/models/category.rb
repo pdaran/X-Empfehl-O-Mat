@@ -2,7 +2,7 @@
 
 class Category < ApplicationRecord
   has_many :products, dependent: :destroy
-  has_many :attrs
+  has_many :attrs, dependent: :destroy
 
   belongs_to :shop
   validates :title, presence: true, length: { minimum: 3 }

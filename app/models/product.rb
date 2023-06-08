@@ -6,6 +6,10 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :attrs, through: :product_attr
 
+  before_destroy do
+    ProductAttr.where(product_id: self).destroy_all
+  end
+
   has_one_attached :image do |attachable|
     attachable.variant :large, resize_to_fill: [250, 250]
     attachable.variant :thumbnail, resize_to_fill: [56, 56]
