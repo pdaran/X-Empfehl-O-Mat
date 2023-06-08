@@ -33,7 +33,7 @@ en:
   hello: "Hello world"
   appname: "X-Empfehl-O-Mat"
   admin_link_name: "Administrator"
-  customer_link_name: "Customer"
+  customer_link_name: "As Customer"
   like_sign: "👍"
   choose_articles: "Choose articles you like"
   choose_a_category: "Choose a category"
@@ -124,13 +124,15 @@ en:
   shop:
     new: "Add Shop"
     notice_create: "Shop was successfully created."
-    edit: "Edit Shop"
+    edit: "Edit Profile"
     update: "Update Shop"
     notice_update: "Shop was successfully updated."
     delete: "Delete this shop"
     delete_confirm: "Are you sure you want to delete this shop?"
     notice_delete: "Shop (and all contents) was successfully deleted."
     error: "Something went wrong."
+    linkshop: "As Shop"
+    changepass: "Change Password"
 
 
 

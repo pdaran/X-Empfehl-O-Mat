@@ -2,7 +2,7 @@ de:
   hello: "Hallo Welt"
   appname: "X-Empfehl-O-Mat"
   admin_link_name: "Administrator"
-  customer_link_name: "Kunde"
+  customer_link_name: "Als Kunde"
   like_sign: "👍"
   choose_articles: "Waehle Artikel"
   choose_a_category: "Waehle eine Kategorie"
@@ -17,12 +17,7 @@ de:
   logout: "Abmelden"
   email: "Email"
   product_search_box_label: "Suche nach Produkten"
-  edit: "Editieren"
-  delete: "Löschen"
-  attributes: "Attribute"
-  sign_up: "Registrieren"
-
-
+  
   password:
     edit: "Passwort ändern"
     forgot: "Passwort vergessen?"
@@ -53,6 +48,7 @@ de:
     error: "Etwas ist schief gelaufen."
     back: "Zurück"
     notice_delete: "Account wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
 
   #navbar
   navbar:
@@ -79,11 +75,9 @@ de:
     text1: "Fügen Sie neue Kategorien hinzu."
   active: "Aktiv"
   deactivated: "Deaktiviert"
-
+  
   #dashboard
   dashboard:
-    menu_link: "Menü"
-    recommendation_link: "Empfehlungen"
     homepage: "Hauptseite"
     menu: "Menü"
     recommendation: "Bewertung"
@@ -95,13 +89,16 @@ de:
   shop:
     new: "Shop erstellen"
     notice_create: "Shop wurde erfolgreich erstellt."
-    edit: "Shop bearbeiten"
+    edit: "Profile bearbeiten"
     update: "Shop aktualisieren"
     notice_update: "Shop wurde erfolgreich aktualisiert."
     delete: "Shop löschen"
     delete_confirm: "Sind Sie sicher, dass Sie diesen Shop löschen möchten?"
     notice_delete: "Shop (und alle Inhalt) wurde erfolgreich gelöscht."
     error: "Etwas ist schief gelaufen."
+    linkshop: "Als Geschäft"
+    changepass: "Passwort Ändern"
+    
 
 
   #product
@@ -120,25 +117,6 @@ de:
   public: "Öffentlich"
   private: "Privat"
   archived: "Archiviert"
-
-  attr:
-    name: "Name"
-    attrtype: "Feld Typ"
-    type: "Typ"
-    bool: "Boolean"
-    numeric: "Nummer"
-    text: "Text"
-    unit: "Einheit"
-    unit_placeholder: "nur relevant für numerische Typen"
-    new: "Erstelle neues Attribut"
-    update: "Update Attribute"
-    notice_create: "Neues attribut wurde erfolgreich erstellt"
-    error: "Etwas is schief gelaufen."
-    notice_delete: "Attribut wurde erfolgreich gelöscht"
-    edit: "Attribut editieren"
-    delete: "Attribute löschen"
-    delete_confirm: "Wollen Sie dieses Attribut wirklich löschen?"
-    notice_update: "Attribut wurde erfolgreich geupdatet"
 
   # Form Labels
   form_labels:
@@ -205,3 +183,4 @@ de:
     footer: "2023 X-Empfehl-O-Mat Team. Alle Rechte vorbehalten."
     confirm: "Bitte bestätigen Sie Ihre Email-Adresse."
     confirm_success: "Ihre Email-Adresse wurde erfolgreich bestätigt."
+    
