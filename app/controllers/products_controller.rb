@@ -27,8 +27,6 @@ class ProductsController < ApplicationController
   def update
     load_shop_category_product
 
-    save_attributes
-
     if update_product
       redirect_to shop_category_path(@shop, @category), status: :see_other, notice: t('product.notice_update')
     else
@@ -97,8 +95,8 @@ class ProductsController < ApplicationController
   end
 
   def save_product
-    save_attributes
     @product.save
+    save_attributes
   end
 
   def load_shop_category_product
@@ -109,6 +107,7 @@ class ProductsController < ApplicationController
 
   def update_product
     @product.update(product_params)
+    save_attributes
   end
 
   def destroy_product
