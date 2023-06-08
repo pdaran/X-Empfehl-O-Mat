@@ -28,7 +28,7 @@ class RecommenderController < ApplicationController
 
     customer_id = session[:rec_id]
 
-    data = {'id': customer_id}
+    data = { id: customer_id }
 
     # http request to url
     response = Net::HTTP.post_form(uri, data)

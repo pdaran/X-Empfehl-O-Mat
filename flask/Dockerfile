@@ -1,5 +1,5 @@
 # syntax=docker/dockerfile:1.4
-FROM python:3.10.8
+FROM --platform=$BUILDPLATFORM python:3.10.8 AS builder
 WORKDIR /flask
 
 RUN apt-get update && apt-get -y upgrade
