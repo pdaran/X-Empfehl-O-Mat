@@ -7,7 +7,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create(email: "admin@test.local", password: "admin", admin: true)
+User.create(email: ENV.fetch("INITIAL_ADMIN_EMAIL"), password: ENV.fetch("INITIAL_ADMIN_PASSWORD"), admin: true)
 
 #Category.create(title: "TestKategorie", status: :active, id: 1)
 #Product.create(product: "Test Produkt", desc: "Test Beschreibung Nummer 1", status: :public, category_id: 1)
