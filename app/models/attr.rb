@@ -1,12 +1,9 @@
 # frozen_string_literal: true
 
 class Attr < ApplicationRecord
+  has_many :product_attrs, dependent: :destroy
   has_many :products, through: :product_attr
   belongs_to :category
-
-  before_destroy do
-    ProductAttr.where(attr_id: self).destroy_all
-  end
 
   enum attrtype: { bool: 'bool', numeric: 'numeric', text: 'text' }
   enum status: { active: 'active', deactivated: 'deactivated' }
