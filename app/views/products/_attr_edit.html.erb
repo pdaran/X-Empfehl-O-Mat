@@ -2,11 +2,15 @@
   <td><%= attr.name %></td>
   <td>
     <% value = pattr == nil ? '' : pattr.value %>
+    <% fval = pattr == nil ? '' : pattr.float_val %>
       <% if attr.attrtype == 'bool' %>
         <%= check_box_tag "check_id[]", attr.id, !value.empty? %>
-      <% else %>
+      <% elsif attr.attrtype == 'numeric' %>
         <%= text_area_tag "attr_id[]", attr.id, hidden: true %>
-        <%= text_area_tag "attr_val[]", value, class: "form-control rounded"%>
+        <%= number_field_tag "attr_val[]", fval, step: 0.01, class: "form-control rounded"%>
+      <% elsif attr.attrtype == 'text' %>
+          <%= text_area_tag "attr_id[]", attr.id, hidden: true %>
+          <%= text_area_tag "attr_val[]", value, class: "form-control rounded"%>
       <% end %>
   </td>
   <td><%= attr.unit %></td>

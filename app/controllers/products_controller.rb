@@ -70,7 +70,12 @@ class ProductsController < ApplicationController
   def save_attributes
     params[:attr_id]&.each_with_index do |id, i|
       p = ProductAttr.find_or_initialize_by(product_id: @product.id, attr_id: id)
-      p.value = params[:attr_val][i]
+      if p.attr.numeric?
+        p.float_val = params[:attr_val][i]
+      else
+        p.value = params[:attr_val][i]
+      end
+
       p.save
     end
 
@@ -89,7 +94,7 @@ class ProductsController < ApplicationController
 
   def delete_empty_attr
     ProductAttr.where(product_id: @product.id).each do |pattr|
-      pattr.destroy if pattr.value.empty?
+      pattr.destroy if (pattr.value.nil? || pattr.value.empty?) && pattr.float_val.nil?
       pattr.destroy if pattr.value == 'true' && !params[:check_id].include?(pattr.attr_id.to_s)
     end
   end
