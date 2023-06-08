@@ -21,6 +21,9 @@ de:
   delete: "Löschen"
   attributes: "Attribute"
   sign_up: "Registrieren"
+  none: "Keine"
+  ascending: "aufsteigend"
+  descending: "absteigend"
 
 
   password:

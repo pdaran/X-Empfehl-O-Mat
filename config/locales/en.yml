@@ -51,6 +51,9 @@ en:
   delete: "Delete"
   attributes: "Attributes"
   sign_up: "Sign up"
+  none: "None"
+  ascending: "ascending"
+  descending: "descending"
 
   password: 
     edit: "Edit Password"
