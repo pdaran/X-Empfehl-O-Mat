@@ -12,7 +12,7 @@ class PasswordsController < ApplicationController
 
   def update_pass_shop
     if Current.shop.update(password_params_shop)
-      redirect_to edit_shop_path(Current.shop), notice: t('password.edit')
+       redirect_to edit_shop_path(Current.shop), notice: t('password.edit')
     else
       render :edit_shop
     end

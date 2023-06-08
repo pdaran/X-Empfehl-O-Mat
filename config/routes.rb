@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     resources :passwords, only: [] do
       collection do
         get :edit_shop
-        patch 'password', to: 'passwords#update_pass_shop'
+        patch :update_pass_shop
       end
     end
     

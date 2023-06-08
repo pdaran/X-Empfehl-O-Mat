@@ -1,7 +1,7 @@
 <div class="container p-10 ">
   <h1 class="text-4xl font-bold" > <%= t('password.edit') %> </h1>
 
-  <%= form_with model: Current.shop,class:"pt-6", url: edit_shop_passwords_path do |form| %>
+  <%= form_with model: Current.shop, url: update_pass_shop_passwords_path(Current.shop) do |form| %>
     <% if form.object.errors.any? %>
       <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
         <% form.object.errors.full_messages.each do |message| %>
