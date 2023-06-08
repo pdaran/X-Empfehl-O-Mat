@@ -7,7 +7,9 @@ class ShopsController < ApplicationController
     @shops = Shop.order(:name)
   end
 
-  def show; end
+  def show
+    @shop = Shop.find(params[:id])
+   end
 
   def new
     @shop = Shop.new

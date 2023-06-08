@@ -1,83 +1,86 @@
-    <%= javascript_include_tag "file_preview", t: Time.now.to_i %>
-    <div class="flex justify-center items-center m-4 text-center">
-      <%= form_with(model: @shop, local: true, html: { class: "bg-gray-200 p-4 rounded-md" }) do |form| %>
-        <div class="field">
+<%= javascript_include_tag "file_preview", t: Time.now.to_i %>
+
+<div class="flex justify-center items-center m-4 text-center">
+  <%= form_with(model: @shop, local: true, html: { class: "bg-gray-200 p-4 rounded-md" }) do |form| %>
+    <div class="field">
       <%= form.label :name, t('form_labels.name') %><br>
       <%= form.text_area :name, class: "form-control rounded" + (form.object.errors.has_key?(:name) ? " border-red-500" : "") %>
-         <% if form.object.errors.has_key?(:name) %>
-          <span class="text-red-500"><%= form.object.errors[:name].first %></span>
-         <% end %>
-        </div>
-
-        <div class="field">
-      <%= form.label :email, t('form_labels.email') %><br>
-      <%= form.text_area :email, class: "form-control rounded" + (form.object.errors.has_key?(:email) ? " border-red-500" : "") %>
-         <% if form.object.errors.has_key?(:email) %>
-          <span class="text-red-500"><%= form.object.errors[:email].first %></span>
-         <% end %>
-        </div>
-
-        <div class="field">
-      <%= form.label :password_digest, t('form_labels.password') %><br>
-      <%= form.text_area :password_digest, class: "form-control rounded" + (form.object.errors.has_key?(:password_digest) ? " border-red-500" : "") %>
-         <% if form.object.errors.has_key?(:password_digest) %>
-          <span class="text-red-500"><%= form.object.errors[:password_digest].first %></span>
-         <% end %>
-        </div>
-
-        <div class="field">
-      <%= form.label :address, t('form_labels.address') %><br>
-      <%= form.text_area :address, class: "form-control rounded" + (form.object.errors.has_key?(:address) ? " border-red-500" : "") %>
-         <% if form.object.errors.has_key?(:address) %>
-          <span class="text-red-500"><%= form.object.errors[:address].first %></span>
-         <% end %>
-        </div>
-
-        <div class="field">
-      <%= form.label :phone_no, t('form_labels.phone_number') %><br>
-      <%= form.text_area :phone_no, class: "form-control rounded" + (form.object.errors.has_key?(:phone_no) ? " border-red-500" : "") %>
-         <% if form.object.errors.has_key?(:phone_no) %>
-          <span class="text-red-500"><%= form.object.errors[:phone_no].first %></span>
-         <% end %>
-        </div>
-  
-  <div class="field pb-4 text-hidden">
-  <%= form.label :image, t('form_labels.image'), class: "pb-6" %><br><br>
-    <%= form.file_field :image, class: "form-control rounded"+ (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)" %>    
-    <div class="object-cover mx-auto my-auto rounded-md flex justify-center items-center py-4" id="file-preview">
-    </div> 
-      
-    <div class="pt-4">
-      <% if @shop.image.attached? %>
-        <%= form.object.image.filename %>
-        <%= image_tag @shop.image, class: "object-cover mx-auto my-auto rounded-md" %>
+      <% if form.object.errors.has_key?(:name) %>
+        <span class="text-red-500"><%= form.object.errors[:name].first %></span>
       <% end %>
     </div>
 
-    <% if form.object.errors.has_key?(:image) %>
-      <span class="text-red-500"><%= form.object.errors[:image].first %></span>
+    <div class="field">
+      <%= form.label :email, t('form_labels.email') %><br>
+      <%= form.text_area :email, class: "form-control rounded" + (form.object.errors.has_key?(:email) ? " border-red-500" : "") %>
+      <% if form.object.errors.has_key?(:email) %>
+        <span class="text-red-500"><%= form.object.errors[:email].first %></span>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :address, t('form_labels.address') %><br>
+      <%= form.text_area :address, class: "form-control rounded" + (form.object.errors.has_key?(:address) ? " border-red-500" : "") %>
+      <% if form.object.errors.has_key?(:address) %>
+        <span class="text-red-500"><%= form.object.errors[:address].first %></span>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :phone_no, t('form_labels.phone_number') %><br>
+      <%= form.text_area :phone_no, class: "form-control rounded" + (form.object.errors.has_key?(:phone_no) ? " border-red-500" : "") %>
+      <% if form.object.errors.has_key?(:phone_no) %>
+        <span class="text-red-500"><%= form.object.errors[:phone_no].first %></span>
+      <% end %>
+    </div>
+
+    <div class="field pb-4 text-hidden">
+      <%= form.label :image, t('form_labels.image'), class: "pb-6" %><br><br>
+      <%= form.file_field :image, class: "form-control rounded" + (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)" %>
+      <div class="object-cover mx-auto my-auto rounded-md flex justify-center items-center py-4" id="file-preview">
+      </div>
+
+      <div class="pt-4">
+        <% if @shop.image.attached? %>
+          <%= form.object.image.filename %>
+          <%= image_tag @shop.image, class: "object-cover mx-auto my-auto rounded-md md:w-20" %>
+        <% end %>
+      </div>
+
+      <% if form.object.errors.has_key?(:image) %>
+        <span class="text-red-500"><%= form.object.errors[:image].first %></span>
+      <% end %>
+    </div>
+
+    <div class="field">
+      <%= form.label :status, t('form_labels.status') %><br>
+      <% if @shop.new_record? %>
+        <%= form.select :status, [[t('active'), 'active'], [t('blocked'), 'blocked']], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+      <% else %>
+        <%= form.select :status, [[t('active'), 'active'], [t('blocked'), 'blocked']], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+      <% end %>
+      <% if form.object.errors.has_key?(:status) %>
+        <span class="text-red-500"><%= form.object.errors[:status].first %></span>
+      <% end %>
+    </div>
+    <% if Current.shop %>
+       <div class="text-center items-center justify-center m-2 p-2">
+          <button class="bg-gray-400 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+           <%= link_to t('shop.changepass'), edit_shop_passwords_path(Current.shop) %>
+          </button>
+      </div>
     <% end %>
-  </div>
 
-<div class="field">
-  <%= form.label :status, t('form_labels.status') %><br>
-  <% if @shop.new_record? %>
-    <%= form.select :status, [[t('active'), 'active'], [t('blocked'), 'blocked']], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
-  <% else %>
-    <%= form.select :status, [[t('active'), 'active'], [t('blocked'), 'blocked']], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
-  <% end %>
-  <% if form.object.errors.has_key?(:status) %>
-    <span class="text-red-500"><%= form.object.errors[:status].first %></span>
-  <% end %>
-</div>
 
-  
-<div class="pt-5">
-  <% if @shop.new_record? %>
-    <%= form.submit t('shop.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-  <% else %>
-    <%= form.submit t('shop.update'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+
+
+
+    <div class="pt-5">
+      <% if @shop.new_record? %>
+        <%= form.submit t('shop.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      <% else %>
+        <%= form.submit t('shop.update'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      <% end %>
+    </div>
   <% end %>
-</div>
-<% end %>
 </div>
