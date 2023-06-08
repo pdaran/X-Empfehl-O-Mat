@@ -16,6 +16,9 @@ db_hostname = 'empfehl-db'
 db_port = '5432'
 db_name = 'x_empfehl_development'
 
+# Number of product recommendations
+recommendation_amount = 3
+
 app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{db_username}:{db_password}@{db_hostname}:{db_port}/{db_name}"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 
@@ -74,12 +77,22 @@ def get_recommendation():
         recommendations = pd.concat([recommendations, weighted_liked_products])
 
     # Gruppieren nach product_id und Summe der Gewichte berechnen
-    # recommendations.index = product.id
     recommendations = recommendations.groupby(recommendations.index).sum().sort_values(ascending=False)
 
-    # print(customer_similarity, file=sys.stderr)
+    # Limit number of recommendations
+    recommendations = recommendations[:recommendation_amount]
 
-    return recommendations.to_json()
+    # To dictionary
+    recommendations = recommendations.to_dict()
+
+    # create simple list of product id's
+    recommendations_simple = []
+    for item in recommendations:
+        recommendations_simple.append(item[1])
+
+    print(recommendations_simple, file=sys.stderr)
+
+    return jsonify(recommendations_simple)
 
 
 if __name__ == '__main__':
