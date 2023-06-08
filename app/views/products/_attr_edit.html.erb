@@ -1,9 +1,13 @@
-<div class="field">
-  <%= form.label attr.name, attr.name %>
-  <%= text_area_tag "attr_id[]", attr.id, hidden: true %>
-  <% if pattr != nil %>
-    <%= text_area_tag "attr_val[]", pattr.value, class: "form-control rounded"%>
-  <% else %>
-    <%= text_area_tag "attr_val[]", nil, class: "form-control rounded"%>
-  <% end %>
-</div>
+<tr>
+  <td><%= attr.name %></td>
+  <td>
+    <% value = pattr == nil ? '' : pattr.value %>
+      <% if attr.attrtype == 'bool' %>
+        <%= check_box_tag "check_id[]", attr.id, !value.empty? %>
+      <% else %>
+        <%= text_area_tag "attr_id[]", attr.id, hidden: true %>
+        <%= text_area_tag "attr_val[]", value, class: "form-control rounded"%>
+      <% end %>
+  </td>
+  <td><%= attr.unit %></td>
+</tr>

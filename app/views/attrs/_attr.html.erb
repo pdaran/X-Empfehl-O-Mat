@@ -1,21 +1,25 @@
-<div class="field ml-auto pb-4">
-  <%= text_field_tag :attr, attr.name, disabled: true %>
-  <% if attr.numeric? %>
-    <%= attr.unit %>
-  <% end %>
-
+<tr>
+  <td><%= attr.name %></td>
+  <td><%= t(attr.attrtype) %></td>
+  <td><%= attr.unit %></td>
+  <td><%= t(attr.status) %></td>
   <% if controller.controller_name == "categories" && controller.action_name == "edit" %>
-    <div>
-      <button class="text-red-500 hover:text-red-700 max-w-1/2">
-        <%= link_to t('delete'), [attr.category.shop, attr.category, attr], data: {
-          turbo_method: :delete,
-          turbo_confirm: t('attr.delete_confirm')
-        } %>
-      </button>
-      <button class="text-blue-600 hover:text-blue-700 max-w-1/2">
-        <%= link_to t('edit'), edit_shop_category_attr_path(attr.category.shop, attr.category, attr) %>
-      </button>
-    </div>
+  <td>
+    <button class="text-blue-600 hover:text-blue-700 max-w-1/2">
+      <%= link_to edit_shop_category_attr_path(attr.category.shop, attr.category, attr) do %>
+        <i class="fas fa-edit" title="<%= t('attr.edit') %>"></i>
+      <% end %>
+    </button>
+  </td>
+  <td>
+    <button class="text-red-500 hover:text-red-700 max-w-1/2">
+      <%= link_to [attr.category.shop, attr.category, attr], data: {
+        turbo_method: :delete,
+        turbo_confirm: t('attr.delete_confirm')
+      } do %>
+        <i class="fa-solid fa-delete-left" title="<%= t('attr.delete') %>"></i>
+      <% end %>
+    </button>
+  </td>
   <% end %>
-
-</div>
+</tr>
