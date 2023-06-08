@@ -1,62 +1,56 @@
-    <%= javascript_include_tag "file_preview", t: Time.now.to_i %>
-    <div class="flex justify-center items-center m-4 text-center">
-      <%= form_with(model: @category, url: @category.new_record? ? shop_categories_path(@shop) : shop_category_path(@shop, @category), local: true, html: { class: "bg-gray-200 p-4 rounded-md" }) do |form| %>
-        <%= form.hidden_field :shop_id, value: @shop.id %>
-         <div class="field">
-      <%= form.label :title, t('form_labels.title') %><br>
-      <%= form.text_area :title, class: "form-control rounded" + (form.object.errors.has_key?(:title) ? " border-red-500" : "") %>
-         <% if form.object.errors.has_key?(:title) %>
-          <span class="text-red-500"><%= form.object.errors[:title].first %></span>
-         <% end %>
-        </div>
-  
-  <div class="field pb-4 text-hidden">
-  <%= form.label :image, t('form_labels.image'), class: "pb-6" %><br><br>
-    <%= form.file_field :image, class: "form-control rounded"+ (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)" %>    
-    <div class="object-cover mx-auto my-auto rounded-md flex justify-center items-center py-4" id="file-preview">
-    </div> 
-      
-    <div class="pt-4">
-      <% if @category.image.attached? %>
-        <%= form.object.image.filename %>
-        <%= image_tag @category.image, class: "object-cover mx-auto my-auto rounded-md" %>
+<%= javascript_include_tag "file_preview", t: Time.now.to_i %>
+<div class="flex justify-center items-center m-4 text-center">
+  <%= form_with(model: @category, url: @category.new_record? ? shop_categories_path(@shop) : shop_category_path(@shop, @category), local: true, html: { class: "bg-white p-6 rounded-md shadow-md" }) do |form| %>
+    <%= form.hidden_field :shop_id, value: @shop.id %>
+    <div class="mb-6">
+      <%= form.label :title, t('form_labels.title'), class: "text-lg font-medium text-gray-800" %>
+      <%= form.text_area :title, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:title) ? " border-red-500" : ""), placeholder: "Trage hier den Titel ein" %>
+      <% if form.object.errors.has_key?(:title) %>
+        <p class="text-red-500 text-sm"><%= form.object.errors[:title].first %></p>
       <% end %>
     </div>
-
-    <% if form.object.errors.has_key?(:image) %>
-      <span class="text-red-500"><%= form.object.errors[:image].first %></span>
-    <% end %>
-  </div>
-
-        <div class="field pb-4">
-          <p><%= t('attributes') %></p>
-          <%= render @category.attrs, form: form %>
-          <% unless @category.new_record? %>
-          <%=  link_to new_shop_category_attr_path(@shop, @category) do %>
-            <i class="fas fa-plus"></i>
-          <% end %>
-          <% end %>
-        </div>
-
-<div class="field">
-  <%= form.label :status, t('form_labels.status') %><br>
-  <% if @category.new_record? %>
-    <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], selected: 'active', class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
-  <% else %>
-    <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], class: "form-control rounded" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+    <div class="mb-6">
+      <%= form.label :image, t('form_labels.image'), class: "text-lg font-medium text-gray-800 mb-2" %>
+      <%= form.file_field :image, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)", placeholder: "Lade ein Bild hoch" %>
+      <div class="w-40 h-40 bg-gray-200 rounded-md overflow-hidden mt-4">
+        <div class="object-cover w-full h-full" id="file-preview"></div>
+      </div>
+      <div class="pt-4">
+        <% if @category.image.attached? %>
+          <%= form.object.image.filename %>
+          <%= image_tag @category.image, class: "object-cover mx-auto my-auto rounded-md" %>
+        <% end %>
+      </div>
+      <% if form.object.errors.has_key?(:image) %>
+        <p class="text-red-500 text-sm"><%= form.object.errors[:image].first %></p>
+      <% end %>
+    </div>
+    <div class="mb-6">
+      <p class="text-lg font-medium text-gray-800"><%= t('attributes') %></p>
+      <%= render @category.attrs, form: form %>
+      <% unless @category.new_record? %>
+        <%= link_to new_shop_category_attr_path(@shop, @category), class: "text-blue-500 hover:text-blue-700 ml-2" do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="mb-6">
+      <%= form.label :status, t('form_labels.status'), class: "text-lg font-medium text-gray-800" %>
+      <% if @category.new_record? %>
+        <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], selected: 'active', class: "form-select rounded-md mt-2" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+      <% else %>
+        <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], class: "form-select rounded-md mt-2" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+      <% end %>
+      <% if form.object.errors.has_key?(:status) %>
+        <p class="text-red-500 text-sm"><%= form.object.errors[:status].first %></p>
+      <% end %>
+    </div>
+    <div>
+      <% if @category.new_record? %>
+        <%= form.submit t('category.new'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      <% else %>
+        <%= form.submit t('category.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      <% end %>
+    </div>
   <% end %>
-  <% if form.object.errors.has_key?(:status) %>
-    <span class="text-red-500"><%= form.object.errors[:status].first %></span>
-  <% end %>
-</div>
-
-  
-<div class="pt-5">
-  <% if @category.new_record? %>
-    <%= form.submit t('category.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-  <% else %>
-    <%= form.submit t('category.update'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
-  <% end %>
-</div>
-<% end %>
 </div>
