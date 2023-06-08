@@ -2,3 +2,4 @@ flask
 pandas
 Flask-SQLAlchemy
 scikit-learn
+psycopg2-binary
