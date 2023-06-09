@@ -18,4 +18,5 @@ Style/Documentation:
   Enabled: false
 
 Metrics/BlockLength:
-  AllowedMethods: [ 'draw' ]
+  Enabled: false
+  AllowedMethods: ["draw"]
