@@ -1,6 +1,7 @@
 de:
   hello: "Hallo Welt"
-  appname: "XO"
+  appname: "XOMAT"
+  appname_short: "XO"
   admin_link_name: "Administrator"
   customer_link_name: "Kunde"
   like_sign: "👍"
@@ -24,7 +25,8 @@ de:
   none: "Keine"
   ascending: "aufsteigend"
   descending: "absteigend"
-
+  cookies: "Cookies"
+  privacy: "Datenschutz"
 
   password:
     edit: "Passwort ändern"
@@ -60,7 +62,7 @@ de:
   #navbar
   navbar:
     title: "X-Empfehl-O-Mat"
-    dashboard: "Dashboard-DE"
+    dashboard: "Dashboard"
   about: "Über uns"
   home: "Startseite"
 
@@ -173,20 +175,6 @@ de:
   impressum_text: "Verantwortlich für den Inhalt dieser Website gemäß § 5 TMG: "
   legal_form: "Rechtsform: Interdisziplinäres Projekt an der FH Aachen"
 
-  # Datenschutzerklärungseite
-  privacy_policy: "Datenschutzerklärung"
-  privacy: "Datenschutz"
-  privacy_content: "Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie über die Erhebung und Verwendung personenbezogener Daten bei der Nutzung unserer Website. Personenbezogene Daten sind alle Daten, die auf Sie persönlich beziehbar sind, z. B. Name, Adresse, E-Mail-Adressen, Nutzerverhalten."
-  data_usage: "Datenerhebung und -verwendung"
-  data_usage_content: "Wir erheben personenbezogene Daten, wenn Sie uns diese im Rahmen Ihrer Kontaktaufnahme mit uns (z.B. per Kontaktformular oder E-Mail) freiwillig mitteilen. Pflichtfelder werden als solche gekennzeichnet, da wir in diesen Fällen die Daten zwingend zur Bearbeitung Ihrer Kontaktaufnahme benötigen und Sie ohne deren Angabe die Kontaktaufnahme nicht versenden können. Welche Daten erhoben werden, ist aus den jeweiligen Eingabeformularen ersichtlich. Wir verwenden die von ihnen mitgeteilten Daten zur Bearbeitung Ihrer Anfragen."
-  data_security: "Datensicherheit"
-  data_security_content: "Wir treffen technische und organisatorische Maßnahmen, um Ihre Daten gegen unbefugten Zugriff, Verlust oder Veränderung zu schützen. Wir empfehlen jedoch, dass Sie bei der Übermittlung von Daten über das Internet immer auf die Sicherheit achten und geeignete Schutzmaßnahmen ergreifen."
-  cookies: "Cookies"
-  cookies_content: "Unsere Website verwendet Cookies, um bestimmte Funktionen bereitzustellen und die Benutzerfreundlichkeit zu verbessern. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen. Sie können das Speichern von Cookies in den Einstellungen Ihres Browsers deaktivieren, allerdings kann dies die Funktionalität unserer Website beeinträchtigen."
-  your_rights: "Ihre Rechte"
-  your_rights_content: "Sie haben das Recht, Auskunft über die von uns zu Ihrer Person gespeicherten Daten zu erhalten und ggf. deren Berichtigung, Löschung oder Sperrung zu verlangen. Bei Fragen oder Anliegen zum Datenschutz können Sie sich jederzeit an uns wenden."
-  privacy_disclaimer: "Please note that this is a student project website, and we reserve the right to adapt and expand this privacy policy accordingly."
-
   # Kontaktseite
   contact: "Kontakt"
   contact_us: "Bei Fragen oder Anliegen können Sie uns wie folgt kontaktieren:"
@@ -210,3 +198,72 @@ de:
     footer: "2023 X-Empfehl-O-Mat Team. Alle Rechte vorbehalten."
     confirm: "Bitte bestätigen Sie Ihre Email-Adresse."
     confirm_success: "Ihre Email-Adresse wurde erfolgreich bestätigt."
+
+  # form validation errors translated by chatgpt
+  errors:
+    # Das Standardformat für vollständige Fehlermeldungen.
+    format: "%{attribute} %{message}"
+
+    # Die Werte :model, :attribute und :value stehen immer für die Interpolation zur Verfügung.
+    # Der Wert :count steht zur Verfügung, wenn anwendbar. Kann für Pluralisierung verwendet werden.
+    messages:
+      model_invalid: "Validierung fehlgeschlagen: %{errors}"
+      inclusion: "ist nicht in der Liste enthalten"
+      exclusion: "ist reserviert"
+      invalid: "ist ungültig"
+      confirmation: "stimmt nicht mit %{attribute} überein"
+      accepted: "muss akzeptiert werden"
+      empty: "darf nicht leer sein"
+      blank: "darf nicht leer sein"
+      present: "muss leer sein"
+      too_long:
+        one: "ist zu lang (maximal 1 Zeichen)"
+        other: "ist zu lang (maximal %{count} Zeichen)"
+      password_too_long: "ist zu lang"
+      too_short:
+        one: "ist zu kurz (mindestens 1 Zeichen)"
+        other: "ist zu kurz (mindestens %{count} Zeichen)"
+      wrong_length:
+        one: "hat die falsche Länge (sollte 1 Zeichen sein)"
+        other: "hat die falsche Länge (sollte %{count} Zeichen sein)"
+      not_a_number: "ist keine Zahl"
+      not_an_integer: "muss eine ganze Zahl sein"
+      greater_than: "muss größer als %{count} sein"
+      greater_than_or_equal_to: "muss größer oder gleich %{count} sein"
+      equal_to: "muss gleich %{count} sein"
+      less_than: "muss kleiner als %{count} sein"
+      less_than_or_equal_to: "muss kleiner oder gleich %{count} sein"
+      other_than: "muss sich von %{count} unterscheiden"
+      in: "muss in %{count} sein"
+      odd: "muss ungerade sein"
+      even: "muss gerade sein"
+
+  homepage:
+    address: "Adresse: %{addr}"
+    street: "%{street}"
+    zipcode: "%{zip}"
+    # Datenschutzerklärungseite
+    privacy:
+      access_log: "Bei jedem Zugriff auf unsere Website werden automatisch Informationen von Ihrem Browser an unseren Server übermittelt und in Logdateien gespeichert. Diese Informationen umfassen:"
+      ipaddr: "IP-Adresse des zugreifenden Rechners"
+      date: "Datum und Uhrzeit des Zugriffs"
+      name_url: "Name und URL der abgerufenen Datei"
+      data: "Übertragene Datenmenge"
+      succesful_access: "Meldung über erfolgreichen Abruf"
+      browser: "Browsertyp und -version"
+      os: "Betriebssystem des zugreifenden Rechners"
+      referrer: "Referrer URL (die zuvor besuchte Seite)"
+      websites: "Websites, die vom zugreifenden System über unsere Website aufgerufen werden"
+      data_src: "Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und dienen ausschließlich der Gewährleistung eines reibungslosen Betriebs unserer Website sowie der Verbesserung unseres Angebots."
+      policy: "Datenschutzerklärung"
+      content: "Der Schutz Ihrer persönlichen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie über die Erhebung und Verwendung personenbezogener Daten bei der Nutzung unserer Website. Personenbezogene Daten sind alle Daten, die auf Sie persönlich beziehbar sind, z. B. Name, Adresse, E-Mail-Adressen, Nutzerverhalten."
+      data_usage: "Datenerhebung und -verwendung"
+      data_usage_content: "Wir erheben personenbezogene Daten, wenn Sie uns diese im Rahmen Ihrer Kontaktaufnahme mit uns (z.B. per Kontaktformular oder E-Mail) freiwillig mitteilen. Pflichtfelder werden als solche gekennzeichnet, da wir in diesen Fällen die Daten zwingend zur Bearbeitung Ihrer Kontaktaufnahme benötigen und Sie ohne deren Angabe die Kontaktaufnahme nicht versenden können. Welche Daten erhoben werden, ist aus den jeweiligen Eingabeformularen ersichtlich. Wir verwenden die von ihnen mitgeteilten Daten zur Bearbeitung Ihrer Anfragen."
+      data_security: "Datensicherheit"
+      data_security_content: "Wir treffen technische und organisatorische Maßnahmen, um Ihre Daten gegen unbefugten Zugriff, Verlust oder Veränderung zu schützen. Wir empfehlen jedoch, dass Sie bei der Übermittlung von Daten über das Internet immer auf die Sicherheit achten und geeignete Schutzmaßnahmen ergreifen."
+      cookies_content: "Unsere Website verwendet Cookies, um bestimmte Funktionen bereitzustellen und die Benutzerfreundlichkeit zu verbessern. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen. Sie können das Speichern von Cookies in den Einstellungen Ihres Browsers deaktivieren, allerdings kann dies die Funktionalität unserer Website beeinträchtigen."
+      your_rights: "Ihre Rechte"
+      your_rights_content: "Sie haben das Recht, Auskunft über die von uns zu Ihrer Person gespeicherten Daten zu erhalten und ggf. deren Berichtigung, Löschung oder Sperrung zu verlangen. Bei Fragen oder Anliegen zum Datenschutz können Sie sich jederzeit an uns wenden."
+      disclaimer: "Please note that this is a student project website, and we reserve the right to adapt and expand this privacy policy accordingly."
+    welcome: "Wilkommen beim"
+    website: "Webseite:"

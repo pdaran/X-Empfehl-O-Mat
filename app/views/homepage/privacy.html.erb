@@ -5,44 +5,42 @@
 </head>
 <body>
   <div class="container mx-auto py-8">
-  <h1 class="text-3xl font-bold mb-6"><%= t('privacy_policy') %></h1>
+  <h1 class="text-3xl font-bold mb-6"><%= t('homepage.privacy.policy') %></h1>
 
   <div class="bg-white shadow-md rounded-lg p-6">
     <p class="mb-4"><span class="font-bold">1. <%= t('privacy') %></span><br>
-      <%= t('privacy_content') %>
+      <%= t('homepage.privacy.content') %>
     </p>
-
-# missing translations
-    <p class="mb-4"><span class="font-bold">2. <%= t('data_usage') %></span><br>
-      Bei jedem Zugriff auf unsere Website werden automatisch Informationen von Ihrem Browser an unseren Server übermittelt und in Logdateien gespeichert. Diese Informationen umfassen:
+    <p class="mb-4"><span class="font-bold">2. <%= t('homepage.privacy.data_usage') %></span><br>
+      <%= t('homepage.privacy.access_log') %>
     </p>
     <ul class="list-disc pl-8 mb-4">
-      <li>IP-Adresse des zugreifenden Rechners</li>
-      <li>Datum und Uhrzeit des Zugriffs</li>
-      <li>Name und URL der abgerufenen Datei</li>
-      <li>Übertragene Datenmenge</li>
-      <li>Meldung über erfolgreichen Abruf</li>
-      <li>Browsertyp und -version</li>
-      <li>Betriebssystem des zugreifenden Rechners</li>
-      <li>Referrer URL (die zuvor besuchte Seite)</li>
-      <li>Websites, die vom zugreifenden System über unsere Website aufgerufen werden</li>
+      <li><%= t('homepage.privacy.ipaddr') %></li>
+      <li><%= t('homepage.privacy.date') %></li>
+      <li><%= t('homepage.privacy.name_url') %></li>
+      <li><%= t('homepage.privacy.data') %></li>
+      <li><%= t('homepage.privacy.succesful_access') %></li>
+      <li><%= t('homepage.privacy.browser') %></li>
+      <li><%= t('homepage.privacy.os') %></li>
+      <li><%= t('homepage.privacy.referrer') %></li>
+      <li><%= t('homepage.privacy.websites') %></li>
     </ul>
-    <p class="mb-4">Diese Daten werden nicht mit anderen Datenquellen zusammengeführt und dienen ausschließlich der Gewährleistung eines reibungslosen Betriebs unserer Website sowie der Verbesserung unseres Angebots.</p>
+    <p class="mb-4"><%= t('homepage.privacy.data_src') %></p>
 
     <p class="mb-4"><span class="font-bold">3. <%= t('cookies') %></span><br>
-      <%= t('cookies_content') %>
+      <%= t('homepage.privacy.cookies_content') %>
 
     </p>
 
-    <p class="mb-4"><span class="font-bold">4. <%= t('data_security') %></span><br>
-      <%= t('data_security_content') %>
+    <p class="mb-4"><span class="font-bold">4. <%= t('homepage.privacy.data_security') %></span><br>
+      <%= t('homepage.privacy.data_security_content') %>
     </p>
 
-    <p class="mb-4"><span class="font-bold">5. <%= t('your_rights') %></span><br>
-      <%= t('your_rights_content') %>
+    <p class="mb-4"><span class="font-bold">5. <%= t('homepage.privacy.your_rights') %></span><br>
+      <%= t('homepage.privacy.your_rights_content') %>
     </p>
 
-    <p class="mb-0"><%= t('privacy_disclaimer') %></p>
+    <p class="mb-0"><%= t('homepage.privacy.disclaimer') %></p>
   </div>
 </div>
 
