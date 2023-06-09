@@ -45,6 +45,10 @@ def get_recommendation():
 
     target_customer = customer_id
 
+    liked_products = customer_likes_matrix[customer_likes_matrix['customer_id'] == target_customer]
+
+    liked_products_list = liked_products['product_id'].to_list()
+
     customer_likes_matrix = customer_likes_matrix.pivot_table(index='customer_id', columns='product_id')
 
     customer_likes_matrix = customer_likes_matrix.fillna(0)
@@ -90,9 +94,15 @@ def get_recommendation():
     for item in recommendations:
         recommendations_simple.append(item[1])
 
-    print(recommendations_simple, file=sys.stderr)
+    filtered_recommendation = []
 
-    return jsonify(recommendations_simple)
+    for item in recommendations_simple:
+        if item not in liked_products_list:
+            filtered_recommendation.append(item)
+
+    print(filtered_recommendation, file=sys.stderr)
+
+    return jsonify(filtered_recommendation)
 
 
 if __name__ == '__main__':

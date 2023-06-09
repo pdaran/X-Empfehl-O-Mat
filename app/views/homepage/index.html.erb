@@ -7,7 +7,7 @@
     <% if Current.user %>
       <div class="flex flex-col p-8 rounded-xl bg-gray-200 shadow-xl w-96 md:w-auto">
         <div class="mt-3 font-semibold text-lg">
-          <%= link_to t('admin_link_name'), controller: 'shops', action: 'index', class: "text-gray-800 hover:underline" %>
+          <%= link_to t('admin_link_name'), shops_path , :class => "text-gray-800 hover:underline" %>
         </div>
       </div>
     <% end %>
