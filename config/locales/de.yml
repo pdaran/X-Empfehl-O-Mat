@@ -61,7 +61,7 @@ de:
 
   #navbar
   navbar:
-    title: "X-Empfehl-O-Mat"
+    title: "XO"
     dashboard: "Dashboard"
   about: "Über uns"
   home: "Startseite"
@@ -264,6 +264,6 @@ de:
       cookies_content: "Unsere Website verwendet Cookies, um bestimmte Funktionen bereitzustellen und die Benutzerfreundlichkeit zu verbessern. Cookies sind kleine Textdateien, die auf Ihrem Endgerät gespeichert werden. Sie ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen. Sie können das Speichern von Cookies in den Einstellungen Ihres Browsers deaktivieren, allerdings kann dies die Funktionalität unserer Website beeinträchtigen."
       your_rights: "Ihre Rechte"
       your_rights_content: "Sie haben das Recht, Auskunft über die von uns zu Ihrer Person gespeicherten Daten zu erhalten und ggf. deren Berichtigung, Löschung oder Sperrung zu verlangen. Bei Fragen oder Anliegen zum Datenschutz können Sie sich jederzeit an uns wenden."
-      disclaimer: "Please note that this is a student project website, and we reserve the right to adapt and expand this privacy policy accordingly."
-    welcome: "Wilkommen beim"
+      disclaimer: "Bitte beachten Sie, dass es sich bei dieser Website um ein Studentenprojekt handelt und wir uns das Recht vorbehalten, diese Datenschutzerklärung entsprechend anzupassen und zu erweitern."
+    welcome: "Willkommen beim"
     website: "Webseite:"

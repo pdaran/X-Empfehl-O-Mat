@@ -9,7 +9,11 @@
 
 User.create(email: ENV.fetch("INITIAL_ADMIN_EMAIL"), password: ENV.fetch("INITIAL_ADMIN_PASSWORD"), admin: true)
 
-Shop.create(name: "DevShop", email: ENV.fetch("INITIAL_ADMIN_EMAIL"), password_digest: ENV.fetch("INITIAL_ADMIN_PASSWORD"), address: "abcdefg", phone_no: "0123456789", status: "active", id: 1)
-Category.create(title: "TestKategorie", status: :active, id: 1, shop_id: 1)
-Product.create(product: "Test Produkt", desc: "Test Beschreibung Nummer 1", status: :public, category_id: 1)
-Product.create(product: "Anderes Produkt", desc: "Andere Beschreibung Nummer 2", status: :public, category_id: 1)
+s = Shop.create(name: "DevShop", email: ENV.fetch("INITIAL_ADMIN_EMAIL"), password_digest: ENV.fetch("INITIAL_ADMIN_PASSWORD"), address: "abcdefg", phone_no: "0123456789", status: "active")
+s.save
+
+c = s.categories.build(title: "TestKategorie", status: :active)
+c.save
+
+c.products.build(product: "Test Produkt", desc: "Test Beschreibung Nummer 1", status: :public, category_id: 1).save
+c.products.build(product: "Anderes Produkt", desc: "Andere Beschreibung Nummer 2", status: :public, category_id: 1).save

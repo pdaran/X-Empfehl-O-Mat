@@ -8,7 +8,7 @@ class RecommenderController < ApplicationController
   def articles
     @category = Category.find(params[:id])
     @products = if search?
-                  @category.products.joins(:product_attrs).joins(:attrs)
+                  @category.products.left_outer_joins(:product_attrs).left_outer_joins(:attrs)
                            .where(where_clause).order(Arel.sql(order_clause)).uniq
                 else
                   @category.products.all.order(:product)
@@ -56,13 +56,14 @@ class RecommenderController < ApplicationController
             'products.product'
           end
 
-    ret += ' DESC' if params[:order].present? && params[:order] == 'desc'
+    ret += ' DESC NULLS LAST' if params[:order].present? && params[:order] == 'desc'
 
     ret
   end
 
   def where_clause
-    ret = ['(products.product LIKE :q OR products.desc LIKE :q OR product_attrs.value LIKE :q ' \
+    ret = ['(products.product LIKE :q OR products.desc LIKE :q OR product_attrs.value ' \
+           'LIKE :q OR product_attrs.float_val::varchar LIKE :q ' \
            'OR CONCAT(attrs.name, attrs.unit) LIKE :q)',
            { q: "%#{params[:query]}%" }]
 
