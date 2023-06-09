@@ -4,7 +4,7 @@ class HomepageController < ApplicationController
   def index
     @shop = Current.shop
   end
-  
+
   # static pages
   def about; end
 

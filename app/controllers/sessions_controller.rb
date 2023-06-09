@@ -22,7 +22,6 @@ class SessionsController < ApplicationController
     end
   end
 
-
   def destroy_user
     session[:user_id] = nil
     redirect_to root_path, notice: t('session.notice_delete')

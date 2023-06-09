@@ -13,16 +13,15 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
-  def switch_locale(&action)
+  def switch_locale(&)
     locale = params[:locale] || I18n.default_locale
     available_locales = I18n.available_locales.map(&:to_s)
     if available_locales.include?(locale)
-      I18n.with_locale(locale, &action)
+      I18n.with_locale(locale, &)
     else
-      I18n.with_locale(I18n.default_locale, &action)
+      I18n.with_locale(I18n.default_locale, &)
     end
   end
-  
 
   def pundit_user
     Current.user
@@ -30,7 +29,7 @@ class ApplicationController < ActionController::Base
 
   def pundit_shop
     Current.shop
-  end 
+  end
 
   private
 
@@ -50,6 +49,7 @@ class ApplicationController < ActionController::Base
 
   def set_current_shop
     return unless session[:shop_id]
+
     Current.shop = Shop.find_by(id: session[:shop_id])
   end
 

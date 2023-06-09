@@ -23,21 +23,19 @@ class RegistrationsController < ApplicationController
 
   def create_shop
     @shop = Shop.new(shop_params)
-      if @shop.save
-       redirect_to redirected_root_path(locale: I18n.locale) ,notice: t('account.notice_create_shop')
-      else
-        Rails.logger.error("Shop creation failed: #{@shop.errors}")
-        render :new_shop, status: 422
-      end
-  end
-  
-  def shop_params
-      params.require(:shop).permit(:name, :email, :password, :password_confirmation, :address, :phone_no)
+    if @shop.save
+      redirect_to redirected_root_path(locale: I18n.locale), notice: t('account.notice_create_shop')
+    else
+      Rails.logger.error("Shop creation failed: #{@shop.errors}")
+      render :new_shop, status: 422
     end
   end
 
-  def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+  def shop_params
+    params.require(:shop).permit(:name, :email, :password, :password_confirmation, :address, :phone_no)
   end
+end
 
-
+def user_params
+  params.require(:user).permit(:email, :password, :password_confirmation)
+end

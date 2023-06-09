@@ -19,8 +19,7 @@ Rails.application.routes.draw do
     get 'registrations', to: 'registrations#index', as: 'registrations'
     get 'sessions', to: 'sessions#index', as: 'sessions'
 
-
-    resources :registrations, only: %i[new, create] do
+    resources :registrations, only: %i[new create] do
       collection do
         get :new_user
         post :create_user
@@ -60,7 +59,6 @@ Rails.application.routes.draw do
         patch :update_pass_shop
       end
     end
-    
 
     get 'sign_in', to: 'sessions#new_user'
     post 'sign_in', to: 'sessions#create_user'
