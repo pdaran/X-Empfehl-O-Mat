@@ -210,3 +210,42 @@ de:
     footer: "2023 X-Empfehl-O-Mat Team. Alle Rechte vorbehalten."
     confirm: "Bitte bestätigen Sie Ihre Email-Adresse."
     confirm_success: "Ihre Email-Adresse wurde erfolgreich bestätigt."
+
+  # form validation errors translated by chatgpt
+  errors:
+    # Das Standardformat für vollständige Fehlermeldungen.
+    format: "%{attribute} %{message}"
+
+    # Die Werte :model, :attribute und :value stehen immer für die Interpolation zur Verfügung.
+    # Der Wert :count steht zur Verfügung, wenn anwendbar. Kann für Pluralisierung verwendet werden.
+    messages:
+      model_invalid: "Validierung fehlgeschlagen: %{errors}"
+      inclusion: "ist nicht in der Liste enthalten"
+      exclusion: "ist reserviert"
+      invalid: "ist ungültig"
+      confirmation: "stimmt nicht mit %{attribute} überein"
+      accepted: "muss akzeptiert werden"
+      empty: "darf nicht leer sein"
+      blank: "darf nicht leer sein"
+      present: "muss leer sein"
+      too_long:
+        one: "ist zu lang (maximal 1 Zeichen)"
+        other: "ist zu lang (maximal %{count} Zeichen)"
+      password_too_long: "ist zu lang"
+      too_short:
+        one: "ist zu kurz (mindestens 1 Zeichen)"
+        other: "ist zu kurz (mindestens %{count} Zeichen)"
+      wrong_length:
+        one: "hat die falsche Länge (sollte 1 Zeichen sein)"
+        other: "hat die falsche Länge (sollte %{count} Zeichen sein)"
+      not_a_number: "ist keine Zahl"
+      not_an_integer: "muss eine ganze Zahl sein"
+      greater_than: "muss größer als %{count} sein"
+      greater_than_or_equal_to: "muss größer oder gleich %{count} sein"
+      equal_to: "muss gleich %{count} sein"
+      less_than: "muss kleiner als %{count} sein"
+      less_than_or_equal_to: "muss kleiner oder gleich %{count} sein"
+      other_than: "muss sich von %{count} unterscheiden"
+      in: "muss in %{count} sein"
+      odd: "muss ungerade sein"
+      even: "muss gerade sein"
