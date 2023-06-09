@@ -120,6 +120,7 @@ de:
     delete_confirm: "Sind Sie sicher, dass Sie diese Produkt löschen möchten?"
     notice_delete: "Produkt wurde erfolgreich gelöscht."
     error: "Etwas ist schief gelaufen."
+    products_total: "Anzahl an Produkten: %{count}"
   public: "Öffentlich"
   private: "Privat"
   archived: "Archiviert"

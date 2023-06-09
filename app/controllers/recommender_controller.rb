@@ -56,7 +56,7 @@ class RecommenderController < ApplicationController
             'products.product'
           end
 
-    ret += ' DESC' if params[:order].present? && params[:order] == 'DESC'
+    ret += ' DESC' if params[:order].present? && params[:order] == 'desc'
 
     ret
   end
