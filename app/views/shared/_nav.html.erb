@@ -1,7 +1,7 @@
 <head>
   <title><%= t('navbar.title') %></title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/style.css">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/e464ad1dd2.js" crossorigin="anonymous"></script>
   <%= javascript_include_tag "hamburger" %>
@@ -12,7 +12,7 @@
   <nav class="navbar bg-grey-500 text-white">
     <div class="container flex justify-between items-center py-3">
       <div class="navbar-logo font-bold">
-        <a href="<%= root_path %>" class="text-3xl font-bold text-gray-800 hover:text-amber-700 transition-colors duration-300 md:h-52"><%= t('navbar.title') %></a>
+        <a href="<%= root_path %>" class="text-3xl font-bold text-gray-800 transition-colors duration-300 md:h-52"><%= t('navbar.title') %></a>
       </div>
 
       <ul class="nav-menu">
@@ -39,13 +39,14 @@
             <%= button_to t('logout'), logout_shop_path, method: :delete, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
           </li>
           <li class="navbar-profile dashboard-link">
-            <%= link_to "Dashboard", dashboards_path, :class => "underline hover:text-blue-200 focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2 rounded-lg" %>
+            <%= link_to t('navbar.dashboard'), dashboards_path, :class => "underline hover:text-blue-200 focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2 rounded-lg" %>
           </li>
-            
-      <%else%>
+
+      <% else %>
           <li class="navbar-profile">
             <%= button_to t('sign_up'), registrations_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-grey-700 block mb-2" %>
           </li>
+          <li class="navbar-profile nav-menu-divider"></li>
           <li class="navbar-profile">
             <%= button_to t('login'), sessions_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-grey-700 block mb-2" %>
           </li>
@@ -68,8 +69,8 @@
                 <%= image_tag("germany.png", width: '30px') %>
               <% end %>
               <span class="text-sm font-medium uppercase">
-                <%= I18n.locale%>
-              </span>
+                  <%= I18n.locale%>
+                </span>
             </button>
             <div class="dropdown-content flex bg-grey-200 rounded-md shadow-md h-0 w-0">
               <% I18n.available_locales.each do |l| %>
