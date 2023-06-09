@@ -21,6 +21,9 @@ de:
   delete: "Löschen"
   attributes: "Attribute"
   sign_up: "Registrieren"
+  none: "Keine"
+  ascending: "aufsteigend"
+  descending: "absteigend"
 
 
   password:
@@ -117,6 +120,7 @@ de:
     delete_confirm: "Sind Sie sicher, dass Sie diese Produkt löschen möchten?"
     notice_delete: "Produkt wurde erfolgreich gelöscht."
     error: "Etwas ist schief gelaufen."
+    products_total: "Anzahl an Produkten: %{count}"
   public: "Öffentlich"
   private: "Privat"
   archived: "Archiviert"

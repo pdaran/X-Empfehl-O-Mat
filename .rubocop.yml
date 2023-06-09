@@ -19,3 +19,6 @@ Style/Documentation:
 
 Metrics/BlockLength:
   AllowedMethods: [ 'draw' ]
+
+Metrics/AbcSize:
+  Max: 20

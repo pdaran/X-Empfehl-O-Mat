@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_08_124830) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_08_232637) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -84,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_124830) do
     t.bigint "attr_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "float_val"
     t.index ["attr_id"], name: "index_product_attrs_on_attr_id"
     t.index ["product_id", "attr_id"], name: "index_product_attrs_on_product_id_and_attr_id", unique: true
     t.index ["product_id"], name: "index_product_attrs_on_product_id"

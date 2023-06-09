@@ -51,6 +51,9 @@ en:
   delete: "Delete"
   attributes: "Attributes"
   sign_up: "Sign up"
+  none: "None"
+  ascending: "ascending"
+  descending: "descending"
 
   password: 
     edit: "Edit Password"
@@ -147,6 +150,7 @@ en:
     delete_confirm: "Are you sure you want to delete this product?"
     notice_delete: "Product was successfully deleted."
     error: "Something went wrong."
+    products_total: "Number of products: %{count}"
   public: "Public"
   private: "Private"
   archived: "Archived"
