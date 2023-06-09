@@ -1,25 +1,23 @@
 # frozen_string_literal: true
 
 class CategoriesController < ApplicationController
-  before_action :require_shop_logged_in!
+  # before_action :require_user_logged_in!
+  before_action :set_shop
+  before_action :set_category, only: %i[show edit update destroy]
+  before_action :authorize_shop
+
   def index
-    @shop = Shop.find(params[:shop_id])
     @categories = @shop.categories.all
   end
 
-  def show
-    @shop = Shop.find(params[:shop_id])
-    @category = @shop.categories.find(params[:id])
-  end
+  def show; end
 
   def new
-    @shop = Shop.find(params[:shop_id])
     @category = @shop.categories.build
     # authorize @category
   end
 
   def create
-    @shop = Shop.find(params[:shop_id])
     @category = @shop.categories.build(category_params)
     # authorize @category
     @input = category_params # for debugging can be removed later
@@ -32,18 +30,9 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit
-    @shop = Shop.find(params[:shop_id])
-    @category = @shop.categories.find(params[:id])
-
-    # authorize @category
-  end
+  def edit; end
 
   def update
-    @shop = Shop.find(params[:shop_id])
-    @category = @shop.categories.find(params[:id])
-
-    # authorize @category
     if @category.update(category_params)
       redirect_to shop_categories_path, status: :see_other, notice: t('category.notice_update')
     else
@@ -52,15 +41,26 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-    @shop = Shop.find(params[:shop_id])
-    @category = @shop.categories.find(params[:id])
-    # authorize @category
     delete_associated_images
     delete_associated_products
     handle_category_deletion
   end
 
   private
+
+  def set_shop
+    @shop = Shop.find(params[:shop_id])
+  end
+
+  def set_category
+    @category = @shop.categories.find(params[:id])
+  end
+
+  def authorize_shop
+    authorize @shop, :manage_shop?
+  rescue Pundit::NotAuthorizedError
+    redirect_to root_path, alert: '(no translation) You are not authorized to perform this action.'
+  end
 
   def category_params
     params.require(:category).permit(:title, :image, :status)

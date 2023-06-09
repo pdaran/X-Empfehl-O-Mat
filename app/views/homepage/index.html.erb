@@ -9,7 +9,7 @@
     <% if Current.shop%>
       <div class="flex flex-col p-8 rounded-xl bg-gray-200 shadow-xl w-96 md:w-auto">
   <div class="mt-3 font-semibold text-lg">
-    <%= link_to t('welcome'), shop_categories_path(@shop) %>
+    <%= link_to t('welcome'), shop_categories_path(Current.shop) %>
   </div>
 </div>
 

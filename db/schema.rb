@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_08_205026) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_01_092235) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,14 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_205026) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "status"
-  end
-
   create_table "attrs", force: :cascade do |t|
     t.string "name"
     t.string "unit"
@@ -67,16 +59,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_205026) do
     t.string "status"
     t.bigint "shop_id", null: false
     t.index ["shop_id"], name: "index_categories_on_shop_id"
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "commenter"
-    t.text "body"
-    t.bigint "article_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "status"
-    t.index ["article_id"], name: "index_comments_on_article_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -139,7 +121,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_205026) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "attrs", "categories"
-  add_foreign_key "comments", "articles"
+  add_foreign_key "categories", "shops"
   add_foreign_key "likes", "customers"
   add_foreign_key "likes", "products"
   add_foreign_key "product_attrs", "attrs"

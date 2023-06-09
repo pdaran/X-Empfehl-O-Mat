@@ -26,7 +26,11 @@
       <% elsif Current.shop %>
           <li class="navbar-profile">
             <%= link_to edit_shop_path(Current.shop), class: "underline hover:text-blue-200 visited:text-grey-300 block rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" do %>
-               <%= image_tag Current.shop.image, class: "object-cover md:w-12 rounded-md inline-block" %>
+              <% if Current.shop.image.attached? %>
+                <%= image_tag Current.shop.image, class: "object-cover md:w-12 rounded-md inline-block" %>
+               <% else %>
+                <%= image_tag "placeholder.jpeg", class: "object-cover md:w-12 rounded-md inline-block" %>
+              <% end %>
             <%= Current.shop.name %>
            <% end %>
         </li>
