@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     get '/impressum', to: 'homepage#impressum', as: 'impressum'
     get '/privacy', to: 'homepage#privacy', as: 'privacy'
     get '/contact', to: 'homepage#contact', as: 'contact'
+
     get 'registrations', to: 'registrations#index', as: 'registrations'
     get 'sessions', to: 'sessions#index', as: 'sessions'
 
@@ -23,26 +24,17 @@ Rails.application.routes.draw do
       collection do
         get :new_user
         post :create_user
-      end
-    end
-    resources :registrations, only: %i[new ,create] do
-      collection do
         get :new_shop
         post :create_shop
       end
     end
 
-    resources :sessions, only: %i[new ,create] do
-      collection do
-        get :new_shop
-        post :create_shop
-      end
-    end
-
-    resources :sessions, only: %i[new ,create] do
+    resources :sessions, only: %i[new create] do
       collection do
         get :new_user
         post :create_user
+        get :new_shop
+        post :create_shop
       end
     end
 
@@ -50,11 +42,6 @@ Rails.application.routes.draw do
       collection do
         get :edit_user
         patch :update_pass_user
-      end
-    end
-
-    resources :passwords, only: [] do
-      collection do
         get :edit_shop
         patch :update_pass_shop
       end
@@ -62,7 +49,6 @@ Rails.application.routes.draw do
 
     get 'sign_in', to: 'sessions#new_user'
     post 'sign_in', to: 'sessions#create_user'
-
     get 'sign_in_shop', to: 'sessions#new_shop'
     post 'sign_in_shop', to: 'sessions#create_shop'
 
@@ -70,7 +56,6 @@ Rails.application.routes.draw do
     patch 'password', to: 'passwords#update'
 
     delete 'logout', to: 'sessions#destroy_user'
-
     delete 'logout_shop', to: 'sessions#destroy_shop'
 
     get '/dashboards', to: 'dashboards#index'
