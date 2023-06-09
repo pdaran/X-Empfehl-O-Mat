@@ -62,7 +62,7 @@ class RecommenderController < ApplicationController
   end
 
   def where_clause
-    ret = ['(products.product LIKE :q OR products.desc LIKE :q OR product_attrs.value LIKE :q ' \
+    ret = ['(products.product LIKE :q OR products.desc LIKE :q OR product_attrs.value LIKE :q OR product_attrs.float_val::varchar LIKE :q ' \
            'OR CONCAT(attrs.name, attrs.unit) LIKE :q)',
            { q: "%#{params[:query]}%" }]
 
