@@ -7,6 +7,7 @@ class RecommenderController < ApplicationController
 
   def articles
     @category = Category.find(params[:id])
+    session[:category_id] = params[:id]
     @products = if search?
                   @category.products.left_outer_joins(:product_attrs).left_outer_joins(:attrs)
                            .where(where_clause).order(Arel.sql(order_clause)).uniq
@@ -26,8 +27,12 @@ class RecommenderController < ApplicationController
     uri = URI('http://empfehl-flask:8000/recommend')
 
     customer_id = session[:rec_id]
+    category_id = session[:category_id]
 
-    data = { id: customer_id }
+    data = {
+      customer_id: customer_id,
+      category_id: category_id
+    }
 
     # http request to url
     response = Net::HTTP.post_form(uri, data)
