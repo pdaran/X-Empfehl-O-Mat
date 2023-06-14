@@ -38,13 +38,19 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :passwords, only: [] do
+    resources :passwords, only: %i[reset update] do
       collection do
         get :edit_user
         patch :update_user
         get :edit_shop
         patch :update_shop
+        get :reset
+        patch :send_reset
       end
+    end
+
+    resources :passwords, only: [:update] do
+      patch :update_user, on: :collection
     end
 
     get 'forgot_password', to: 'sessions#forgot_password'
@@ -56,9 +62,6 @@ Rails.application.routes.draw do
     post 'sign_in', to: 'sessions#create_user'
     get 'sign_in_shop', to: 'sessions#new_shop'
     post 'sign_in_shop', to: 'sessions#create_shop'
-
-    get 'password', to: 'passwords#edit', as: :edit_password
-    patch 'password', to: 'passwords#update'
 
     delete 'logout', to: 'sessions#destroy_user'
     delete 'logout_shop', to: 'sessions#destroy_shop'

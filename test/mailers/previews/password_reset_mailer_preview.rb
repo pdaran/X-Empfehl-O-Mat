@@ -2,7 +2,7 @@
 
 # Preview all emails at http://localhost:3000/rails/mailers/password_reset_mailer
 class PasswordResetMailerPreview < ActionMailer::Preview
-  def shop_password_reset_email
+  def password_reset_email
     shop = Shop.first
     shop.password_reset_token = SecureRandom.urlsafe_base64
     PasswordResetMailer.password_reset_email(shop)

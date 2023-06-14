@@ -4,18 +4,18 @@ class PasswordsController < ApplicationController
   def edit_user; end
   def edit_shop; end
 
-  def edit
+  def reset
     @user = User.find_by(password_reset_token: params[:token])
     @shop = Shop.find_by(password_reset_token: params[:token])
 
     if @user || @shop
-      render :edit
+      render :reset
     else
-      redirect_to root_path, alert: 'Invalid or expired password reset token.'
+      redirect_to root_path, alert: t('password.token_invalid')
     end
   end
 
-  def update
+  def send_reset
     @user = User.find_by(password_reset_token: params[:token])
     @shop = Shop.find_by(password_reset_token: params[:token])
 
@@ -24,7 +24,7 @@ class PasswordsController < ApplicationController
     elsif @shop&.authenticate_reset_token(params[:token])
       update_password(@shop)
     else
-      redirect_to root_path, alert: 'Invalid or expired password reset token.'
+      redirect_to root_path, alert: t('password.token_invalid')
     end
   end
 
@@ -48,12 +48,12 @@ class PasswordsController < ApplicationController
 
   def update_password(resource)
     if password_reset_expired?(resource)
-      redirect_to root_path, alert: 'Password reset token has expired. Please request a new one.'
+      redirect_to root_path, alert: t('password.token_invalid')
     elsif resource.update(password: params[:password], password_confirmation: params[:password_confirmation])
-      redirect_to root_path, notice: 'Password has been reset successfully.'
+      redirect_to root_path, notice: t('password.reset_success')
     else
-      flash.now[:alert] = 'Unable to reset password. Please try again.'
-      render :edit
+      flash.now[:alert] = t('password.error')
+      render :reset
     end
   end
 

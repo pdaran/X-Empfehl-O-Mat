@@ -1,4 +1,6 @@
 de:
+  #general
+  welcome: "Willkommen"
   hello: "Hallo Welt"
   appname: "XOMAT"
   appname_short: "XO"
@@ -34,11 +36,17 @@ de:
     new: "Neues Passwort"
     confirmation: "Passwort bestätigen"
     edit_submit: "Neues Password speichern"
+    notice_send: "Passwort zurücksetzen Anweisungen wurden an Ihre E-Mail-Adresse gesendet."
+    notice_reset: "Passwort wurde erfolgreich zurückgesetzt."
+    error: "Passwort kann nicht zurückgesetzt werden. Bitte versuche es erneut."
+    reset_success: "Passwort wurde erfolgreich zurückgesetzt."
+    token_invalid: "Passwort zurücksetzen Token ist ungültig."
 
   session:
     new: "Anmelden"
     remember_me: "Eingeloggt bleiben"
     notice_create: "Sie haben sich erfolgreich angemeldet."
+    notice_login_shop: "Sie haben sich erfolgreich als Shop angemeldet."
     delete: "Abmelden"
     notice_delete: "Sie haben sich erfolgreich abgemeldet."
     false_login: "Bitte überprüfen Sie Ihre Email bzw. Passwort erneut."
@@ -60,6 +68,19 @@ de:
     notice_delete: "Account wurde erfolgreich gelöscht."
     error: "Etwas ist schief gelaufen."
 
+  shop:
+    new: "Shop erstellen"
+    edit: "Shop bearbeiten"
+    update: "Shop aktualisieren"
+    delete: "Shop löschen"
+    notice_create: "Shop wurde erfolgreich erstellt."
+    notice_update: "Shop wurde erfolgreich aktualisiert."
+    delete_confirm: "Sind Sie sicher, dass Sie diesen Shop löschen möchten?"
+    shop.notice_logout: "Sie haben sich erfolgreich abgemeldet."
+    notice_delete: "Shop wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
+    changepass: "Passwort Ändern"
+    back: "Zurück"
   #navbar
   navbar:
     title: "X-Empfehl-O-Mat"
@@ -88,9 +109,11 @@ de:
 
   #dashboard
   dashboard:
+    menu_link: "Menü"
+    recommendation_link: "Bewertung"
     homepage: "Hauptseite"
     menu: "Menü"
-    recommendation: "Bewertung"
+    recommendation: "bewertung"
     recommendation_product: "Produktübersicht der Empfehlung"
 
   # Shop

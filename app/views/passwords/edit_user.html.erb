@@ -2,7 +2,7 @@
   <div class="bg-white p-6 rounded-md shadow-md">
     <h1 class="text-4xl font-bold pt-5"><%= t('password.edit') %></h1>
 
-  <%= form_with model: Current.user,class:"pt-6", url: edit_user_passwords_path do |form| %>
+  <%= form_with model: Current.user, class: "pt-6", url: edit_user_passwords_path(Current.user) , method: :patch do |form| %>
     <% if form.object.errors.any? %>
       <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4">
         <% form.object.errors.full_messages.each do |message| %>

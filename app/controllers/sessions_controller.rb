@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
 
   def destroy_shop
     session[:shop_id] = nil
-    redirect_to root_path, notice: t('session.notice_delete_shop')
+    redirect_to root_path, notice: t('shop.notice_logout')
   end
 
   def forgot_password
@@ -48,7 +48,7 @@ class SessionsController < ApplicationController
       PasswordResetMailer.password_reset_email(shop).deliver_later
     end
 
-    redirect_to root_path, notice: 'Password reset instructions have been sent to your email address.'
+    redirect_to root_path, notice: t('password.notice_send')
   end
 
   private

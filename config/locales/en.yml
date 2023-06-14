@@ -30,6 +30,8 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
+  # General
+  welcome: "Welcome"
   hello: "Hello world"
   appname: "XOMAT"
   appname_short: "XO"
@@ -64,11 +66,18 @@ en:
     new: "New Password"
     confirmation: "Password confirmation"
     edit_submit: "Save new password"
+    notice_send: "Password reset instructions have been sent to your email address."
+    notice_update: "Your password was successfully updated."
+    reset_success: "Your password has been reset successfully."
+    error: "Unable to reset password. Please try again."
+    back: "Back"
+    token_invalid: "Password reset token is invalid or has expired. Please request a new one."
 
   session:
     new: "Login"
     remember_me: "Remember me"
     notice_create: "You have successfully logged in."
+    notice_login_shop: "You have successfully logged in as shop."
     delete: "Logout"
     notice_delete: "You have successfully logged out."
     false_login: "Please check your email or password again"
@@ -89,6 +98,17 @@ en:
     back: "Back"
     notice_delete: "Account was successfully deleted."
 
+  shop:
+    new: "Add Shop"
+    edit: "Edit Profile"
+    update: "Update Shop"
+    delete: "Delete this shop"
+    notice_create: "Shop was successfully created."
+    notice_update: "Shop was successfully updated."
+    delete_confirm: "Are you sure you want to delete this shop?"
+    notice_delete: "Shop (and all contents) was successfully deleted."
+    error: "Something went wrong."
+    changepass: "Change Password"
   # navbar
   navbar:
     title: "XO"
@@ -136,6 +156,7 @@ en:
     delete: "Delete this shop"
     delete_confirm: "Are you sure you want to delete this shop?"
     notice_delete: "Shop (and all contents) was successfully deleted."
+    notice_logout: "You have successfully logged out."
     error: "Something went wrong."
     linkshop: "As Shop"
     changepass: "Change Password"

@@ -18,7 +18,7 @@
       <ul class="nav-menu">
         <% if Current.user %>
           <li class="navbar-profile">
-            <%= link_to Current.user.email, edit_password_path, class: "underline hover:text-blue-200 visited:text-grey-300 block rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
+            <%= link_to Current.user.email, edit_user_passwords_path, class: "underline hover:text-blue-200 visited:text-grey-300 block rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
           </li>
           <li class="navbar-profile">
             <%= button_to t('logout'), logout_path, method: :delete, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
