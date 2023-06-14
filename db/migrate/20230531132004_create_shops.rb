@@ -7,7 +7,6 @@ class CreateShops < ActiveRecord::Migration[7.0]
       t.text :address
       t.string :phone_no
       t.string :status
-
       t.timestamps
     end
   end

@@ -18,22 +18,37 @@
       <ul class="nav-menu">
         <% if Current.user %>
           <li class="navbar-profile">
-            <%= link_to Current.user.email, edit_password_path, class: "underline hover:text-blue-200 visited:text-grey-300 block rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
+            <%= link_to Current.user.email, edit_user_passwords_path, class: "underline hover:text-blue-200 visited:text-grey-300 block rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
           </li>
           <li class="navbar-profile">
             <%= button_to t('logout'), logout_path, method: :delete, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
           </li>
+      <% elsif Current.shop %>
+          <li class="navbar-profile">
+            <%= link_to edit_shop_path(Current.shop), class: "underline hover:text-blue-200 visited:text-grey-300 block rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" do %>
+              <% if Current.shop.image.attached? %>
+                <%= image_tag Current.shop.image, class: "object-cover md:w-12 rounded-md inline-block" %>
+               <% else %>
+                <%= image_tag "placeholder.jpeg", class: "object-cover md:w-12 rounded-md inline-block" %>
+              <% end %>
+            <%= Current.shop.name %>
+           <% end %>
+        </li>
+
+          <li class="navbar-profile">
+            <%= button_to t('logout'), logout_shop_path, method: :delete, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2" %>
+          </li>
           <li class="navbar-profile dashboard-link">
             <%= link_to t('navbar.dashboard'), dashboards_path, :class => "underline hover:text-blue-200 focus:outline-none focus:shadow-outline bg-red-500 hover:bg-grey-700 block mb-2 rounded-lg" %>
           </li>
-          <li class="navbar-profile nav-menu-divider"></li>
-        <% else %>
+
+      <% else %>
           <li class="navbar-profile">
-            <%= button_to t('sign_up'), sign_up_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-grey-700 block mb-2" %>
+            <%= button_to t('sign_up'), registrations_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-grey-700 block mb-2" %>
           </li>
           <li class="navbar-profile nav-menu-divider"></li>
           <li class="navbar-profile">
-            <%= button_to t('login'), sign_in_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-grey-700 block mb-2" %>
+            <%= button_to t('login'), sessions_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-grey-700 block mb-2" %>
           </li>
         <% end %>
       </ul>

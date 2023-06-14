@@ -1,9 +1,11 @@
 de:
+  #general
+  welcome: "Willkommen"
   hello: "Hallo Welt"
   appname: "XOMAT"
   appname_short: "XO"
   admin_link_name: "Administrator"
-  customer_link_name: "Kunde"
+  customer_link_name: "Als Kunde"
   like_sign: "👍"
   choose_articles: "Waehle Artikel"
   choose_a_category: "Waehle eine Kategorie"
@@ -34,11 +36,18 @@ de:
     new: "Neues Passwort"
     confirmation: "Passwort bestätigen"
     edit_submit: "Neues Password speichern"
+    notice_send: "Passwort zurücksetzen Anweisungen wurden an Ihre E-Mail-Adresse gesendet."
+    notice_update: "Passwort wurde erfolgreich aktualisiert."
+    notice_reset: "Passwort wurde erfolgreich zurückgesetzt."
+    error: "Passwort kann nicht zurückgesetzt werden. Bitte versuche es erneut."
+    reset_success: "Passwort wurde erfolgreich zurückgesetzt."
+    token_invalid: "Passwort zurücksetzen Token ist ungültig."
 
   session:
     new: "Anmelden"
     remember_me: "Eingeloggt bleiben"
     notice_create: "Sie haben sich erfolgreich angemeldet."
+    notice_login_shop: "Sie haben sich erfolgreich als Shop angemeldet."
     delete: "Abmelden"
     notice_delete: "Sie haben sich erfolgreich abgemeldet."
     false_login: "Bitte überprüfen Sie Ihre Email bzw. Passwort erneut."
@@ -58,6 +67,7 @@ de:
     error: "Etwas ist schief gelaufen."
     back: "Zurück"
     notice_delete: "Account wurde erfolgreich gelöscht."
+    error: "Etwas ist schief gelaufen."
 
   #navbar
   navbar:
@@ -88,10 +98,10 @@ de:
   #dashboard
   dashboard:
     menu_link: "Menü"
-    recommendation_link: "Empfehlungen"
+    recommendation_link: "Bewertung"
     homepage: "Hauptseite"
     menu: "Menü"
-    recommendation: "Bewertung"
+    recommendation: "bewertung"
     recommendation_product: "Produktübersicht der Empfehlung"
 
   # Shop
@@ -100,14 +110,16 @@ de:
   shop:
     new: "Shop erstellen"
     notice_create: "Shop wurde erfolgreich erstellt."
-    edit: "Shop bearbeiten"
+    edit: "Profile bearbeiten"
     update: "Shop aktualisieren"
     notice_update: "Shop wurde erfolgreich aktualisiert."
     delete: "Shop löschen"
     delete_confirm: "Sind Sie sicher, dass Sie diesen Shop löschen möchten?"
     notice_delete: "Shop (und alle Inhalt) wurde erfolgreich gelöscht."
+    notice_logout: "Sie haben sich erfolgreich abgemeldet."
     error: "Etwas ist schief gelaufen."
-
+    linkshop: "Als Geschäft"
+    changepass: "Passwort Ändern"
 
   #product
   products: "Produkten"

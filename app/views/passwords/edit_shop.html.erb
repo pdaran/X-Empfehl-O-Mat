@@ -1,0 +1,26 @@
+<div class="container p-10 ">
+  <h1 class="text-4xl font-bold" > <%= t('password.edit') %> </h1>
+
+  <%= form_with model: Current.shop, url: update_shop_passwords_path(Current.shop) do |form| %>
+    <% if form.object.errors.any? %>
+      <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative">
+        <% form.object.errors.full_messages.each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
+    <% end %>
+
+
+    <div class="mb-3 flex flex-col">
+      <%= form.label :password, t('password.new') %>
+      <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
+    </div>
+    <div class="mb-3 flex flex-col">
+      <%= form.label :password_confirmation, t('form_labels.password_confirmation') %>
+      <%= form.password_field :password_confirmation, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
+    </div>
+    <div class="mb-3">
+      <%= form.submit t('password.edit_submit'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+    </div>
+  <% end %>
+</div>
