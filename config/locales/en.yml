@@ -68,9 +68,9 @@ en:
     edit_submit: "Save new password"
     notice_send: "Password reset instructions have been sent to your email address."
     notice_update: "Your password was successfully updated."
+    notice_reset: "Your password was successfully reset."
     reset_success: "Your password has been reset successfully."
     error: "Unable to reset password. Please try again."
-    back: "Back"
     token_invalid: "Password reset token is invalid or has expired. Please request a new one."
 
   session:
