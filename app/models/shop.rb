@@ -15,4 +15,10 @@ class Shop < ApplicationRecord
     attachable.variant :thumbnail, resize_to_fill: [56, 56]
     attachable.variant :medium, resize_to_limit: [100, 100]
   end
+
+  def generate_password_reset_token
+    self.password_reset_token = SecureRandom.urlsafe_base64
+    self.password_reset_sent_at = Time.now
+    save(validate: false)
+  end
 end

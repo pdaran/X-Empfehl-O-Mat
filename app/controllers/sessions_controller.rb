@@ -32,6 +32,25 @@ class SessionsController < ApplicationController
     redirect_to root_path, notice: t('session.notice_delete_shop')
   end
 
+  def forgot_password
+    # Render the "Forgot Password" form
+  end
+
+  def send_password_reset
+    user = User.find_by(email: params[:email])
+    shop = Shop.find_by(email: params[:email])
+
+    if user
+      user.generate_password_reset_token
+      PasswordResetMailer.password_reset_email(user).deliver_later
+    elsif shop
+      shop.generate_password_reset_token
+      PasswordResetMailer.password_reset_email(shop).deliver_later
+    end
+
+    redirect_to root_path, notice: 'Password reset instructions have been sent to your email address.'
+  end
+
   private
 
   def valid_user?(user, password)

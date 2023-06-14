@@ -41,11 +41,16 @@ Rails.application.routes.draw do
     resources :passwords, only: [] do
       collection do
         get :edit_user
-        patch :update_pass_user
+        patch :update_user
         get :edit_shop
-        patch :update_pass_shop
+        patch :update_shop
       end
     end
+
+    get 'forgot_password', to: 'sessions#forgot_password'
+    post 'send_password_reset', to: 'sessions#send_password_reset'
+    get 'reset_password/:token', to: 'passwords#edit', as: :edit_reset_password
+    patch 'reset_password/:token', to: 'passwords#update', as: :reset_password
 
     get 'sign_in', to: 'sessions#new_user'
     post 'sign_in', to: 'sessions#create_user'

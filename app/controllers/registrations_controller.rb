@@ -31,11 +31,13 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  private
+
   def shop_params
     params.require(:shop).permit(:name, :email, :password, :password_confirmation, :address, :phone_no)
   end
-end
 
-def user_params
-  params.require(:user).permit(:email, :password, :password_confirmation)
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation)
+  end
 end
