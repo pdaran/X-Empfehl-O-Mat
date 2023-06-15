@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_185005) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_225029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -100,6 +100,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_185005) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "recommendations", force: :cascade do |t|
+    t.bigint "customer_id", null: false
+    t.bigint "product_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_recommendations_on_customer_id"
+    t.index ["product_id"], name: "index_recommendations_on_product_id"
+  end
+
   create_table "shops", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -135,4 +144,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_185005) do
   add_foreign_key "product_attrs", "attrs"
   add_foreign_key "product_attrs", "products"
   add_foreign_key "products", "categories"
+  add_foreign_key "recommendations", "customers"
+  add_foreign_key "recommendations", "products"
 end

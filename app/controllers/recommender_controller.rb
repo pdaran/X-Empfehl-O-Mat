@@ -7,6 +7,7 @@ class RecommenderController < ApplicationController
 
   def products
     @category = Category.find(params[:id])
+    session[:category_id] = params[:id]
     set_products
 
     return unless params[:product_ids]
@@ -21,8 +22,12 @@ class RecommenderController < ApplicationController
     uri = URI('http://empfehl-flask:8000/recommend')
 
     customer_id = session[:rec_id]
+    category_id = session[:category_id]
 
-    data = { id: customer_id }
+    data = {
+      customer_id:,
+      category_id:
+    }
 
     # http request to url
     response = Net::HTTP.post_form(uri, data)
@@ -31,6 +36,10 @@ class RecommenderController < ApplicationController
 
     # Convert response Json String to Object
     @product_ids = JSON.parse(response_string)
+
+    @product_ids.each do |p_product_id|
+      Recommendation.create(product_id: p_product_id, customer_id:)
+    end
 
     # Find all Products by th ID Array
     @products = Product.find(@product_ids)

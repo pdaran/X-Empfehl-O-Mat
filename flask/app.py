@@ -31,17 +31,22 @@ def hello_world():
 @app.route('/recommend', methods=['POST', 'GET'])
 def get_recommendation():
     if request.method == 'POST':
-        customer_id = int(request.form['id'])
+        customer_id = int(request.form['customer_id'])
+        category_id = int(request.form['category_id'])
     else:
-        customer_id = int(request.args.get('id'))
+        customer_id = int(request.args.get('customer_id'))
+        category_id = int(request.args.get('category_id'))
+
+    print("category:" + str(category_id), file=sys.stderr)
 
     engine = db.engine
     with engine.begin() as conn:
-        sql = 'SELECT "customer_id","like","product_id" FROM likes;'
+        sql = 'SELECT "customer_id","like","product_id" FROM likes INNER JOIN products p on p.id = likes.product_id ' \
+              'WHERE p.category_id = ' + str(category_id) + ';'
         customer_likes_matrix = sqlio.read_sql_query(sql, conn)
 
     if customer_id not in customer_likes_matrix["customer_id"]:
-        return f"No Customer with id {customer_id}", 404
+        return f"Customer with id {customer_id} has not made any recommendations in the selected category", 404
 
     target_customer = customer_id
 
