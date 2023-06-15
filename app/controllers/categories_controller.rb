@@ -9,6 +9,10 @@ class CategoriesController < ApplicationController
     @categories = @shop.categories.all
   end
 
+  def show
+    set_products
+  end
+
   def new
     @category = @shop.categories.build
     # authorize @category
