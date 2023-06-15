@@ -33,6 +33,16 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def set_category
+    @category = @shop.categories.find(params[:id])
+  end
+
+  def authorize_shop
+    authorize @shop, :manage_shop?
+  rescue Pundit::NotAuthorizedError, Pundit::NotDefinedError
+    redirect_to root_path, alert: I18n.t('shop.not_authorized')
+  end
+
   def set_locale
     params[:locale] || I18n.default_locale
   end
@@ -51,6 +61,7 @@ class ApplicationController < ActionController::Base
     return unless session[:shop_id]
 
     Current.shop = Shop.find_by(id: session[:shop_id])
+    @shop = Current.shop
   end
 
   def require_user_logged_in!
