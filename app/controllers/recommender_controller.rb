@@ -30,8 +30,8 @@ class RecommenderController < ApplicationController
     category_id = session[:category_id]
 
     data = {
-      customer_id: customer_id,
-      category_id: category_id
+      customer_id:,
+      category_id:
     }
 
     # http request to url
@@ -42,9 +42,9 @@ class RecommenderController < ApplicationController
     # Convert response Json String to Object
     @product_ids = JSON.parse(response_string)
 
-    @product_ids.each { |p_product_id|
-      Recommendation.create(product_id: p_product_id, customer_id: customer_id)
-    }
+    @product_ids.each do |p_product_id|
+      Recommendation.create(product_id: p_product_id, customer_id:)
+    end
 
     # Find all Products by th ID Array
     @products = Product.find(@product_ids)
