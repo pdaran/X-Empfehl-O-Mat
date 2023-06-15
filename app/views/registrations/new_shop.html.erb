@@ -1,6 +1,6 @@
 <div class="container mx-auto p-10">
   <div class="bg-white p-10 rounded-lg shadow-lg">
-    <h1>Shop Registration</h1>
+    <h1><%= t('shop.registration') %></h1>
 
     <%= form_with model: @shop, class: "pt-6", url: create_shop_registrations_path , method: :post do |f| %>
      <div class="mb-6">
@@ -42,7 +42,7 @@
       <%# <%= f.select :status, options_for_select(Shop.statuses.keys.to_a) %>
 
       <div class="mb-6">
-        <%= f.submit "Register", class: "bg-gray-900 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" %>
+        <%= f.submit t('register'), class: "bg-gray-900 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" %>
       </div>
     <% end %>
   </div>

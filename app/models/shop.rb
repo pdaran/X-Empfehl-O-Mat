@@ -16,9 +16,18 @@ class Shop < ApplicationRecord
     attachable.variant :medium, resize_to_limit: [100, 100]
   end
 
-  def generate_password_reset_token
-    self.password_reset_token = SecureRandom.urlsafe_base64
-    self.password_reset_sent_at = Time.now
-    save(validate: false)
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!
+    PasswordResetMailer.forgot_password(self).deliver # Sends an e-mail with the reset link for the the password
+  end
+
+  # This generates a random password reset token for the shop
+  def generate_token(column)
+    loop do
+      self[column] = SecureRandom.urlsafe_base64
+      break unless Shop.exists?(column => self[column])
+    end
   end
 end

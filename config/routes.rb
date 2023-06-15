@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'password_resets/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: redirect("/#{I18n.default_locale}"), as: :redirected_root
 
@@ -53,10 +54,10 @@ Rails.application.routes.draw do
       patch :update_user, on: :collection
     end
 
-    get 'forgot_password', to: 'sessions#forgot_password'
-    post 'send_password_reset', to: 'sessions#send_password_reset'
-    get 'reset_password/:token', to: 'passwords#edit', as: :edit_reset_password
-    patch 'reset_password/:token', to: 'passwords#update', as: :reset_password
+    # get 'forgot_password', to: 'sessions#forgot_password'
+    # post 'send_password_reset', to: 'sessions#send_password_reset'
+    # get 'reset_password/:token', to: 'passwords#edit', as: :edit_reset_password
+    # patch 'reset_password/:token', to: 'passwords#update', as: :reset_password
 
     get 'sign_in', to: 'sessions#new_user'
     post 'sign_in', to: 'sessions#create_user'
@@ -67,6 +68,8 @@ Rails.application.routes.draw do
     delete 'logout_shop', to: 'sessions#destroy_shop'
 
     get '/dashboards', to: 'dashboards#index'
+
+    resources :password_resets
 
     resources :shops do
       resources :categories do

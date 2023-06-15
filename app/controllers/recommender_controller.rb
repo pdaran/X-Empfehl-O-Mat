@@ -36,13 +36,10 @@ class RecommenderController < ApplicationController
 
     # Convert response Json String to Object
     @product_ids = JSON.parse(response_string)
-
-    @product_ids.each do |p_product_id|
-      Recommendation.create(product_id: p_product_id, customer_id:)
-    end
+    create_recommendations
 
     # Find all Products by th ID Array
-    @products = Product.find(@product_ids)
+    find_products
 
     @user = session[:user_id]
   end
@@ -63,5 +60,15 @@ class RecommenderController < ApplicationController
       l.save
     end
     redirect_to controller: 'recommender', action: 'result'
+  end
+
+  def create_recommendations
+    @product_ids.each do |p_product_id|
+      Recommendation.create(product_id: p_product_id, customer_id:)
+    end
+  end
+
+  def find_products
+    @products = Product.find(@product_ids)
   end
 end
