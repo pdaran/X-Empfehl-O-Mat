@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   scope ':locale' do
     get 'recommender', to: 'recommender#category'
-    get 'recommender/:id', to: 'recommender#articles'
-    post 'recommender/:id', to: 'recommender#articles'
+    get 'recommender/:id', to: 'recommender#products'
+    post 'recommender/:id', to: 'recommender#products'
     get 'result', to: 'recommender#result'
 
     get 'homepage/index'
@@ -17,16 +17,54 @@ Rails.application.routes.draw do
     get '/privacy', to: 'homepage#privacy', as: 'privacy'
     get '/contact', to: 'homepage#contact', as: 'contact'
 
-    get 'sign_up', to: 'registrations#new'
-    post 'sign_up', to: 'registrations#create'
+    get 'registrations', to: 'registrations#index', as: 'registrations'
+    get 'sessions', to: 'sessions#index', as: 'sessions'
 
-    get 'sign_in', to: 'sessions#new'
-    post 'sign_in', to: 'sessions#create'
+    resources :registrations, only: %i[new create] do
+      collection do
+        get :new_user
+        post :create_user
+        get :new_shop
+        post :create_shop
+      end
+    end
 
-    get 'password', to: 'passwords#edit', as: :edit_password
-    patch 'password', to: 'passwords#update'
+    resources :sessions, only: %i[new create] do
+      collection do
+        get :new_user
+        post :create_user
+        get :new_shop
+        post :create_shop
+      end
+    end
 
-    delete 'logout', to: 'sessions#destroy'
+    resources :passwords, only: %i[reset update] do
+      collection do
+        get :edit_user
+        patch :update_user
+        get :edit_shop
+        patch :update_shop
+        get :reset
+        patch :send_reset
+      end
+    end
+
+    resources :passwords, only: [:update] do
+      patch :update_user, on: :collection
+    end
+
+    get 'forgot_password', to: 'sessions#forgot_password'
+    post 'send_password_reset', to: 'sessions#send_password_reset'
+    get 'reset_password/:token', to: 'passwords#edit', as: :edit_reset_password
+    patch 'reset_password/:token', to: 'passwords#update', as: :reset_password
+
+    get 'sign_in', to: 'sessions#new_user'
+    post 'sign_in', to: 'sessions#create_user'
+    get 'sign_in_shop', to: 'sessions#new_shop'
+    post 'sign_in_shop', to: 'sessions#create_shop'
+
+    delete 'logout', to: 'sessions#destroy_user'
+    delete 'logout_shop', to: 'sessions#destroy_shop'
 
     get '/dashboards', to: 'dashboards#index'
 

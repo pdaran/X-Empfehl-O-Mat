@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class HomepageController < ApplicationController
-  def index; end
+  def index
+    @shop = Current.shop
+  end
+
   # static pages
   def about; end
 

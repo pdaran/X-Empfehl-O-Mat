@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class ShopsController < ApplicationController
+  before_action :set_shop, only: %i[show edit update destroy]
+  before_action :authorize_shop, except: %i[index]
+
   def index
     @shops = Shop.order(:name)
   end
@@ -25,12 +28,7 @@ class ShopsController < ApplicationController
     end
   end
 
-  def edit
-    @shop = Shop.find(params[:id])
-  end
-
   def update
-    @shop = Shop.find(params[:id])
     if @shop.update(shop_params)
       redirect_to shops_path, status: :see_other, notice: t('shop.notice_update')
     else
@@ -39,13 +37,16 @@ class ShopsController < ApplicationController
   end
 
   def destroy
-    @shop = Shop.find(params[:id])
     delete_associated_images
     delete_associated_categories
     handle_shop_deletion
   end
 
   private
+
+  def set_shop
+    @shop = Shop.find(params[:id])
+  end
 
   def shop_params
     params.require(:shop).permit(:name, :email, :password_digest, :address, :phone_no, :image, :status)
@@ -69,21 +70,23 @@ class ShopsController < ApplicationController
 
   def delete_associated_images
     @shop.image.purge
-    @shop.category.each { |category| category.image.purge }
-    @shop.category.products.each { |product| product.image.purge }
+    @shop.categories.each do |category|
+      category.image.purge
+      category.products.each { |product| product.image.purge }
+    end
   end
 
   def delete_associated_categories
-    @shop.category.destroy_all
-    @shop.category.products.destroy_all
+    @shop.categories.destroy_all
   end
 
   def handle_shop_deletion
     if @shop.destroy
-      redirect_to shops_path, status: :see_other,
-                              notice: t('shop.notice_delete')
+      flash[:notice] = t('shop.notice_delete')
     else
-      redirect_to shops_path, status: :see_other, alert: t('shop.error')
+      flash[:alert] = t('shop.error')
     end
+
+    redirect_to shops_path, status: :see_other
   end
 end

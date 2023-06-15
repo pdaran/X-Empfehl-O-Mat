@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AttrsController < ApplicationController
-  before_action :require_user_logged_in!
+  before_action :authorize_shop
 
   def new
     @category = Category.find(params[:category_id])

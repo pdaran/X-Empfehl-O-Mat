@@ -1,44 +1,29 @@
 # frozen_string_literal: true
 
 class CategoryPolicy < ApplicationPolicy
-  attr_reader :user, :category
-
-  def initialize(user, article)
-    super
-    @user = user
-    @article = article
-  end
-
   def index?
     true
-    # if set to false - no one will have access
   end
 
   def show?
     true
   end
 
-  # Same as for create
-  def new?
-    create?
-  end
-
-  # Same as that of the update.
-  def edit?
-    update?
-  end
-
-  # Only admin is allowed to update the category
-  def update?
-    user.shop?
-  end
-
-  # Only admin is allowed to create the category
   def create?
-    user.shop?
+    manage_categories?
+  end
+
+  def update?
+    manage_categories?
   end
 
   def destroy?
-    user.shop?
+    manage_categories?
+  end
+
+  private
+
+  def manage_categories?
+    Current.shop.present? && record.shop_id == Current.shop.id
   end
 end

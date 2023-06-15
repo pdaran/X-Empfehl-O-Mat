@@ -5,15 +5,10 @@ class RecommenderController < ApplicationController
     @categories = Category.all
   end
 
-  def articles
+  def products
     @category = Category.find(params[:id])
     session[:category_id] = params[:id]
-    @products = if search?
-                  @category.products.left_outer_joins(:product_attrs).left_outer_joins(:attrs)
-                           .where(where_clause).order(Arel.sql(order_clause)).uniq
-                else
-                  @category.products.all.order(:product)
-                end
+    set_products
 
     return unless params[:product_ids]
 
@@ -53,36 +48,6 @@ class RecommenderController < ApplicationController
   end
 
   private
-
-  def search?
-    params[:query].present? || params[:filter].present?
-  end
-
-  def order_clause
-    ret = if params[:orderby].present? && params[:orderby] != t('attr.name')
-            "CASE attrs.name WHEN '#{params[:orderby]}' THEN 1 END, product_attrs.float_val"
-          else
-            'products.product'
-          end
-
-    ret += ' DESC NULLS LAST' if params[:order].present? && params[:order] == 'desc'
-
-    ret
-  end
-
-  def where_clause
-    ret = ['(products.product LIKE :q OR products.desc LIKE :q OR product_attrs.value ' \
-           'LIKE :q OR product_attrs.float_val::varchar LIKE :q ' \
-           'OR CONCAT(attrs.name, attrs.unit) LIKE :q)',
-           { q: "%#{params[:query]}%" }]
-
-    if params[:filter].present? && params[:filter] != t('none')
-      ret[0] += ' AND (attrs.name = :f)'
-      ret[1][:f] = params[:filter]
-    end
-
-    ret
-  end
 
   def like_params
     params.require(:product_ids)
