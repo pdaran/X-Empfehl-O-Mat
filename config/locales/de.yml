@@ -120,6 +120,7 @@ de:
     error: "Etwas ist schief gelaufen."
     linkshop: "Als Geschäft"
     changepass: "Passwort Ändern"
+    not_authorized: "Sie sind nicht dazu berechtigt dies zu tun."
 
   #product
   products: "Produkten"
