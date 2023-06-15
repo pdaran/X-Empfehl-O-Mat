@@ -109,6 +109,7 @@ en:
     notice_delete: "Shop (and all contents) was successfully deleted."
     error: "Something went wrong."
     changepass: "Change Password"
+    not_authorized: "You are not authorized to perform this action."
   # navbar
   navbar:
     title: "XO"
@@ -160,6 +161,7 @@ en:
     error: "Something went wrong."
     linkshop: "As Shop"
     changepass: "Change Password"
+    not_authorized: "You are not authorized to perform this action."
 
 
 

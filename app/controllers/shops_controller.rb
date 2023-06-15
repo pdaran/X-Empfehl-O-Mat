@@ -2,6 +2,7 @@
 
 class ShopsController < ApplicationController
   before_action :set_shop, only: %i[show edit update destroy]
+  before_action :authorize_shop, except: %i[index]
 
   def index
     @shops = Shop.order(:name)
@@ -26,8 +27,6 @@ class ShopsController < ApplicationController
       render :new, status: :unprocessable_entity, alert: t('shop.error')
     end
   end
-
-  def edit; end
 
   def update
     if @shop.update(shop_params)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_185148) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_13_185005) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -111,7 +111,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_185148) do
     t.datetime "updated_at", null: false
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.index ["password_reset_token"], name: "index_shops_on_password_reset_token"
+    t.index ["password_reset_token"], name: "index_shops_on_password_reset_token", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -123,7 +123,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_185148) do
     t.boolean "shop", default: false
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.index ["password_reset_token"], name: "index_users_on_password_reset_token"
+    t.index ["password_reset_token"], name: "index_users_on_password_reset_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

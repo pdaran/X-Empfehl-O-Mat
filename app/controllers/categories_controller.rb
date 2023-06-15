@@ -2,15 +2,12 @@
 
 class CategoriesController < ApplicationController
   # before_action :require_user_logged_in!
-  before_action :set_shop
   before_action :set_category, only: %i[show edit update destroy]
   before_action :authorize_shop
 
   def index
     @categories = @shop.categories.all
   end
-
-  def show; end
 
   def new
     @category = @shop.categories.build
@@ -30,8 +27,6 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit; end
-
   def update
     if @category.update(category_params)
       redirect_to shop_categories_path, status: :see_other, notice: t('category.notice_update')
@@ -47,20 +42,6 @@ class CategoriesController < ApplicationController
   end
 
   private
-
-  def set_shop
-    @shop = Shop.find(params[:shop_id])
-  end
-
-  def set_category
-    @category = @shop.categories.find(params[:id])
-  end
-
-  def authorize_shop
-    authorize @shop, :manage_shop?
-  rescue Pundit::NotAuthorizedError
-    redirect_to root_path, alert: '(no translation) You are not authorized to perform this action.'
-  end
 
   def category_params
     params.require(:category).permit(:title, :image, :status)
