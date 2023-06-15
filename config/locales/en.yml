@@ -46,6 +46,7 @@ en:
   de: "German"
   germany: "Germany"
   language: "Language"
+  register: "Register"
   login: "Login"
   logout: "Logout"
   email: "Email"
@@ -60,8 +61,10 @@ en:
   cookies: "Cookies"
 
   password: 
+    reset: "Reset Password"
     edit: "Edit Password"
     forgot: "Forgot Password?"
+    update: "Update Password"
     new: "New Password"
     confirmation: "Password confirmation"
     edit_submit: "Save new password"
@@ -98,6 +101,7 @@ en:
     notice_delete: "Account was successfully deleted."
 
   shop:
+    registration: "Shop Registration"
     new: "Add Shop"
     edit: "Edit Profile"
     update: "Update Shop"
@@ -209,6 +213,7 @@ en:
     value: "Value"
 
   form_labels:
+    invalid: "Form is invalid"
     name: "Name"
     title: "Title"
     product: "Product"

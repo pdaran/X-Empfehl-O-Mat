@@ -15,6 +15,7 @@ de:
   de: "Deutsch"
   germany: "Deutschland"
   language: "Sprache"
+  register: "Registrieren"
   #deprecated, check if still used
   login: "Anmelden"
   logout: "Abmelden"
@@ -30,8 +31,10 @@ de:
   privacy: "Datenschutz"
 
   password:
+    reset: "Passwort zurücksetzen"
     edit: "Passwort ändern"
     forgot: "Passwort vergessen?"
+    update: "Passwort aktualisieren"
     new: "Neues Passwort"
     confirmation: "Passwort bestätigen"
     edit_submit: "Neues Password speichern"
@@ -107,6 +110,7 @@ de:
   shops: "Shops"
   blocked: "Gesperrt"
   shop:
+    registration: "Shop Registrierung"
     new: "Shop erstellen"
     notice_create: "Shop wurde erfolgreich erstellt."
     edit: "Profile bearbeiten"
@@ -167,6 +171,7 @@ de:
 
   # Form Labels
   form_labels:
+    invalid: "Form ist ungültig"
     name: "Name"
     title: "Titel"
     product: "Produkt"
