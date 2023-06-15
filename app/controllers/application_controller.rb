@@ -64,7 +64,8 @@ class ApplicationController < ActionController::Base
            { q: "%#{params[:query]}%" }]
 
     if params[:filter].present? && params[:filter] != t('product.filter_none')
-      ret[0] += ' AND (products.id IN (SELECT product_attrs.product_id FROM product_attrs WHERE product_attrs.attr_id = :f))'
+      ret[0] += ' AND (products.id IN (SELECT product_attrs.product_id FROM product_attrs ' \
+                'WHERE product_attrs.attr_id = :f))'
       ret[1][:f] = Attr.find_by(name: params[:filter]).id
     end
 
