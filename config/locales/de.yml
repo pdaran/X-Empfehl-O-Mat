@@ -171,8 +171,8 @@ de:
 
   # Form Labels
   form_labels:
-    invalid: "Form ist ungültig"
     name: "Name"
+    invalid: "Form ist ungültig"
     title: "Titel"
     product: "Produkt"
     description: "Beschreibung"

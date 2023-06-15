@@ -5,7 +5,8 @@ class PasswordResetMailer < ApplicationMailer
     @shop = shop
     @greeting = 'Hello '
     mail(
-      to: shop.email, 
-      subject: 'Reset password instructions')
+      to: shop.email,
+      subject: 'Reset password instructions'
+    )
   end
 end

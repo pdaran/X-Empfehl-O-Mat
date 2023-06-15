@@ -3,7 +3,7 @@
 <%= form_for @shop, :url => password_reset_path(params[:id]) do |f| %>
   <% if @shop.errors.any? %>
     <div class='error_messages'>
-      <h2><%= t('form.invalid') %></h2>
+      <h2><%= t('form_labels.invalid') %></h2>
       <ul>
         <% for message in @shop.errors.full_messages %>
           <li><%= message %></li>

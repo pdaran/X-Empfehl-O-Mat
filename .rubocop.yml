@@ -19,7 +19,11 @@ Style/Documentation:
 
 Metrics/BlockLength:
   Enabled: false
-  AllowedMethods: ['draw']
+  AllowedMethods: ["draw"]
+
+# recommender_controller.rb:
+Metrics/MethodLength:
+  Max: 20
 
 Metrics/AbcSize:
   Max: 20

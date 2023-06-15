@@ -100,19 +100,6 @@ en:
     back: "Back"
     notice_delete: "Account was successfully deleted."
 
-  shop:
-    registration: "Shop Registration"
-    new: "Add Shop"
-    edit: "Edit Profile"
-    update: "Update Shop"
-    delete: "Delete this shop"
-    notice_create: "Shop was successfully created."
-    notice_update: "Shop was successfully updated."
-    delete_confirm: "Are you sure you want to delete this shop?"
-    notice_delete: "Shop (and all contents) was successfully deleted."
-    error: "Something went wrong."
-    changepass: "Change Password"
-    not_authorized: "You are not authorized to perform this action."
   # navbar
   navbar:
     title: "XO"
@@ -152,10 +139,11 @@ en:
   shops: "Shops"
   blocked: "Blocked"
   shop:
+    registration: "Shop Registration"
     new: "Add Shop"
-    notice_create: "Shop was successfully created."
     edit: "Edit Profile"
     update: "Update Shop"
+    notice_create: "Shop was successfully created."
     notice_update: "Shop was successfully updated."
     delete: "Delete this shop"
     delete_confirm: "Are you sure you want to delete this shop?"
@@ -165,8 +153,6 @@ en:
     linkshop: "As Shop"
     changepass: "Change Password"
     not_authorized: "You are not authorized to perform this action."
-
-
 
   # Product
   products: "Products"
@@ -213,8 +199,8 @@ en:
     value: "Value"
 
   form_labels:
-    invalid: "Form is invalid"
     name: "Name"
+    invalid: "Form is invalid"
     title: "Title"
     product: "Product"
     description: "Description"
