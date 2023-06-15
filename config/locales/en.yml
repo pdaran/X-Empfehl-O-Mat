@@ -161,6 +161,7 @@ en:
     error: "Something went wrong."
     linkshop: "As Shop"
     changepass: "Change Password"
+    not_authorized: "You are not authorized to perform this action."
 
 
 
