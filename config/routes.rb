@@ -6,8 +6,8 @@ Rails.application.routes.draw do
 
   scope ':locale' do
     get 'recommender', to: 'recommender#category'
-    get 'recommender/:id', to: 'recommender#articles'
-    post 'recommender/:id', to: 'recommender#articles'
+    get 'recommender/:id', to: 'recommender#products'
+    post 'recommender/:id', to: 'recommender#products'
     get 'result', to: 'recommender#result'
 
     get 'homepage/index'
