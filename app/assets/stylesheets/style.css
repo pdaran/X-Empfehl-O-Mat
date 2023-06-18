@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
-  background-color: rgb(249, 239, 228);
+  background-color: #ffb547;
 }
 
 a {
@@ -14,7 +14,7 @@ a {
 /* Navigationsleiste */
 
 .navbar {
-  background-color: rgba(249, 239, 228);
+  background-color: #ffb547;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;
@@ -100,10 +100,7 @@ ul.nav-menu{
   min-width: 140px;
   z-index: 1;
   border-radius: 5px;
-
 }
-
-
 
 .dropdown-content a {
   display: block;
@@ -167,7 +164,7 @@ h1 {
 
 /* Footer */
 footer {
-  background-color: #eee;
+  background-color: black;
   padding: 2rem;
   display: flex;
   justify-content: center;
@@ -198,7 +195,6 @@ footer {
     flex-wrap: nowrap; /* Deaktiviert das Umbruchverhalten */
   }
 }
-
 
 @media (max-width: 767px) {
   footer {
@@ -366,4 +362,14 @@ li {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+}
+
+.logo {
+  position: absolute;
+  width: 98px;
+  height: 61px;
+  left: 188px;
+  top: 23px;
+  mix-blend-mode: hard-light;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
