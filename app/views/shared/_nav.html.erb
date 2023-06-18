@@ -11,9 +11,12 @@
 <div class="w-full relative">
   <nav class="mt-3 bg-grey-500 text-white">
     <div class="container flex justify-between items-center py-3">
-      <div>
-        <a class="logo" href="<%= root_path %>"> <img src="logo.png" ></a>
+     <div >
+        <%= link_to root_path do %>
+         <%= image_tag("logoXO.jpg", class: "md:logo") %>
+        <% end %>
       </div>
+
 
       <ul class="nav-menu">
         <% if Current.user %>
