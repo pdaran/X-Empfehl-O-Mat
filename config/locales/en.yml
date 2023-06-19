@@ -53,6 +53,7 @@ en:
   edit: "Edit"
   delete: "Delete"
   attributes: "Attributes"
+  sign_in: "Sign in"
   sign_up: "Sign up"
   none: "None"
   ascending: "ascending"
@@ -74,6 +75,7 @@ en:
     reset_success: "Your password has been reset successfully."
     error: "Unable to reset password. Please try again."
     token_invalid: "Password reset token is invalid or has expired. Please request a new one."
+    donthave: "Don't have an account yet?"
 
   session:
     new: "Login"

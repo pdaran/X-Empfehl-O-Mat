@@ -23,6 +23,7 @@ de:
   edit: "Editieren"
   delete: "Löschen"
   attributes: "Attribute"
+  sign_in: "Anmelden"
   sign_up: "Registrieren"
   none: "Keine"
   ascending: "aufsteigend"
@@ -44,6 +45,7 @@ de:
     error: "Passwort kann nicht zurückgesetzt werden. Bitte versuche es erneut."
     reset_success: "Passwort wurde erfolgreich zurückgesetzt."
     token_invalid: "Passwort zurücksetzen Token ist ungültig."
+    donthave: "Sie haben noch keinen Account?"
 
   session:
     new: "Anmelden"
