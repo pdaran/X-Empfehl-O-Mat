@@ -4,7 +4,7 @@
     <%= form.hidden_field :shop_id, value: @shop.id %>
     <div class="mb-6">
       <%= form.label :title, t('form_labels.title'), class: "text-lg font-medium text-gray-800" %>
-      <%= form.text_area :title, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:title) ? " border-red-500" : ""), placeholder: t('form_labels.insert_title') %>
+      <%= form.text_area :title, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:title) ? " border-red-500" : ""), placeholder: t('form_labels.title_placeholder') %>
       <% if form.object.errors.has_key?(:title) %>
         <p class="text-red-500 text-sm"><%= form.object.errors[:title].first %></p>
       <% end %>
