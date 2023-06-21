@@ -5,7 +5,7 @@ de:
   appname: "XOMAT"
   appname_short: "XO"
   admin_link_name: "Administrator"
-  customer_link_name: "Als Kunde"
+  user_link_name: "Als Person"
   like_sign: "👍"
   choose_articles: "Waehle Artikel"
   choose_a_category: "Waehle eine Kategorie"
