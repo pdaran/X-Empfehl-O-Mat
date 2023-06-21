@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  default_url_options :host => ENV.fetch("HOSTNAME")
   get 'password_resets/new'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   root to: redirect("/#{I18n.default_locale}"), as: :redirected_root
