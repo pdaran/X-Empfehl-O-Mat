@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   root to: redirect("/#{I18n.default_locale}"), as: :redirected_root
 
   scope ':locale' do
-    get 'recommender', to: 'recommender#category'
-    get 'recommender/:id', to: 'recommender#products'
-    post 'recommender/:id', to: 'recommender#products'
+    get 'recommender', to: 'recommender#products'
+    post 'recommender', to: 'recommender#products'
     get 'result', to: 'recommender#result'
 
     get 'homepage/index'
@@ -74,6 +73,7 @@ Rails.application.routes.draw do
 
     resources :shops do
       resources :categories do
+        get :kiosk_mode
         resources :attrs
         resources :products do
           resources :attrs
