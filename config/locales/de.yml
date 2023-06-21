@@ -94,6 +94,7 @@ de:
     notice_delete: "Kategorie wurde erfolgreich gelöscht."
     error: "Etwas ist schief gelaufen."
     text1: "Fügen Sie neue Kategorien hinzu."
+    kiosk_mode: "Zum Kiosk Modus wechseln"
   active: "Aktiv"
   deactivated: "Deaktiviert"
 
