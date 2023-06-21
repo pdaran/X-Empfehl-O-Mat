@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class RecommenderController < ApplicationController
-  before_action :is_kiosk_mode
+  before_action :kiosk_mode?
 
-  def is_kiosk_mode
+  def kiosk_mode?
     redirect_to root_path unless session[:kiosk_mode]
   end
 
