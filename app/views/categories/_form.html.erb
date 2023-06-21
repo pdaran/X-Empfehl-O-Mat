@@ -1,17 +1,17 @@
 <%= javascript_include_tag "file_preview", t: Time.now.to_i %>
 <div class="flex justify-center items-center m-4 text-center">
-  <%= form_with(model: @category, url: @category.new_record? ? shop_categories_path(@shop) : shop_category_path(@shop, @category), local: true, html: { class: "bg-white p-6 rounded-md shadow-md" }) do |form| %>
+  <%= form_with(model: @category, url: @category.new_record? ? shop_categories_path(@shop) : shop_category_path(@shop, @category), local: true, html: { class: "border-2 border-black p-16 rounded" }) do |form| %>
     <%= form.hidden_field :shop_id, value: @shop.id %>
     <div class="mb-6">
       <%= form.label :title, t('form_labels.title'), class: "text-lg font-medium text-gray-800" %>
-      <%= form.text_area :title, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:title) ? " border-red-500" : ""), placeholder: "Trage hier den Titel ein" %>
+      <%= form.text_area :title, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:title) ? " border-red-500" : ""), placeholder: t('form_labels.insert_title') %>
       <% if form.object.errors.has_key?(:title) %>
         <p class="text-red-500 text-sm"><%= form.object.errors[:title].first %></p>
       <% end %>
     </div>
     <div class="mb-6">
       <%= form.label :image, t('form_labels.image'), class: "text-lg font-medium text-gray-800 mb-2" %>
-      <%= form.file_field :image, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)", placeholder: "Lade ein Bild hoch" %>
+      <%= form.file_field :image, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)", placeholder: t('form_labels.upload_image') %>
       <div class="w-40 h-40 bg-gray-200 rounded-md overflow-hidden mt-4">
         <div class="object-cover w-full h-full" id="file-preview"></div>
       </div>

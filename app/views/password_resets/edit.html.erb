@@ -13,11 +13,11 @@
   <% end %>
 
   <div class='field'>
-    <%= f.label :password %>
+    <%= f.label :password, t('form_labels.password') %>
     <%= f.password_field :password %>
   </div>
   <div class='field'>
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation, t('form_labels.password_confirmation') %>
     <%= f.password_field :password_confirmation %>
   </div>
   <div class='actions'><%= f.submit t('password.update') %></div>

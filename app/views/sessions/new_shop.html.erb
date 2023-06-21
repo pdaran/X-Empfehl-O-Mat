@@ -1,20 +1,20 @@
 <div class="flex items-center justify-center h-screen">
-  <div class="border-2 border-black shadow-lg p-16 rounded">
+  <div class="border-2 border-black p-16 rounded">
     <h1 class="text-4xl font-bold mb-6 uppercase font-montserrat"><%= t('sign_in') %></h1>
 
     <%= form_with url: sign_in_shop_path do |form| %>
       <div class="mb-3 mt-3 flex flex-col">
-        <%= form.label :email , class: "font-medium text-lg text-black lowercase font-roboto" %>
-        <%= form.text_field :email, class: "form-control mt-2 rounded lowercase font-roboto", placeholder: "your.email@test.com" %>
+        <%= form.label :email, t('form_labels.email') , class: "font-medium text-lg text-black lowercase font-roboto" %>
+        <%= form.text_field :email, class: "form-control mt-2 rounded lowercase font-roboto", placeholder: t('form_labels.email_placeholder') %>
       </div>
 
       <div class="mb-3 flex flex-col">
-        <%= form.label :password , class: "font-medium text-lg text-black lowercase font-roboto" %>
-        <%= form.password_field :password, class: "form-control mt-2 rounded lowercase font-roboto", placeholder: "password" %>
+        <%= form.label :password, t('form_labels.password'), class: "font-medium text-lg text-black lowercase font-roboto" %>
+        <%= form.password_field :password, class: "form-control mt-2 rounded lowercase font-roboto", placeholder: t('form_labels.password') %>
       </div>
 
       <div class="mb-3 flex justify-center">
-        <%= form.submit t('form_labels.submit'), class: "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase font-montserrat" %>
+        <%= form.submit t('submit'), class: "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase font-montserrat" %>
       </div>
     <% end %>
   <p class=" text-sm font-medium lowercase font-montserrat">

@@ -31,6 +31,7 @@
 
 en:
   # General
+  submit: "submit"
   welcome: "Welcome"
   hello: "Hello world"
   appname: "XOMAT"
@@ -155,6 +156,7 @@ en:
     linkshop: "As Shop"
     changepass: "Change Password"
     not_authorized: "You are not authorized to perform this action."
+    create_account : "Create an account"
 
   # Product
   products: "Products"
@@ -213,11 +215,21 @@ en:
     phone_number: "Phone Number"
     invalid_email: "must be a valid email address"
     email_confirmation: "Email confirmation"
+    confirm_password: "Confirm password"
     email_placeholder: "your.email@test.com"
     password: "Password"
     password_confirmation: "Password confirmation"
     submit: "Submit"
     delete_confirm: "Are you sure?"
+    title_placeholder: "Enter the title here"
+    upload_image: "Upload an image"
+    password_placeholder: "Your password"
+    address_placeholder: "Shop Address"
+    phone_placeholder: "Phone number"
+    shop_name: "Shop name"
+    shop_name_placeholder: "Your shop"
+    address: "Address"
+    phone_no: "Phone Number"
 
   file_upload:
     choose_file: "Choose File"
