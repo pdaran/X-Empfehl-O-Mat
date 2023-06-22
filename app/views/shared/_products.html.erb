@@ -2,7 +2,7 @@
   <div class="flex flexbox justify-center space-x-3">
     <div class="flex-col space-x-3">
       <%= form.label :query, t('product.search_box_label'), class: "block mb-2" %>
-      <%= form.text_field :query, data: { action: "input->form-submission#search" }, class: "flex flex-col p-4 rounded-xl shadow-xl w-96 md:w-auto" %>
+      <%= form.text_field :query, value: params[:query] , data: { action: "input->form-submission#search" }, class: "flex flex-col p-4 rounded-xl shadow-xl w-96 md:w-auto" %>
     </div>
     <div class="flex-col space-x-3">
       <%= form.label :query, t('product.filter_label'), class: "block mb-2" %>

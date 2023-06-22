@@ -58,14 +58,15 @@ class ApplicationController < ActionController::Base
   end
 
   def where_clause
-    ret = ['(products.product LIKE :q OR products.desc LIKE :q OR product_attrs.value ' \
-           'LIKE :q OR product_attrs.float_val::varchar LIKE :q ' \
-           'OR CONCAT(attrs.name, attrs.unit) LIKE :q)',
+    ret = ['(products.product ILIKE :q OR products.desc ILIKE :q OR product_attrs.value ' \
+           'ILIKE :q OR product_attrs.float_val::varchar LIKE :q ' \
+           'OR CONCAT(attrs.name, attrs.unit) ILIKE :q)',
            { q: "%#{params[:query]}%" }]
 
     if params[:filter].present? && params[:filter] != t('product.filter_none')
-      ret[0] += ' AND (attrs.name = :f)'
-      ret[1][:f] = params[:filter]
+      ret[0] += ' AND (products.id IN (SELECT product_attrs.product_id FROM product_attrs ' \
+                'WHERE product_attrs.attr_id = :f))'
+      ret[1][:f] = Attr.find_by(name: params[:filter]).id
     end
 
     ret
