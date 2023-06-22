@@ -65,9 +65,9 @@ class ApplicationController < ActionController::Base
 
     if params[:filter_arr].present?
       params[:filter_arr].each_with_index do |f, i|
-        p = 'f' + i.to_s
-        ret[0] += ' AND (products.id IN (SELECT product_attrs.product_id FROM product_attrs ' \
-                'WHERE product_attrs.attr_id = :' + p + '))'
+        p = "f#{i}"
+        ret[0] += ' AND (products.id IN (SELECT product_attrs.product_id FROM product_attrs WHERE ' \
+                  "product_attrs.attr_id = :#{p}))"
         ret[1][p] = Attr.find_by(name: f).id
         ret[1].symbolize_keys!
       end
