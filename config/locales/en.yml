@@ -306,6 +306,9 @@ en:
     address: "Address: %{addr}"
     street: "%{street}"
     zipcode: "%{zip}"
+    more: "more"
+    titel1: "The Recommendation System on your side"
+    titel2: "Discover excellent recommendations with the help of our service."
     privacy:
       access_log: "Each time you access our website, information is automatically transmitted from your browser to our server and stored in log files. This information includes:"
       ipaddr: "IP address of your device"

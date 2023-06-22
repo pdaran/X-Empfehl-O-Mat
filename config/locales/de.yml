@@ -260,6 +260,9 @@ de:
     address: "Adresse: %{addr}"
     street: "%{street}"
     zipcode: "%{zip}"
+    more: "weiter"
+    titel1: "Das Empfehlungssystem auf Ihrer Seite"
+    titel2: "Entdecken Sie hervorragende Empfehlungen mit Hilfe unseres Service."
     # Datenschutzerklärungseite
     privacy:
       access_log: "Bei jedem Zugriff auf unsere Website werden automatisch Informationen von Ihrem Browser an unseren Server übermittelt und in Logdateien gespeichert. Diese Informationen umfassen:"
