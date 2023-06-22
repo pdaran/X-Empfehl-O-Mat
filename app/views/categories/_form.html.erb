@@ -1,17 +1,18 @@
 <%= javascript_include_tag "file_preview", t: Time.now.to_i %>
+
 <div class="flex justify-center items-center m-4 text-center">
-  <%= form_with(model: @category, url: @category.new_record? ? shop_categories_path(@shop) : shop_category_path(@shop, @category), local: true, html: { class: "border-2 border-black p-16 rounded" }) do |form| %>
+  <%= form_with(model: @category, url: @category.new_record? ? shop_categories_path(@shop) : shop_category_path(@shop, @category), local: true, html: { class: "p-4 rounded-md" }) do |form| %>
     <%= form.hidden_field :shop_id, value: @shop.id %>
-    <div class="mb-6">
-      <%= form.label :title, t('form_labels.title'), class: "text-lg font-medium text-gray-800" %>
-      <%= form.text_area :title, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:title) ? " border-red-500" : ""), placeholder: t('form_labels.title_placeholder') %>
+    <div class="mb-3 flex flex-col">
+      <%= form.label :title, t('form_labels.title'), class: "font-medium text-lg text-black lowercase font-roboto text-left" %>
+      <%= form.text_area :title, class: "mt-2 px-4 py-2 rounded lowercase font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" + (form.object.errors.has_key?(:title) ? " border-red-500" : ""), placeholder: t('form_labels.title_placeholder') %>
       <% if form.object.errors.has_key?(:title) %>
         <p class="text-red-500 text-sm"><%= form.object.errors[:title].first %></p>
       <% end %>
     </div>
-    <div class="mb-6">
-      <%= form.label :image, t('form_labels.image'), class: "text-lg font-medium text-gray-800 mb-2" %>
-      <%= form.file_field :image, class: "form-input rounded-md mt-2" + (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)", placeholder: t('form_labels.upload_image') %>
+    <div class="mb-3 flex flex-col">
+      <%= form.label :image, t('form_labels.image'), class: "font-medium text-lg text-black lowercase font-roboto text-left" %>
+      <%= form.file_field :image, class: "mt-2 px-4 py-2 rounded lowercase font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" + (form.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)", placeholder: t('form_labels.upload_image') %>
       <div class="w-40 h-40 bg-gray-200 rounded-md overflow-hidden mt-4">
         <div class="object-cover w-full h-full" id="file-preview"></div>
       </div>
@@ -50,12 +51,12 @@
         <% end %>
       </div>
     <% end %>
-    <div class="mb-6">
-      <%= form.label :status, t('form_labels.status'), class: "text-lg font-medium text-gray-800" %>
+    <div class="mb-3 flex flex-col">
+      <%= form.label :status, t('form_labels.status'), class: "font-medium text-lg text-black lowercase font-roboto text-left" %>
       <% if @category.new_record? %>
-        <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], selected: 'active', class: "form-select rounded-md mt-2" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+        <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], selected: 'active', class: "rounded-md mt-2" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
       <% else %>
-        <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], class: "form-select rounded-md mt-2" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
+        <%= form.select :status, [[t('active'), 'active'], [t('deactivated'), 'deactivated']], class: "rounded-md mt-2" + (form.object.errors.has_key?(:status) ? " border-red-500" : "") %>
       <% end %>
       <% if form.object.errors.has_key?(:status) %>
         <p class="text-red-500 text-sm"><%= form.object.errors[:status].first %></p>
@@ -63,9 +64,9 @@
     </div>
     <div>
       <% if @category.new_record? %>
-        <%= form.submit t('category.new'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        <%= form.submit t('category.new'), class: "bg-gray-900 hover:bg-gray-600 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline uppercase font-montserrat" %>
       <% else %>
-        <%= form.submit t('category.update'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+        <%= form.submit t('category.update'), class: "bg-gray-900 hover:bg-gray-600 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline uppercase font-montserrat" %>
       <% end %>
     </div>
 

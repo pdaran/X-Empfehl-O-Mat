@@ -2,9 +2,9 @@ de:
   #general
   submit: "Absenden"
   welcome: "Willkommen"
-  hello: "Hallo Welt"
-  appname: "XOMAT"
-  appname_short: "XO"
+  hello: "Hallo "
+  appname: "X-Empfehl-O-Mat"
+  appname_short: "XOMAT"
   admin_link_name: "Administrator"
   customer_link_name: "Als Kunde"
   like_sign: "👍"
@@ -76,7 +76,7 @@ de:
 
   #navbar
   navbar:
-    title: "XO"
+    title: "X-Empfehl-O-Mat"
     dashboard: "Dashboard"
   about: "Über uns"
   home: "Startseite"
@@ -235,6 +235,12 @@ de:
     footer: "2023 X-Empfehl-O-Mat Team. Alle Rechte vorbehalten."
     confirm: "Bitte bestätigen Sie Ihre Email-Adresse."
     confirm_success: "Ihre Email-Adresse wurde erfolgreich bestätigt."
+    password_reset: "Passwort Zurücksetzen"
+    reset_link: "Wir haben eine Anfrage erhalten, Ihr Passwort zurückzusetzen. Um das Passwort zurückzusetzen, klicken Sie bitte auf den folgenden Link:"
+    no_request_password: "Wenn Sie kein neues Passwort angefordert haben, können Sie diese E-Mail ignorieren. Ihr passwort bleibt dann unverändert."
+    link_validity: "Dieser Link ist nur für eine begrenzte Zeit gültig. Bitte fordern Sie einen neuen an, wenn er abgelaufen ist."
+    regards: "Mit freundlichen Grüßen,"
+    your: "Ihr X-Empfehl-O-Mat Team"
 
   # form validation errors translated by chatgpt
   errors:
