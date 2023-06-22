@@ -1,9 +1,9 @@
-Welcome to X-Empfehl-O-Mat, <%= @user.email %>
+<%= t('mailer.welcome') %> <%= t('navbar.title') %> !
 ===============================================
 
-You have successfully signed up to example.com,
-your username is: <%= @user.email %>.
+<%= t('mailer.signup_success') %> 
+<%= @user.email %>.
 
-To login to the site, just follow this link: <%= @url %>.
+<%= t('mailer.tologin') %> <%= @url %>.
 
-Thanks for joining and have a great day!
+<%= t('mailer.thankyou') %>

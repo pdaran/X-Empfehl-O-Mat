@@ -1,5 +1,6 @@
-<div class="container p-10 ">
-  <h1 class="text-4xl font-bold" > <%= t('password.edit') %> </h1>
+<div class="flex items-center justify-center h-screen">
+<div class="border-2 border-black p-16 rounded">
+  <h1 class="text-4xl font-bold mb-6 text-center uppercase font-montserrat"><%= t('password.edit') %></h1>
 
   <%= form_with model: Current.shop, url: update_shop_passwords_path(Current.shop) do |form| %>
     <% if form.object.errors.any? %>
@@ -12,15 +13,16 @@
 
 
     <div class="mb-3 flex flex-col">
-      <%= form.label :password, t('password.new') %>
-      <%= form.password_field :password, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
+      <%= form.label :password, t('password.new'), class: "font-medium text-lg text-black lowercase font-roboto" %>
+      <%= form.password_field :password, class: "mt-2 px-4 py-2 rounded lowercase font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.password') %>
     </div>
     <div class="mb-3 flex flex-col">
-      <%= form.label :password_confirmation, t('form_labels.password_confirmation') %>
-      <%= form.password_field :password_confirmation, class: "form-control mt-2 rounded", placeholder: t('form_labels.password') %>
+      <%= form.label :password_confirmation, t('form_labels.password_confirmation'), class: "font-medium text-lg text-black lowercase font-roboto" %>
+      <%= form.password_field :password_confirmation, class: "mt-2 px-4 py-2 rounded lowercase font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.password') %>
     </div>
     <div class="mb-3">
-      <%= form.submit t('password.edit_submit'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+      <%= form.submit t('password.edit_submit'), class: "bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline uppercase font-montserrat"%>
     </div>
   <% end %>
+</div>
 </div>
