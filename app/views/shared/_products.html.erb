@@ -1,13 +1,17 @@
 <%= form_with(method: :get, data: { controller: "form-submission", turbo_frame: "products", turbo_action: "advance" }) do |form| %>
-  <div class="flex flexbox justify-center space-x-3">
-    <div class="flex-col space-x-3">
-      <%= form.label :query, t('product.search_box_label'), class: "block mb-2" %>
-      <%= form.text_field :query, value: params[:query] , data: { action: "input->form-submission#search" }, class: "flex flex-col p-4 rounded-xl shadow-xl w-96 md:w-auto" %>
-    </div>
-    <div class="flex-col space-x-3">
-      <%= form.label :query, t('product.filter_label'), class: "block mb-2" %>
-      <%= form.select :filter, [t('product.filter_none')] + @category.attrs.bool.active.pluck(:name), { selected: params[:filter] }, { data: { action: "input->form-submission#select" } } %>
-    </div>
+  <div class="flex-col"><%= t('product.products_total', count: @category.products.size) %></div>
+  <div class="flex flexbox justify-right space-x-3">
+    <% unless @category.attrs.bool.active.nil? %>
+      <div class="flex flexbox space-x-3">
+        <%= form.label :query, t('product.filter_label'), class: "block mb-2" %>
+        <% @category.attrs.bool.active.each do |attr| %>
+          <div class="flex-row space-x-3">
+            <%= form.label :query, attr.name, class: "block mb-2" %>
+            <%= check_box_tag "filter_arr[]", attr.name, false, { data: { action: "input->form-submission#select" } } %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
     <div class="flex-col space-x-3">
       <%= form.label :query, t('product.order_label'), class: "block mb-2" %>
       <%= form.select :orderby, [t('attr.name')] + @category.attrs.numeric.active.pluck(:name), { selected: params[:orderby] }, { data: { action: "input->form-submission#select" } } %>
@@ -16,7 +20,10 @@
       <%= form.label :query, t('product.asc_label'), class: "block mb-2" %>
       <%= form.select :order, [[t('ascending'), 'asc'], [t('descending'), 'desc']], { selected: params[:order] }, { data: { action: "input->form-submission#select" } } %>
     </div>
-    <div class="flex-col"><%= t('product.products_total', count: @category.products.size) %></div>
+    <div class="flex-col space-x-3">
+      <%= form.label :query, t('product.search_box_label'), class: "block mb-2" %>
+      <%= form.text_field :query, value: params[:query], data: { action: "input->form-submission#search" }, class: "flex flex-col w-96 md:w-auto" %>
+    </div>
   </div>
 <% end %>
 
