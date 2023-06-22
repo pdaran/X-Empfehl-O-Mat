@@ -11,7 +11,25 @@ a {
   color: #333;
 }
 
-/* Navigationsleiste */
+.button1 {
+  background-color: black;
+  color: #ff9800;
+}
+
+.button1:hover {
+  color: #f1a559f3;
+}
+
+.dynamicball1 {
+  width: 17.8125rem;
+  height: 17.8125rem;
+  flex-shrink: 0;
+  border-radius: 285px;
+  background: #000;
+  z-index: 1;
+  margin-left: 75rem;
+  margin-top: -4rem;
+}
 
 .navbar {
   background-color: #ff9800;
@@ -63,29 +81,35 @@ a {
   margin-bottom: 0px;
 }
 .nav-menu-divider {
-  border-right: 1px solid #555;
+  border-right: 2px solid black;
   height: 100%;
   margin: 0 8px;
 }
 
 .navbar-profile button:hover,
 .navbar-profile a:hover {
-  color: #fff;
-  background-color: #555;
+  color: #ff9800;
+  background-color: black;
 }
+
 /*
 ul.nav-menu{
   padding-left: 500px;
 }*/
 .dropdown {
-  position: relative;
+  position: absolute;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
 }
 
 .dropbtn {
   display: flex;
   align-items: center;
   background-color: transparent;
-  color: #fff;
+  color: #ff9800;
   border: none;
   font-weight: bold;
   font-size: 16px;
@@ -93,36 +117,46 @@ ul.nav-menu{
   transition: color 0.3s;
 }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 140px;
-  z-index: 1;
-  border-radius: 5px;
+.dropdown:hover {
+  background-color: #ff9800;
+}
+
+.dropdown-content :hover {
+  background-color: #ff9800;
 }
 
 .dropdown-content a {
   display: block;
   padding: 10px 15px;
-  color: #333;
+  color: #ff9800;
   text-decoration: none;
-  transition: background-color 0.3s;
 }
 
-.dropdown:hover .dropbtn {
-  background-color: #555;
+.dropdown-content a:hover {
+  background-color: #ff9800;
+  color: black;
+}
+
+.dropdown:hover {
+  background-color: #ff9800;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
+  min-width: 0;
+  background-color: #ff9800;
+}
+
+.dropdown-content:hover .dropdown-content a {
+  background-color: black;
+  color: #ff9800;
 }
 
 .dashboard-link a {
   display: inline-block;
   background-color: transparent;
   font-weight: bold;
-  color: #333;
+  color: black;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
@@ -131,7 +165,7 @@ ul.nav-menu{
 
 .dashboard-link a:hover {
   color: #fff;
-  background-color: #555;
+  background-color: black;
 }
 
 /* Kategorien */
@@ -164,12 +198,13 @@ h1 {
 
 /* Footer */
 footer {
-  background-color: #000000;
+  background-color: black;
   padding: 2rem;
-  display: flex;
+  display: absolute;
   justify-content: center;
   align-items: center;
   font-weight: bold;
+  height: fit-content;
 }
 
 .footer-center {
@@ -182,13 +217,27 @@ footer {
 .footer-center a {
   margin-bottom: 0.5rem; /* Fügt Abstand zwischen den Links hinzu */
 }
-
+.colortext {
+  color: #ff9800;
+}
 /* Media Query für mobile Geräte */
 @media screen and (max-width: 768px) {
-  footer {
-    flex-direction: row; /* Ändert die Ausrichtung auf horizontal */
-    align-items: flex-start; /* Ausrichtung des Textes linksbündig */
-    padding: 1rem;
+  body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ff9800;
+    height: 100vh;
+  }
+  .footer {
+    background-color: black;
+    padding: 2rem;
+    display: flex;
+    font-weight: bold;
+    height: auto;
+    position: fixed;
+    height: 100%;
   }
 
   .flex-wrap {
@@ -219,28 +268,27 @@ footer {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
   min-width: 140px;
   z-index: 1;
 }
 
 .dropdown-content a {
   color: black;
-  padding: 12px 16px;
   text-decoration: none;
-  display: block;
+  display: absolute;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: black;
+  color: #ff9800;
+  border-radius: 2px;
+  width: 81px;
+  display: absolute;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-}
-
-.dropdown:hover .dropbtn {
-  background-color: #3e8e41;
+  width: 81px;
 }
 
 .preview-image {
@@ -323,14 +371,15 @@ li {
     left: -100%;
     top: 5rem;
     flex-direction: column;
-    background-color: rgb(235, 225, 213);
+    background-color: #ff9800;
     width: 100%;
-    border-radius: 10px;
     text-align: center;
     transition: transform 0.8s ease;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
     transform: translateX(-100%);
     overflow-y: hidden;
+  }
+  .nav-menu .bar1 {
+    display: none;
   }
 
   .body-darken {
@@ -344,6 +393,8 @@ li {
 
   .nav-item {
     margin: 1.5rem 0;
+    color: #ff9800;
+    align-self: flex-start;
   }
 
   .hamburger {
@@ -372,4 +423,33 @@ li {
     mix-blend-mode: hard-light;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
+}
+
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.zoom-animation {
+  animation: zoom 4s ease-in-out infinite;
+}
+.zoom-animation1 {
+  animation: zoom 7s ease-in-out infinite;
+}
+
+.logo {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 188px;
+  top: 23px;
+  mix-blend-mode: hard-light;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
