@@ -42,13 +42,19 @@ class SessionsController < ApplicationController
     shop&.authenticate(password)
   end
 
+  def disable_kiosk_mode
+    session[:kiosk_mode] = false
+  end
+
   def handle_successful_login_shop(shop)
     session[:shop_id] = shop.id
+    disable_kiosk_mode
     redirect_to root_path, notice: t('session.notice_login_shop')
   end
 
   def handle_successful_login(user)
     session[:user_id] = user.id
+    disable_kiosk_mode
     redirect_to root_path, notice: t('session.notice_create')
   end
 

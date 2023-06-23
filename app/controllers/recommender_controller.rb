@@ -1,13 +1,15 @@
 # frozen_string_literal: true
 
 class RecommenderController < ApplicationController
-  def category
-    @categories = Category.all
+  before_action :kiosk_mode?
+
+  def kiosk_mode?
+    redirect_to root_path unless session[:kiosk_mode]
   end
 
   def products
-    @category = Category.find(params[:id])
-    session[:category_id] = params[:id]
+    @category = Category.find(session[:kiosk_mode_category_id])
+    session[:category_id] = session[:kiosk_mode_category_id]
     set_products
 
     return unless params[:product_ids]
@@ -64,7 +66,7 @@ class RecommenderController < ApplicationController
 
   def create_recommendations
     @product_ids.each do |p_product_id|
-      Recommendation.create(product_id: p_product_id, customer_id:)
+      Recommendation.create(product_id: p_product_id, customer_id: session[:rec_id])
     end
   end
 

@@ -39,6 +39,15 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def kiosk_mode
+    session[:kiosk_mode] = true
+    session[:kiosk_mode_category_id] = params[:category_id]
+    # Logout Shop / User
+    session[:user_id] = nil
+    session[:shop_id] = nil
+    redirect_to recommender_path
+  end
+
   def destroy
     delete_associated_images
     delete_associated_products

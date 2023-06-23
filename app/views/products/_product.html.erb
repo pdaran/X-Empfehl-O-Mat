@@ -51,7 +51,7 @@
     </table>
 
 
-    <% if controller.controller_name == "recommender" %>
+    <% if controller.controller_name == "recommender" && controller.action_name == "products" %>
       <div class="flex items-center mb-4">
         <label>
           <%= check_box_tag "product_ids[]", product.id %>

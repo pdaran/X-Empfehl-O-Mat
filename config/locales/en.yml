@@ -37,7 +37,7 @@ en:
   appname: "X-Empfehl-O-Mat"
   appname_short: "XOMAT"
   admin_link_name: "Administrator"
-  customer_link_name: "As Customer"
+  user_link_name: "As Individual"
   like_sign: "👍"
   choose_articles: "Choose articles you like"
   choose_a_category: "Choose a category"
@@ -126,6 +126,7 @@ en:
     notice_delete: "Category and associated products were successfully deleted."
     error: "Something went wrong."
     text1: "Add a new category!"
+    kiosk_mode: "Switch to Kiosk Mode"
   active: "Active"
   deactivated: "Deactivated"
 
