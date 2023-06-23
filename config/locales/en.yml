@@ -31,10 +31,11 @@
 
 en:
   # General
+  submit: "submit"
   welcome: "Welcome"
-  hello: "Hello world"
-  appname: "XOMAT"
-  appname_short: "XO"
+  hello: "Hello "
+  appname: "X-Empfehl-O-Mat"
+  appname_short: "XOMAT"
   admin_link_name: "Administrator"
   user_link_name: "As Individual"
   like_sign: "👍"
@@ -53,6 +54,7 @@ en:
   edit: "Edit"
   delete: "Delete"
   attributes: "Attributes"
+  sign_in: "Sign in"
   sign_up: "Sign up"
   none: "None"
   ascending: "ascending"
@@ -74,6 +76,7 @@ en:
     reset_success: "Your password has been reset successfully."
     error: "Unable to reset password. Please try again."
     token_invalid: "Password reset token is invalid or has expired. Please request a new one."
+    donthave: "Don't have an account yet?"
 
   session:
     new: "Login"
@@ -102,7 +105,7 @@ en:
 
   # navbar
   navbar:
-    title: "XO"
+    title: "X-Empfehl-O-Mat"
     dashboard: "Dashboard"
   about: "About"
   home: "Home"
@@ -154,6 +157,7 @@ en:
     linkshop: "As Shop"
     changepass: "Change Password"
     not_authorized: "You are not authorized to perform this action."
+    create_account : "Create an account"
 
   # Product
   products: "Products"
@@ -212,11 +216,21 @@ en:
     phone_number: "Phone Number"
     invalid_email: "must be a valid email address"
     email_confirmation: "Email confirmation"
+    confirm_password: "Confirm password"
     email_placeholder: "your.email@test.com"
     password: "Password"
     password_confirmation: "Password confirmation"
     submit: "Submit"
     delete_confirm: "Are you sure?"
+    title_placeholder: "Enter the title here"
+    upload_image: "Upload an image"
+    password_placeholder: "Your password"
+    address_placeholder: "Shop Address"
+    phone_placeholder: "Phone number"
+    shop_name: "Shop name"
+    shop_name_placeholder: "Your shop"
+    address: "Address"
+    phone_no: "Phone Number"
 
   file_upload:
     choose_file: "Choose File"
@@ -252,6 +266,12 @@ en:
     footer: "2023 X-Empfehl-O-Mat Team. All rights reserved."
     confirm: "Please confirm your email."
     confirm_success: "Your email was confirmed successfully."
+    password_reset: "Password Reset"
+    reset_link: "We have received a request to reset your password. To proceed with the password reset, please click on the following link:"
+    no_request_password: "If you did not request a password reset, you can ignore this email. Your password will remain unchanged."
+    link_validity: "This link is only valid for a limited time. Please request for a new one, if it has expired."
+    regards: "Regards,"
+    your: "Your X-Empfehl-O-Mat Team"
 
   # form validation errors
   # from: https://github.com/rails/rails/blob/main/activemodel/lib/active_model/locale/en.yml
@@ -298,6 +318,9 @@ en:
     address: "Address: %{addr}"
     street: "%{street}"
     zipcode: "%{zip}"
+    more: "more"
+    titel1: "The Recommendation System on your side"
+    titel2: "Discover excellent recommendations with the help of our service."
     privacy:
       access_log: "Each time you access our website, information is automatically transmitted from your browser to our server and stored in log files. This information includes:"
       ipaddr: "IP address of your device"

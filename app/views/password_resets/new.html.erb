@@ -1,11 +1,14 @@
-<h1><%= t('password.reset') %></h1>
-
-<%= form_tag password_resets_path, :method => :post do %>
-  <div class='field'>
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email] %>
+<div class="flex items-center justify-center h-screen">
+<div class="border-2 border-black p-16 rounded">
+  <h1 class="text-4xl font-bold mb-6 text-center uppercase font-montserrat"><%= t('password.reset') %></h1>
+  <%= form_tag password_resets_path, :method => :post do %>
+    <div class='field mb-3 flex flex-col'>
+      <%= label_tag :email, t('form_labels.email'), class: "font-medium text-lg text-black lowercase font-roboto" %>
+      <%= text_field_tag :email, params[:email], class: "mt-2 px-4 py-2 rounded lowercase font-roboto focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.email_placeholder') %>
+    </div>
+    <div class='button mt-6'>
+      <%= submit_tag t('submit'), class: "bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline uppercase font-montserrat max-h-8" %>
+    </div>
+    <% end %>
   </div>
-    <div class='actions'>
-    <%= submit_tag t('password.reset') %>
-  </div>
-<% end %>
+</div>

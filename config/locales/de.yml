@@ -1,9 +1,10 @@
 de:
   #general
+  submit: "Absenden"
   welcome: "Willkommen"
-  hello: "Hallo Welt"
-  appname: "XOMAT"
-  appname_short: "XO"
+  hello: "Hallo "
+  appname: "X-Empfehl-O-Mat"
+  appname_short: "XOMAT"
   admin_link_name: "Administrator"
   user_link_name: "Als Person"
   like_sign: "👍"
@@ -23,6 +24,7 @@ de:
   edit: "Editieren"
   delete: "Löschen"
   attributes: "Attribute"
+  sign_in: "Anmelden"
   sign_up: "Registrieren"
   none: "Keine"
   ascending: "aufsteigend"
@@ -44,6 +46,7 @@ de:
     error: "Passwort kann nicht zurückgesetzt werden. Bitte versuche es erneut."
     reset_success: "Passwort wurde erfolgreich zurückgesetzt."
     token_invalid: "Passwort zurücksetzen Token ist ungültig."
+    donthave: "Sie haben noch keinen Account?"
 
   session:
     new: "Anmelden"
@@ -73,7 +76,7 @@ de:
 
   #navbar
   navbar:
-    title: "XO"
+    title: "X-Empfehl-O-Mat"
     dashboard: "Dashboard"
   about: "Über uns"
   home: "Startseite"
@@ -125,6 +128,7 @@ de:
     linkshop: "Als Geschäft"
     changepass: "Passwort Ändern"
     not_authorized: "Sie sind nicht dazu berechtigt dies zu tun."
+    create_account : "Ein Konto erstellen"
 
   #product
   products: "Produkten"
@@ -187,8 +191,18 @@ de:
     email_placeholder: "dein.email@test.com"
     password: "Passwort"
     password_confirmation: "Passwort bestätigen"
+    confirm_password: "Passwort bestätigen"
     submit: "Absenden"
     delete_confirm: "Sind Sie sicher?"
+    title_placeholder: "Trage hier den Titel ein"
+    upload_image: "Lade ein Bild hoch"
+    password_placeholder: "Dein Passwort"
+    address_placeholder: "Shop Adresse"
+    phone_placeholder: "Telefonnummer"
+    shop_name: "Name vom Shop"
+    shop_name_placeholder: "Dein Shop"
+    address: "Adresse"
+    phone_no: "Telefonnummer"
 
   file_upload:
     choose_file: "Datei auswählen"
@@ -222,6 +236,12 @@ de:
     footer: "2023 X-Empfehl-O-Mat Team. Alle Rechte vorbehalten."
     confirm: "Bitte bestätigen Sie Ihre Email-Adresse."
     confirm_success: "Ihre Email-Adresse wurde erfolgreich bestätigt."
+    password_reset: "Passwort Zurücksetzen"
+    reset_link: "Wir haben eine Anfrage erhalten, Ihr Passwort zurückzusetzen. Um das Passwort zurückzusetzen, klicken Sie bitte auf den folgenden Link:"
+    no_request_password: "Wenn Sie kein neues Passwort angefordert haben, können Sie diese E-Mail ignorieren. Ihr passwort bleibt dann unverändert."
+    link_validity: "Dieser Link ist nur für eine begrenzte Zeit gültig. Bitte fordern Sie einen neuen an, wenn er abgelaufen ist."
+    regards: "Mit freundlichen Grüßen,"
+    your: "Ihr X-Empfehl-O-Mat Team"
 
   # form validation errors translated by chatgpt
   errors:
@@ -266,6 +286,9 @@ de:
     address: "Adresse: %{addr}"
     street: "%{street}"
     zipcode: "%{zip}"
+    more: "weiter"
+    titel1: "Das Empfehlungssystem auf Ihrer Seite"
+    titel2: "Entdecken Sie hervorragende Empfehlungen mit Hilfe unseres Service."
     # Datenschutzerklärungseite
     privacy:
       access_log: "Bei jedem Zugriff auf unsere Website werden automatisch Informationen von Ihrem Browser an unseren Server übermittelt und in Logdateien gespeichert. Diese Informationen umfassen:"

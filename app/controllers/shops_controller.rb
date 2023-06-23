@@ -2,7 +2,7 @@
 
 class ShopsController < ApplicationController
   before_action :set_shop, only: %i[show edit update destroy]
-  before_action :authorize_shop, except: %i[index]
+  before_action :authorize_shop, except: %i[index new]
 
   def index
     @shops = Shop.order(:name)

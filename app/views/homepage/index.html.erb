@@ -1,29 +1,26 @@
-<div class="flex items-center justify-center flex-col min-h-screen">
-  <h1 class="text-6xl font-bold text-center mb-6 pb-10">
-    <span class="text-15xl"><%= t('homepage.welcome') %></span><br> <%= t('appname') %>
-  </h1>
+  <link rel="stylesheet" href="/assets/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-  <div class="flex flex-col md:flex-row space-x-0 md:space-x-8 space-y-12 md:space-y-0 justify-center items-center">
-    <% if Current.shop%>
-      <div class="flex flex-col p-8 rounded-xl bg-gray-200 shadow-xl w-96 md:w-auto">
-        <div class="mt-3 font-semibold text-lg">
-          <%= link_to t('categories'), shop_categories_path(Current.shop), :class => "text-gray-800 hover:underline" %>
-        </div>
+<div class="container flex relative top-40 w-full">
+
+  <div class="flex justify-center items-center">
+    <div class="flex flex-col mr-10">
+      <div class="text-5xl font-bold mb-6">
+        <span class="text-5xl font-bold"> <%= t('homepage.titel1') %></span><br>
       </div>
-    <% end %>
-    <% if Current.user%>
-      <div class="flex flex-col p-8 rounded-xl bg-gray-200 shadow-xl w-96 md:w-auto">
-        <div class="mt-3 font-semibold text-lg">
-          <%= link_to t('shops'), shops_path, :class => "text-gray-800 hover:underline" %>
-        </div>
+
+      <div class="text-lg mb-6">
+        <%= t('homepage.titel2') %>
       </div>
-    <% end %>
-    <% unless Current.shop or Current.user %>
-    <div class="flex flex-col p-8 rounded-xl bg-gray-200 shadow-xl w-96 md:w-auto">
-      <div class="mt-3 font-semibold text-lg">
-        <%=  link_to t('login'), sessions_path , :class => "text-gray-800 hover:underline" %>
-      </div>
+
+      <button class="w-48 h-16 bg-black text-white uppercase font-bold">
+        <%= link_to t('homepage.more'), recommender_path, :class => "text-orange-500 hover:text-orange-200" %>
+      </button>
     </div>
-    <% end %>
+
+    <div class="flex justify-center md:ml-48">
+      <div class="zoom-animation1 md:w-56 md:h-56 w-36 h-36 md:mt-32 rounded-full bg-black"></div>
+    <div class="zoom-animation md:w-32 md:mt-0 md:h-32 w-14 h-14 mt-40 mr-40 rounded-full bg-black ml-6"></div>
+    </div>
   </div>
 </div>

@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
   end
 
   def search?
-    params[:query].present? || params[:filter].present?
+    params[:query].present? || params[:filter_arr].present? || params[:order] || params[:orderby]
   end
 
   def order_clause
@@ -63,12 +63,17 @@ class ApplicationController < ActionController::Base
            'OR CONCAT(attrs.name, attrs.unit) ILIKE :q)',
            { q: "%#{params[:query]}%" }]
 
-    if params[:filter].present? && params[:filter] != t('product.filter_none')
-      ret[0] += ' AND (products.id IN (SELECT product_attrs.product_id FROM product_attrs ' \
-                'WHERE product_attrs.attr_id = :f))'
-      ret[1][:f] = Attr.find_by(name: params[:filter]).id
+    if params[:filter_arr].present?
+      params[:filter_arr].each_with_index do |f, i|
+        p = "f#{i}"
+        ret[0] += ' AND (products.id IN (SELECT product_attrs.product_id FROM product_attrs WHERE ' \
+                  "product_attrs.attr_id = :#{p}))"
+        ret[1][p] = Attr.find_by(name: f).id
+        ret[1].symbolize_keys!
+      end
     end
 
+    puts(ret)
     ret
   end
 
