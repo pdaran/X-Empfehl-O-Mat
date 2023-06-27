@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
 class RegistrationsController < ApplicationController
-  before_action :require_user_admin!
+  #before_action :require_user_admin!
 
   def new
     @user = User.new
+  end
+
+  def new_shop 
+    @shop = Shop.new
   end
 
   def create
