@@ -156,7 +156,7 @@ ul.nav-menu{
   display: inline-block;
   background-color: transparent;
   font-weight: bold;
-  color: black;
+  color: #ff9800;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
@@ -164,7 +164,7 @@ ul.nav-menu{
 }
 
 .dashboard-link a:hover {
-  color: #fff;
+  color: #ffb649;
   background-color: black;
 }
 
@@ -420,7 +420,7 @@ li {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.18);
   }
   100% {
     transform: scale(1);
@@ -428,10 +428,10 @@ li {
 }
 
 .zoom-animation {
-  animation: zoom 4s ease-in-out infinite;
+  animation: zoom 5s ease-in-out infinite;
 }
 .zoom-animation1 {
-  animation: zoom 7s ease-in-out infinite;
+  animation: zoom 9s ease-in-out infinite;
 }
 
 .logo {
