@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'recommender', to: 'recommender#products'
     post 'recommender', to: 'recommender#products'
     get 'result', to: 'recommender#result'
-
+  
     get 'homepage/index'
     root 'homepage#index'
 
@@ -67,7 +67,7 @@ Rails.application.routes.draw do
     delete 'logout_shop', to: 'sessions#destroy_shop'
 
     get '/dashboards', to: 'dashboards#index'
-
+    get '/dashboard/recommendation', to: 'dashboards#recommendation', as: 'dashboard_recommendation'
     resources :password_resets
 
     resources :shops do
@@ -81,3 +81,4 @@ Rails.application.routes.draw do
     end
   end
 end
+

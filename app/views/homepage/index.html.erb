@@ -1,26 +1,27 @@
-  <link rel="stylesheet" href="/assets/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
-<div class="container flex relative top-40 w-full">
+<div class="container flex flex-col justify-between w-full h-screen">
+  <div>
+    <div class="md:relative sm:relative flex justify-center items-center mt-40">
+      <div class="flex flex-col mr-10">
+        <div>
+          <span class="md:text-5xl text-xl font-bold"> <%= t('homepage.titel1') %></span><br>
+        </div>
 
-  <div class="flex justify-center items-center">
-    <div class="flex flex-col mr-10">
-      <div class="text-5xl font-bold mb-6">
-        <span class="text-5xl font-bold"> <%= t('homepage.titel1') %></span><br>
+        <div class="md:text-lg mb-6 text-base">
+          <%= t('homepage.titel2') %>
+        </div>
+
+        <button class="md:w-48 md:h-16 w-20 h-10 bg-black text-white uppercase font-bold">
+          <%= link_to t('homepage.more'), recommender_path, :class => "text-orange-500 hover:text-orange-200" %>
+        </button>
       </div>
 
-      <div class="text-lg mb-6">
-        <%= t('homepage.titel2') %>
+      <div class="flex justify-center md:ml-48">
+        <div class="zoom-animation1 md:w-56 md:h-56 w-36 h-36 md:mt-32 rounded-full bg-black"></div>
+        <div class="zoom-animation md:w-32 md:mt-0 md:h-32 w-14 h-14 mt-40 rounded-full bg-black mr-10"></div>
       </div>
-
-      <button class="w-48 h-16 bg-black text-white uppercase font-bold">
-        <%= link_to t('homepage.more'), recommender_path, :class => "text-orange-500 hover:text-orange-200" %>
-      </button>
-    </div>
-
-    <div class="flex justify-center md:ml-48">
-      <div class="zoom-animation1 md:w-56 md:h-56 w-36 h-36 md:mt-32 rounded-full bg-black"></div>
-    <div class="zoom-animation md:w-32 md:mt-0 md:h-32 w-14 h-14 mt-40 mr-40 rounded-full bg-black ml-6"></div>
     </div>
   </div>
 </div>
