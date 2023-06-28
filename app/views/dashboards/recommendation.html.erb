@@ -1,7 +1,7 @@
-<div class="flex flex-col items-center justify-center align-middle h-fit border-4 border-black p-16 m-28 rounded-md">
-  <h2 class="relative justify-center">Recommendation Count: <%= @recommendation_count %></h2>
-  <div id="recommendation-chart" class="md:w-1/2 justify-center align-middle w-64"></div>
-  <div id="recommended-products" class="flex flex-wrap justify-center mt-8">
+<div class="flex flex-col items-center justify-center align-middle h-fit border-4 border-black p-16 m-28 rounded-md ">
+  <h2 class="relative justify-center -z-10">Recommendation Count: <%= @recommendation_count %></h2>
+  <div id="recommendation-chart" class="md:w-1/2 justify-center align-middle w-64 -z-10"></div>
+  <div id="recommended-products" class="flex flex-wrap justify-center mt-8 ">
     <% @recommended_products.each do |product| %>
       <div class="product-item">
         <% if product.image.attached? %>
@@ -39,7 +39,8 @@
       height: 300,
       theme: 'material',
       colors: ['#ff9800'],
-      chartArea: { backgroundColor: '#f1f1f1', borderWidth: 5 }
+      chartArea: { backgroundColor: '#f1f1f1', borderWidth: 5 },
+      zIndex: 1
     };
 
     var chart = new google.visualization.ColumnChart(document.getElementById('recommendation-chart'));
