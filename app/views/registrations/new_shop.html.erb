@@ -11,9 +11,9 @@
           <div class="mb-3 flex flex-col">
             <%= f.label :password, t('form_labels.password'), class: "font-medium text-lg text-black lowercase font-roboto" %>
             <%= f.password_field :password, class: "mt-2 px-4 py-2 rounded lowercase font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.password_placeholder') %>
-        <%# <% if @shop.errors.has_key?(:password) %>
-          <%# <span class="error"><%= @shop.errors[:password].join(', ') %></span>
-        <%# <% end %> 
+            <% if @shop.errors.has_key?(:password) %>
+              <span class="error"><%= @shop.errors[:password].join(', ') %></span>
+            <% end %> 
           </div> 
           <div class="mb-3 flex flex-col">
             <%= f.label :password_confirmation, t('form_labels.password_confirmation'), class: "font-medium text-lg text-black lowercase font-roboto" %>

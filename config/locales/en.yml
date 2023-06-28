@@ -148,6 +148,7 @@ en:
     edit: "Edit Profile"
     update: "Update Shop"
     notice_create: "Shop was successfully created."
+    notice_failed_create: "Failed to create shop. Please check your information."
     notice_update: "Shop was successfully updated."
     delete: "Delete this shop"
     delete_confirm: "Are you sure you want to delete this shop?"

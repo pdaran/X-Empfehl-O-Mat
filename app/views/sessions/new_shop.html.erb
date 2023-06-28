@@ -2,7 +2,7 @@
   <div class="border-2 border-black p-16 rounded">
     <h1 class="text-4xl font-bold mb-6 uppercase font-montserrat"><%= t('sign_in') %></h1>
 
-    <%= form_with url: sign_in_shop_path do |form| %>
+    <%= form_with url: login_path do |form| %>
       <div class="mb-3 mt-3 flex flex-col">
         <%= form.label :email, t('form_labels.email') , class: "font-medium text-lg text-black lowercase font-roboto" %>
         <%= form.text_field :email, class: "form-control mt-2 rounded lowercase font-roboto", placeholder: t('form_labels.email_placeholder') %>
@@ -18,7 +18,7 @@
       </div>
     <% end %>
   <p class=" text-sm font-medium lowercase font-montserrat">
-    <%= link_to t('password.donthave'), new_shop_registrations_path %><br>
+    <%= link_to t('password.donthave'), register_path %><br>
     <%= link_to t('password.forgot'), new_password_reset_path %>
   </p>
   </div>

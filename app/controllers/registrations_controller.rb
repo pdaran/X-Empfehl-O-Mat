@@ -27,6 +27,7 @@ class RegistrationsController < ApplicationController
       redirect_to redirected_root_path(locale: I18n.locale), notice: t('shop.notice_create')
     else
       Rails.logger.error("Shop creation failed: #{@shop.errors}")
+      flash.now[:alert] = t('shop.notice_failed_create')
       render :new_shop, status: 422
     end
   end
