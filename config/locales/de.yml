@@ -32,6 +32,20 @@ de:
   cookies: "Cookies"
   privacy: "Datenschutz"
 
+  info:
+    title1: "Unser Service"
+    text1: "Willkommen bei XOMAT, Ihrem zuverlässigen Partner für personalisierte Produktempfehlungen! Wir sind ein innovatives Unternehmen, das es sich zum Ziel gesetzt hat, das Einkaufserlebnis für Kunden und Shops gleichermaßen zu revolutionieren.
+            Unsere Leidenschaft gilt der Schaffung einzigartiger und maßgeschneiderter Empfehlungen, die auf den individuellen Vorlieben und Bedürfnissen jedes einzelnen Kunden basieren. Mit unserem fortschrittlichen Empfehlungssystem bieten wir eine intelligente Lösung, um Kunden gezielt die Produkte anzubieten, die sie lieben werden."
+    title2: "Warum XOMAT?"
+    text2: "Entdecken Sie mit XOMAT eine innovative Möglichkeit, das Einkaufserlebnis Ihrer Kunden zu bereichern. Unser Produktempfehlungssystem ermöglicht es Ihnen, Ihren Kunden personalisierte Empfehlungen basierend auf ihren individuellen Vorlieben anzubieten. So können sie neue und spannende Produkte entdecken, die sie normalerweise nicht kaufen würden. Steigern Sie die Kundenzufriedenheit und Ihren Umsatz durch maßgeschneiderte Empfehlungen und schaffen Sie eine einzigartige Einkaufserfahrung."
+    title3: "Personalisierte Empfehlung"
+    text3: "Bieten Sie Ihren Kunden personalisierte Produktempfehlungen, die auf ihren Vorlieben und Interessen basieren."
+    title4: "Einfache Integration"
+    text4: "Unsere Plattform lässt sich nahtlos in Ihren Shop integrieren, so dass Sie schnell von den Vorteilen profitieren können."
+    title5: "Erhöhung der Kundenbindung"
+    text5: "Durch personalisierte Empfehlungen schaffen Sie eine individuelle Kundenansprache und stärken die Kundenbindung"
+    homepage: "Hauptseite"
+  
   password:
     reset: "Passwort zurücksetzen"
     edit: "Passwort ändern"

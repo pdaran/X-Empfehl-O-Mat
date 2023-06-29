@@ -236,7 +236,19 @@ en:
     choose_file: "Choose File"
     no_file_chosen: "No File Chosen"
 
-
+  info:
+    title1: "Our service"
+    text1: "Welcome to XOMAT, your reliable partner for personalised product recommendations! We are an innovative company that aims to revolutionise the shopping experience for customers and shops alike.
+            We are passionate about creating unique and tailored recommendations based on each customer's individual preferences and needs. With our advanced recommendation system, we offer a smart solution to target customers with the products they will love."
+    title2: "Why XOMAT?"
+    text2: "Discover an innovative way to enrich your customers' shopping experience with XOMAT. Our product recommendation system allows you to offer your customers personalised recommendations based on their individual preferences. This allows them to discover new and exciting products they wouldn't normally buy. Increase customer satisfaction and sales through tailored recommendations and create a unique shopping experience."
+    title3: "Personalised Recommendation"
+    text3: "Offer your customers customised product recommendations based on their preferences and interests."
+    title4: "Simple integration"
+    text4: "Our platform integrates seamlessly with your shop so you can quickly reap the benefits."
+    title5: "Increasing Customer loyalty"
+    text5: "Through personalised recommendations you create an individual customer approach and strengthen customer loyalty"
+    homepage: "Homepage"
 
   # Imprint page
   impressum: "Imprint"

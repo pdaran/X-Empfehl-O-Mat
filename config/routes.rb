@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   
     get 'homepage/index'
     root 'homepage#index'
-
+    
+    get '/info', to: 'homepage#info', as: 'info'
     get '/impressum', to: 'homepage#impressum', as: 'impressum'
     get '/privacy', to: 'homepage#privacy', as: 'privacy'
     get '/contact', to: 'homepage#contact', as: 'contact'

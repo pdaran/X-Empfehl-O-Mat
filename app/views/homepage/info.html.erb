@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/assets/style.css">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+<div class="kreis1"></div>
+<div class="kreis2"></div>
+
+<div class="wrapper1 flex flex-row justify-center container">
+  <div class="layout1">
+    <span class="titel1"><%= t('info.title1') %></span>
+    <span class="text1"><%= t('info.text1') %></span>
+  </div>
+
+  <div class="layout1">
+    <span class="titel1"><%= t('info.title2') %></span>
+    <span class="text1"><%= t('info.text2') %></span>
+  </div>
+</div>
+
+
+<div class="layout2 flex flex-row justify-center align-middle container gap-40">
+    <div class="card1 ">
+        <span class="titel2"><%= t('info.title3') %> </span>
+            <span class="text2"><%= t('info.text3') %></span>
+    </div>
+    <div class="card1  ">
+        <span class="titel2"><%= t('info.title4') %></span>
+            <span class="text2"><%= t('info.text4') %></span>
+    </div>
+    <div class="card1 ">
+        <span class="titel2"><%= t('info.title5') %></span>
+            <span class="text2"><%= t('info.text5') %></span>
+    </div>
+</div>
+
+<div id="bottom-button" class="bottom-button">
+  <%= link_to t('info.homepage'), root_path %>
+</div>
+
+
+
+
+
+<script>
+window.addEventListener('scroll', function() {
+    var bottomButton = document.getElementById('bottom-button');
+    var scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    var documentHeight = document.documentElement.scrollHeight;
+
+    if (scrollPosition + windowHeight >= documentHeight) {
+      bottomButton.style.display = 'block';
+    } else {
+      bottomButton.style.display = 'none';
+    }
+  });
+  </script>
