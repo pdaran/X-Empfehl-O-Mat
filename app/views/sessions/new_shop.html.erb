@@ -4,20 +4,20 @@
 
     <%= form_with url: login_path do |form| %>
       <div class="mb-3 mt-3 flex flex-col">
-        <%= form.label :email, t('form_labels.email') , class: "font-medium text-lg text-black lowercase font-roboto" %>
-        <%= form.text_field :email, class: "form-control mt-2 rounded lowercase font-roboto", placeholder: t('form_labels.email_placeholder') %>
+        <%= form.label :email, t('form_labels.email') , class: "font-medium text-lg text-black   font-roboto" %>
+        <%= form.text_field :email, class: "form-control mt-2 rounded   font-roboto", placeholder: t('form_labels.email_placeholder') %>
       </div>
 
       <div class="mb-3 flex flex-col">
-        <%= form.label :password, t('form_labels.password'), class: "font-medium text-lg text-black lowercase font-roboto" %>
-        <%= form.password_field :password, class: "form-control mt-2 rounded lowercase font-roboto", placeholder: t('form_labels.password') %>
+        <%= form.label :password, t('form_labels.password'), class: "font-medium text-lg text-black   font-roboto" %>
+        <%= form.password_field :password, class: "form-control mt-2 rounded   font-roboto", placeholder: t('form_labels.password') %>
       </div>
 
       <div class="mb-3 flex justify-center">
-        <%= form.submit t('submit'), class: "bg-gray-900 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline uppercase font-montserrat" %>
+        <%= form.submit t('submit'), class: "bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 uppercase font-montserrat " %>
       </div>
     <% end %>
-  <p class=" text-sm font-medium lowercase font-montserrat">
+  <p class=" text-sm font-medium   font-montserrat">
     <%= link_to t('password.donthave'), register_path %><br>
     <%= link_to t('password.forgot'), new_password_reset_path %>
   </p>
