@@ -9,7 +9,7 @@
 
 <body>
   <div class="w-full relative">
-    <nav class="mt-3 text-white">
+    <nav class="text-white">
       <div class="container flex justify-between items-center py-3">
         <div>
           <%= link_to root_path do %>
@@ -95,7 +95,7 @@
             </li>
           <% else %>
           <li class="navbar-profile">
-              <%= button_to t('login'), sessions_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-gray-700 block mb-2" %>
+              <%= button_to t('login'), login_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-gray-700 block mb-2" %>
             </li>
             <li class="navbar-profile">
               <span class="md:text-black md:ml-2 md:pl-2 hidden sm:inline bar1"> | </span>

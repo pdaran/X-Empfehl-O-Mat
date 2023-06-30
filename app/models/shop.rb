@@ -30,4 +30,16 @@ class Shop < ApplicationRecord
       break unless Shop.exists?(column => self[column])
     end
   end
+
+  validate :password_complexity
+
+  private
+
+  def password_complexity
+    return if password.blank?
+    return if password.match?(/\A(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}\z/)
+
+    errors.add(:password,
+               'must be at least 8 characters long and include a combination of letters, numbers, and symbols')
+  end
 end

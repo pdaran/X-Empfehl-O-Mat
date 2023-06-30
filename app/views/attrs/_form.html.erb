@@ -42,9 +42,9 @@
 
     <div class="pt-5">
       <% if @attr.new_record? %>
-        <%= form.submit t('attr.new'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+        <%= form.submit t('attr.new'), class: "bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 uppercase font-montserrat"%>
       <% else %>
-        <%= form.submit t('attr.update'), class: "bg-blue-500 hover:bg-blue-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"%>
+        <%= form.submit t('attr.update'), class: "bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 uppercase font-montserrat"%>
       <% end %>
     </div>
   <% end %>
