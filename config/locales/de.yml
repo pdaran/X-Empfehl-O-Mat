@@ -131,6 +131,7 @@ de:
     registration: "Shop Registrierung"
     new: "Shop erstellen"
     notice_create: "Shop wurde erfolgreich erstellt."
+    notice_failed_create: "Erstellung von Shop fehlgeschlagen. Überprüfen Sie nochmal Ihre Angabe."
     edit: "Profile bearbeiten"
     update: "Shop aktualisieren"
     notice_update: "Shop wurde erfolgreich aktualisiert."

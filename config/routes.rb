@@ -54,18 +54,16 @@ Rails.application.routes.draw do
       patch :update_user, on: :collection
     end
 
-    # get 'forgot_password', to: 'sessions#forgot_password'
-    # post 'send_password_reset', to: 'sessions#send_password_reset'
-    # get 'reset_password/:token', to: 'passwords#edit', as: :edit_reset_password
-    # patch 'reset_password/:token', to: 'passwords#update', as: :reset_password
+    # get 'sign_in', to: 'sessions#new_user'
+    # post 'sign_in', to: 'sessions#create_user'
+    # delete 'logout', to: 'sessions#destroy_user'
 
-    get 'sign_in', to: 'sessions#new_user'
-    post 'sign_in', to: 'sessions#create_user'
-    get 'sign_in_shop', to: 'sessions#new_shop'
-    post 'sign_in_shop', to: 'sessions#create_shop'
-
-    delete 'logout', to: 'sessions#destroy_user'
+    get 'login', to: 'sessions#new_shop'
+    post 'login', to: 'sessions#create_shop'
     delete 'logout_shop', to: 'sessions#destroy_shop'
+
+    get 'register', to: 'registrations#new_shop'
+    post 'register', to: 'registrations#create_shop'
 
     get '/dashboards', to: 'dashboards#index'
     get '/dashboard/recommendation', to: 'dashboards#recommendation', as: 'dashboard_recommendation'

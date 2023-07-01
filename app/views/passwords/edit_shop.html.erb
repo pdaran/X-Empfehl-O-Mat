@@ -13,15 +13,15 @@
 
 
     <div class="mb-3 flex flex-col">
-      <%= form.label :password, t('password.new'), class: "font-medium text-lg text-black lowercase font-roboto" %>
-      <%= form.password_field :password, class: "mt-2 px-4 py-2 rounded lowercase font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.password') %>
+      <%= form.label :password, t('password.new'), class: "font-medium text-lg text-black   font-roboto" %>
+      <%= form.password_field :password, class: "mt-2 px-4 py-2 rounded   font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.password') %>
     </div>
     <div class="mb-3 flex flex-col">
-      <%= form.label :password_confirmation, t('form_labels.password_confirmation'), class: "font-medium text-lg text-black lowercase font-roboto" %>
-      <%= form.password_field :password_confirmation, class: "mt-2 px-4 py-2 rounded lowercase font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.password') %>
+      <%= form.label :password_confirmation, t('form_labels.password_confirmation'), class: "font-medium text-lg text-black   font-roboto" %>
+      <%= form.password_field :password_confirmation, class: "mt-2 px-4 py-2 rounded   font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.password') %>
     </div>
     <div class="mb-3">
-      <%= form.submit t('password.edit_submit'), class: "bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 focus:outline-none focus:shadow-outline uppercase font-montserrat"%>
+      <%= form.submit t('password.edit_submit'), class: "bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 uppercase font-montserrat"%>
     </div>
   <% end %>
 </div>
