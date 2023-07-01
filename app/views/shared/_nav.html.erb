@@ -23,7 +23,7 @@
               <%= link_to t('navbar.dashboard'), dashboards_path, class: "underline hover:text-blue-200 focus:outline-none focus:shadow-outline bg-red-500 hover:bg-gray-700 block mb-2 rounded-lg" %>
             </li>
             <li class="navbar-profile">
-              <%= button_to t('logout'), logout_path, method: :delete, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-gray-700 block mb-2" %>
+              <%= button_to t('logout'), logout_path, method: :delete, class: "font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline bg-red-500 hover:bg-gray-700 block mb-2 rounded-lg" %>
             </li>
             <li class="navbar-profile">
               <div class="dropdown inline-block">
@@ -32,7 +32,7 @@
                     <%= I18n.locale.to_s.upcase %>
                   </span>
                 </button>
-                <div class="dropdown-content flex bg-gray-200 rounded-md shadow-md h-0 w-0">
+                <div class="dropdown-content flex bg-gray-200 rounded-lg shadow-md h-0 w-0">
                   <% I18n.available_locales.each do |locale| %>
                     <% next if locale == I18n.locale %>
                     <a class="dropdown-item flex items-center w-14" href="<%= url_for(locale: locale) %>">
@@ -52,18 +52,18 @@
               <%= link_to t('navbar.dashboard'), dashboards_path, class: "underline hover:text-blue-200 focus:outline-none focus:shadow-outline bg-red-500 hover:bg-gray-700 block mb-2 rounded-lg" %>
             </li>
             <li class="navbar-profile">
-              <%= button_to t('logout'), logout_shop_path, method: :delete, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-gray-700 block mb-2" %>
+              <%= button_to t('logout'), logout_shop_path, method: :delete, class: "font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline bg-red-500 hover:bg-gray-700 block mb-2" %>
             </li>
             <li class="navbar-profile">
               <span class="md:text-black md:ml-2 md:pl-2 hidden sm:inline bar1"> | </span>
               <div class="dropdown md:inline-block">
-                <button class="dropdown-toggle rounded-sm overflow-hidden items-center text-black transition-colors duration-300 hidden md:inline" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="dropdown-toggle rounded-lg overflow-hidden items-center text-black transition-colors duration-300 hidden md:inline" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="text-sm uppercase font-bold">
                     <%= I18n.locale.to_s.upcase %>
                   </span>
                   <i class="fas fa-chevron-down ml-1"></i>
                 </button>
-                <div class="dropdown-content overflow-hidden  rounded-sm shadow-md pl-1 hidden ">
+                <div class="dropdown-content overflow-hidden  rounded-lg shadow-md pl-1 hidden ">
                   <% I18n.available_locales.each do |locale| %>
                     <% next if locale == I18n.locale %>
                     <a class="dropdown-item hidden items-center text-sm uppercase font-bold w-14" href="<%= url_for(locale: locale) %>">
@@ -86,27 +86,27 @@
               <span class="md:text-black md:ml-2 md:pl-2 hidden sm:inline bar1"> | </span>
               <%= link_to edit_shop_path(Current.shop), class: "underlinevisited:text-black block rounded focus:outline-none focus:shadow-outline bg-red-500 hover:bg-gray-700 block mb-2" do %>
                 <% if Current.shop.image.attached? %>
-                  <%= image_tag Current.shop.image, class: "object-cover md:w-12 w-12 rounded-md inline-block" %>
+                  <%= image_tag Current.shop.image, class: "object-cover md:w-12 w-12 rounded-lg inline-block" %>
                 <% else %>
-                  <%= image_tag "placeholder.jpeg", class: "object-cover md:w-12 w-12 rounded-md inline-block" %>
+                  <%= image_tag "placeholder.jpeg", class: "object-cover md:w-12 w-12 rounded-lg inline-block" %>
                 <% end %>
                 <%= Current.shop.name%>
               <% end %>
             </li>
           <% else %>
           <li class="navbar-profile">
-              <%= button_to t('login'), sessions_path, method: :get, class: "font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline hover:bg-gray-700 block mb-2" %>
+              <%= button_to t('login'), sessions_path, method: :get, class: "font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline hover:bg-gray-700 block mb-2" %>
             </li>
             <li class="navbar-profile">
               <span class="md:text-black md:ml-2 md:pl-2 hidden sm:inline bar1"> | </span>
               <div class="dropdown">
-  <button class="dropdown-toggle rounded-sm overflow-hidden items-center text-black transition-colors duration-300 hidden md:inline" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button class="dropdown-toggle rounded-lg overflow-hidden items-center text-black transition-colors duration-300 hidden md:inline" type="button" id="languageDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <span class="text-sm uppercase font-bold">
       <%= I18n.locale.to_s.upcase %>
     </span>
     <i class="fas fa-chevron-down ml-1"></i> <!-- Add an icon to indicate the dropdown -->
   </button>
-  <div class="dropdown-content overflow-hidden rounded-sm shadow-md pl-1 hidden">
+  <div class="dropdown-content overflow-hidden rounded-lg shadow-md pl-1 hidden">
     <% I18n.available_locales.each do |locale| %>
       <% next if locale == I18n.locale %>
       <a class="dropdown-item hidden items-center text-sm uppercase font-bold w-14" href="<%= url_for(locale: locale) %>">
