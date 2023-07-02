@@ -1,68 +1,6 @@
 <div class="flex items-center justify-center h-screen my-36 px-4">
 <div class="border-2 border-black p-16 sm:p-8">
   <h1 class="text-4xl font-bold mb-6 text-center uppercase font-montserrat sm:text-2xl"><%= t('shop.create_account') %></h1>
-    <%= form_with model: @shop, class: "", url: create_shop_registrations_path , method: :post do |f| %>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="p-4">
-          <div class="mb-3 flex flex-col">
-            <%= f.label :email, t('form_labels.email'), class: "font-medium text-lg text-black   font-roboto" %>
-            <%= f.text_field :email, class: "mt-2 px-4 py-2 rounded   font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.email_placeholder') %>
-          </div>
-          <div class="mb-3 flex flex-col">
-            <%= f.label :password, t('form_labels.password'), class: "font-medium text-lg text-black   font-roboto" %>
-            <%= f.password_field :password, class: "mt-2 px-4 py-2 rounded   font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.password_placeholder') %>
-            <% if @shop.errors.has_key?(:password) %>
-              <span class="text-red-700"><%= @shop.errors[:password].join(', ') %></span>
-            <% end %> 
-          </div> 
-          <div class="mb-3 flex flex-col">
-            <%= f.label :password_confirmation, t('form_labels.password_confirmation'), class: "font-medium text-lg text-black   font-roboto" %>
-            <%= f.password_field :password_confirmation, class: "mt-2 px-4 py-2 rounded   font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.confirm_password') %>
-            <% if @shop.errors.has_key?(:password_confirmation) %>
-              <span class="text-red-700"><%= @shop.errors[:password_confirmation].join(', ') %></span>
-            <% end %> 
-          </div>
-        </div>
-        <div class="p-4">
-          <div class="mb-3 flex flex-col">
-            <%= f.label :name, t('form_labels.shop_name'), class: "font-medium text-lg text-black   font-roboto" %>
-            <%= f.text_field :name, class: "mt-2 px-4 py-2 rounded   font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.shop_name_placeholder') %>
-          </div>
-          <div class="mb-3 flex flex-col">
-            <%= f.label :address, t('form_labels.address'), class: "font-medium text-lg text-black   font-roboto" %>
-            <%= f.text_field :address, class: "mt-2 px-4 py-2 rounded   font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.address_placeholder') %>
-          </div>
-          <div class="mb-3 flex flex-col">
-            <%= f.label :phone_no, t('form_labels.phone_no'), class: "font-medium text-lg text-black   font-roboto" %>
-            <%= f.text_field :phone_no, class: "mt-2 px-4 py-2 rounded   font-roboto w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500", placeholder: t('form_labels.phone_placeholder') %>
-          </div>
-      <%# <%= f.label :status %>
-      <%# <%= f.select :status, options_for_select(Shop.statuses.keys.to_a) %>
-          <div class="mb-3 flex flex-col">
-            <%= f.label :image, t('form_labels.image'), class: "font-medium text-lg text-black   font-roboto" %>
-            <%= f.file_field :image, class: "form-input rounded-md mt-2" + (f.object.errors.has_key?(:image) ? " border-red-500" : ""), accept: "image/*", id: "file-input", onchange: "previewFile(this)", placeholder: t('form_labels.upload_image') %>
-          </div>
-          <div class="flex">
-            <div class="flex w-1/2">
-              <div class="w-40 h-40 bg-gray-200 rounded-md overflow-hidden mt-4">
-                <div class="object-cover w-full h-full" id="file-preview"></div>
-              </div>
-              <div class="pt-4">
-                <% if @shop.image.attached? %>
-                  <%= f.object.image.filename %>
-                  <%= image_tag @shop.image, class: "object-cover mx-auto my-auto rounded-md" %>
-                <% end %>
-              </div>
-              <% if f.object.errors.has_key?(:image) %>
-                <p class="text-red-500 text-sm"><%= f.object.errors[:image].first %></p>
-              <% end %>
-            </div>
-            <div class=" flex justify-center items-center w-1/2">
-              <%= f.submit t('submit'), class: "bg-black hover:bg-gray-600 text-white font-bold py-2 px-4 uppercase font-montserrat " %>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= render 'shops/form', category: @shop %>
 </div>
 </div>
