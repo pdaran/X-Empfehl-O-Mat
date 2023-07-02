@@ -24,6 +24,46 @@
             <div class="description-content">
               <%= content_tag :div, product.desc, class: "product-description" %>
             </div>
+
+            <%# attributes %>
+            <p class="font-bold text-black">
+              <strong><%= t('attributes') %>:</strong>
+            </p>
+            <div>
+              <% product.category.attrs.bool.active.each_with_index do |attr, i| %>
+                <% unless product.product_attrs.where(attr_id: attr).empty? %>
+                  <% if attr == product.category.attrs.bool.active.last || i == 0 %>
+                    <%= attr.name %>
+                  <% else %>
+                    <%= attr.name + ', ' %>
+                  <% end %>
+                <% end %>
+              <% end %>
+
+              <table>
+                <% product.category.attrs.numeric.active.each do |attr| %>
+                  <% unless product.product_attrs.where(attr_id: attr).empty? %>
+                    <tr>
+                      <td><%= attr.name + ": " %></td>
+                      <td><%= product.product_attrs.where(attr_id: attr).first.value %></td>
+                      <td><%= attr.unit %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </table>
+
+              <table>
+                <% product.category.attrs.text.active.each do |attr| %>
+                  <% unless product.product_attrs.where(attr_id: attr).empty? %>
+                    <tr>
+                      <td><%= attr.name + ": " %></td>
+                      <td><%= product.product_attrs.where(attr_id: attr).first.value %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
+              </table>
+            </div>
+
           </div>
         </div>
       </div>
