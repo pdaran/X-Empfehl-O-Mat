@@ -1,5 +1,5 @@
 <div class="flex justify-center items-center m-4 text-center">
-  <%= form_with(model: [@category.shop, @category, @attr], local: true, html: { class: "bg-gray-200 p-4 rounded-md" }) do |form| %>
+  <%= form_with(model: [@category.shop, @category, @attr], local: true, html: { class: "border-2 border-black p-16 rounded rounded-md" }) do |form| %>
     <div class="field">
       <%= form.label :name, t('attr.name') %><br>
       <%= form.text_area :name, class: "form-control rounded" + (form.object.errors.has_key?(:name) ? " border-red-500" : "") %>

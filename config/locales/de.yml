@@ -166,6 +166,7 @@ de:
     filter_label: "Filtern nach:"
     asc_label: "Reihenfolge:"
     filter_none: "-"
+    like: "gefällt dir"
   public: "Öffentlich"
   private: "Privat"
   archived: "Archiviert"

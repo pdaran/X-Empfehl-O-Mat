@@ -4,8 +4,8 @@
     <main class="w-full">
       <h1 class="text-center mb-10"><%= @category.title %></h1>
 
-     <div class="flex justify-center items-center bg-black mt-36 mb-36 rounded-xl ml-52 mr-52">
-       <div class="text-orange-500">
+     <div class="flex justify-center items-center mt-36 mb-36 rounded-xl ml-52 mr-52">
+       <div class="text-black">
           <%= render "shared/products", players: @category.products %>
       </div>
     </div>

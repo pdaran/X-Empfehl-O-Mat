@@ -182,6 +182,7 @@ en:
     asc_label: "Order:"
     filter_none: "-"
     add_butt: "add product +"
+    like: "liked"
   public: "Public"
   private: "Private"
   archived: "Archived"

@@ -610,3 +610,105 @@ li {
     margin-bottom: 5rem;
   }
 }
+.flip-card {
+  width: 240px;
+  height: 240px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  /* Front card styles */
+}
+
+.flip-card-back {
+  /* Back card styles */
+  transform: rotateY(180deg);
+}
+
+.show-details-button,
+.hide-details-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 24px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.show-details-button:hover,
+.hide-details-button:hover {
+  background-color: #0056b3;
+}
+
+.product-description {
+  height: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.like-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+
+.like-icon {
+  display: inline-block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.like-label {
+  display: inline-block;
+  margin-left: 0.5rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.liked-text {
+  display: none;
+  color: black;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.like-button input[type="checkbox"] {
+  display: none;
+}
+
+.like-button input[type="checkbox"]:checked ~ .like-icon {
+  transform: scale(2);
+}
+
+.like-button input[type="checkbox"]:checked ~ .like-label {
+  color: #ff0000;
+}
+
+.like-button input[type="checkbox"]:checked ~ .liked-text {
+  display: inline-block;
+  opacity: 1;
+}
