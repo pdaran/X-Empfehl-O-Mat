@@ -54,9 +54,9 @@ Rails.application.routes.draw do
       patch :update_user, on: :collection
     end
 
-    # get 'sign_in', to: 'sessions#new_user'
-    # post 'sign_in', to: 'sessions#create_user'
-    # delete 'logout', to: 'sessions#destroy_user'
+    get 'sign_in', to: 'sessions#new_user'
+    post 'sign_in', to: 'sessions#create_user'
+    delete 'logout', to: 'sessions#destroy_user'
 
     get 'login', to: 'sessions#new_shop'
     post 'login', to: 'sessions#create_shop'
