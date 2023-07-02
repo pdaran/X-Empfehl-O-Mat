@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_13_225029) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_02_140329) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -46,20 +47,24 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_225029) do
     t.string "name"
     t.string "unit"
     t.string "attrtype"
-    t.bigint "category_id", null: false
+    t.bigint "numeric_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
-    t.index ["category_id"], name: "index_attrs_on_category_id"
+    t.uuid "category_id", null: false
+    t.index ["numeric_category_id"], name: "index_attrs_on_numeric_category_id"
   end
 
-  create_table "categories", force: :cascade do |t|
+  create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigserial "numeric_id", null: false
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
-    t.bigint "shop_id", null: false
-    t.index ["shop_id"], name: "index_categories_on_shop_id"
+    t.bigint "numeric_shop_id"
+    t.uuid "shop_id", null: false
+    t.index ["id"], name: "index_categories_on_id", unique: true
+    t.index ["numeric_shop_id"], name: "index_categories_on_numeric_shop_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -71,45 +76,52 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_225029) do
   create_table "likes", force: :cascade do |t|
     t.boolean "like"
     t.bigint "customer_id", null: false
-    t.bigint "product_id", null: false
+    t.bigint "numeric_product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "product_id", null: false
     t.index ["customer_id"], name: "index_likes_on_customer_id"
-    t.index ["product_id"], name: "index_likes_on_product_id"
+    t.index ["numeric_product_id"], name: "index_likes_on_numeric_product_id"
   end
 
   create_table "product_attrs", force: :cascade do |t|
     t.string "value"
-    t.bigint "product_id", null: false
+    t.bigint "numeric_product_id"
     t.bigint "attr_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "float_val"
+    t.uuid "product_id", null: false
     t.index ["attr_id"], name: "index_product_attrs_on_attr_id"
-    t.index ["product_id", "attr_id"], name: "index_product_attrs_on_product_id_and_attr_id", unique: true
-    t.index ["product_id"], name: "index_product_attrs_on_product_id"
+    t.index ["numeric_product_id", "attr_id"], name: "index_product_attrs_on_numeric_product_id_and_attr_id", unique: true
+    t.index ["numeric_product_id"], name: "index_product_attrs_on_numeric_product_id"
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigserial "numeric_id", null: false
     t.string "product"
     t.text "desc"
-    t.bigint "category_id", null: false
+    t.bigint "numeric_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
-    t.index ["category_id"], name: "index_products_on_category_id"
+    t.uuid "category_id", null: false
+    t.index ["id"], name: "index_products_on_id", unique: true
+    t.index ["numeric_category_id"], name: "index_products_on_numeric_category_id"
   end
 
   create_table "recommendations", force: :cascade do |t|
     t.bigint "customer_id", null: false
-    t.bigint "product_id", null: false
+    t.bigint "numeric_product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.uuid "product_id", null: false
     t.index ["customer_id"], name: "index_recommendations_on_customer_id"
-    t.index ["product_id"], name: "index_recommendations_on_product_id"
+    t.index ["numeric_product_id"], name: "index_recommendations_on_numeric_product_id"
   end
 
-  create_table "shops", force: :cascade do |t|
+  create_table "shops", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigserial "numeric_id", null: false
     t.string "name"
     t.string "email"
     t.string "password_digest"
@@ -120,6 +132,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_13_225029) do
     t.datetime "updated_at", null: false
     t.string "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.index ["id"], name: "index_shops_on_id", unique: true
     t.index ["password_reset_token"], name: "index_shops_on_password_reset_token", unique: true
   end
 
