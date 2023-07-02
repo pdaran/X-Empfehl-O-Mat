@@ -17,7 +17,7 @@
                     <% elsif category.status == 'deactivated' %>
                       <span class="blinking deactivated"></span>
                     <% end %>
-                  </a>
+
                   <% if category.image.attached? && category.status == 'active' %>
                     <%= link_to image_tag(category.image.variant(:large), class: "mx-auto my-auto rounded-md"), shop_category_path(category.shop, category) %>
                   <% elsif category.status == 'deactivated' %>
@@ -26,6 +26,7 @@
                     <%= image_tag 'placeholder.jpeg', class: "object-cover mx-auto my-auto rounded-md w-64 h-64 md:w-64 md:h-64" %>
                   <% end %>
                   <!-- Additional product details -->
+                  </a>
                 </div>
               <% end %>
             </div>
