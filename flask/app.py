@@ -45,7 +45,10 @@ def get_recommendation():
         WHERE p.category_id = '{}';'''.format(category_id)
         customer_likes_matrix = sqlio.read_sql_query(sql, conn)
 
-    if customer_id not in customer_likes_matrix["customer_id"]:
+    # Filter Series for values that equal to customer id and then test for length
+    # This is because "if customer_id not in customer_likes_matrix["customer_id"]:" returned wrong values ????
+    customer_likes_matrix_customer = customer_likes_matrix["customer_id"][customer_likes_matrix["customer_id"].isin([customer_id])]
+    if customer_likes_matrix_customer.size == 0:
         return f"Customer with id {customer_id} has not made any recommendations in the selected category", 404
 
     target_customer = customer_id
