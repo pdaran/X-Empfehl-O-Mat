@@ -42,7 +42,7 @@
     <% end %>
 
     <% if controller.controller_name == "categories" %>
-      <div class="button-container">
+      <div class="button-container mt-8">
         <button class="edit-button">
           <%= link_to edit_shop_category_product_path(product.category.shop, product.category, product), data: { turbo: false }, class: "edit-link" do %>
             <i class="fas fa-edit mr-2"></i> <%= t('product.edit') %>

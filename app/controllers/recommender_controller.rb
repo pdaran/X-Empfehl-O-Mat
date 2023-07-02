@@ -18,6 +18,7 @@ class RecommenderController < ApplicationController
   end
 
   def result
+
     require 'net/http'
     require 'uri'
 
@@ -45,6 +46,8 @@ class RecommenderController < ApplicationController
     find_products
 
     @user = session[:user_id]
+
+    @recommended_products = find_products
 
     @recommendation_count = Recommendation.count 
 

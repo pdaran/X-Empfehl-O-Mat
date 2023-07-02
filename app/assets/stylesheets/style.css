@@ -449,9 +449,9 @@ li {
   height: 17.8125rem;
   border-radius: 17.8125rem;
   background: #000;
-  margin-left: -11rem;
+  margin-left: -13rem;
   margin-bottom: 20rem;
-  z-index: -1;
+  z-index: 10;
 }
 
 .kreis2 {
@@ -461,9 +461,9 @@ li {
   background: #000;
   position: fixed;
   bottom: 10rem;
-  right: 0.3rem;
+  right: 0.1rem;
   transform: translate(50%, 50%);
-  z-index: -1;
+  z-index: 10;
 }
 .bottom-button {
   display: block;

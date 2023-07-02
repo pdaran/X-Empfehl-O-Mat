@@ -1,7 +1,11 @@
-<div class="flex flex-col items-center justify-center align-middle h-fit border-4 border-black p-16 m-28 rounded-md ">
-  <h2 class="relative justify-center -z-10">Recommendation Count: <%= @recommendation_count %></h2>
-  <div id="recommendation-chart" class="md:w-1/2 justify-center align-middle w-64 -z-10"></div>
-  <div id="recommended-products" class="flex flex-wrap justify-center mt-8 ">
+<div class="flex items-center justify-center flex-col min-h-screen">
+  <div class="font-bold text-2xl p-6"><%= t('recommendations') %></div>
+  
+  <div class="flex items-center justify-center">
+    <div id="recommendation-chart" class="w-1/2"></div>
+  </div>
+  
+  <div class="flex flex-wrap justify-center mt-8">
     <% @recommended_products.each do |product| %>
       <div class="product-item">
         <% if product.image.attached? %>
@@ -12,6 +16,10 @@
         <span>Recommendation Count: <%= product.recommendations.count %></span>
       </div>
     <% end %>
+  </div>
+  
+  <div class="mt-6">
+    <%= link_to t('return_to_homepage'), root_path %>
   </div>
 </div>
 
@@ -27,8 +35,12 @@
     data.addColumn('string', 'Product');
     data.addColumn('number', 'Recommendation Count');
 
-    <% @recommended_products.each do |product| %>
-      data.addRow(['<%= product.name %>', <%= product.recommendations.count %>]);
+    <% if @recommended_products.size > 1 %>
+      <% @recommended_products.each do |product| %>
+        data.addRow(['<%= product.name %>', <%= product.recommendations.count %>]);
+      <% end %>
+    <% elsif @recommended_products.size == 1 %>
+      data.addRow(['<%= @recommended_products.first.name %>', <%= @recommended_products.first.recommendations.count %>]);
     <% end %>
 
     var options = {
@@ -45,37 +57,5 @@
 
     var chart = new google.visualization.ColumnChart(document.getElementById('recommendation-chart'));
     chart.draw(data, options);
-
-    // Update the recommended products section
-    var recommendedProductsContainer = document.getElementById('recommended-products');
-    recommendedProductsContainer.innerHTML = ''; // Clear existing content
-
-    <% @recommended_products.each do |product| %>
-      var productName = '<%= product.name %>';
-      var recommendationCount = <%= product.recommendations.count %>;
-
-      // Create a div for each recommended product
-      var productDiv = document.createElement('div');
-      productDiv.className = 'product-item';
-
-      // Create an image element for the product image
-      var productImage = document.createElement('img');
-      productImage.src = '<%= image_path(product.image.variant(:large)) %>';
-      productImage.alt = productName;
-      productImage.className = 'w-32 h-32 object-cover rounded-md mb-2';
-
-      // Append the image to the product div
-      productDiv.appendChild(productImage);
-
-      // Create a span element for the recommendation count
-      var recommendationCountSpan = document.createElement('span');
-      recommendationCountSpan.textContent = 'Recommendation Count: ' + recommendationCount;
-
-      // Append the recommendation count to the product div
-      productDiv.appendChild(recommendationCountSpan);
-
-      // Append the product div to the recommended products container
-      recommendedProductsContainer.appendChild(productDiv);
-    <% end %>
   }
 </script>
