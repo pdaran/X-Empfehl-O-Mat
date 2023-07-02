@@ -1,12 +1,13 @@
 <% unless product.archived? %>
   <div class="flip-card-container">
+    <p class="flip-card-title font-bold text-center">
+      <strong><%= t('form_labels.product') %>:</strong> <%= product.product %>
+    </p>
     <div class="flip-card">
       <div class="flip-card-inner">
         <div class="flip-card-front">
           <div class="card-content">
-            <p class="font-bold text-center">
-              <strong><%= t('form_labels.product') %>:</strong> <%= product.product %>
-            </p>
+
             <div class="image-container">
               <% if product.image.attached? %>
                 <%= image_tag product.image.variant(:large), class: "product-image rounded-lg" %>
@@ -63,7 +64,6 @@
                 <% end %>
               </table>
             </div>
-
           </div>
         </div>
       </div>
