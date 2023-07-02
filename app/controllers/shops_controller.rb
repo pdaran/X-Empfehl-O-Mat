@@ -49,7 +49,7 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :email, :password_digest, :address, :phone_no, :image, :status)
+    params.require(:shop).permit(:name, :email, :password, :password_confirmation, :address, :phone_no, :image, :status)
   end
 
   def build_shop
