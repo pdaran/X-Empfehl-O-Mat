@@ -167,6 +167,7 @@ de:
     asc_label: "Reihenfolge:"
     filter_none: "-"
     like: "gefällt dir"
+    add: "Neue Produkte +"
   public: "Öffentlich"
   private: "Privat"
   archived: "Archiviert"
@@ -190,7 +191,7 @@ de:
     delete_confirm: "Wollen Sie dieses Attribut wirklich löschen?"
     notice_update: "Attribut wurde erfolgreich geupdatet"
     value: "Wert"
-    add: "Neue Produkte +"
+    
 
   # Form Labels
   form_labels:
