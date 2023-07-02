@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_02_123936) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_02_140329) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_123936) do
   end
 
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "numeric_id", default: -> { "nextval('categories_id_seq'::regclass)" }, null: false
+    t.bigserial "numeric_id", null: false
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -98,7 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_123936) do
   end
 
   create_table "products", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "numeric_id", default: -> { "nextval('products_id_seq'::regclass)" }, null: false
+    t.bigserial "numeric_id", null: false
     t.string "product"
     t.text "desc"
     t.bigint "numeric_category_id"
@@ -121,7 +121,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_123936) do
   end
 
   create_table "shops", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.bigint "numeric_id", default: -> { "nextval('shops_id_seq'::regclass)" }, null: false
+    t.bigserial "numeric_id", null: false
     t.string "name"
     t.string "email"
     t.string "password_digest"
