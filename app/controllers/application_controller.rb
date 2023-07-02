@@ -60,7 +60,7 @@ class ApplicationController < ActionController::Base
   def where_clause
     ret = ['(products.product ILIKE :q OR products.desc ILIKE :q OR product_attrs.value ' \
            'ILIKE :q OR product_attrs.float_val::varchar LIKE :q ' \
-           'OR CONCAT(attrs.name, attrs.unit) ILIKE :q)',
+           'OR attrs.name ILIKE :q OR attrs.unit ILIKE :q)',
            { q: "%#{params[:query]}%" }]
 
     if params[:filter_arr].present?
