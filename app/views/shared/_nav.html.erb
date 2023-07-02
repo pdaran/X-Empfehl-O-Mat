@@ -11,11 +11,18 @@
   <div class="w-full relative">
     <nav class="mt-3 text-white">
       <div class="container flex justify-between items-center py-3">
-        <div>
-          <%= link_to root_path do %>
-            <%= image_tag("logoXO.png", class: "md:logo w-20 h-15") %>
-          <% end %>
+       <div>
+        <% if Current.shop %>
+           <%= link_to shop_categories_path(Current.shop) do %>
+            <%= image_tag("logoblack.png", class: "md:logo w-20 h-15") %>
+           <% end %>
+        <% else %>
+           <%= link_to root_path do %>
+            <%= image_tag("logoblack.png", class: "md:logo w-20 h-15") %>
+           <% end %>
+         <% end %>
         </div>
+
 
         <ul class="nav-menu">
           <% if Current.user %>

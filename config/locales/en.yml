@@ -127,6 +127,7 @@ en:
     error: "Something went wrong."
     text1: "Add a new category!"
     kiosk_mode: "Switch to Kiosk Mode"
+    add: "add category +"
   active: "Active"
   deactivated: "Deactivated"
 
@@ -180,6 +181,7 @@ en:
     filter_label: "Filter by:"
     asc_label: "Order:"
     filter_none: "-"
+    add_butt: "add product +"
   public: "Public"
   private: "Private"
   archived: "Archived"

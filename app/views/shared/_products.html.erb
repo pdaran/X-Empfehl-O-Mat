@@ -1,42 +1,42 @@
 <%= form_with(method: :get, data: { controller: "form-submission", turbo_frame: "products", turbo_action: "advance" }) do |form| %>
-  <div class="flex-col"><%= t('product.products_total', count: @category.products.size) %></div>
-  <div class="flex flexbox justify-right space-x-3">
+  <div class="text-center mb-4"><%= t('product.products_total', count: @category.products.size) %></div>
+  <div class="flex flex-col md:flex-row md:justify-center md:space-x-4">
     <% unless @category.attrs.bool.active.nil? %>
-      <div class="flex flexbox space-x-3">
-        <%= form.label :query, t('product.filter_label'), class: "block mb-2" %>
+      <div class="flex flex-col space-y-3 md:space-y-0 md:flex-row md:space-x-3">
+        <%= form.label :query, t('product.filter_label'), class: "block mb-2 text-lg items-center justify-center" %>
         <% @category.attrs.bool.active.each do |attr| %>
-          <div class="flex-row space-x-3">
+          <div class="flex space-x-3">
             <%= form.label :query, attr.name, class: "block mb-2" %>
             <%= check_box_tag "filter_arr[]", attr.name, false, { data: { action: "input->form-submission#select" } } %>
           </div>
         <% end %>
       </div>
     <% end %>
-    <div class="flex-col space-x-3">
+    <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-3 ">
       <%= form.label :query, t('product.order_label'), class: "block mb-2" %>
       <%= form.select :orderby, [t('attr.name')] + @category.attrs.numeric.active.pluck(:name), { selected: params[:orderby] }, { data: { action: "input->form-submission#select" } } %>
     </div>
-    <div class="flex-col space-x-3">
+    <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-3">
       <%= form.label :query, t('product.asc_label'), class: "block mb-2" %>
       <%= form.select :order, [[t('ascending'), 'asc'], [t('descending'), 'desc']], { selected: params[:order] }, { data: { action: "input->form-submission#select" } } %>
     </div>
-    <div class="flex-col space-x-3">
+    <div class="flex flex-col space-y-3 md:space-y-0 md:space-x-3">
       <%= form.label :query, t('product.search_box_label'), class: "block mb-2" %>
-      <%= form.text_field :query, value: params[:query], data: { action: "input->form-submission#search" }, class: "flex flex-col w-96 md:w-auto" %>
+      <%= form.text_field :query, value: params[:query], data: { action: "input->form-submission#search" }, class: "w-full md:w-auto" %>
     </div>
   </div>
 <% end %>
 
 <%= form_with do |form| %>
   <%= turbo_frame_tag "products" do %>
-    <div class="flex justify-center"><%= t('product.products_found', count: @products.size) %></div>
-    <div class="flex flex-col md:flex-row space-x-0 md:space-x-8 space-y-12 md:space-y-0 mb-4 justify-center items-center">
+    <div class="text-center mb-4"><%= t('product.products_found', count: @products.size) %></div>
+    <div class="flex flex-col space-y-12 md:flex-row md:space-x-8 md:space-y-0 justify-center items-center">
       <%= render @products %>
     </div>
   <% end %>
 
   <% if controller.controller_name == "recommender" %>
-    <div class="order-4 rounded-md text-center text-3xl p-4 mb-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:opacity-80 flex justify-center items-center w-1/3 h-auto mx-auto">
+    <div class="flex justify-center mb-4">
       <%= form.submit t('form_labels.submit'), class: "text-white bg-black hover:bg-gray-600 font-bold py-2 px-4 uppercase font-montserrat" %>
     </div>
   <% end %>

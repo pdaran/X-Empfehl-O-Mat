@@ -112,6 +112,7 @@ de:
     error: "Etwas ist schief gelaufen."
     text1: "Fügen Sie neue Kategorien hinzu."
     kiosk_mode: "Zum Kiosk Modus wechseln"
+    add_butt: "Neue Kategorie +"
   active: "Aktiv"
   deactivated: "Deaktiviert"
 
@@ -188,6 +189,7 @@ de:
     delete_confirm: "Wollen Sie dieses Attribut wirklich löschen?"
     notice_update: "Attribut wurde erfolgreich geupdatet"
     value: "Wert"
+    add: "Neue Produkte +"
 
   # Form Labels
   form_labels:
