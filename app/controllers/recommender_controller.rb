@@ -58,7 +58,7 @@ class RecommenderController < ApplicationController
     session[:rec_id] = c.id
 
     like_params.each do |id|
-      l = Like.new(like: true, customer_id: c.id, product_id: id.to_i)
+      l = Like.new(like: true, customer_id: c.id, product_id: id)
       l.save
     end
     redirect_to controller: 'recommender', action: 'result'

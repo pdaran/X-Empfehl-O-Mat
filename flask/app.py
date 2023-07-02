@@ -32,17 +32,17 @@ def hello_world():
 def get_recommendation():
     if request.method == 'POST':
         customer_id = int(request.form['customer_id'])
-        category_id = int(request.form['category_id'])
+        category_id = str(request.form['category_id'])
     else:
         customer_id = int(request.args.get('customer_id'))
-        category_id = int(request.args.get('category_id'))
+        category_id = str(request.args.get('category_id'))
 
     print("category:" + str(category_id), file=sys.stderr)
 
     engine = db.engine
     with engine.begin() as conn:
-        sql = 'SELECT "customer_id","like","product_id" FROM likes INNER JOIN products p on p.id = likes.product_id ' \
-              'WHERE p.category_id = ' + str(category_id) + ';'
+        sql = '''SELECT "customer_id","like","product_id" FROM likes INNER JOIN products p on p.id = likes.product_id 
+        WHERE p.category_id = '{}';'''.format(category_id)
         customer_likes_matrix = sqlio.read_sql_query(sql, conn)
 
     if customer_id not in customer_likes_matrix["customer_id"]:
