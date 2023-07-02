@@ -9,10 +9,10 @@ Rails.application.routes.draw do
     get 'recommender', to: 'recommender#products'
     post 'recommender', to: 'recommender#products'
     get 'result', to: 'recommender#result'
-  
+
     get 'homepage/index'
     root 'homepage#index'
-    
+
     get '/info', to: 'homepage#info', as: 'info'
     get '/impressum', to: 'homepage#impressum', as: 'impressum'
     get '/privacy', to: 'homepage#privacy', as: 'privacy'
@@ -80,4 +80,3 @@ Rails.application.routes.draw do
     end
   end
 end
-
