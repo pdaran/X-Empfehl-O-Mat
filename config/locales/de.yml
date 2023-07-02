@@ -32,6 +32,20 @@ de:
   cookies: "Cookies"
   privacy: "Datenschutz"
 
+  info:
+    title1: "Unser Service"
+    text1: "Willkommen bei XOMAT, Ihrem zuverlässigen Partner für personalisierte Produktempfehlungen! Wir sind ein innovatives Unternehmen, das es sich zum Ziel gesetzt hat, das Einkaufserlebnis für Kunden und Shops gleichermaßen zu revolutionieren.
+            Unsere Leidenschaft gilt der Schaffung einzigartiger und maßgeschneiderter Empfehlungen, die auf den individuellen Vorlieben und Bedürfnissen jedes einzelnen Kunden basieren. Mit unserem fortschrittlichen Empfehlungssystem bieten wir eine intelligente Lösung, um Kunden gezielt die Produkte anzubieten, die sie lieben werden."
+    title2: "Warum XOMAT?"
+    text2: "Entdecken Sie mit XOMAT eine innovative Möglichkeit, das Einkaufserlebnis Ihrer Kunden zu bereichern. Unser Produktempfehlungssystem ermöglicht es Ihnen, Ihren Kunden personalisierte Empfehlungen basierend auf ihren individuellen Vorlieben anzubieten. So können sie neue und spannende Produkte entdecken, die sie normalerweise nicht kaufen würden. Steigern Sie die Kundenzufriedenheit und Ihren Umsatz durch maßgeschneiderte Empfehlungen und schaffen Sie eine einzigartige Einkaufserfahrung."
+    title3: "Personalisierte Empfehlung"
+    text3: "Bieten Sie Ihren Kunden personalisierte Produktempfehlungen, die auf ihren Vorlieben und Interessen basieren."
+    title4: "Einfache Integration"
+    text4: "Unsere Plattform lässt sich nahtlos in Ihren Shop integrieren, so dass Sie schnell von den Vorteilen profitieren können."
+    title5: "Erhöhung der Kundenbindung"
+    text5: "Durch personalisierte Empfehlungen schaffen Sie eine individuelle Kundenansprache und stärken die Kundenbindung"
+    homepage: "Hauptseite"
+  
   password:
     reset: "Passwort zurücksetzen"
     edit: "Passwort ändern"
@@ -98,6 +112,7 @@ de:
     error: "Etwas ist schief gelaufen."
     text1: "Fügen Sie neue Kategorien hinzu."
     kiosk_mode: "Zum Kiosk Modus wechseln"
+    add_butt: "Neue Kategorie +"
   active: "Aktiv"
   deactivated: "Deaktiviert"
 
@@ -107,7 +122,7 @@ de:
     recommendation_link: "Bewertung"
     homepage: "Hauptseite"
     menu: "Menü"
-    recommendation: "bewertung"
+    recommendation: "Bewertung"
     recommendation_product: "Produktübersicht der Empfehlung"
 
   # Shop
@@ -151,6 +166,8 @@ de:
     filter_label: "Filtern nach:"
     asc_label: "Reihenfolge:"
     filter_none: "-"
+    like: "gefällt dir"
+    add: "Neue Produkte +"
   public: "Öffentlich"
   private: "Privat"
   archived: "Archiviert"
@@ -174,6 +191,7 @@ de:
     delete_confirm: "Wollen Sie dieses Attribut wirklich löschen?"
     notice_update: "Attribut wurde erfolgreich geupdatet"
     value: "Wert"
+    
 
   # Form Labels
   form_labels:

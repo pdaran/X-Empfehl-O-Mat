@@ -49,7 +49,7 @@ class SessionsController < ApplicationController
   def handle_successful_login_shop(shop)
     session[:shop_id] = shop.id
     disable_kiosk_mode
-    redirect_to root_path, notice: t('session.notice_login_shop')
+    redirect_to shop_categories_path(shop), notice: t('session.notice_login_shop')
   end
 
   def handle_successful_login(user)

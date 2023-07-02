@@ -18,6 +18,7 @@ class RecommenderController < ApplicationController
   end
 
   def result
+
     require 'net/http'
     require 'uri'
 
@@ -27,9 +28,10 @@ class RecommenderController < ApplicationController
     category_id = session[:category_id]
 
     data = {
-      customer_id:,
-      category_id:
+      customer_id: customer_id,
+      category_id: category_id
     }
+  
 
     # http request to url
     response = Net::HTTP.post_form(uri, data)
@@ -44,6 +46,11 @@ class RecommenderController < ApplicationController
     find_products
 
     @user = session[:user_id]
+
+    @recommended_products = find_products
+
+    @recommendation_count = Recommendation.count 
+
   end
 
   private

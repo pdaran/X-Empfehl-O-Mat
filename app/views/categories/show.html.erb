@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="de">
-  <div>
-    <main>
+  <div class=" relative flex items-center justify-center">
+    <main class="w-full">
       <h1 class="text-center mb-10"><%= @category.title %></h1>
 
-      <div class="">
-        <%= render "shared/products", players: @category.products %>
+     <div class="flex justify-center items-center mt-36 mb-36 rounded-xl ml-52 mr-52">
+       <div class="text-black">
+          <%= render "shared/products", players: @category.products %>
       </div>
+    </div>
+
+
       
-      <div class="bg-gray-300 order-4 rounded-md text-center text-3xl p-4 mb-4 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 hover:opacity-80 flex justify-center items-center w-1/3 h-auto mx-auto">
-        <%= link_to new_shop_category_product_path(@category.shop, @category) do %>
-          <i class="fas fa-plus"></i>
-        <% end %>
+      <div>
+         <button class=" w-40 text-center text-md p-4 mt-8 mb-4 bg-black rounded-md hover:-translate-y-1 hover:scale-110 duration-300 flex justify-center items-center mx-auto">
+          <%= link_to t('product.add_butt') ,new_shop_category_product_path(@category.shop, @category), class: "text-orange-500 hover:text-orange-200" %>
+        </button>
       </div>
 
-      <div class="flex mx-auto mt-4 p-2 items-center justify-center align">
-        <button class="text-center mb-2 bg-gray-200 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          <%= link_to t('category.back'), shop_categories_path %>
-        </button>
-        <button class="text-center mb-2 gap-3 bg-gray-200 hover:bg-gray-300 text-white font-bold py-2 px-4 mx-3 rounded focus:outline-none focus:shadow-outline shadow-md">
-          <%= link_to t('category.edit'), edit_shop_category_path(@category.shop, @category), class: "text-blue-500 hover:text-blue-700" %>
-        </button>
-        <button class="text-center mb-2 bg-gray-200 hover:bg-gray-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-md">
-          <%= link_to t('category.delete'), shop_category_path(@category.shop, @category), method: :delete, data: { turbo_method: :delete,  turbo_confirm: t('form_labels.delete_confirm')}, class: "text-red-500 hover:text-red-700" %>
-        </button>
-        <button class="text-center mb-2 gap-3 bg-gray-200 hover:bg-gray-300 text-white font-bold py-2 px-4 mx-3 rounded focus:outline-none focus:shadow-outline shadow-md">
-          <%= link_to t('category.kiosk_mode'), shop_category_kiosk_mode_path(@category.shop, @category), class: "text-blue-500 hover:text-blue-700" %>
-        </button>
+      <div class="flex justify-center mx-auto mt-4 p-2 mb-32">
+        <button class="mb-2 bg-black text-orange-500 hover:text-orange-200 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+  <%= link_to shop_categories_path , class: "text-orange-500 hover:text-orange-200" do %>
+    <i class="fas fa-arrow-left"></i> <%= t('category.back') %>
+  <% end %>
+</button>
+
+        <button class="mb-2 gap-3 bg-black  hover:text-orange-200  font-bold py-2 px-4 mx-3 rounded focus:outline-none focus:shadow-outline shadow-md">
+  <%= link_to edit_shop_category_path(@category.shop, @category), class: "text-orange-500 hover:text-orange-200" do %>
+    <i class="fas fa-edit"></i> <%= t('category.edit') %>
+  <% end %>
+</button>
+<button class="mb-2 bg-black text-orange-500 hover:text-orange-200  font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline shadow-md">
+  <%= link_to shop_category_path(@category.shop, @category), method: :delete, data: { turbo_method: :delete, turbo_confirm: t('form_labels.delete_confirm') }, class: "text-orange-500 hover:text-red-700" do %>
+    <i class="fas fa-trash-alt"></i> <%= t('category.delete') %>
+  <% end %>
+</button>
+       <button class="mb-2 gap-3 bg-black text-orange-500 hover:text-orange-200  font-bold py-2 px-4 mx-3 rounded focus:outline-none focus:shadow-outline shadow-md">
+  <%= link_to shop_category_kiosk_mode_path(@category.shop, @category), class: "text-orange-500 hover:text-blue-700" do %>
+    <i class="fas fa-mobile-alt"></i> <%= t('category.kiosk_mode') %>
+  <% end %>
+</button>
+
       </div>
 
     </main>
   </div>
 </html>
-

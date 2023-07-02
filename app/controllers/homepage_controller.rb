@@ -6,6 +6,9 @@ class HomepageController < ApplicationController
   def index
     @shop = Current.shop
   end
+  
+  def info
+  end
 
   def kiosk_mode?
     return unless session[:kiosk_mode]
